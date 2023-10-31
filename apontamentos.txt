@@ -1,0 +1,39 @@
+# class bicicleta
+	- peso maximo
+	- velocidade media (não esquecer que este valor muda dependendo do peso da encomenda)
+	- poluição média
+# class mota
+	- peso maximo
+	- velocidade media
+	- poluição média
+# class carro
+	- peso maximo
+	- velocidade media
+	- poluição média
+- class encomenda
+	- atributos de indentificação
+	- peso
+	- volume
+	- produtos
+	- local de entrega
+	- tempo de entrega
+	- cliente
+	- classificação por cliente?
+- class entrega (apenas para 1 cliente??)
+	- lista de encomendas
+	- estafeta
+	- preço
+	- veiculo
+- class estafeta
+	- atributos de indetificação
+	- media rank
+- class cliente??
+	- atributos de identificação
+	- historico de encomendas?
+	- rua
+
+- Circuito
+	- Ao arrancar o sistema e ao passar de txt para grafo passar certas ruas a cortadas ou com transito aleatóriamente
+
+.Duvidas:
+	- Como será representados os circuitos? Oliveira do Castelo - Costa?
