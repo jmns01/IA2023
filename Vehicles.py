@@ -7,10 +7,13 @@ class bike:
         self.polution = 0 # kg of polution per km
         
     def __str__(self):
-        return "Bike: " + str(self.id)
+        return "Bicicleta: " + str(self.id)
     
     def getId(self):
         return self.id
+    
+    def getVel(self):
+        return self.velocity
     
     def setId(self, newId):
         self.id = newId
@@ -35,10 +38,13 @@ class Motorcycle:
         self.polution = 0.13
 
     def __str__(self):
-        return "Motorcyle: " + str(self.id)
+        return "Moto: " + str(self.id)
     
     def getId(self):
         return self.id
+    
+    def getVel(self):
+        return self.velocity
     
     def setId(self, newId):
         self.id = newId
@@ -63,10 +69,13 @@ class Car:
         self.polution = 0.37
 
     def __str__(self):
-        return "Car: " + str(self.id)
+        return "Carro: " + str(self.id)
     
     def getId(self):
         return self.id
+    
+    def getVel(self):
+        return self.velocity
     
     def setId(self, newId):
         self.id = newId

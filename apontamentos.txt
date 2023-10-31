@@ -24,7 +24,7 @@
 	- estafeta
 	- preço
 	- veiculo
-- class estafeta
+# class estafeta
 	- atributos de indetificação
 	- media rank
 - class cliente??
