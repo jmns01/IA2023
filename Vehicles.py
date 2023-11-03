@@ -52,6 +52,9 @@ class Motorcycle:
     def reduceVel(self, weight):
         self.velocity -= weight*0.5
 
+    def incresePol(self, weight):
+        self.polution += weight*0.005
+
     def canCarry(self, weight):
         return weight <= self.max_weight
 
@@ -82,6 +85,9 @@ class Car:
 
     def reduceVel(self, weight):
         self.velocity -= weight*0.1
+
+    def incresePol(self, weight):
+        self.polution += weight*0.005
 
     def canCarry(self, weight):
         return weight <= self.max_weight

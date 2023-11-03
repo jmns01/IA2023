@@ -6,7 +6,7 @@
 
 #Draft Ficha 3
 
-# Classe grafo para representaçao de grafos,
+# Classe grafo para representaçao de grafos
 import math
 from queue import Queue
 
