@@ -3,9 +3,9 @@ from Node import Node
 
 
 class FileToGraph:
-
     def __init__(self, file_path):
         self.file_path = file_path
+        self.node_id_counter = 1  # Inicia o contador de ID em 1
 
     def create_graph_from_file(self):
         with open(self.file_path, 'r') as file:
@@ -14,28 +14,27 @@ class FileToGraph:
         graph = Grafo()
 
         for line in lines:
-            # Encontrar a posição do primeiro espaço (separador entre id e nome)
-            first_space_index = line.find(' ')
+            parts = line.split('[')
+            if len(parts) < 2:
+                continue
 
-            # Extrair id e nome
-            id, name_part = int(line[:first_space_index]), line[first_space_index + 1:]
+            # Extrair nome
+            name = parts[0].strip()
 
-            # Encontrar a posição do primeiro [ (separador entre nome e lista de vizinhos)
-            first_bracket_index = name_part.find('[')
+            # Extrair os vizinhos como uma lista de tuplas (vizinho, custo)
+            neighbors_part = parts[1].split(']')[0]
+            neighbors = [tuple(pair.strip().lstrip('(').rstrip(')').split(',')) for pair in neighbors_part.split(')(')]
 
-            # Extrair o nome e a lista de vizinhos
-            name, neighbors_str = name_part[:first_bracket_index].strip(), name_part[first_bracket_index:]
+            # Extrair o tamanho da rua de origem (último número na linha)
+            street_length = int(line.split()[-1])
 
-            # Extrair os vizinhos da lista de Tuplos
-            neighbors = []
-            for pair in neighbors_str[1:-1].split(')('):
-                neighbor, cost = pair.split(',')
-                neighbors.append((neighbor.strip(), int(''.join(c for c in cost if c.isdigit()))))
+            # Corrigir os custos para não aparecerem entre aspas
+            neighbors = [(neighbor, int(cost.strip("'"))) for neighbor, cost in neighbors]
 
             # Adicionar o nodo e suas arestas ao grafo
-            # Remover as aspas duplas do nome
-            graph.add_edge(id, name.strip('"'), neighbors, neighbors[0][1])
+            graph.add_edge(self.node_id_counter, name.strip('"'), neighbors, street_length)
+
+            # Incrementar o contador de ID
+            self.node_id_counter += 1
 
         return graph
-
-

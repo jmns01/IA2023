@@ -18,7 +18,7 @@ def main():
 
 
     print(g.m_graph)
-    file_to_graph = FileToGraph('files/Braga.txt')
+    file_to_graph = FileToGraph('mapas/Braga.txt')
     f = file_to_graph.create_graph_from_file()
     print(f.m_graph)
 
