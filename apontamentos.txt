@@ -10,7 +10,7 @@
 	- peso maximo
 	- velocidade media
 	- poluição média
-- class encomenda
+# class encomenda
 	- atributos de indentificação
 	- peso
 	- volume
@@ -19,7 +19,7 @@
 	- tempo de entrega
 	- cliente
 	- classificação por cliente?
-- class entrega (apenas para 1 cliente??)
+# class entrega (apenas para 1 cliente??)
 	- lista de encomendas
 	- estafeta
 	- preço
@@ -27,7 +27,7 @@
 # class estafeta
 	- atributos de indetificação
 	- media rank
-- class cliente??
+# class cliente??
 	- atributos de identificação
 	- historico de encomendas?
 	- rua
@@ -43,9 +43,11 @@
 - Custo é a distância percorria (posteriormente multiplicada pela poluição de cada veiculo)
 - Vai haver transito e estradas cortadas
 
-.Duvidas:
+.Duvidas/Coisas para fazer:
 	- Como será representados os circuitos? Oliveira do Castelo - Costa? R: Ver main.py
 
 	- Heuristica: tempo, distancia/velocidade (mas assim não pode ser global)
 	- Podemos alterar os algoritmos de pesquisa nao informada? O bfs nao ir para o tronco
+	- Veiculos têm máximo de volume??
 	
+	- Mudar de Node para Rua
