@@ -1,3 +1,0 @@
-1 "Rua de Barros" [(Rua da Universidade, 50)(Rua do semaforo, 150)]
-2 "Rua da Universidade" [(Rua de Barros, 50)]
-3 "Rua do semaforo" [(Rua de Barros, 50)]
