@@ -1,5 +1,7 @@
 from Graph import Grafo
 from Node import Node
+from FileToGraph import FileToGraph
+
 
 
 def main():
@@ -7,15 +9,20 @@ def main():
     g = Grafo()
 
     # Adicionar vertices ao grafo g
-    # id, nome dua, lista de ruas adjacentes (nome rua adj, comprimento), comprimento
+    # id, nome rua, lista de ruas adjacentes (nome rua adj, comprimento), comprimento
     g.add_edge(1, "Rua A", [("Rua B", 100), ("Rua C", 200)], 50)
     g.add_edge(2, "Rua B", [("Rua A", 50), ("Rua D", 75)], 100)
     g.add_edge(3, "Rua C", [("Rua A", 50), ("Rua E", 125)], 200)
     g.add_edge(4, "Rua D", [("Rua B", 100), ("Rua E", 125)], 75)
     g.add_edge(5, "Rua E", [("Rua B", 100), ("Rua D", 75)], 125)
 
-    r = g.heuristica("Rua A")
-    print(g.m_h)
+
+    print(g.m_graph)
+    file_to_graph = FileToGraph('files/Braga.txt')
+    f = file_to_graph.create_graph_from_file()
+    print(f.m_graph)
+
+
     
     
 
