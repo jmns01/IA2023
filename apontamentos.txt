@@ -31,9 +31,21 @@
 	- atributos de identificação
 	- historico de encomendas?
 	- rua
+-class Circuito
+	- ruas
+	- se esta cortada ou tem transito
+	- comprimento
 
 - Circuito
 	- Ao arrancar o sistema e ao passar de txt para grafo passar certas ruas a cortadas ou com transito aleatóriamente
 
+
+- Custo é a distância percorria (posteriormente multiplicada pela poluição de cada veiculo)
+- Vai haver transito e estradas cortadas
+
 .Duvidas:
-	- Como será representados os circuitos? Oliveira do Castelo - Costa?
+	- Como será representados os circuitos? Oliveira do Castelo - Costa? R: Ver main.py
+
+	- Heuristica: tempo, distancia/velocidade (mas assim não pode ser global)
+	- Podemos alterar os algoritmos de pesquisa nao informada? O bfs nao ir para o tronco
+	

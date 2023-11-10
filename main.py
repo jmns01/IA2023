@@ -1,13 +1,3 @@
-#LICENCIATURA EM ENGENHARIA INFORMÁTICA
-#MESTRADO integrado EM ENGENHARIA INFORMÁTICA
-
-#Inteligência Artificial
-#2022/23
-
-#Draft Ficha 3
-
-
-
 from Graph import Grafo
 from Node import Node
 
@@ -18,50 +8,19 @@ def main():
 
     # Adicionar vertices ao grafo g
 
-    g.add_edge("elvas", "borba", 15)
-    g.add_edge("borba", "estremoz", 15)
-    g.add_edge("estremoz", "evora", 40)
-    g.add_edge("evora", "montemor", 20)
-    g.add_edge("montemor", "vendasnovas", 15)
-    g.add_edge("vendasnovas", "lisboa", 50)
-    g.add_edge("elvas", "arraiolos", 50)
-    g.add_edge("arraiolos", "alcacer", 90)
-    g.add_edge("alcacer", "palmela", 35)
-    g.add_edge("palmela", "almada", 25)
-    g.add_edge("palmela", "barreiro", 25)
-    g.add_edge("barreiro", "palmela", 30)
-    g.add_edge("almada", "lisboa", 15)
-    g.add_edge("elvas", "alandroal", 40)
-    g.add_edge("alandroal", "redondo", 25)
-    g.add_edge("redondo", "monsaraz", 30)
-    g.add_edge("monsaraz", "barreiro", 120)
-    g.add_edge("barreiro", "baixadabanheira", 5)
-    g.add_edge("baixadabanheira", "moita", 7)
-    g.add_edge("moita", "alcochete", 20)
-    g.add_edge("alcochete", "lisboa", 20)
+    g.add_edge2(1, "Rua A", [("Rua B", 100), ("Rua C", 200)], 50)
+    g.add_edge2(2, "Rua B", [("Rua A", 50), ("Rua D", 75)], 100)
+    g.add_edge2(3, "Rua C", [("Rua A", 50), ("Rua E", 125)], 200)
+    g.add_edge2(4, "Rua D", [("Rua B", 100), ("Rua E", 125)], 75)
+    g.add_edge2(5, "Rua E", [("Rua B", 100), ("Rua D", 75)], 125)
 
-    # Adicionar as heuristicas a cada nodo
+    r = g.dicBike("Rua A")
+    print(r)
 
-    g.add_heuristica("elvas", 270)
-    g.add_heuristica("borba", 250)
-    g.add_heuristica("estremoz", 145)
-    g.add_heuristica("evora", 95)
-    g.add_heuristica("montemor", 70)
-    g.add_heuristica("vendasnovas", 45)
-    g.add_heuristica("arraiolos", 220)
-    g.add_heuristica("alcacer", 140)
-    g.add_heuristica("palmela", 85)
-    g.add_heuristica("almada", 25)
-    g.add_heuristica("alandroal", 180)
-    g.add_heuristica("redondo", 170)
-    g.add_heuristica("monsaraz", 120)
-    g.add_heuristica("barreiro", 30)
-    g.add_heuristica("baixadabanheira", 33)
-    g.add_heuristica("moita", 35)
-    g.add_heuristica("alcochete", 26)
-    g.add_heuristica("lisboa", 0)
+    
+    
 
-
+    '''
     saida = -1
 
     while saida != 0:
@@ -76,7 +35,7 @@ def main():
 
         saida = int(input("introduza a sua opcao-> "))
         
-
+        '''
 
 
 

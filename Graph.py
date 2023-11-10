@@ -1,17 +1,8 @@
-#LICENCIATURA EM ENGENHARIA INFORMÁTICA
-#MESTRADO integrado EM ENGENHARIA INFORMÁTICA
-
-#Inteligência Artificial
-#2022/23
-
-#Draft Ficha 3
-
-# Classe grafo para representaçao de grafos
 import math
 from queue import Queue
 
-import networkx as nx  # biblioteca de tratamento de grafos necessária para desnhar graficamente o grafo
-import matplotlib.pyplot as plt  # idem
+import networkx as nx  
+import matplotlib.pyplot as plt
 
 from Node import Node
 
@@ -21,8 +12,8 @@ class Grafo:
     def __init__(self, directed=False):
         self.m_nodes = []
         self.m_directed = directed
-        self.m_graph = {}  # dicionario para armazenar os nodos e arestas
-        self.m_h = {}  # dicionario para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
+        self.m_graph = {}  # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
+        self.m_h = []  # lista de dicionarios para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
 
     #############
     # Escrever o grafo como string
@@ -38,12 +29,10 @@ class Grafo:
     ################################
 
     def get_node_by_name(self, name):
-        search_node = Node(name)
         for node in self.m_nodes:
-            if node == search_node:
+            if(node.m_name == name):
                 return node
-            else:
-                return None
+        return None
 
     ##############################3
     # Imprimir arestas
@@ -60,27 +49,15 @@ class Grafo:
     #############################
     # Adicionar   aresta no grafo
     #############################
+    # Mudei pq o nosso "mapa" vai estar bem feito de raiz
+    def add_edge(self, id, node1, listaAdj, comprimento): # comprimento é o +/- weight (weight vai ser o custo de percorrer uma rua)
+        n1 = Node(node1, id, comprimento, listaAdj)
 
-    def add_edge(self, node1, node2, weight):
-        n1 = Node(node1)
-        n2 = Node(node2)
-        if (n1 not in self.m_nodes):
+        if(n1 not in self.m_nodes):
             self.m_nodes.append(n1)
-            self.m_graph[node1] = list()
+            self.m_graph[node1] = listaAdj
         else:
-            n1 = self.get_node_by_name(node1)
-
-        if (n2 not in self.m_nodes):
-            self.m_nodes.append(n2)
-            self.m_graph[node2] = list()
-        else:
-            n2 = self.get_node_by_name(node2)
-
-        self.m_graph[node1].append((node2, weight))
-
-
-        if not self.m_directed:
-            self.m_graph[node2].append((node1, weight))
+            print("Error 2 instances of same street in file!")
 
 
     #############################
@@ -94,7 +71,7 @@ class Grafo:
     # Devolver o custo de uma aresta
     ################################
 
-    def get_arc_cost(self, node1, node2):
+    def get_arc_cost(self, node1, node2): # Isto, assim como calcula_custo() vão mudar para o nosso exemplo (custo será uma fórmula que incluí tempo da viagem + poluição feita no total)
         custoT = math.inf
         a = self.m_graph[node1]  # lista de arestas para aquele nodo
         for (nodo, custo) in a:
@@ -233,11 +210,44 @@ class Grafo:
     #    apenas para teste de pesquisa informada
     #######################################################################
 
-    def heuristica(self):
-        nodos = self.m_graph.keys
-        for n in nodos:
-            self.m_h[n] = 1
-        return (True)
+    # A heuristica é calculada numa maneira pseudo bfs, começa no nodo objetivo e vai explorando os seus adjacentes somando á heuristica do seu nodo pai a heuristica do atual (tempo para percorrer do final até lá)
+    def heuristica(self, destino): # destino é o nome
+        dicBike = self.heurisitcas_by_vehicle(destino, 10)
+        dicMoto = self.heurisitcas_by_vehicle(destino, 35)
+        dicCar = self.heurisitcas_by_vehicle(destino, 50)
+
+        self.m_h.append(dicBike)
+        self.m_h.append(dicMoto)
+        self.m_h.append(dicCar)
+
+    def heurisitcas_by_vehicle(self, destino, vel):
+        dic = {}
+        n1 = self.get_node_by_name(destino)
+        heuristica = self.calculate_time(n1.street_length, vel) # heuristica do primeiro nodo (nodo objetivo)
+        dic[destino] = heuristica
+        
+        queue = [destino]
+
+        while queue:
+            current = queue.pop(0)
+            c = self.get_node_by_name(current)
+            for (adj, custo) in c.adjacent_streets:
+                if adj not in dic.keys():
+                    n2 = self.get_node_by_name(adj)
+                    dic[adj] = dic[current] + self.calculate_time(n2.street_length, vel)
+                    queue.append(adj)
+
+        return dic
+
+    
+    def calculate_time(self, length_in_meters, speed_kmh):
+        speed_ms = speed_kmh * 1000 / 3600
+        time_seconds = length_in_meters / speed_ms
+
+        return time_seconds
+
+        
+
 
 
     ##########################################3
