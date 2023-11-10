@@ -5,7 +5,7 @@ from Node import Node
 class FileToGraph:
     def __init__(self, file_path):
         self.file_path = file_path
-        self.node_id_counter = 1  # Inicia o contador de ID em 1
+        self.node_id_counter = 1  # Inicia o contador de id em 1
 
     def create_graph_from_file(self):
         with open(self.file_path, 'r') as file:
