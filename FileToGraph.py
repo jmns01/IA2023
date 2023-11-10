@@ -20,7 +20,7 @@ class FileToGraph:
             # Extrair id e nome
             id, name_part = int(line[:first_space_index]), line[first_space_index + 1:]
 
-            # Encontrar a posição do primeiro colchete (separador entre nome e lista de vizinhos)
+            # Encontrar a posição do primeiro [ (separador entre nome e lista de vizinhos)
             first_bracket_index = name_part.find('[')
 
             # Extrair o nome e a lista de vizinhos
