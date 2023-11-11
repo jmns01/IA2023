@@ -21,7 +21,7 @@ class FileToGraph:
             # Extrair nome
             name = parts[0].strip()
 
-            # Extrair os vizinhos como uma lista de tuplas (vizinho, custo)
+            # Extrair os vizinhos como uma lista de tuplos (vizinho, custo)
             neighbors_part = parts[1].split(']')[0]
             neighbors = [tuple(pair.strip().lstrip('(').rstrip(')').split(',')) for pair in neighbors_part.split(')(')]
 
