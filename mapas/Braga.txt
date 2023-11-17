@@ -1,3 +1,41 @@
-"Rua de Barros" [(Rua da Universidade, 50)(Rua do Semaforo, 150)] 200
-"Rua da Universidade" [(Rua de Barros, 50)] 150
-"Rua do Semaforo" [(Rua de Barros, 50)] 100
+"Rua de Barros" [(Rua da Universidade, 150)(Rua do Semaforo, 100)(Rua Raul, 120)] 200
+"Rua da Universidade" [(Rua de Barros, 200)(Rua Raul, 120)] 150
+"Rua do Semaforo" [(Rua de Barros, 200)(Rua Raul, 120)] 100
+"Rua Raul" [(Rua de Barros, 200)(Rua da Universidade, 150)(Rua do Semaforo, 100)] 120
+"Rua Central" [(Rua Larga, 160)(Avenida Principal, 180)(Rua Raul, 120)] 200
+"Avenida Principal" [(Rua Central, 200)(Rua Larga, 160)(Avenida Larga, 200)(Rua Estreita, 70)(Avenida Secundaria, 90)(Rua dos Arcos, 70)] 180
+"Rua Larga" [(Rua Central, 200)(Avenida Principal, 180)(Avenida Larga, 200)] 160
+"Avenida Larga" [(Avenida Principal, 180)(Rua Larga, 160)(Rua Estreita, 70)] 200
+"Rua Estreita" [(Avenida Principal, 180)(Avenida Larga, 200)(Avenida Secundaria, 90)] 70
+"Avenida Secundaria" [(Avenida Principal, 180)(Rua Estreita, 70)(Rua da Praca, 60)(Avenida da Colina, 80)] 90
+"Rua dos Arcos" [(Avenida Principal, 180)(Rua do Largo, 90)] 70
+"Rua do Largo" [(Rua dos Arcos, 70)(Rua da Praca, 60)] 90
+"Rua da Praca" [(Avenida Secundaria, 90)(Rua do Largo, 90)(Avenida da Colina, 80)(Rua das Flores, 60)(Rua das Oliveiras, 80)] 60
+"Avenida da Colina" [(Avenida Secundaria, 90)(Rua da Praca, 60)(Rua da Fonte, 80)(Rua do Bosque, 180)] 80
+"Rua das Flores" [(Rua da Praca, 60)(Rua da Fonte, 80)] 60
+"Rua da Fonte" [(Avenida da Colina, 80)(Rua das Flores, 60)(Rua das Oliveiras, 80)(Rua do Bosque, 180)] 80
+"Rua das Oliveiras" [(Rua da Praca, 60)(Rua da Fonte, 80)(Rua dos Jardins, 80)] 80
+"Rua do Bosque" [(Avenida da Colina, 80)(Rua da Fonte, 80)(Avenida do Parque, 40)(Rua dos Jardins, 80)(Rua das Pedras, 40)(Rua do Mirante, 40)] 180
+"Avenida do Parque" [(Rua do Bosque, 180)(Rua dos Jardins, 80)(Rua das Pedras, 40)] 40
+"Rua dos Jardins" [(Rua das Oliveiras, 80)(Rua do Bosque, 180)(Avenida do Parque, 40)(Rua do Monte, 50)] 80
+"Rua das Pedras" [(Rua do Bosque, 180)(Avenida do Parque, 40)(Rua do Riacho, 30)(Avenida do Vale, 40)] 40
+"Rua do Riacho" [(Rua das Pedras, 40)(Avenida do Vale, 40)(Avenida da Serra, 50)(Rua do Penhasco, 30)] 30
+"Avenida do Vale" [(Rua das Pedras, 40)(Rua do Riacho, 30)(Rua do Monte, 50)] 40
+"Rua do Monte" [(Avenida do Vale, 40)(Avenida da Serra, 50)] 50
+"Avenida da Serra" [(Rua do Riacho, 30)(Rua do Monte, 50)(Rua do Mirante, 40)] 50
+"Rua do Mirante" [(Rua do Bosque, 180)(Avenida da Serra, 50)(Rua do Penhasco, 30)] 40
+"Rua do Penhasco" [(Rua do Riacho, 30)(Rua do Mirante, 40)(Rua do Cais, 20)] 30
+"Rua do Cais" [(Rua do Penhasco, 30)(Avenida da Praia, 20)(Rua do Porto, 30)(Rua da Onda, 20)] 20
+"Avenida da Praia" [(Rua do Cais, 20)(Rua da Baia, 40)] 20
+"Rua da Baia" [(Avenida da Praia, 20)(Rua do Porto, 30)] 40
+"Rua do Porto" [(Rua do Cais, 20)(Rua da Baia, 40)(Avenida do Mar, 20)(Rua da Baleia, 20)] 30
+"Avenida do Mar" [(Rua do Porto, 30)(Rua da Onda, 20)(Rua da Ilha, 30)(Rua da Costa, 30)(Rua dos Navios, 30)] 20
+"Rua da Onda" [(Avenida do Mar, 20)(Rua da Baleia, 20)(Rua das Gaivotas, 30)] 20
+"Rua da Baleia" [(Rua do Porto, 30)(Rua da Onda, 20)(Rua da Ilha, 30)] 20
+"Rua da Ilha" [(Avenida do Mar, 20)(Rua da Baleia, 20)(Rua da Costa, 30)] 30
+"Rua da Costa" [(Avenida do Mar, 20)(Rua da Ilha, 30)(Rua das Gaivotas, 30)] 30
+"Rua das Gaivotas" [(Rua da Onda, 20)(Rua da Costa, 30)(Rua dos Navios, 30)] 30
+"Rua dos Navios" [(Avenida do Mar, 20)(Rua das Gaivotas, 30)(Rua dos Farois, 20)] 30
+"Rua dos Farois" [(Rua dos Navios, 30)(Rua da Luz, 20)] 20
+"Rua da Luz" [(Rua dos Farois, 20)] 20
+

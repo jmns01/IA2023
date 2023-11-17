@@ -49,5 +49,5 @@
 	- Heuristica: tempo, distancia/velocidade (mas assim não pode ser global)
 	- Podemos alterar os algoritmos de pesquisa nao informada? O bfs nao ir para o tronco
 	- Veiculos têm máximo de volume??
-	
+	- O QUE FAZER SE A ESTRADA CORTADA FOR A DA ENTREGA
 	- Mudar de Node para Rua

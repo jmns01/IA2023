@@ -1,0 +1,7 @@
+"Rua A" [(Rua B, 100)(Rua C, 200)] 150
+"Rua B" [(Rua D, 50)(Rua E, 75)] 100
+"Rua C" [(Rua F, 20)(Rua G, 50)] 200
+"Rua D" [(Rua B, 150)] 50
+"Rua E" [(Rua B, 150)] 75
+"Rua F" [(Rua C, 200)] 20
+"Rua G" [(Rua C, 200)] 50

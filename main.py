@@ -17,10 +17,17 @@ def main():
     g.add_edge(5, "Rua E", [("Rua B", 100), ("Rua D", 75)], 125)
 
 
-    print(g.m_graph)
-    file_to_graph = FileToGraph('mapas/Braga.txt')
+    file_to_graph = FileToGraph('mapas/2.txt')
     f = file_to_graph.create_graph_from_file()
     print(f.m_graph)
+    #f.desenha()
+    print(f.imprime_aresta())
+
+    for nodo in f.m_nodes:
+        print(nodo)
+
+    path = f.procura_DFS("Rua A", "Rua F")
+    print(path)
 
 
     

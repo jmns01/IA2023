@@ -38,3 +38,4 @@ class FileToGraph:
             self.node_id_counter += 1
 
         return graph
+    

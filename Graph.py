@@ -1,6 +1,6 @@
 import math
 from queue import Queue
-
+import random
 import networkx as nx  
 import matplotlib.pyplot as plt
 
@@ -51,13 +51,24 @@ class Grafo:
     #############################
     # Mudei pq o nosso "mapa" vai estar bem feito de raiz
     def add_edge(self, id, node1, listaAdj, comprimento): # comprimento é o +/- weight (weight vai ser o custo de percorrer uma rua)
-        n1 = Node(node1, id, comprimento, listaAdj)
+        n1 = self.setLimitedTraversal(node1, id, comprimento, listaAdj)
 
         if(n1 not in self.m_nodes):
             self.m_nodes.append(n1)
             self.m_graph[node1] = listaAdj
         else:
             print("Error 2 instances of same street in file!")
+
+    def setLimitedTraversal(self,name, id, comprimento, listaAdj):
+        random1 = random.randint(0,3)
+        random2 = random.randint(0,3)
+
+        if(random1 == 1): node = Node(name, id, comprimento, listaAdj, True, False) # 25% chance
+        elif(random2 == 1): node = Node(name, id, comprimento, listaAdj, False, True) 
+        else: node = Node(name, id, comprimento, listaAdj)
+
+        return node
+        
 
 
     #############################
@@ -89,11 +100,15 @@ class Grafo:
         teste = caminho
         custo = 0
         i = 0
+        custos_veiculos = []
         while i + 1 < len(teste):
             custo = custo + self.get_arc_cost(teste[i], teste[i + 1])
             #print(teste[i])
             i = i + 1
-        return custo
+        custos_veiculos.append(custo) # custo para bike
+        custos_veiculos.append(custo + custo*0.13) # custo para moto
+        custos_veiculos.append(custo + custo*0.37) # custo para carro
+        return custos_veiculos
 
     ################################################################################
     # Procura DFS
@@ -108,7 +123,10 @@ class Grafo:
             custoT = self.calcula_custo(path)
             return (path, custoT)
         for (adjacente, peso) in self.m_graph[start]:
-            if adjacente not in visited:
+            adj = self.get_node_by_name(adjacente)
+            if adjacente not in visited and adj.getCortada() == False:
+                if adj.getTransito():
+                    peso += 500
                 resultado = self.procura_DFS(adjacente, end, path, visited)
                 if resultado is not None:
                     return resultado
@@ -244,7 +262,7 @@ class Grafo:
         speed_ms = speed_kmh * 1000 / 3600
         time_seconds = length_in_meters / speed_ms
 
-        return time_seconds
+        return round(time_seconds, 2)
 
         
 
