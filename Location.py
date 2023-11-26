@@ -14,7 +14,7 @@ def create_neighborhood_dict(graph):
 
         if u not in neighborhood_dict.keys():
             neighborhood_dict[u] = [(v,k)]
-        else:
+        elif (v, k) not in neighborhood_dict[u]:
             neighborhood_dict[u].append((v,k))
 
         if not data.get('oneway', True):
