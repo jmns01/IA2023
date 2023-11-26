@@ -2,35 +2,50 @@ import sys
 import osmnx as ox
 import networkx as nx
 import matplotlib.pyplot as plt
-from Graph import CustomGraph
 import os
 import pandas as pd
 
 
 
-def _create_neighborhood_dict(graph):
+def create_neighborhood_dict(graph):
     neighborhood_dict = {}
 
-    for u, v, data in graph.edges(data=True):
+    for u, v, k, data in graph.edges(keys=True, data=True):
 
         if u not in neighborhood_dict.keys():
-            neighborhood_dict[u] = [v]
+            neighborhood_dict[u] = [(v,k)]
         else:
-            neighborhood_dict[u].append(v)
+            neighborhood_dict[u].append((v,k))
+
+        if not data.get('oneway', True):
+            if v not in neighborhood_dict:
+                neighborhood_dict[v] = [(u, k)]
+            elif (u, k) not in neighborhood_dict[v]:  # Check if the reverse edge is already added
+                neighborhood_dict[v].append((u, k))
 
     return neighborhood_dict
 
-def _create_edges_dict(self):
+def create_edges_dict(graph):
     edges_dict = {}
 
-    for u, v, data in self.edges(data=True):
+    for u, v, k, data in graph.edges(keys=True, data=True):
 
-        if u not in neighborhood_dict.keys():
-            neighborhood_dict[u] = [v]
-        else:
-            neighborhood_dict[u].append(v)
+        if (u,v,k) not in edges_dict.keys():
+            edges_dict[(u,v,k)] = [data]
 
-    return neighborhood_dict
+
+    return edges_dict
+
+def create_nodes_dict(graph):
+    node_dict = {}
+
+    for node, data in G_filtered.nodes(data=True):
+
+        if node not in node_dict.keys():
+            node_dict[node] = [data]
+
+
+    return node_dict
 
 
 def get_node_by_number(self, number):
@@ -272,27 +287,42 @@ count =0
 #node = G_filtered.get_node_by_number(node_number)
 #G_filtered = CustomGraph(G_filtered)
 # Obtenha o dicionário de vizinhos da instância
-neighborhood_dict = _create_neighborhood_dict(G_filtered)
+neighb = create_neighborhood_dict(G_filtered)
+edges = create_edges_dict(G_filtered)
+nodes = create_nodes_dict(G_filtered)
 count=0
-#for u, v, k, data in G_filtered.edges(keys=True, data=True):
-#    print(f"Edge ({u}, {v}, {k}) attributes: {data}")
-
-
+# for u, v, k, data in G_filtered.edges(keys=True, data=True):
+#     count = count + 1
+#     print(f"Edge ({u}, {v}, {k}) attributes: {data}")
+#
+# print(count)
 #for node, data in G_filtered.nodes(data=True):
 #     print(f"Node {node} attributes: {data}")
 
 #Imprima o dicionário de vizinhos
-for node, neighbors in neighborhood_dict.items():
-    print(f"Neighborhood of {node}: {neighbors}")
+# for node, neighbors in neighborhood_dict.items():
+#     print(f"Neighborhood of {node}: {neighbors}")
 
+#print(neighborhood_dict)
+print(neighb)
+
+#print(nodes)
 # print(procura_DFS(G_filtered,11313827726, 11313807063,neighborhood_dict))
+
+# for (u, v, k), data_list in edges.items():
+#     if k != 0:
+#         for data in data_list:
+#             print(f"Edge ({u}, {v}, {k}) attributes: {data}")
+
 
 # path = procura_DFS_AUX(G_filtered,11313827726, 11313807063,neighborhood_dict)
 
-path = procura_DFS_AUX(G_filtered,4053448599, 1461361056,neighborhood_dict)
-print(path)
-procura_DFS(G_filtered,path)
-
+# path = procura_DFS_AUX(G_filtered,4053448599, 1461361056,neighborhood_dict)
+# print(path)
+# procura_DFS(G_filtered,path)
+# for u, v, k, data in G_filtered.edges(keys=True, data=True):
+#     if u == 11081088766 and v == 11081088771:
+#         print(f"Edge ({u}, {v}, {k}) attributes: {data}")
 #print(G_filtered.edges)
 if G_filtered.has_edge(4053448594, 1461360979):
     print("True")
@@ -301,6 +331,7 @@ if G_filtered.has_edge(4053448594, 1461360979):
 # key, edge_data = edge_data_dict.popitem()
 # print(edge_data.get('length', 0))
 #(4053448594, 4065304430):
+#11081088766: [(11081088771, 0), (11081088771, 0)]
 for u, v, k, data in G_filtered.edges(keys=True, data=True):
     if u==1898125189 and v==11313827673:
         print(f"{data}")
