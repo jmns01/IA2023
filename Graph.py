@@ -9,10 +9,11 @@ from Node import Node
 
 class Grafo:
 
-    def __init__(self, directed=False):
-        self.m_nodes = []
+    def __init__(self, directed=False, nodes={}, graph={}, edges={}):
         self.m_directed = directed
-        self.m_graph = {}  # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
+        self.m_nodes = nodes
+        self.m_graph = graph  # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
+        self.m_edges = edges
         self.m_h = []  # lista de dicionarios para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
 
     #############

@@ -43,11 +43,11 @@
 - Custo é a distância percorria (posteriormente multiplicada pela poluição de cada veiculo)
 - Vai haver transito e estradas cortadas
 
-.Duvidas/Coisas para fazer:
-	- Como será representados os circuitos? Oliveira do Castelo - Costa? R: Ver main.py
 
-	- Heuristica: tempo, distancia/velocidade (mas assim não pode ser global)
-	- Podemos alterar os algoritmos de pesquisa nao informada? O bfs nao ir para o tronco
-	- Veiculos têm máximo de volume??
-	- O QUE FAZER SE A ESTRADA CORTADA FOR A DA ENTREGA
-	- Mudar de Node para Rua
+TODO:
+
+-> Fazer função para coverter nº para estrada
+-> O nodes é um dic: {"id" : [{"y" : n, "x" : n, "street_count" : n}] (a outer list do value do dicionario é redundante)
+-> Fazer o randomize de cortada/transito
+-> Repensar os nodos
+-> Mudar de dicionario nodes para lista, para podermos usar o get_node_by_name e outros dos profs
