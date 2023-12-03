@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 import os
 import pandas as pd
 import json
+import random
+from Node import Node
+from Node import Positions
+from Ruas import Ruas
 
 
 
@@ -32,7 +36,7 @@ def create_edges_dict(graph):
     for u, v, k, data in graph.edges(keys=True, data=True):
 
         if (u,v,k) not in edges_dict.keys():
-            edges_dict[(u,v,k)] = [data]
+            edges_dict[(u,v,k)] = data
 
 
     return edges_dict
@@ -47,6 +51,59 @@ def create_nodes_dict(graph):
 
 
     return node_dict
+
+def create_nodes_list(graph):
+    list=[]
+    
+    for node, data in graph.nodes(data=True):
+        id = node
+        x = data["x"]
+        y = data["y"]
+        pos = Positions(x,y)
+        street_count = data["street_count"]
+
+        nodo = randomizacao_de_cortadas_transito(id, pos, street_count)
+        if nodo not in list:
+            list.append(nodo)
+
+    return list
+
+def randomizacao_de_cortadas_transito(id, pos, street_count):
+    random1 = random.randint(0,9)
+    random2 = random.randint(0,9)
+
+    if(random1 == 1): node = Node(id, pos, street_count, True, False)
+    elif(random2 == 1): node = Node(id, pos, street_count, False, True)
+    else: node = Node(id, pos, street_count)
+    return node
+
+def create_edges_list(graph):
+    edges = []
+
+    for u, v, k, data in graph.edges(keys=True, data=True):
+        name = data.get('name', "")
+        origem = u
+        destino = v
+
+        oneway = data.get('oneway', False)
+        highway = data.get('highway', [])
+        rotunda = 'junction' in data
+        ponte = 'bridge' in data
+        tunnel = 'tunnel' in data
+        access = data.get('access', [])
+        vel = data.get('maxspeed', [])
+        length = data.get('length', 0)
+
+        if isinstance(highway, str):
+            highway = [highway]
+
+        if isinstance(vel, str):
+            vel = [vel]
+
+        rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length)
+        edges.append(rua)
+
+    return edges
 
 
 def get_node_by_number(self, number):
@@ -108,7 +165,7 @@ def procura_DFS(graph,path):
     tamanho = path[1]
     while i + 1 < len(caminho):
         y, x = caminho[i], caminho[i+1]
-        for u, v, k, data in graph.edges(keys=True, data=True):
+        for u, v, k, data in graph.edges(keys=True, data=True): # Muito provavélmente não podemos usar isto, substituir por uma função nossa usando as listas e dicionarios dos nodos, edges e grafos
             if u == y and v == x:
                 dict.append(data.get('name'))
         i += 1
@@ -221,7 +278,7 @@ def run(location):
     # Print the neighborhood dictionary
     #for node_name, neighbors in neighborhood_dict.items():
     #   print(f"Neighborhood of {node_name}: {neighbors}")
-    count =0
+    # count =0
     #
     # for u, v, k, data in G_filtered.edges(keys=True, data=True):
     # #      #if count == 1000:
@@ -281,9 +338,9 @@ def run(location):
     #G_filtered = CustomGraph(G_filtered)
     # Obtenha o dicionário de vizinhos da instância
     neighb = create_neighborhood_dict(G_filtered)
-    edges = create_edges_dict(G_filtered)
-    nodes = create_nodes_dict(G_filtered)
-    count=0
+    #edges = create_edges_dict(G_filtered)
+    #nodes = create_nodes_dict(G_filtered)
+    # count=0
     # for u, v, k, data in G_filtered.edges(keys=True, data=True):
     #     count = count + 1
     #     print(f"Edge ({u}, {v}, {k}) attributes: {data}")
@@ -296,19 +353,11 @@ def run(location):
     # for node, neighbors in neighborhood_dict.items():
     #     print(f"Neighborhood of {node}: {neighbors}")
 
-    #print(neighborhood_dict)
-    
+ 
+    edgesList = create_edges_list(G_filtered)
+    nodeList = create_nodes_list(G_filtered)
 
-    with open("dics/neighbors.json", "w") as neighFile:
-        neighFile.write(json.dumps(neighb))
 
-    #with open("dics/edges.yaml", "w") as edgesFile: # KEY SÂO TUPLOS NÂO PODE SER REPRESENTADO ASSIM NO JSON
-    #    edgesFile.write(json.dumps(edges))
-
-    with open("dics/nodes.json", "w") as nodesFile:
-        nodesFile.write(json.dumps(nodes))
-
-    #print(nodes)
     # print(procura_DFS(G_filtered,11313827726, 11313807063,neighborhood_dict))
 
     # for (u, v, k), data_list in edges.items():
@@ -337,5 +386,7 @@ def run(location):
     #for u, v, k, data in G_filtered.edges(keys=True, data=True):
     #    if u==1898125189 and v==11313827673:
     #        print(f"{data}")
+
+    return neighb, edgesList, nodeList
 
 

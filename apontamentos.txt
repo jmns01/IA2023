@@ -1,53 +1,28 @@
-# class bicicleta
-	- peso maximo
-	- velocidade media (não esquecer que este valor muda dependendo do peso da encomenda)
-	- poluição média
-# class mota
-	- peso maximo
-	- velocidade media
-	- poluição média
-# class carro
-	- peso maximo
-	- velocidade media
-	- poluição média
-# class encomenda
-	- atributos de indentificação
-	- peso
-	- volume
-	- produtos
-	- local de entrega
-	- tempo de entrega
-	- cliente
-	- classificação por cliente?
-# class entrega (apenas para 1 cliente??)
-	- lista de encomendas
-	- estafeta
-	- preço
-	- veiculo
-# class estafeta
-	- atributos de indetificação
-	- media rank
-# class cliente??
-	- atributos de identificação
-	- historico de encomendas?
-	- rua
--class Circuito
-	- ruas
-	- se esta cortada ou tem transito
-	- comprimento
+INFO:
+-> Custo é a distância percorria (posteriormente multiplicada pela poluição de cada veiculo)
+-> Vai haver transito e estradas cortadas
+-> As edges têm estas keys: ['oneway', 'highway', 'length', 'bridge', 'maxspeed', 'name', 'tunnel', 'junction', 'width', 'access']
+	oneway : ['True', 'False']; counter=19208
+	highway : ['motorway_link', 'motorway', 'trunk_link', 'primary_link', 'secondary', 'residential', 'unclassified', 'primary', 'tertiary_link', 'tertiary', ['trunk_link', 'trunk'], 'trunk', ['unclassified', 'residential'], ['motorway_link', 'motorway'], ['secondary', 'trunk_link'], ['motorway', 'motorway_link'], 'secondary_link', 'living_street']; counter=4059
+	bridge : ['yes', ['viaduct', 'yes'], 'viaduct']; counter=218
+	tunnel : ['yes', 'building_passage']; counter=79
+	junction : ['roundabout']; counter=678
+	width : ['9', '7', '5', '4', '10', ['7.5', '4'], '3.9', '6']; counter=46
+	access : ['yes', 'no', 'forestry', 'permit', 'permissive', 'designated', 'destination']; counter=282
 
-- Circuito
-	- Ao arrancar o sistema e ao passar de txt para grafo passar certas ruas a cortadas ou com transito aleatóriamente
+DUVIDAS:
+-> Como fazmos para o caso das autoestradas? O carro anda mais que 50km/h?
 
-
-- Custo é a distância percorria (posteriormente multiplicada pela poluição de cada veiculo)
-- Vai haver transito e estradas cortadas
 
 
 TODO:
 
 -> Fazer função para coverter nº para estrada
--> O nodes é um dic: {"id" : [{"y" : n, "x" : n, "street_count" : n}] (a outer list do value do dicionario é redundante)
--> Fazer o randomize de cortada/transito
--> Repensar os nodos
--> Mudar de dicionario nodes para lista, para podermos usar o get_node_by_name e outros dos profs
+-> O nodes é um dic: {"id" : [{"y" : n, "x" : n, "street_count" : n}] (a outer list do value do dicionario é redundante) # FEITO
+-> Fazer o randomize de cortada/transito # FEITO
+-> Repensar os nodos # FEITO
+-> Mudar de dicionario nodes para lista, para podermos usar o get_node_by_name e outros dos profs # FEITO
+-> Remover create_node_dict
+-> Remover create_edges_dict
+-> Limpar Location.py
+-> Remover FileToGraph.py?

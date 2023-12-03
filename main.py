@@ -11,7 +11,7 @@ def main():
     neigh, edges, nodes = Location.run(location)
 
     grafoAtual = Grafo(False, nodes, neigh, edges)
-
+    print(grafoAtual)
 
 if __name__ == "__main__":
     main()

@@ -9,11 +9,11 @@ from Node import Node
 
 class Grafo:
 
-    def __init__(self, directed=False, nodes={}, graph={}, edges={}):
+    def __init__(self, directed=False, nodes=[], graph={}, edges=[]):
         self.m_directed = directed
-        self.m_nodes = nodes
-        self.m_graph = graph  # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
-        self.m_edges = edges
+        self.m_nodes = nodes # lista de nodos
+        self.m_graph = graph # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
+        self.m_edges = edges # lista de ruas
         self.m_h = []  # lista de dicionarios para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
 
     #############
@@ -23,7 +23,7 @@ class Grafo:
         out = ""
         for key in self.m_graph.keys():
             out = out + "node" + str(key) + ": " + str(self.m_graph[key]) + "\n"
-            return out
+        return out
 
     ################################
     # Encontrar nodo pelo nome
