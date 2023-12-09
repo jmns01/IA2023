@@ -16,28 +16,48 @@ class Grafo:
         self.m_edges = edges # lista de ruas
         self.m_h = []  # lista de dicionarios para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
 
-    #############
-    # Escrever o grafo como string
-    #############
     def __str__(self):
         out = ""
         for key in self.m_graph.keys():
             out = out + "node" + str(key) + ": " + str(self.m_graph[key]) + "\n"
         return out
-
-    ################################
-    # Encontrar nodo pelo nome
-    ################################
-
-    def get_node_by_name(self, name):
+    
+    def get_node_by_id(self, id):
+        """
+        Get the node that has the identifier id
+        :param id: The id of the node
+        :return: Returns a Node object or None if there is no node with that id
+        """
         for node in self.m_nodes:
-            if(node.m_name == name):
+            if(node.m_id == id):
                 return node
         return None
+    
+    def get_edge_by_nodes(self, origem, destino):
+        """
+        Get the edge that is formed by the 2 input nodes
+        :param origem: The node of origin
+        :param destino: the node of destinations
+        :return: The edge object that is formed by the 2 input nodes or None if there is not such edge
+        """
 
-    ##############################3
-    # Imprimir arestas
-    ############################333333
+        for edge in self.m_edges:
+            if edge.getOrigem() == origem.getId() and edge.getDestino() == destino.getId():
+                return edge
+        return None
+
+    def converte_caminho(self, path):
+        """
+        Converts the output of the search algorithms to a readable version (Replaces nodes id's with street names)
+        :param path: The path returned by the search algorithms
+        :return: A list of strings, that represent the path
+        """
+        i=0
+        newpath = []
+        while((i+1) < len(path)):
+            newpath.append(self.get_edge_by_nodes(path[i], path[i+1]).getName())
+            i += 1
+        return newpath
 
     def imprime_aresta(self):
         listaA = ""
@@ -46,31 +66,6 @@ class Grafo:
             for (nodo2, custo) in self.m_graph[nodo]:
                 listaA = listaA + nodo + " ->" + nodo2 + " custo:" + str(custo) + "\n"
         return listaA
-
-    #############################
-    # Adicionar   aresta no grafo
-    #############################
-    # Mudei pq o nosso "mapa" vai estar bem feito de raiz
-    def add_edge(self, id, node1, listaAdj, comprimento): # comprimento é o +/- weight (weight vai ser o custo de percorrer uma rua)
-        n1 = self.setLimitedTraversal(node1, id, comprimento, listaAdj)
-
-        if(n1 not in self.m_nodes):
-            self.m_nodes.append(n1)
-            self.m_graph[node1] = listaAdj
-        else:
-            print("Error 2 instances of same street in file!")
-
-    def setLimitedTraversal(self,name, id, comprimento, listaAdj):
-        random1 = random.randint(0,3)
-        random2 = random.randint(0,3)
-
-        if(random1 == 1): node = Node(name, id, comprimento, listaAdj, True, False) # 25% chance
-        elif(random2 == 1): node = Node(name, id, comprimento, listaAdj, False, True) 
-        else: node = Node(name, id, comprimento, listaAdj)
-
-        return node
-        
-
 
     #############################
     # Devolver nodos do Grafo
@@ -85,7 +80,8 @@ class Grafo:
 
     def get_arc_cost(self, node1, node2): # Isto, assim como calcula_custo() vão mudar para o nosso exemplo (custo será uma fórmula que incluí tempo da viagem + poluição feita no total)
         custoT = math.inf
-        a = self.m_graph[node1]  # lista de arestas para aquele nodo
+        n = node1.getId()
+        a = self.m_graph[n]  # lista de arestas para aquele nodo
         for (nodo, custo) in a:
             if nodo == node2:
                 custoT = custo
@@ -114,6 +110,35 @@ class Grafo:
     ################################################################################
     # Procura DFS
     ####################################################################################
+
+    def procura_DFS2(self, start, end, path=[], visited=set()): # start e end são nodos
+        path.append(start)
+        visited.add(start)
+
+        print(f"Start: {start}")
+        #print(path)
+        if len(path) > 1: 
+            my_variable = self.get_edge_by_nodes(path[-2], start).getName()
+            if isinstance(my_variable, str):
+                print("Rua: " + my_variable)
+            elif isinstance(my_variable, list):
+                print(", ".join(my_variable))
+
+        if start == end:
+            #custoT = self.calcula_custo(path)
+            return (path, 0)
+        
+        for(adjacente, peso, k) in self.m_graph[start.getId()]:
+            nodo = self.get_node_by_id(adjacente)
+            if nodo not in visited and not self.get_edge_by_nodes(start, nodo).isCortada(): # Deixar assim para ser mais eficiente (get_edge_by_node() precorre a lista de edges)
+                if self.get_edge_by_nodes(start, nodo).isTransito():
+                    peso += 500 # Valor arbitrário, talvez fazer aqui algo dinâmico?
+                resultado = self.procura_DFS2(nodo, end, path, visited)
+                if resultado is not None:
+                    return resultado
+        path.pop()
+        return None
+
 
     def procura_DFS(self, start, end, path=[], visited=set()):
         path.append(start)

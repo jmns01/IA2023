@@ -1,14 +1,12 @@
-import sys
 import osmnx as ox
 import networkx as nx
 import matplotlib.pyplot as plt
-import os
 import pandas as pd
-import json
 import random
 from Node import Node
 from Node import Positions
 from Ruas import Ruas
+import json
 
 
 
@@ -18,15 +16,15 @@ def create_neighborhood_dict(graph):
     for u, v, k, data in graph.edges(keys=True, data=True):
 
         if u not in neighborhood_dict.keys():
-            neighborhood_dict[u] = [(v,k)]
-        elif (v, k) not in neighborhood_dict[u]:
-            neighborhood_dict[u].append((v,k))
+            neighborhood_dict[u] = [(v,data['length'], k)]
+        elif (v, data['length'], k) not in neighborhood_dict[u]:
+            neighborhood_dict[u].append((v,data['length'], k))
 
         if not data.get('oneway', True):
             if v not in neighborhood_dict:
-                neighborhood_dict[v] = [(u, k)]
-            elif (u, k) not in neighborhood_dict[v]:  # Check if the reverse edge is already added
-                neighborhood_dict[v].append((u, k))
+                neighborhood_dict[v] = [(u, data['length'], k)]
+            elif (u, data['length'], k) not in neighborhood_dict[v]:  # Check if the reverse edge is already added
+                neighborhood_dict[v].append((u, data['length'], k))
 
     return neighborhood_dict
 
@@ -62,20 +60,20 @@ def create_nodes_list(graph):
         pos = Positions(x,y)
         street_count = data["street_count"]
 
-        nodo = randomizacao_de_cortadas_transito(id, pos, street_count)
+        nodo = Node(id, pos, street_count)
         if nodo not in list:
             list.append(nodo)
 
     return list
 
-def randomizacao_de_cortadas_transito(id, pos, street_count):
-    random1 = random.randint(0,9)
-    random2 = random.randint(0,9)
+def randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length):
+    random1 = 2 # random.randint(0,9) para teste
+    random2 = 2 # random.randint(0,9)
 
-    if(random1 == 1): node = Node(id, pos, street_count, True, False)
-    elif(random2 == 1): node = Node(id, pos, street_count, False, True)
-    else: node = Node(id, pos, street_count)
-    return node
+    if(random1 == 1): rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, True, False)
+    elif(random2 == 1): rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, False, True)
+    else: rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length)
+    return rua
 
 def create_edges_list(graph):
     edges = []
@@ -100,7 +98,7 @@ def create_edges_list(graph):
         if isinstance(vel, str):
             vel = [vel]
 
-        rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length)
+        rua = randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length)
         edges.append(rua)
 
     return edges
@@ -357,14 +355,13 @@ def run(location):
     edgesList = create_edges_list(G_filtered)
     nodeList = create_nodes_list(G_filtered)
 
+    #with open('dics/nodes.txt', 'w') as file:
+    #    for nodos in nodeList:
+    #        file.write(str(nodos))
+    #        file.write("\n")
+
 
     # print(procura_DFS(G_filtered,11313827726, 11313807063,neighborhood_dict))
-
-    # for (u, v, k), data_list in edges.items():
-    #     if k != 0:
-    #         for data in data_list:
-    #             print(f"Edge ({u}, {v}, {k}) attributes: {data}")
-
 
     # path = procura_DFS_AUX(G_filtered,11313827726, 11313807063,neighborhood_dict)
 

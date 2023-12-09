@@ -12,12 +12,12 @@ INFO:
 
 DUVIDAS:
 -> Como fazmos para o caso das autoestradas? O carro anda mais que 50km/h?
-
-
+-> Como fazer para o user selecionar a rua de entrega, simplesmente escreve o nome (tem de ser igual ao q nos temos (solução: expressões regulares?))
+-> Ruas que estão nas fronteiras das cidades
 
 TODO:
 
--> Fazer função para coverter nº para estrada
+-> Fazer função para coverter nº para estrada # FEITO
 -> O nodes é um dic: {"id" : [{"y" : n, "x" : n, "street_count" : n}] (a outer list do value do dicionario é redundante) # FEITO
 -> Fazer o randomize de cortada/transito # FEITO
 -> Repensar os nodos # FEITO
@@ -26,3 +26,9 @@ TODO:
 -> Remover create_edges_dict
 -> Limpar Location.py
 -> Remover FileToGraph.py?
+-> Validar input user
+-> O resultado dos algoritmos são listas de nodos, temos de converter para lista de strings de nomes de ruas # FEITO
+-> Nodo sem nome ou é autoestrada ou rotunda
+-> Adicionar K às ruas
+-> Heuristica vai ser dinamicamente alterada
+-> Motos e bikes não poedm andar em autoestradas

@@ -19,18 +19,16 @@ class Positions:
         self.y = newY
 
 class Node: # Interseção de ruas
-    def __init__(self, id=0, posicao=Positions(), street_count=0, cortada=False, transito=False):
+    def __init__(self, id=0, posicao=Positions(), street_count=0):
         self.m_id = id
         self.pos = posicao # não é suposto ser -1
         self.street_count = street_count
-        self.cortada = cortada # Estes valores são ligados aleatóriamente
-        self.transito = transito
 
     def __str__(self):
-        return "node " + str(self.m_id) + " Cortada? " + str(self.cortada) + " Transito? " + str(self.transito)
+        return "node " + str(self.m_id)
 
     def __repr__(self):
-        return "node " + str(self.m_id) + " Cortada? " + str(self.cortada) + "Transito? " + str(self.transito)
+        return "node " + str(self.m_id)
 
     def getId(self):
         return self.m_id
