@@ -20,8 +20,8 @@ def main():
     
     #start = grafoAtual.get_node_by_id(8321237017)
     #end = grafoAtual.get_node_by_id(2232799385)
-    start = grafoAtual.get_node_by_id(3199057871)
-    end = grafoAtual.get_node_by_id(3217323114)
+    start = grafoAtual.get_node_by_id(8321237017)
+    end = grafoAtual.get_node_by_id(3103582239)
     path = grafoAtual.procura_DFS2(start, end)
     print(path)
     print("\n")

@@ -355,10 +355,8 @@ def run(location):
     edgesList = create_edges_list(G_filtered)
     nodeList = create_nodes_list(G_filtered)
 
-    #with open('dics/nodes.txt', 'w') as file:
-    #    for nodos in nodeList:
-    #        file.write(str(nodos))
-    #        file.write("\n")
+    #with open('dics/graph.json', 'w') as file:
+    #    file.write(json.dumps(neighb))
 
 
     # print(procura_DFS(G_filtered,11313827726, 11313807063,neighborhood_dict))

@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 
 from Node import Node
 
+import sys
+
+sys.setrecursionlimit(5000)  # Adjust the limit accordingly
 
 class Grafo:
 
@@ -49,58 +52,63 @@ class Grafo:
     def converte_caminho(self, path):
         """
         Converts the output of the search algorithms to a readable version (Replaces nodes id's with street names)
-        :param path: The path returned by the search algorithms
+        :param path: The path returned by the search algorithms which is a list of nodes
         :return: A list of strings, that represent the path
         """
         i=0
-        newpath = []
+        newpath = set()
         while((i+1) < len(path)):
-            newpath.append(self.get_edge_by_nodes(path[i], path[i+1]).getName())
+            newpath.add(self.get_edge_by_nodes(path[i], path[i+1]).getName())
             i += 1
         return newpath
 
-    def imprime_aresta(self):
-        listaA = ""
-        lista = self.m_graph.keys()
-        for nodo in lista:
-            for (nodo2, custo) in self.m_graph[nodo]:
-                listaA = listaA + nodo + " ->" + nodo2 + " custo:" + str(custo) + "\n"
-        return listaA
-
-    #############################
-    # Devolver nodos do Grafo
-    ############################
+    def imprime_arestas(self):
+        """
+        Prints all the connection between nodes
+        :return: A list of strings containing a "pretty" text representation of the edges
+        """
+        lista = []
+        nodes = self.m_graph.keys()
+        for nodo in nodes:
+            for (adj, custo) in self.m_graph[nodo]:
+                lista.append(nodo + " -> " + adj + " custo: " + str(custo))
+        return lista
 
     def getNodes(self):
+        """
+        Gets all the nodes of the graph
+        :return: A list with all the nodes of the graph
+        """
         return self.m_nodes
 
-    ###############################
-    # Devolver o custo de uma aresta
-    ################################
-
     def get_arc_cost(self, node1, node2): # Isto, assim como calcula_custo() vão mudar para o nosso exemplo (custo será uma fórmula que incluí tempo da viagem + poluição feita no total)
+        """
+        Calculates the cost of a edge between the 2 argument nodes
+        :param node1: The start node object
+        :param node2: The end node object
+        :return: The total cost of the edge connecting the 2 nodes
+        """
         custoT = math.inf
         n = node1.getId()
         a = self.m_graph[n]  # lista de arestas para aquele nodo
-        for (nodo, custo) in a:
-            if nodo == node2:
+        for (nodo, custo, k) in a:
+            if nodo == node2.getId():
                 custoT = custo
 
         return custoT
 
-    ##############################
-    #  Dado um caminho calcula o seu custo
-    ###############################
-
     def calcula_custo(self, caminho):
-        # caminho é uma lista de nodos
+        """
+        Calculates the cost of a path for all of the current type of vehicles
+        :param caminho: A list of nodes usualy returned by algorithms
+        :return: A list of costs where the first index is cost for the bike, the second cost for the motorcicle and the last for car
+        """
         teste = caminho
         custo = 0
         i = 0
         custos_veiculos = []
         while i + 1 < len(teste):
             custo = custo + self.get_arc_cost(teste[i], teste[i + 1])
-            #print(teste[i])
             i = i + 1
         custos_veiculos.append(custo) # custo para bike
         custos_veiculos.append(custo + custo*0.13) # custo para moto
@@ -112,51 +120,32 @@ class Grafo:
     ####################################################################################
 
     def procura_DFS2(self, start, end, path=[], visited=set()): # start e end são nodos
-        path.append(start)
-        visited.add(start)
-
-        print(f"Start: {start}")
-        #print(path)
-        if len(path) > 1: 
-            my_variable = self.get_edge_by_nodes(path[-2], start).getName()
-            if isinstance(my_variable, str):
-                print("Rua: " + my_variable)
-            elif isinstance(my_variable, list):
-                print(", ".join(my_variable))
-
-        if start == end:
-            #custoT = self.calcula_custo(path)
-            return (path, 0)
-        
-        for(adjacente, peso, k) in self.m_graph[start.getId()]:
-            nodo = self.get_node_by_id(adjacente)
-            if nodo not in visited and not self.get_edge_by_nodes(start, nodo).isCortada(): # Deixar assim para ser mais eficiente (get_edge_by_node() precorre a lista de edges)
-                if self.get_edge_by_nodes(start, nodo).isTransito():
-                    peso += 500 # Valor arbitrário, talvez fazer aqui algo dinâmico?
-                resultado = self.procura_DFS2(nodo, end, path, visited)
-                if resultado is not None:
-                    return resultado
-        path.pop()
-        return None
-
-
-    def procura_DFS(self, start, end, path=[], visited=set()):
+        """
+        Deph First Search algorithm adapted to our graph
+        :param start: The start node object
+        :param end: The end node object
+        :param path: The current path taken (used for recursion)
+        :param visited: A set to keep track of what nodes have been visited
+        :return: A list of nodes representing the path from the start node to the end node
+        """
         path.append(start)
         visited.add(start)
 
         if start == end:
-            # calcular o custo do caminho funçao calcula custo.
             custoT = self.calcula_custo(path)
             return (path, custoT)
-        for (adjacente, peso) in self.m_graph[start]:
-            adj = self.get_node_by_name(adjacente)
-            if adjacente not in visited and adj.getCortada() == False:
-                if adj.getTransito():
-                    peso += 500
-                resultado = self.procura_DFS(adjacente, end, path, visited)
-                if resultado is not None:
-                    return resultado
-        path.pop()  # se nao encontra remover o que está no caminho......
+        
+        if start.getId() in self.m_graph.keys():
+            for(adjacente, peso, k) in self.m_graph[start.getId()]:
+                nodo = self.get_node_by_id(adjacente)
+                if nodo not in visited and not self.get_edge_by_nodes(start, nodo).isCortada(): # Deixar assim para ser mais eficiente (get_edge_by_node() precorre a lista de edges)
+                    if self.get_edge_by_nodes(start, nodo).isTransito():
+                        peso += 500 # Valor arbitrário, talvez fazer aqui algo dinâmico?
+                    resultado = self.procura_DFS2(nodo, end, path, visited)
+                    if resultado is not None:
+                        return resultado
+        path.pop()
+
         return None
 
     #####################################################

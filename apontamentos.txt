@@ -32,3 +32,14 @@ TODO:
 -> Adicionar K às ruas
 -> Heuristica vai ser dinamicamente alterada
 -> Motos e bikes não poedm andar em autoestradas
+-> Alterar custo?
+-> Falta passar de lista de ruas com as "keys" para apenas uma instancia delas (Rua x (1), Rua x (2)) => (Rua x)
+
+
+RELATÓRIO:
+-> Inicialmente iamos fazer com o FileToGraph.py (falar de como começou o projeto);
+-> Definição das classes que eram pedidas no enunciado (Vehicles.py, worker.py,...);
+-> Usamos a package OSMnx que é (OSMnx is a Python package to easily download, model, analyze, and visualize street networks and other geospatial features from OpenStreetMap);
+-> Criação das classes para servir da representação do grafo (Ruas.py, Node-py, Graph.py);
+-> O grafo que sai de (G = ox.graph_from_place(location, network_type="drive")) é um multi directed graph (falar da definição disto);
+-> Separação do MultiDiGraph em dicionario graph, lista nodes e lista edges;
