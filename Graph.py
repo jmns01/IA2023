@@ -160,7 +160,7 @@ class Grafo:
                 if nodo not in visited and not self.get_edge_by_nodes(start, nodo).isCortada(): # Deixar assim para ser mais eficiente (get_edge_by_node() precorre a lista de edges)
                     if self.get_edge_by_nodes(start, nodo).isTransito():
                         peso += 500 # Valor arbitrário, talvez fazer aqui algo dinâmico?
-                    resultado = self.procura_DFS2(nodo, end, path, visited)
+                    resultado = self.procura_DFS(nodo, end, path, visited)
                     if resultado is not None:
                         return resultado
         path.pop()
@@ -188,7 +188,7 @@ class Grafo:
         parent[start] = None
 
         path_found = False
-        while not fila.empty() and path_found == False:
+        while not fila.empty() and not path_found:
             nodo_atual = fila.get()
             print(nodo_atual)
             if nodo_atual == end:
