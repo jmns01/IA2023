@@ -56,10 +56,29 @@ class Grafo:
         :return: A list of strings, that represent the path
         """
         i=0
-        newpath = set()
-        while((i+1) < len(path)):
-            newpath.add(self.get_edge_by_nodes(path[i], path[i+1]).getName())
+        newpath = []
+        prev_edge_name = None
+        while (i + 1) < len(path):
+            edge_name = self.get_edge_by_nodes(path[i], path[i + 1]).getName()
+            roundabout = self.get_edge_by_nodes(path[i], path[i + 1]).getRoundabout()
+
+            if str(edge_name):
+                if '(' in str(edge_name):
+                    edge_name, _ = str(edge_name).split('(')
+                if roundabout and "Rotunda" not in str(edge_name):
+                    edge_name = f"Rotunda da Rua: {str(edge_name)}"
+            elif roundabout:
+                edge_name = "Rotunda"
+            else:
+                edge_name = self.get_edge_by_nodes(path[i], path[i + 1]).getHighway()
+                edge_name = f"Highway_Type: {str(edge_name)}"
+
+            if edge_name != prev_edge_name:
+                newpath.append(str(edge_name))
+                prev_edge_name = edge_name
+
             i += 1
+
         return newpath
 
     def imprime_arestas(self):

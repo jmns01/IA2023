@@ -1,11 +1,11 @@
 
 class Ruas:
-    def __init__(self, name="", origem=0, destino=0, oneway=False, highway=[], rotunda=False, ponte=False, tunnel=False, access="", vel=[], len=0, cortada=False, transito=False):
+    def __init__(self, name="", origem=0, destino=0, oneway=False, highway="", rotunda=False, ponte=False, tunnel=False, access="", vel=[], len=0, cortada=False, transito=False):
         self.nome = name
         self.nodo_origem = origem # id do nodo
         self.nodo_destino = destino
         self.oneway = oneway
-        self.highway = highway # Lista do tipo de highway (pode ser mais que 1)
+        self.highway = highway # Lista do tipo de highway (pode ser mais que 1) !n é uma lista
         self.rotunda = rotunda # Por enquanto apenas encontramos rotundas, mas poderá haver mais??
         self.ponte = ponte # não vamos incluir o caso de ser viaducto ou não
         self.tunnel = tunnel # não vamos incluir building passage
@@ -29,6 +29,12 @@ class Ruas:
     
     def getName(self):
         return self.nome
+
+    def getHighway(self):
+        return self.highway
+
+    def getRoundabout(self):
+        return self.rotunda
 
     def __str__(self):
         list_str = ', '.join(map(str, self.highway))
