@@ -138,9 +138,9 @@ class Grafo:
     # Procura DFS
     ####################################################################################
 
-    def procura_DFS2(self, start, end, path=[], visited=set()): # start e end são nodos
+    def procura_DFS(self, start, end, path=[], visited=set()): # start e end são nodos
         """
-        Deph First Search algorithm adapted to our graph
+        Deph First Search algorithm adapted to our graph and circumstances
         :param start: The start node object
         :param end: The end node object
         :param path: The current path taken (used for recursion)
@@ -172,34 +172,42 @@ class Grafo:
     ######################################################
 
     def procura_BFS(self, start, end):
-        # definir nodos visitados para evitar ciclos
+        """
+        Breath First search algorithm adapted to our graph and circumstances
+        :param start: The start node object
+        :param end: The end node object
+        :return: A list of nodes representing the path from the start node to the end node
+        """
         visited = set()
         fila = Queue()
 
-        # adicionar o nodo inicial à fila e aos visitados
         fila.put(start)
         visited.add(start)
 
-        # garantir que o start node nao tem pais...
         parent = dict()
         parent[start] = None
 
         path_found = False
         while not fila.empty() and path_found == False:
             nodo_atual = fila.get()
+            print(nodo_atual)
             if nodo_atual == end:
                 path_found = True
-            else:
-                for (adjacente, peso) in self.m_graph[nodo_atual]:
-                    if adjacente not in visited:
-                        fila.put(adjacente)
-                        parent[adjacente] = nodo_atual
-                        visited.add(adjacente)
-
+            
+            elif nodo_atual.getId() in self.m_graph.keys():
+                for (adjacente, peso, k) in self.m_graph[nodo_atual.getId()]:
+                    nodo = self.get_node_by_id(adjacente)
+                    if nodo not in visited and not self.get_edge_by_nodes(nodo_atual, nodo).isCortada():
+                        fila.put(nodo)
+                        parent[nodo] = nodo_atual
+                        visited.add(nodo)
+            #else:
+             #   visited.add(nodo_atual)
 
 
         # Reconstruir o caminho
-
+        print("DICCCCC: \n")
+        print(parent)
         path = []
         if path_found:
             path.append(end)

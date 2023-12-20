@@ -17,16 +17,23 @@ def main():
     #        print(edge)
     
 
-    
+    """
     #start = grafoAtual.get_node_by_id(8321237017)
     #end = grafoAtual.get_node_by_id(2232799385)
     start = grafoAtual.get_node_by_id(8321237017)
     #end = grafoAtual.get_node_by_id(3103582239)
     end = grafoAtual.get_node_by_id(1675798722)
-    path = grafoAtual.procura_DFS2(start, end)
+    path = grafoAtual.procura_DFS(start, end)
     print(path)
     print("\n")
-    print(grafoAtual.converte_caminho(path[0]))
+    print(grafoAtual.converte_caminho(path[0]))"""
+
+    start = grafoAtual.get_node_by_id(8321237017)
+    end = grafoAtual.get_node_by_id(3103582239)
+    pathBFS = grafoAtual.procura_BFS(start, end)
+    print(pathBFS)
+    print("\n")
+    print(grafoAtual.converte_caminho(pathBFS[0]))
     
 if __name__ == "__main__":
     main()
