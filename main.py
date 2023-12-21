@@ -29,14 +29,15 @@ def main():
     print(grafoAtual.converte_caminho(path[0]))"""
 
     start = grafoAtual.get_node_by_id(8321237017)
-    end = grafoAtual.get_node_by_id(1675798722)
+    #end = grafoAtual.get_node_by_id(1675798722)
+    end = grafoAtual.get_node_by_id(26270222)
     pathBFS = grafoAtual.procura_BFS(start, end)
-    path = grafoAtual.procura_DFS(start, end)
-    print(path)
+    #path = grafoAtual.procura_DFS(start, end)
+    #print(path)
     print(pathBFS)
     print("\n")
     print(grafoAtual.converte_caminho(pathBFS[0]))
-    print(grafoAtual.converte_caminho(path[0]))
+    #print(grafoAtual.converte_caminho(path[0]))
     
 if __name__ == "__main__":
     main()

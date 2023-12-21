@@ -66,13 +66,13 @@ def create_nodes_list(graph):
 
     return list
 
-def randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length):
+def randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length,ref):
     random1 = 2 # random.randint(0,9) para teste
     random2 = 2 # random.randint(0,9)
 
-    if(random1 == 1): rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, True, False)
-    elif(random2 == 1): rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, False, True)
-    else: rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length)
+    if(random1 == 1): rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length,ref, True, False)
+    elif(random2 == 1): rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length,ref, False, True)
+    else: rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length,ref)
     return rua
 
 def create_edges_list(graph):
@@ -85,12 +85,14 @@ def create_edges_list(graph):
 
         oneway = data.get('oneway', False)
         highway = data.get('highway', [])
-        rotunda = 'junction' in data
-        ponte = 'bridge' in data
-        tunnel = 'tunnel' in data
+        rotunda = data.get('junction', [])
+        ref = data.get('ref', False)
+        ponte = data.get('bridge', False)
+        tunnel = 'tunnel' in  data
         access = data.get('access', [])
         vel = data.get('maxspeed', [])
         length = data.get('length', 0)
+
 
         if isinstance(highway, str):
             highway = [highway]
@@ -98,7 +100,7 @@ def create_edges_list(graph):
         if isinstance(vel, str):
             vel = [vel]
 
-        rua = randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length)
+        rua = randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, ref)
         edges.append(rua)
 
     return edges
@@ -215,14 +217,14 @@ def run(location):
             data.pop('osmid', None)
             data.pop('reversed', None)
             data.pop('geometry', None)
-            data.pop('ref', None)
+            #data.pop('ref', None)
             data.pop('lanes', None)
         else:
             data.pop('highway', None)
             data.pop('osmid', None)
             data.pop('reversed', None)
             data.pop('geometry', None)
-            data.pop('ref', None)
+            #data.pop('ref', None)
             data.pop('lanes', None)
 
 
