@@ -19,12 +19,12 @@ def create_neighborhood_dict(graph):
             neighborhood_dict[u] = [(v,data['length'], k)]
         elif (v, data['length'], k) not in neighborhood_dict[u]:
             neighborhood_dict[u].append((v,data['length'], k))
-
+        """
         if not data.get('oneway', True):
             if v not in neighborhood_dict:
                 neighborhood_dict[v] = [(u, data['length'], k)]
             elif (u, data['length'], k) not in neighborhood_dict[v]:  # Check if the reverse edge is already added
-                neighborhood_dict[v].append((u, data['length'], k))
+                neighborhood_dict[v].append((u, data['length'], k))"""
 
     return neighborhood_dict
 
@@ -88,7 +88,7 @@ def create_edges_list(graph):
         rotunda = data.get('junction', [])
         ref = data.get('ref', False)
         ponte = data.get('bridge', False)
-        tunnel = 'tunnel' in  data
+        tunnel = 'tunnel' in  data # Não faz sentido ser aqui data.get("tunnel", False) (vai buscar o value em que tunnel é key ou se não houver põe False)
         access = data.get('access', [])
         vel = data.get('maxspeed', [])
         length = data.get('length', 0)

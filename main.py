@@ -11,7 +11,7 @@ def main():
     neigh, edges, nodes = Location.run(location)
 
     #print(edges)
-    grafoAtual = Grafo(False, nodes, neigh, edges)
+    grafoAtual = Grafo(nodes, neigh, edges)
     #for edge in edges:
     #    if edge.getOrigem() == 263568202 or edge.getDestino() == 263568202:
     #        print(edge)
@@ -27,7 +27,7 @@ def main():
     print(path)
     print("\n")
     print(grafoAtual.converte_caminho(path[0]))"""
-
+    print("---BSF---")
     start = grafoAtual.get_node_by_id(8321237017)
     #end = grafoAtual.get_node_by_id(1675798722)
     end = grafoAtual.get_node_by_id(26270222)
@@ -38,6 +38,12 @@ def main():
     print("\n")
     print(grafoAtual.converte_caminho(pathBFS[0]))
     #print(grafoAtual.converte_caminho(path[0]))
+    
+    print("---Bidirecional---")
+    pathBidirecional = grafoAtual.procura_bidirecional(start, end)
+    print(pathBidirecional)
+    print("\n")
+    print(grafoAtual.converte_caminho(pathBidirecional[0]))
     
 if __name__ == "__main__":
     main()

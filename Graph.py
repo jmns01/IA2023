@@ -12,8 +12,7 @@ sys.setrecursionlimit(5000)  # Adjust the limit accordingly
 
 class Grafo:
 
-    def __init__(self, directed=False, nodes=[], graph={}, edges=[]):
-        self.m_directed = directed
+    def __init__(self, nodes=[], graph={}, edges=[]):
         self.m_nodes = nodes # lista de nodos
         self.m_graph = graph # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
         self.m_edges = edges # lista de ruas
@@ -155,9 +154,9 @@ class Grafo:
         custos_veiculos.append(custo + custo*0.37) # custo para carro
         return custos_veiculos
 
-    ################################################################################
-    # Procura DFS
-    ####################################################################################
+    ###########################
+    #       Procura DFS       #
+    ###########################
 
     def procura_DFS(self, start, end, path=[], visited=set()): # start e end são nodos
         """
@@ -188,9 +187,9 @@ class Grafo:
 
         return None
 
-    #####################################################
-    # Procura BFS
-    ######################################################
+    ###########################
+    #       Procura BFS       #
+    ###########################
 
     def procura_BFS(self, start, end):
         """
@@ -222,13 +221,7 @@ class Grafo:
                         fila.put(nodo)
                         parent[nodo] = nodo_atual
                         visited.add(nodo)
-            #else:
-             #   visited.add(nodo_atual)
 
-
-        # Reconstruir o caminho
-        #print("DICCCCC: \n")
-        #print(parent)
         path = []
         if path_found:
             path.append(end)
@@ -239,6 +232,97 @@ class Grafo:
             # funçao calcula custo caminho
             custo = self.calcula_custo(path)
         return (path, custo)
+    
+    #####################################
+    #       Procura Bidirectional       #
+    #####################################
+
+    def procura_bidirecional(self, start, end):
+        """
+        Bidirectional Search adapted to our graph and circumstances
+        :param start: The start node object
+        :param end: The end node object
+        :return: A list of nodes representing the path from the start node to the end node
+        """
+        path_found = False
+
+        forward_queue = Queue()
+        forward_visited = set()
+        forward_parent = dict()
+
+        backward_queue = Queue()
+        backward_visited = set()
+        backward_parent = dict()
+        
+        forward_queue.put(start)
+        backward_queue.put(end)
+
+        forward_visited.add(start)
+        backward_visited.add(end)
+
+        forward_parent[start] = None
+        backward_parent[end] = None
+
+        meeting_point = None
+
+        while (not forward_queue.empty() and not backward_queue.empty()) and not path_found:
+            current_forward = forward_queue.get()
+            current_backward = backward_queue.get()
+            intersection = forward_visited.intersection(backward_visited)
+
+            if intersection:
+                path_found = True
+                meeting_point = intersection.pop()
+                
+            if current_forward.getId() in self.m_graph.keys():
+                for (neighbor_fwd, cost_fwd, k) in self.m_graph[current_forward.getId()]:
+                    node_fwd = self.get_node_by_id(neighbor_fwd)
+                    if node_fwd not in forward_visited and self.get_edge_by_nodes(current_forward, node_fwd) is not None:
+                        forward_queue.put(node_fwd)
+                        forward_parent[node_fwd] = current_forward
+                        forward_visited.add(node_fwd) 
+
+            if current_backward.getId() in self.m_graph.keys():
+                for neighbor_bwd in self.get_predecessors(current_backward):
+                    node_bwd = self.get_node_by_id(neighbor_bwd)
+                    if node_bwd not in backward_visited and self.get_edge_by_nodes(node_bwd, current_backward) is not None:
+                        backward_queue.put(node_bwd)
+                        backward_parent[node_bwd] = current_backward
+                        backward_visited.add(node_bwd)
+        
+        path = self.reconstruct_path_bidirectional(path_found, start, end, meeting_point, forward_parent, backward_parent)
+        costT = self.calcula_custo(path)
+        return (path, costT)
+
+    def get_predecessors(self, node):
+        predecessors = []
+        for (nodo, adj) in self.m_graph.items():
+            for (neighbor, cost, k) in adj:
+                if neighbor == node.getId():
+                    predecessors.append(nodo)
+        return predecessors
+
+
+    def reconstruct_path_bidirectional(self, path_found, start, end, meet, forward_dic, backward_dic):
+        start_path=[]
+        end_path=[]
+        final_path = []
+        current = meet
+        if path_found:
+            start_path.append(current)
+            while forward_dic[current] is not None:
+                start_path.append(forward_dic[current])
+                current = forward_dic[current]
+            start_path.reverse()
+            current = meet
+            while backward_dic[current] is not None:
+                end_path.append(backward_dic[current])
+                current = backward_dic[current]
+            #end_path.reverse()
+
+            final_path = start_path + end_path
+        return final_path
+            
 
     ###################################################
     # Função   getneighbours, devolve vizinhos de um nó
@@ -253,7 +337,7 @@ class Grafo:
     ###############################
     #  Desenha grafo  modo grafico
     ###############################
-
+    # ISTO VAI SER ALTERADO PARA MOSTRAR O MAPA REAL (VIDEO QUE ESTÁ NO #IDEIAS)
     def desenha(self):
         ##criar lista de vertices
         lista_v = self.m_nodes
