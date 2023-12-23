@@ -36,7 +36,7 @@ TODO:
 -> Falta passar de lista de ruas com as "keys" para apenas uma instancia delas (Rua x (1), Rua x (2)) => (Rua x)
 
 -> Existem edges com origem e destino iguais com floats grandes
-
+-> cruzamentos podem permitir a inversao de marcha que é proibida em certas avenidas
 
 RELATÓRIO:
 -> Inicialmente iamos fazer com o FileToGraph.py (falar de como começou o projeto);

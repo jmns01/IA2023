@@ -12,7 +12,7 @@ def main():
 
     #print(edges)
     grafoAtual = Grafo(nodes, neigh, edges)
-    #for edge in edges:
+    # for edge in edges:
     #    if edge.getOrigem() == 263568202 or edge.getDestino() == 263568202:
     #        print(edge)
     
@@ -30,7 +30,7 @@ def main():
     print("---BSF---")
     start = grafoAtual.get_node_by_id(8321237017)
     #end = grafoAtual.get_node_by_id(1675798722)
-    end = grafoAtual.get_node_by_id(26270222)
+    end = grafoAtual.get_node_by_id(1675798722)
     pathBFS = grafoAtual.procura_BFS(start, end)
     #path = grafoAtual.procura_DFS(start, end)
     #print(path)

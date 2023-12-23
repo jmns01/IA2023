@@ -511,6 +511,46 @@ class Grafo:
         print('Path does not exist!')
         return None
 
+    def aestrela(self, start, end):
+        count = 0
+        open_set = PriorityQueue()
+        open_set.put((0, count, start))  # o primeiro argumento do tuplo é o F(n)
+        came_from = {}
+        g_score = {node: float("inf") for node in self.m_graph}  # Distância menor para chegar do start ate este nodo
+        g_score[start] = 0
+        f_score = {node: float("inf") for node in self.m_graph}  # Distância predicted deste node até ao end node
+        f_score[start] = self.m_h[start]
+        close_list = set([])
+
+        open_set_hash = {start}  # Set para ver o que está dentro da PriorityQueue
+
+        while not open_set.empty():
+            current = open_set.get()[2]  # Tirar da queue
+            open_set_hash.remove(current)
+
+            if current == end:
+                path = self.reconstruct_path(came_from, current)
+                path.reverse()
+                return (path, self.calcula_custo(path))
+
+            for (n, c) in self.getNeighbours(current):
+                temp_g_score = g_score[current] + c
+
+                if temp_g_score < g_score[n]:
+                    came_from[n] = current
+                    g_score[n] = temp_g_score
+                    f_score[n] = temp_g_score + self.m_h[n]
+                    if n not in open_set_hash:
+                        count += 1
+                        open_set.put((f_score[n], count, n))
+                        open_set_hash.add(n)
+                        # open_set.add(n)
+
+            if current != start:
+                close_list.add(current)
+
+        return None
+
     ###################################3
     # devolve heuristica do nodo
     ####################################
