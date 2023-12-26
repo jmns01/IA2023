@@ -384,6 +384,48 @@ class Grafo:
             path.reverse()
             custoT = self.calcula_custo(path)
         return (path, custoT)
+    
+    ######################################
+    #         Procura Iterativa          #
+    #     Aprofundamento Progressivo     #
+    ######################################
+
+    def procura_iterativa(self, start, end):
+        for limit in range(1, sys.maxsize):
+            result = self.procura_iterativa_ciclo(start, end, limit, [], set())
+            if result is not None:
+                custoT = self.calcula_custo(result)
+                return (result, custoT)
+       
+
+    def procura_iterativa_ciclo(self, current, end, depth_limit, path, visited):
+        if current == end:
+            path.append(current)
+            visited.add(current)
+            return path
+
+        if depth_limit == 0:
+            return None
+
+        path.append(current)
+        visited.add(current)
+
+        if current.getId() in self.m_graph.keys():
+            for (adjacente, peso, k) in self.m_graph[current.getId()]:
+                nodo = self.get_node_by_id(adjacente)
+                if nodo not in visited and not self.get_edge_by_nodes(current, nodo).isCortada():
+                    if self.get_edge_by_nodes(current, nodo).isTransito():
+                        peso += 500
+                    resultado = self.procura_iterativa_ciclo(nodo, end, depth_limit - 1, path, visited)
+                    if resultado is not None:
+                        return resultado
+
+        path.pop()
+
+        return None
+
+        
+
 
 
     ###################################################

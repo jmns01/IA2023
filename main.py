@@ -15,29 +15,20 @@ def main():
     # for edge in edges:
     #    if edge.getOrigem() == 263568202 or edge.getDestino() == 263568202:
     #        print(edge)
-    
-
+    start = grafoAtual.get_node_by_id(8321237017)
+    end = grafoAtual.get_node_by_id(1675798722)
     """
-    #start = grafoAtual.get_node_by_id(8321237017)
-    #end = grafoAtual.get_node_by_id(2232799385)
-    start = grafoAtual.get_node_by_id(8321237017)
-    #end = grafoAtual.get_node_by_id(3103582239)
-    end = grafoAtual.get_node_by_id(1675798722)
-    path = grafoAtual.procura_DFS(start, end)
-    print(path)
+    print("---DFS---")
+    pathDFS = grafoAtual.procura_DFS(start, end)
+    print(pathDFS)
     print("\n")
-    print(grafoAtual.converte_caminho(path[0]))"""
+    print(grafoAtual.converte_caminho(pathDFS[0]))
+    """
     print("---BSF---")
-    start = grafoAtual.get_node_by_id(8321237017)
-    #end = grafoAtual.get_node_by_id(1675798722)
-    end = grafoAtual.get_node_by_id(1675798722)
     pathBFS = grafoAtual.procura_BFS(start, end)
-    #path = grafoAtual.procura_DFS(start, end)
-    #print(path)
     print(pathBFS)
     print("\n")
     print(grafoAtual.converte_caminho(pathBFS[0]))
-    #print(grafoAtual.converte_caminho(path[0]))
     
     print("---Bidirecional---")
     pathBidirecional = grafoAtual.procura_bidirecional(start, end)
@@ -50,6 +41,12 @@ def main():
     print(pathCustoUniforme)
     print("\n")
     print(grafoAtual.converte_caminho(pathCustoUniforme[0]))
+
+    print("---Procura Iterativa---")
+    pathProcuraIterativa = grafoAtual.procura_iterativa(start, end)
+    print(pathProcuraIterativa)
+    print("\n")
+    print(grafoAtual.converte_caminho(pathProcuraIterativa[0]))
     
 if __name__ == "__main__":
     main()
