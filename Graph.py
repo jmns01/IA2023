@@ -1,5 +1,7 @@
 import math
 from queue import Queue
+from queue import PriorityQueue
+import heapq
 import random
 import networkx as nx  
 import matplotlib.pyplot as plt
@@ -8,7 +10,7 @@ from Node import Node
 
 import sys
 
-sys.setrecursionlimit(5000)  # Adjust the limit accordingly
+sys.setrecursionlimit(5000)  # Adjust the limit accordingly, needed for DFS
 
 class Grafo:
 
@@ -27,8 +29,8 @@ class Grafo:
     def get_node_by_id(self, id):
         """
         Get the node that has the identifier id
-        :param id: The id of the node
-        :return: Returns a Node object or None if there is no node with that id
+        :param id(Integer): The id of the node
+        :return(Node Object): Returns a Node object or None if there is no node with that id
         """
         for node in self.m_nodes:
             if(node.m_id == id):
@@ -38,8 +40,8 @@ class Grafo:
     def get_edge_by_nodes(self, origem, destino):
         """
         Get the edge that is formed by the 2 input nodes
-        :param origem: The node of origin
-        :param destino: the node of destinations
+        :param origem(Node Object): The node of origin
+        :param destino(Node Object): the node of destinations
         :return: The edge object that is formed by the 2 input nodes or None if there is not such edge
         """
 
@@ -51,7 +53,7 @@ class Grafo:
     def converte_caminho(self, path):
         """
         Converts the output of the search algorithms to a readable version (Replaces nodes id's with street names)
-        :param path: The path returned by the search algorithms which is a list of nodes
+        :param path(List[Node Object]): The path returned by the search algorithms which is a list of nodes
         :return: A list of strings, that represent the path
         """
         i=0
@@ -123,8 +125,8 @@ class Grafo:
     def get_arc_cost(self, node1, node2): # Isto, assim como calcula_custo() vão mudar para o nosso exemplo (custo será uma fórmula que incluí tempo da viagem + poluição feita no total)
         """
         Calculates the cost of a edge between the 2 argument nodes
-        :param node1: The start node object
-        :param node2: The end node object
+        :param node1(Node Object): The start node object
+        :param node2(Node Object): The end node object
         :return: The total cost of the edge connecting the 2 nodes
         """
         custoT = math.inf
@@ -139,7 +141,7 @@ class Grafo:
     def calcula_custo(self, caminho):
         """
         Calculates the cost of a path for all of the current type of vehicles
-        :param caminho: A list of nodes usualy returned by algorithms
+        :param caminho(List[Node Object]): A list of nodes usualy returned by algorithms
         :return: A list of costs where the first index is cost for the bike, the second cost for the motorcicle and the last for car
         """
         teste = caminho
@@ -161,10 +163,10 @@ class Grafo:
     def procura_DFS(self, start, end, path=[], visited=set()): # start e end são nodos
         """
         Deph First Search algorithm adapted to our graph and circumstances
-        :param start: The start node object
-        :param end: The end node object
-        :param path: The current path taken (used for recursion)
-        :param visited: A set to keep track of what nodes have been visited
+        :param start(Node Object): The start node object
+        :param end(Node Object): The end node object
+        :param path(List[Node Object]): The current path taken (used for recursion)
+        :param visited(Set{Node Object}): A set to keep track of what nodes have been visited
         :return: A list of nodes representing the path from the start node to the end node
         """
         path.append(start)
@@ -194,8 +196,8 @@ class Grafo:
     def procura_BFS(self, start, end):
         """
         Breath First search algorithm adapted to our graph and circumstances
-        :param start: The start node object
-        :param end: The end node object
+        :param start(Node Object): The start node object
+        :param end(Node Object): The end node object
         :return: A list of nodes representing the path from the start node to the end node
         """
         visited = set()
@@ -223,6 +225,7 @@ class Grafo:
                         visited.add(nodo)
 
         path = []
+        custo = self.calcula_custo(path)
         if path_found:
             path.append(end)
             while parent[end] is not None:
@@ -240,8 +243,8 @@ class Grafo:
     def procura_bidirecional(self, start, end):
         """
         Bidirectional Search adapted to our graph and circumstances
-        :param start: The start node object
-        :param end: The end node object
+        :param start(Node Object): The start node object
+        :param end(Node Object): The end node object
         :return: A list of nodes representing the path from the start node to the end node
         """
         path_found = False
@@ -290,11 +293,16 @@ class Grafo:
                         backward_parent[node_bwd] = current_backward
                         backward_visited.add(node_bwd)
         
-        path = self.reconstruct_path_bidirectional(path_found, start, end, meeting_point, forward_parent, backward_parent)
+        path = self.reconstruct_path_bidirectional(path_found, meeting_point, forward_parent, backward_parent)
         costT = self.calcula_custo(path)
         return (path, costT)
 
     def get_predecessors(self, node):
+        """
+        Method to get the predecessors of a certin node, it is needed to make the backwards exploration in the bidirectional search
+        :param node(Node Object): The current node that is going to be searched for adjacent ocurrences in the graph
+        :raturn: A list of the predecessor's node's names
+        """
         predecessors = []
         for (nodo, adj) in self.m_graph.items():
             for (neighbor, cost, k) in adj:
@@ -303,7 +311,14 @@ class Grafo:
         return predecessors
 
 
-    def reconstruct_path_bidirectional(self, path_found, start, end, meet, forward_dic, backward_dic):
+    def reconstruct_path_bidirectional(self, path_found, meet, forward_dic, backward_dic):
+        """
+        Method to reconstructs the final path of the bidirectional search "joining" both forward and backward paths
+        :param meet(Node Object): The node where the forward and backward exploration meet
+        :param forwar_dic(Dic{Object Node : Object Node}): The parent dictonary for the forward search used to find out the order of the nodes
+        :param backward_dic(Dic{Object Node : Object Node}): The parent dictonary for the backward search used to find out the order of the nodes
+        :return: A list of nodes representing the found path of the bidirectional search
+        """
         start_path=[]
         end_path=[]
         final_path = []
@@ -323,6 +338,53 @@ class Grafo:
             final_path = start_path + end_path
         return final_path
             
+
+    #####################################
+    #       Procura Custo Uniforme      #
+    #####################################
+        
+    def procura_custo_uniforme(self, start, end):
+        """
+        Uniform Cost search adapted to our graph and circumstances using a min-heap to keep track of the lower cost possible moves
+        :param start(Node Object): The start node object
+        :param end(Node Object): The end node object
+        :return: A list of nodes representing the path from the start node to the end node
+        """
+        priority_queue = [(0, start)]
+        visited = set()
+        parents = dict()
+        parents[start] = None
+        path_found = False
+
+        while priority_queue and not path_found:
+            current_prio, current_node = heapq.heappop(priority_queue)
+
+            if current_node == end:
+                path_found = True
+
+            if current_node  in visited:
+                continue # Passa para a próxima iteração do loop
+            
+            visited.add(current_node) 
+
+            if current_node.getId() in self.m_graph.keys():
+                for (adj, cost, k) in self.m_graph[current_node.getId()]:
+                    prox_nodo = self.get_node_by_id(adj)
+                    if prox_nodo not in visited and not self.get_edge_by_nodes(current_node, prox_nodo).isCortada():
+                        parents[prox_nodo] = current_node
+                        heapq.heappush(priority_queue, (current_prio+cost, prox_nodo))
+
+        path=[]
+        custoT = self.calcula_custo(path)
+        if path_found:
+            path.append(end)
+            while parents[end] is not None:
+                path.append(parents[end])
+                end = parents[end]
+            path.reverse()
+            custoT = self.calcula_custo(path)
+        return (path, custoT)
+
 
     ###################################################
     # Função   getneighbours, devolve vizinhos de um nó

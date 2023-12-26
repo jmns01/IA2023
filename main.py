@@ -44,6 +44,12 @@ def main():
     print(pathBidirecional)
     print("\n")
     print(grafoAtual.converte_caminho(pathBidirecional[0]))
+
+    print("---Custo Uniforme---")
+    pathCustoUniforme = grafoAtual.procura_custo_uniforme(start, end)
+    print(pathCustoUniforme)
+    print("\n")
+    print(grafoAtual.converte_caminho(pathCustoUniforme[0]))
     
 if __name__ == "__main__":
     main()

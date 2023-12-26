@@ -45,6 +45,9 @@ class Ruas:
 
     def getTunnel(self):
         return self.tunnel
+    
+    def getLength(self):
+        return self.length
 
     def __str__(self):
         list_str = ', '.join(map(str, self.highway))
