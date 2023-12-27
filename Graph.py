@@ -138,10 +138,11 @@ class Grafo:
 
         return custoT
 
-    def calcula_custo(self, caminho):
+    def calcula_custo(self, caminho, lista_transito):
         """
         Calculates the cost of a path for all of the current type of vehicles
         :param caminho(List[Node Object]): A list of nodes usualy returned by algorithms
+        :param lista_transito(List[Ruas Object]): A list of edges that had traffic in them when the algorithms passed thought them
         :return: A list of costs where the first index is cost for the bike, the second cost for the motorcicle and the last for car
         """
         teste = caminho
@@ -149,7 +150,10 @@ class Grafo:
         i = 0
         custos_veiculos = []
         while i + 1 < len(teste):
-            custo = custo + self.get_arc_cost(teste[i], teste[i + 1])
+            arc_cost = self.get_arc_cost(teste[i], teste[i + 1])
+            if self.get_edge_by_nodes(teste[i], teste[i+1]) in lista_transito:
+                custo += arc_cost + arc_cost*(random.uniform(0.20,0.70)) # Caso o edge teve transito este irá aumentar o custo entre 20% e 70%
+            else: custo += arc_cost
             i = i + 1
         custos_veiculos.append(custo) # custo para bike
         custos_veiculos.append(custo + custo*0.13) # custo para moto
@@ -160,20 +164,21 @@ class Grafo:
     #       Procura DFS       #
     ###########################
 
-    def procura_DFS(self, start, end, path=[], visited=set()): # start e end são nodos
+    def procura_DFS(self, start, end, path=[], visited=set(), lista_transito=[]): # start e end são nodos
         """
         Deph First Search algorithm adapted to our graph and circumstances
-        :param start(Node Object): The start node object
+        :param start(Node Object): The current node object of the recursive call
         :param end(Node Object): The end node object
         :param path(List[Node Object]): The current path taken (used for recursion)
         :param visited(Set{Node Object}): A set to keep track of what nodes have been visited
-        :return: A list of nodes representing the path from the start node to the end node
+        :param lista_transito(List[Ruas Object]): A list of edges that had traffic in them when the algorithms passed thought them
+        :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
         path.append(start)
         visited.add(start)
 
         if start == end:
-            custoT = self.calcula_custo(path)
+            custoT = self.calcula_custo(path, lista_transito)
             return (path, custoT)
         
         if start.getId() in self.m_graph.keys():
@@ -181,8 +186,8 @@ class Grafo:
                 nodo = self.get_node_by_id(adjacente)
                 if nodo not in visited and not self.get_edge_by_nodes(start, nodo).isCortada(): # Deixar assim para ser mais eficiente (get_edge_by_node() precorre a lista de edges)
                     if self.get_edge_by_nodes(start, nodo).isTransito():
-                        peso += 500 # Valor arbitrário, talvez fazer aqui algo dinâmico?
-                    resultado = self.procura_DFS(nodo, end, path, visited)
+                        lista_transito.append(self.get_edge_by_nodes(start, nodo))
+                    resultado = self.procura_DFS(nodo, end, path, visited, lista_transito)
                     if resultado is not None:
                         return resultado
         path.pop()
@@ -198,8 +203,10 @@ class Grafo:
         Breath First search algorithm adapted to our graph and circumstances
         :param start(Node Object): The start node object
         :param end(Node Object): The end node object
-        :return: A list of nodes representing the path from the start node to the end node
+        :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
+        lista_transito=[] # Lista de edges que foram passados enquanto tiveram transito (o seu custo de passagem será maior)
+
         visited = set()
         fila = Queue()
 
@@ -212,7 +219,6 @@ class Grafo:
         path_found = False
         while not fila.empty() and not path_found:
             nodo_atual = fila.get()
-            #print(nodo_atual)
             if nodo_atual == end:
                 path_found = True
             
@@ -220,12 +226,14 @@ class Grafo:
                 for (adjacente, peso, k) in self.m_graph[nodo_atual.getId()]:
                     nodo = self.get_node_by_id(adjacente)
                     if nodo not in visited and not self.get_edge_by_nodes(nodo_atual, nodo).isCortada():
+                        if self.get_edge_by_nodes(nodo_atual, nodo).isTransito():
+                            lista_transito.append(self.get_edge_by_nodes(nodo_atual, nodo))
                         fila.put(nodo)
                         parent[nodo] = nodo_atual
                         visited.add(nodo)
 
         path = []
-        custo = self.calcula_custo(path)
+        custo = []
         if path_found:
             path.append(end)
             while parent[end] is not None:
@@ -233,7 +241,7 @@ class Grafo:
                 end = parent[end]
             path.reverse()
             # funçao calcula custo caminho
-            custo = self.calcula_custo(path)
+            custo = self.calcula_custo(path, lista_transito)
         return (path, custo)
     
     #####################################
@@ -245,8 +253,9 @@ class Grafo:
         Bidirectional Search adapted to our graph and circumstances
         :param start(Node Object): The start node object
         :param end(Node Object): The end node object
-        :return: A list of nodes representing the path from the start node to the end node
+        :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
+        lista_transito=[]
         path_found = False
 
         forward_queue = Queue()
@@ -280,7 +289,10 @@ class Grafo:
             if current_forward.getId() in self.m_graph.keys():
                 for (neighbor_fwd, cost_fwd, k) in self.m_graph[current_forward.getId()]:
                     node_fwd = self.get_node_by_id(neighbor_fwd)
-                    if node_fwd not in forward_visited and self.get_edge_by_nodes(current_forward, node_fwd) is not None:
+                    if node_fwd not in forward_visited and not self.get_edge_by_nodes(current_forward, node_fwd).isCortada():
+                        edge_fwd = self.get_edge_by_nodes(current_forward, node_fwd)
+                        if edge_fwd.isTransito():
+                            lista_transito.append(edge_fwd)
                         forward_queue.put(node_fwd)
                         forward_parent[node_fwd] = current_forward
                         forward_visited.add(node_fwd) 
@@ -288,13 +300,16 @@ class Grafo:
             if current_backward.getId() in self.m_graph.keys():
                 for neighbor_bwd in self.get_predecessors(current_backward):
                     node_bwd = self.get_node_by_id(neighbor_bwd)
-                    if node_bwd not in backward_visited and self.get_edge_by_nodes(node_bwd, current_backward) is not None:
+                    if node_bwd not in backward_visited and self.get_edge_by_nodes(node_bwd, current_backward) is not None and not self.get_edge_by_nodes(node_bwd, current_backward).isCortada():
+                        edge_bwd = self.get_edge_by_nodes(node_bwd, current_backward)
+                        if edge_bwd.isTransito():
+                            lista_transito.append(edge_bwd)
                         backward_queue.put(node_bwd)
                         backward_parent[node_bwd] = current_backward
                         backward_visited.add(node_bwd)
         
         path = self.reconstruct_path_bidirectional(path_found, meeting_point, forward_parent, backward_parent)
-        costT = self.calcula_custo(path)
+        costT = self.calcula_custo(path, lista_transito)
         return (path, costT)
 
     def get_predecessors(self, node):
@@ -348,8 +363,9 @@ class Grafo:
         Uniform Cost search adapted to our graph and circumstances using a min-heap to keep track of the lower cost possible moves
         :param start(Node Object): The start node object
         :param end(Node Object): The end node object
-        :return: A list of nodes representing the path from the start node to the end node
+        :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
+        lista_transito=[]
         priority_queue = [(0, start)]
         visited = set()
         parents = dict()
@@ -371,18 +387,21 @@ class Grafo:
                 for (adj, cost, k) in self.m_graph[current_node.getId()]:
                     prox_nodo = self.get_node_by_id(adj)
                     if prox_nodo not in visited and not self.get_edge_by_nodes(current_node, prox_nodo).isCortada():
+                        edge = self.get_edge_by_nodes(current_node, prox_nodo)
+                        if edge.isTransito():
+                            lista_transito.append(edge)
                         parents[prox_nodo] = current_node
                         heapq.heappush(priority_queue, (current_prio+cost, prox_nodo))
 
         path=[]
-        custoT = self.calcula_custo(path)
+        custoT = []
         if path_found:
             path.append(end)
             while parents[end] is not None:
                 path.append(parents[end])
                 end = parents[end]
             path.reverse()
-            custoT = self.calcula_custo(path)
+            custoT = self.calcula_custo(path, lista_transito)
         return (path, custoT)
     
     ######################################
@@ -391,18 +410,36 @@ class Grafo:
     ######################################
 
     def procura_iterativa(self, start, end):
+        """
+        Method responsible to iterate thought the searches, increasing the depth until a path is found
+        :param start(Node Object): The start node object
+        :param end(Node Object): The end node object
+        :return: A list of nodes representing the path from the start node to the end node and the total cost pair
+        """
         for limit in range(1, sys.maxsize):
-            result = self.procura_iterativa_ciclo(start, end, limit, [], set())
+            result = self.procura_iterativa_ciclo(start, end, limit, [], set(), [])
             if result is not None:
-                custoT = self.calcula_custo(result)
-                return (result, custoT)
+                resultado, lista = result
+                custoT = self.calcula_custo(resultado, lista)
+                return (resultado, custoT)
        
 
-    def procura_iterativa_ciclo(self, current, end, depth_limit, path, visited):
+    def procura_iterativa_ciclo(self, current, end, depth_limit, path, visited, lista_transito):
+        """
+        The body of the Iterative Deepening search algorithm, basically a copy of the DFS algorithm with a few more verifications
+        :param current(Node Object): The current node object of the recursive call
+        :param end(Node Object): The end node object
+        :param depth_limit: The number of recursions (depth) the method is "allowed" to perform at the moment
+        :param path(List[Node Object]): The current path taken (used for recursion)
+        :param visited(Set{Node Object}): A set to keep track of what nodes have been visited
+        :param lista_transito(List[Ruas Object]): A list of edges that had traffic in them when the algorithms passed thought them
+        :return: A list of nodes representing the path from the start node to the end node 
+        """
+        
         if current == end:
             path.append(current)
             visited.add(current)
-            return path
+            return (path, lista_transito)
 
         if depth_limit == 0:
             return None
@@ -414,9 +451,10 @@ class Grafo:
             for (adjacente, peso, k) in self.m_graph[current.getId()]:
                 nodo = self.get_node_by_id(adjacente)
                 if nodo not in visited and not self.get_edge_by_nodes(current, nodo).isCortada():
-                    if self.get_edge_by_nodes(current, nodo).isTransito():
-                        peso += 500
-                    resultado = self.procura_iterativa_ciclo(nodo, end, depth_limit - 1, path, visited)
+                    edge = self.get_edge_by_nodes(current, nodo)
+                    if edge.isTransito():
+                        lista_transito.append(edge)
+                    resultado = self.procura_iterativa_ciclo(nodo, end, depth_limit - 1, path, visited, lista_transito)
                     if resultado is not None:
                         return resultado
 
