@@ -22,24 +22,25 @@ TODO:
 -> Fazer o randomize de cortada/transito # FEITO
 -> Repensar os nodos # FEITO
 -> Mudar de dicionario nodes para lista, para podermos usar o get_node_by_name e outros dos profs # FEITO
--> Remover create_node_dict
--> Remover create_edges_dict
--> Limpar Location.py
--> Remover FileToGraph.py?
+-> Remover create_node_dict # FEITO
+-> Remover create_edges_dict # FEITO
+-> Limpar Location.py # FEITO 
+-> Remover FileToGraph.py? # FEITO
 -> Validar input user
 -> O resultado dos algoritmos são listas de nodos, temos de converter para lista de strings de nomes de ruas # FEITO
--> Nodo sem nome ou é autoestrada ou rotunda
--> Adicionar K às ruas
+-> Nodo sem nome ou é autoestrada ou rotunda # FEITO
+-> Adicionar K às ruas # FEITO
 -> Heuristica vai ser dinamicamente alterada
 -> Motos e bikes não poedm andar em autoestradas
--> Alterar custo?
--> Falta passar de lista de ruas com as "keys" para apenas uma instancia delas (Rua x (1), Rua x (2)) => (Rua x)
+-> Alterar custo? # FEITO
+-> Falta passar de lista de ruas com as "keys" para apenas uma instancia delas (Rua x (1), Rua x (2)) => (Rua x) # FEITO
 
 -> Existem edges com origem e destino iguais com floats grandes
 -> cruzamentos podem permitir a inversao de marcha que é proibida em certas avenidas
 -> Fazer várias heuristicas e dps comparar o perfomance
 
 RELATÓRIO:
+-> O QUE É O ESTADO INICIAL/FINAL ...
 -> Inicialmente iamos fazer com o FileToGraph.py (falar de como começou o projeto);
 -> Definição das classes que eram pedidas no enunciado (Vehicles.py, worker.py,...);
 -> Usamos a package OSMnx que é (OSMnx is a Python package to easily download, model, analyze, and visualize street networks and other geospatial features from OpenStreetMap);
@@ -50,3 +51,11 @@ RELATÓRIO:
 -> Algumas ruas que obtemos da cidade em questão não tÊm nome disponivel. Como tal, vemos se é uma rotunda, se for o nome passa a ser "Rotunda", caso não tenha nome nem seja uma rotunda, indicamos qual a categoria da rua (Highway);
 -> A procura DFS em grafos muito grandes, como é o caso, vai quase sempre não dar um caminho ótimo, isto porque ela devolve o primeiro caminho que encontra na procura em profundidade, esse primeiro caminho ser ótimo não se vai verificar maior parte das vezes devido as variadas soluções que existem para partir do emsmo nodo origem e chegar ao mesmo nodo destino. Assim, a procura BFS vai  ser sempre a melhor opção entre estes dois algoritmos, pois mesmo que tenha de expandir mais nodos para chegar a uma solução (quando o nodo destino se encontra num nível muito distante do nodo origem), garante-nos sempre a solução ótima (solução ótima não tendo em consideração pesos nem heuristicas)
 -> A procura bidirecional trata-se de uma procura BFS do inicio para o fim e vice versa, é importante frisar as "ginasticas" feitas com a recontrução do path backward assim como conseguimos chegar a um meeting point.
+-> Nos excertos de codigo indicar a linha e ficheiro
+
+REQUIREMENTS:
+-python-Levenshtein
+-fuzzywuzzy
+-networkx
+-matplotlib
+-osmnx
