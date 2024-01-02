@@ -4,6 +4,9 @@ class Produto:
         self.name = nome
         self.peso = peso
 
+    def __str__(self):
+        return "Produto: " + self.name + " Peso: " + self.peso
+
     def getName(self):
         return self.name
 

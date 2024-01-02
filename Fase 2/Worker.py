@@ -4,7 +4,7 @@ class worker:
         worker.current_id += 1
         self.id = worker.current_id
         self.name = name
-        self.average_rank = 0 # numero entre 0 e 5
+        self.average_rank = 0.0 # numero entre 0 e 5
         self.num_deliveries = 0
 
     def __str__(self):

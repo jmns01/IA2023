@@ -2,12 +2,11 @@ from Node import Node
 
 class Client:
     current_id = 0
-    def __init__(self, name="", history=[], street=Node(), password=""):
+    def __init__(self, name="", password="", history=[]):
         Client.current_id += 1
         self.id = Client.current_id
         self.name = name
         self.order_history = history
-        self.street = street
         self.password = password
 
     def __str__(self) -> str:
@@ -19,9 +18,6 @@ class Client:
     def getHistory(self):
         return self.order_history
     
-    def getStreet(self):
-        return self.street
-    
     def setId(self, newId):
         self.id = newId
 
@@ -30,9 +26,6 @@ class Client:
 
     def setId(self, newHistory):
         self.order_history = newHistory
-
-    def setId(self, newStreet):
-        self.street = newStreet
 
     def __eq__(self, other):
         if other.isinstance(Client):

@@ -67,33 +67,33 @@ def main():
             if escolha == 'nova_encomenda':
                 # Processo de criação de nova encomenda
                 localizacao = input("Selecione uma cidade (formato: Cidade, País): ")
+                neigh, edges, nodes = Location.run(localizacao)
+                grafoAtual = Grafo(nodes, neigh, edges)
 
                 numero_produtos = int(input("Digite o número de produtos: "))
 
                 detalhes_produtos = []
-                peso_total = 0;
+                peso_total = 0
                 for _ in range(numero_produtos):
                     nome_produto = input("Digite o nome do produto: ")
                     peso_produto = float(input("Digite o peso do produto: "))
                     peso_total += peso_produto
                     detalhes_produtos.append((nome_produto, peso_produto))
 
-                urgencia_entrega = input(
-                    "Escolha a urgência de entrega (imediata/urgente/normal/irrelevante): ").lower()
+                urgencia_entrega = input("Escolha a urgência de entrega (imediata/urgente/normal/irrelevante): ").lower()
                 origem, destino = seleciona_origem_destino(grafoAtual)
                 if urgencia_entrega not in ['imediata', 'urgente', 'normal', 'irrelevante']:
                     print("Erro: Escolha de urgência inválida.")
                 else:
-
                     health_planet.adicionar_encomenda(cliente_logado,peso_total,detalhes_produtos,origem,destino,urgencia_entrega)
                     print("Encomenda criada com sucesso!")
 
             elif escolha == 'ver_encomendas':
-                encomendas_cliente = cliente_logado.encomendas
+                encomendas_cliente = health_planet.get_encomendas_cliente(cliente_logado)
                 if encomendas_cliente:
                     print("Encomendas do cliente:")
                     for encomenda in encomendas_cliente:
-                        print(f"ID: {encomenda.id}, Detalhes: {encomenda.detalhes}")
+                        print(encomenda)
                 else:
                     print("O cliente ainda não possui encomendas.")
 

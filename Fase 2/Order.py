@@ -14,7 +14,7 @@ class Order:
         self.client = client
 
     def __str__(self):
-        return "Order " + self.id + " To: " + self.client
+        return "Order " + self.id + " To: " + str(self.client) + " Goods: " + str(self.goods)
 
     def __repr__(self):
         return "Order " + self.id + " To: " + self.client

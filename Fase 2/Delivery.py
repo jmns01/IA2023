@@ -53,7 +53,7 @@ class Delivery:
 
     def __eq__(self, other):
         if other.isinstance(Delivery):
-            return self.id == other.id
+            return self.id == other.id and self.list_orders == other.list_orders and self.worker == other.worker
         return False
     
     def __hash__(self):
