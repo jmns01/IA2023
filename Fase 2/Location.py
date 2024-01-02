@@ -47,8 +47,8 @@ def create_nodes_list(graph):
 
 def randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel,
                                       length, ref):
-    random1 = 2  # random.randint(0,9) para teste
-    random2 = 2  # random.randint(0,9)
+    random1 = random.randint(0,9)
+    random2 = random.randint(0,9)
 
     if (random1 == 1):
         rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, ref, True,

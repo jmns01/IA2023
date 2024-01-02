@@ -1,5 +1,9 @@
 import os
 from time import sleep
+import re
+import os
+import cProfile
+from prettytable import PrettyTable
 
 from Graph import Grafo
 from Node import Node
@@ -34,7 +38,7 @@ def main():
                     senha = parametros[2]
                     health_planet.adicionar_cliente(nome_usuario, senha)
                 else:
-                    print("Erro: Registo incorreto. Digite 'register [username] [password]'.")
+                    print("[SYS] Erro: Registo incorreto. Digite 'register [username] [password]'.")
 
             elif escolha.startswith('login'):
                 # Processo de login
@@ -44,14 +48,14 @@ def main():
                     senha = parametros[2]
                     if nome_usuario in health_planet.users and health_planet.users[nome_usuario].password == senha:
                         cliente_logado = health_planet.users[nome_usuario]
-                        print("Login bem-sucedido!")
+                        print("[SYS] Login bem-sucedido!")
                     else:
-                        print("Erro: Nome de usuário ou senha incorretos.")
+                        print("[SYS] Erro: Nome de usuário ou senha incorretos.")
                 else:
-                    print("Erro: Login incorreto. Digite 'login [username] [password]'.")
+                    print("[SYS] Erro: Login incorreto. Digite 'login [username] [password]'.")
 
             else:
-                print("Erro: Comando inválido.")
+                print("[SYS] Erro: Comando inválido.")
 
         else:
             print(
@@ -66,43 +70,44 @@ def main():
 
             if escolha == 'nova_encomenda':
                 # Processo de criação de nova encomenda
-                localizacao = input("Selecione uma cidade (formato: Cidade, País): ")
+                localizacao = input("[SYS] Selecione uma cidade (formato: Cidade, País): ")
                 neigh, edges, nodes = Location.run(localizacao)
                 grafoAtual = Grafo(nodes, neigh, edges)
 
-                numero_produtos = int(input("Digite o número de produtos: "))
+                numero_produtos = int(input("[SYS] Digite o número de produtos: "))
 
                 detalhes_produtos = []
                 peso_total = 0
                 for _ in range(numero_produtos):
-                    nome_produto = input("Digite o nome do produto: ")
-                    peso_produto = float(input("Digite o peso do produto: "))
+                    nome_produto = input("[SYS] Digite o nome do produto: ")
+                    peso_produto = float(input("[SYS]Digite o peso do produto: "))
                     peso_total += peso_produto
                     detalhes_produtos.append((nome_produto, peso_produto))
+                    print("\n")
 
-                urgencia_entrega = input("Escolha a urgência de entrega (imediata/urgente/normal/irrelevante): ").lower()
+                urgencia_entrega = input("[SYS] Escolha a urgência de entrega (imediata/urgente/normal/irrelevante): ").lower()
                 origem, destino = seleciona_origem_destino(grafoAtual)
                 if urgencia_entrega not in ['imediata', 'urgente', 'normal', 'irrelevante']:
-                    print("Erro: Escolha de urgência inválida.")
+                    print("[SYS] Erro: Escolha de urgência inválida.")
                 else:
                     health_planet.adicionar_encomenda(cliente_logado,peso_total,detalhes_produtos,origem,destino,urgencia_entrega)
-                    print("Encomenda criada com sucesso!")
+                    print("[SYS] Encomenda criada com sucesso!")
 
             elif escolha == 'ver_encomendas':
                 encomendas_cliente = health_planet.get_encomendas_cliente(cliente_logado)
                 if encomendas_cliente:
-                    print("Encomendas do cliente:")
+                    print("[SYS] Encomendas do cliente:")
                     for encomenda in encomendas_cliente:
                         print(encomenda)
                 else:
-                    print("O cliente ainda não possui encomendas.")
+                    print("[SYS] O cliente ainda não possui encomendas.")
 
             elif escolha == 'logout':
-                print("Logout realizado com sucesso!")
+                print("[SYS] Logout realizado com sucesso!")
                 cliente_logado = None  # Volta ao estado de nenhum usuário logado
 
             else:
-                print("Erro: Comando inválido.")
+                print("[SYS] Erro: Comando inválido.")
 
     # location = input("Selecione uma cidade (formato: Cidade, País): ")  # Define the location (you can specify a city, coordinates, etc.)
     location = "Braga, Portugal" # Deixar assim para teste

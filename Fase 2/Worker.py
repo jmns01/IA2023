@@ -1,6 +1,6 @@
 class worker:
     current_id = 0
-    def __init__(self, name):
+    def __init__(self, name=""):
         worker.current_id += 1
         self.id = worker.current_id
         self.name = name

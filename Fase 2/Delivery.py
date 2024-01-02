@@ -3,7 +3,7 @@ from Vehicles import Vehicle
 
 class Delivery:
     current_id = 0
-    def __init__(self, orders=[], worker=worker(), price=0.0, vehicle=Vehicle(), rating=0.0) -> None:
+    def __init__(self, orders=[], worker=worker(), price=0.0, vehicle=Vehicle(), rating=0.0):
         Delivery.current_id += 1
         self.id = Delivery.current_id
         self.list_orders = orders # lista de objetos order

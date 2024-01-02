@@ -1,13 +1,10 @@
 
 class Vehicle():
-    def __init__(self, id):
-        self.id = id
+    current_id=0
+    def __init__(self):
+        Vehicle.current_id += 1
+        self.id = Vehicle.current_id
 
-    def getId(self):
-        return self.id
-    
-    def setId(self, newId):
-        self.id = newId
 
 class bike(Vehicle):
     def __init__(self, id):

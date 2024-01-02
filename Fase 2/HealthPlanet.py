@@ -18,26 +18,26 @@ class HealthPlanet:
             # Cria uma instância de Cliente e adiciona ao dicionário
             novo_cliente = Client(username, password)
             self.users[username] = novo_cliente
-            print("Cliente adicionado com sucesso!")
+            print("\nCliente adicionado com sucesso!")
         else:
-            print("Erro: Este nome de Cliente já está em uso.")
+            print("\nErro: Este nome de Cliente já está em uso.")
 
     def adicionar_encomenda(self, client, weight, goods, origem, destino, time):
         new_order = Order(weight, goods, origem, destino, time, client)
 
         if new_order not in self.encomendas.values():
             self.encomendas[new_order.getId()] = new_order
-            print(f"Encomenda {new_order.getId()} adicionada com sucesso!")
+            print(f"\nEncomenda {new_order.getId()} adicionada com sucesso!")
         else:
-            print("Erro ao adicionar a encomenda")
+            print("\nErro ao adicionar a encomenda")
 
     def adicionar_workers(self, nome):
         if nome not in self.workers:
             new_worker = worker(nome)
             self.workers.append(new_worker)
-            print(f"Estafeta {new_worker.getId()} adicionado com sucesso!")
+            print(f"\nEstafeta {new_worker.getId()} adicionado com sucesso!")
         else:
-            print("Já existe um worker com esse nome!")
+            print("\nJá existe um worker com esse nome!")
             
 
     def adicionar_entrega(self, encomendas, estafeta, preco, veiculo, rating):
@@ -45,17 +45,17 @@ class HealthPlanet:
 
         if new_delivery not in self.entrega.value():
             self.entrega[new_delivery.getId()] = new_delivery
-            print(f"Entrega {new_delivery.getId()} adicionada com sucesso!")
+            print(f"\nEntrega {new_delivery.getId()} adicionada com sucesso!")
         else:
-            print("Erro ao adicionar a entrega")
+            print("\nErro ao adicionar a entrega")
 
     def adicionar_grafo(self, nome, grafo):
 
         if nome in self.grafos:
             self.grafos[nome] = grafo
-            print(f"Grafo de {nome} adicionado com sucesso!")
+            print(f"\nGrafo de {nome} adicionado com sucesso!")
         else:
-            print("Já existe um grafo dessa cidade!")
+            print("\nJá existe um grafo dessa cidade!")
 
     def get_encomendas_cliente(self, cliente):
         encomendas_cliente=[]
