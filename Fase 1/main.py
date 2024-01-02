@@ -18,10 +18,12 @@ def main():
     neigh, edges, nodes = Location.run(location)
     grafoAtual = Grafo(nodes, neigh, edges)
     
-    start, end = seleciona_origem_destino(grafoAtual)
-    print("--------------------\n" +
-          "-----Algoritmos-----\n" +
-          "--------------------\n")
+    #start, end = seleciona_origem_destino(grafoAtual)
+    start = grafoAtual.get_node_by_id(8321237017)
+    end = grafoAtual.get_node_by_id(1675798722)
+    print("---------------------------------------------\n" +
+          "-----Algoritmos de Procura Não Informada-----\n" +
+          "---------------------------------------------\n")
     
     print("---DFS---")
 
@@ -29,12 +31,13 @@ def main():
     profilerDFS.enable()
     pathDFS = grafoAtual.procura_DFS(start, end)
     profilerDFS.disable()
-    print("\n")
-    print("[SYS] Caminho Encontrado: ")
-    print(grafoAtual.converte_caminho(pathDFS[0]))
-    print("[SYS] Custo: ")
-    print(pathDFS[1])
-    print("\n")
+    if len(pathDFS[0]) > 0:
+        print("\n[SYS] Caminho Encontrado: ")
+        print(grafoAtual.converte_caminho(pathDFS[0]))
+        print("\n[SYS] Custo: ")
+        print(pathDFS[1])
+        print("\n")
+    else: print("\n[SYS] Caminho não encontrado!")
     
     print("---BSF---")
 
@@ -42,12 +45,13 @@ def main():
     profilerBFS.enable()
     pathBFS = grafoAtual.procura_BFS(start, end)
     profilerBFS.disable()
-    print("\n")
-    print("[SYS] Caminho Encontrado: ")
-    print(grafoAtual.converte_caminho(pathBFS[0]))
-    print("[SYS] Custo: ")
-    print(pathBFS[1])
-    print("\n")
+    if len(pathBFS[0]) > 0:
+        print("\n[SYS] Caminho Encontrado: ")
+        print(grafoAtual.converte_caminho(pathBFS[0]))
+        print("\n[SYS] Custo: ")
+        print(pathBFS[1])
+        print("\n")
+    else: print("\n[SYS] Caminho não encontrado!")
     
     print("---Bidirecional---")
 
@@ -55,12 +59,13 @@ def main():
     profilerBidirecional.enable()
     pathBidirecional = grafoAtual.procura_bidirecional(start, end)
     profilerBidirecional.disable()
-    print("\n")
-    print("[SYS] Caminho Encontrado: ")
-    print(grafoAtual.converte_caminho(pathBidirecional[0]))
-    print("[SYS] Custo: ")
-    print(pathBidirecional[1])
-    print("\n")
+    if len(pathBidirecional[0]) > 0:
+        print("\n[SYS] Caminho Encontrado: ")
+        print(grafoAtual.converte_caminho(pathBidirecional[0]))
+        print("\n[SYS] Custo: ")
+        print(pathBidirecional[1])
+        print("\n")
+    else: print("\n[SYS] Caminho não encontrado!")
 
     print("---Custo Uniforme---")
 
@@ -68,26 +73,48 @@ def main():
     profilerCustoUniforme.enable()
     pathCustoUniforme = grafoAtual.procura_custo_uniforme(start, end)
     profilerCustoUniforme.disable()
-    print("\n")
-    print("[SYS] Caminho Encontrado: ")
-    print(grafoAtual.converte_caminho(pathCustoUniforme[0]))
-    print("[SYS] Custo: ")
-    print(pathCustoUniforme[1])
-    print("\n")
+    if len(pathCustoUniforme[0]) > 0:
+        print("\n[SYS] Caminho Encontrado: ")
+        print(grafoAtual.converte_caminho(pathCustoUniforme[0]))
+        print("\n[SYS] Custo: ")
+        print(pathCustoUniforme[1])
+        print("\n")
+    else: print("\n[SYS] Caminho não encontrado!")
 
     print("---Procura Iterativa---")
     profilerProcuraIterativa = cProfile.Profile()
     profilerProcuraIterativa.enable()
     pathProcuraIterativa = grafoAtual.procura_iterativa(start, end)
     profilerProcuraIterativa.disable()
-    print("\n")
-    print("[SYS] Caminho Encontrado: ")
-    print(grafoAtual.converte_caminho(pathProcuraIterativa[0]))
-    print("[SYS] Custo: ")
-    print(pathProcuraIterativa[1])
-    print("\n")
+    if len(pathProcuraIterativa[0]) > 0:
+        print("\n[SYS] Caminho Encontrado: ")
+        print(grafoAtual.converte_caminho(pathProcuraIterativa[0]))
+        print("\n[SYS] Custo: ")
+        print(pathProcuraIterativa[1])
+        print("\n")
+    else: print("\n[SYS] Caminho não encontrado!")
 
-    performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, [profilerDFS, profilerBFS, profilerBidirecional, profilerCustoUniforme, profilerProcuraIterativa])
+
+    print("-----------------------------------------\n" +
+          "-----Algoritmos de Procura Informada-----\n" +
+          "-----------------------------------------\n")
+    grafoAtual.calcula_heuristica_global(end)
+
+    
+    print("---Procura A*---")
+    profilerAstar = cProfile.Profile()
+    profilerAstar.enable()
+    pathAstar = grafoAtual.procura_aStar(start, end)
+    profilerAstar.disable()
+    if len(pathAstar[0]) > 0:
+        print("\n[SYS] Caminho Encontrado: ")
+        print(grafoAtual.converte_caminho(pathAstar[0]))
+        print("\n[SYS] Custo: ")
+        print(pathAstar[1])
+        print("\n")
+    else: print("\n[SYS] Caminho não encontrado!")
+
+    performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, pathAstar, [profilerDFS, profilerBFS, profilerBidirecional, profilerCustoUniforme, profilerProcuraIterativa, profilerAstar])
 
 def seleciona_origem_destino(graph):
     testO1, testO2, testD1, testD2 = str(), str(), str(), str()
@@ -136,10 +163,10 @@ def seleciona_origem_destino(graph):
 
     
 
-def performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, profiles):
+def performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, pathAstar, profiles):
     table = PrettyTable()
     dicionario = dict()
-    algoritmos = ['DFS', 'BFS', 'Bidirecional', 'Custo Uniforme', 'Procura Iterativa']
+    algoritmos = ['DFS', 'BFS', 'Bidirecional', 'Custo Uniforme', 'Procura Iterativa', 'A*']
     
     dicionario['Algoritmo'] = algoritmos
     dicionario['Tempo de Execução'] = []
@@ -160,18 +187,21 @@ def performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme
     dicionario['Tamanho do Path'].append(len(pathBidirecional[0]))
     dicionario['Tamanho do Path'].append(len(pathCustoUniforme[0]))
     dicionario['Tamanho do Path'].append(len(pathProcuraIterativa[0]))
+    dicionario['Tamanho do Path'].append(len(pathAstar[0]))
 
     dicionario['Custo de Solução'].append(pathDFS[1])
     dicionario['Custo de Solução'].append(pathBFS[1])
     dicionario['Custo de Solução'].append(pathBidirecional[1])
     dicionario['Custo de Solução'].append(pathCustoUniforme[1])
     dicionario['Custo de Solução'].append(pathProcuraIterativa[1])
+    dicionario['Custo de Solução'].append(pathAstar[1])
 
     dicionario['Número de Nós Explorados'].append(pathDFS[2])
     dicionario['Número de Nós Explorados'].append(pathBFS[2])
     dicionario['Número de Nós Explorados'].append(pathBidirecional[2])
     dicionario['Número de Nós Explorados'].append(pathCustoUniforme[2])
     dicionario['Número de Nós Explorados'].append(pathProcuraIterativa[2])
+    dicionario['Número de Nós Explorados'].append(pathAstar[2])
     
     table.field_names = ['Algoritmo', 'Tempo de Execução', 'Número de Chamadas de Funções', 'Tamanho do Path', 'Custo de Solução', 'Número de Nós Explorados']
     for i in range(len(dicionario['Algoritmo'])):
