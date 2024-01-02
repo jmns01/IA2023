@@ -19,12 +19,12 @@ def main():
     end = grafoAtual.get_node_by_id(1675798722)
     
     
-    for adj in neigh.values():
-        seen_element=set()
-        for (adjacente, custo, k) in adj:
-            if adjacente in seen_element:
-                print(adj)
-            else: seen_element.add(adjacente)
+    # for adj in neigh.values():
+    #     seen_element=set()
+    #     for (adjacente, custo, k) in adj:
+    #         if adjacente in seen_element:
+    #             print(adj)
+    #         else: seen_element.add(adjacente)
     
     """
     print("---DFS---")
@@ -57,5 +57,16 @@ def main():
     print("\n")
     print(grafoAtual.converte_caminho(pathProcuraIterativa[0]))
     """
+
+    print("---Procura AStar---")
+    # print(grafoAtual.m_nodes)
+    grafoAtual.calcula_heuristica_global(end)
+    # print(grafoAtual.m_h)
+    pathProcuraAStar = grafoAtual.procura_aStar(start, end, "car")
+    print(pathProcuraAStar)
+    print("\n")
+    print(grafoAtual.converte_caminho(pathProcuraAStar[0]))
+
+
 if __name__ == "__main__":
     main()

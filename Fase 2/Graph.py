@@ -18,7 +18,7 @@ class Grafo:
         self.m_nodes = nodes # lista de nodos
         self.m_graph = graph # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
         self.m_edges = edges # lista de ruas
-        self.m_h = []  # lista de dicionarios para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
+        self.m_h = {}  # lista de dicionarios para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
 
     def __str__(self):
         out = ""
@@ -35,6 +35,18 @@ class Grafo:
         for node in self.m_nodes:
             if(node.m_id == id):
                 return node
+        return None
+
+    def get_id_by_node(self, node):
+        """
+        Get the id that identifies the node
+        :param Node Object): The node that has the id
+        :returnid(Integer): Returns a Int id or None if there is no node with that id
+        """
+        for node_aux in self.m_nodes:
+            if (node_aux == node):
+                return node_aux.m_id
+
         return None
     
     def get_edge_by_nodes(self, origem, destino):
@@ -462,17 +474,13 @@ class Grafo:
 
         return None
 
-        
-
-
-
     ###################################################
     # Função   getneighbours, devolve vizinhos de um nó
     ####################################################
 
     def getNeighbours(self, nodo):
         lista = []
-        for (adjacente, peso) in self.m_graph[nodo]:
+        for (adjacente, peso, _) in self.m_graph[nodo]:
             lista.append((adjacente, peso))
         return lista
 
@@ -511,52 +519,56 @@ class Grafo:
             self.m_h[n] = estima
 
 
-
     #######################################################################
     #    heuristica   -> define heuristica para cada nodo 1 por defeito....
     #    apenas para teste de pesquisa informada
     #######################################################################
 
     # A heuristica é calculada numa maneira pseudo bfs, começa no nodo objetivo e vai explorando os seus adjacentes somando á heuristica do seu nodo pai a heuristica do atual (tempo para percorrer do final até lá)
-    def heuristica(self, destino): # destino é o nome
+    def calcula_heuristica_global(self, destino):
+        """
+        Calcula a heurística para todos os nós no grafo em relação a um destino específico.
+        :param destino: O nodo destino
+        """
+
         dicBike = self.heurisitcas_by_vehicle(destino, 10)
         dicMoto = self.heurisitcas_by_vehicle(destino, 35)
         dicCar = self.heurisitcas_by_vehicle(destino, 50)
 
-        self.m_h.append(dicBike)
-        self.m_h.append(dicMoto)
-        self.m_h.append(dicCar)
+        for nodo, heuristica in dicBike.items():
+            self.m_h[nodo] = (dicBike[nodo], dicMoto[nodo], dicCar[nodo])
 
     def heurisitcas_by_vehicle(self, destino, vel):
         dic = {}
-        n1 = self.get_node_by_name(destino)
-        heuristica = self.calculate_time(n1.street_length, vel) # heuristica do primeiro nodo (nodo objetivo)
-        dic[destino] = heuristica
-        
-        queue = [destino]
+        n1 = destino
+        heuristica = 0
+        aux = self.get_id_by_node(destino)
+        dic[aux] = heuristica
+
+        queue = [aux]
 
         while queue:
             current = queue.pop(0)
-            c = self.get_node_by_name(current)
-            for (adj, custo) in c.adjacent_streets:
-                if adj not in dic.keys():
-                    n2 = self.get_node_by_name(adj)
-                    dic[adj] = dic[current] + self.calculate_time(n2.street_length, vel)
-                    queue.append(adj)
+            # print(current)
+            if current in self.m_graph.keys():
+                for (adj, custo, _) in self.m_graph[current]:
+                    if adj not in dic.keys():
+                        n2 = adj
+                        dic[adj] = dic[current] + self.calculate_time(custo, vel)
+                        queue.append(adj)
+            else:
+                dic[current] = float('inf')
 
         return dic
 
-    
     def calculate_time(self, length_in_meters, speed_kmh):
         speed_ms = speed_kmh * 1000 / 3600
         time_seconds = length_in_meters / speed_ms
 
         return round(time_seconds, 2)
 
-        
-
-
-
+    ##########################################3
+    #
     ##########################################3
     #
     def calcula_est(self, estima):
@@ -569,22 +581,41 @@ class Grafo:
                 node = k
         return node
 
+    ###################################3
+    # devolve heuristica do nodo
+    ####################################
+
+    def getH(self, nodo, vehicle):
+
+        if nodo not in self.m_h.keys():
+            return float('inf')
+        elif vehicle == "bike":
+            return (self.m_h[nodo][0])
+        elif vehicle == "moto":
+            return (self.m_h[nodo][1])
+        elif vehicle == "car":
+            return (self.m_h[nodo][2])
+
+
     ##########################################
     #    A*
     ##########################################
 
-    def procura_aStar(self, start, end):
+    def procura_aStar(self, start, end, vehicle):
         # open_list is a list of nodes which have been visited, but who's neighbors
         # haven't all been inspected, starts off with the start node
         # closed_list is a list of nodes which have been visited
         # and who's neighbors have been inspected
+        if (vehicle != "bike" and vehicle != "moto" and vehicle != "car"):
+            print("Invalid vehicle! Please choose bike, moto or car!")
+            return
+        start = self.get_id_by_node(start)
+        end = self.get_id_by_node(end)
         open_list = {start}
         closed_list = set([])
-
         # g contains current distances from start_node to all other nodes
         # the default value (if it's not found in the map) is +infinity
         g = {}  ##  g é apra substiruir pelo peso  ???
-
         g[start] = 0
 
         # parents contains an adjacency map of all nodes
@@ -592,6 +623,7 @@ class Grafo:
         parents[start] = start
         n = None
         while len(open_list) > 0:
+            # print(open_list)
             # find a node with the lowest value of f() - evaluation function
             calc_heurist = {}
             flag = 0
@@ -600,7 +632,7 @@ class Grafo:
                     n = v
                 else:
                     flag = 1
-                    calc_heurist[v] = g[v] + self.getH(v)
+                    calc_heurist[v] = g[v] + self.getH(v, vehicle)
             if flag == 1:
                 min_estima = self.calcula_est(calc_heurist)
                 n = min_estima
@@ -614,39 +646,44 @@ class Grafo:
                 reconst_path = []
 
                 while parents[n] != n:
-                    reconst_path.append(n)
+                    reconst_path.append(self.get_node_by_id(n))
                     n = parents[n]
 
-                reconst_path.append(start)
+                reconst_path.append(self.get_node_by_id(start))
 
                 reconst_path.reverse()
 
-                #print('Path found: {}'.format(reconst_path))
-                return (reconst_path, self.calcula_custo(reconst_path))
+                # print('Path found: {}'.format(reconst_path))
+                return (reconst_path, self.calcula_custo(reconst_path,[1233213423]))
 
             # for all neighbors of the current node do
-            for (m, weight) in self.getNeighbours(n):  # definir função getneighbours  tem de ter um par nodo peso
-                # if the current node isn't in both open_list and closed_list
-                # add it to open_list and note n as it's parent
-                if m not in open_list and m not in closed_list:
-                    open_list.add(m)
-                    parents[m] = n
-                    g[m] = g[n] + weight
 
-                # otherwise, check if it's quicker to first visit n, then m
-                # and if it is, update parent data and g data
-                # and if the node was in the closed_list, move it to open_list
-                else:
-                    if g[m] > g[n] + weight:
-                        g[m] = g[n] + weight
+            if self.getH(n, vehicle) != float('inf'):
+                for (m, weight) in self.getNeighbours(n):
+                    # definir função getneighbours  tem de ter um par nodo peso
+                    # if the current node isn't in both open_list and closed_list
+                    # add it to open_list and note n as it's parent
+
+                    if m not in open_list and m not in closed_list:
+                        open_list.add(m)
                         parents[m] = n
+                        g[m] = g[n] + weight
 
-                        if m in closed_list:
-                            closed_list.remove(m)
-                            open_list.add(m)
+                    # otherwise, check if it's quicker to first visit n, then m
+                    # and if it is, update parent data and g data
+                    # and if the node was in the closed_list, move it to open_list
+                    else:
+                        if g[m] > g[n] + weight:
+                            g[m] = g[n] + weight
+                            parents[m] = n
+
+                            if m in closed_list:
+                                closed_list.remove(m)
+                                open_list.add(m)
 
             # remove n from the open_list, and add it to closed_list
             # because all of his neighbors were inspected
+
             open_list.remove(n)
             closed_list.add(n)
 
@@ -693,20 +730,8 @@ class Grafo:
 
         return None
 
-    ###################################3
-    # devolve heuristica do nodo
-    ####################################
-
-    def getH(self, nodo):
-        if nodo not in self.m_h.keys():
-            return 1000
-        else:
-            return (self.m_h[nodo])
 
 
-    ##########################################
-    #   Greedy
-    ##########################################
 
     def greedy(self, start, end):
         # open_list é uma lista de nodos visitados, mas com vizinhos
