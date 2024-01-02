@@ -2,9 +2,11 @@ from Worker import worker
 from Vehicles import Vehicle
 
 class Delivery:
-    def __init__(self, id, orders=[], worker=worker(), price=0.0, vehicle=Vehicle(), rating=0) -> None:
-        self.id = id 
-        self.list_orders = orders
+    current_id = 0
+    def __init__(self, orders=[], worker=worker(), price=0.0, vehicle=Vehicle(), rating=0.0) -> None:
+        Delivery.current_id += 1
+        self.id = Delivery.current_id
+        self.list_orders = orders # lista de objetos order
         self.worker = worker
         self.price = price
         self.vehicle = vehicle

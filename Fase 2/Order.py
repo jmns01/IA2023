@@ -2,12 +2,14 @@ from Node import Node
 from Client import Client
 
 class Order:
-    def __init__(self, id, weight=0, volume=0, goods=[], street=Node(), time=0, client=Client()): # time é em minutos/segundos
-        self.id = id
+    current_id = 0
+    def __init__(self, weight=0, goods=[], origem="", destino="", time="", client=Client()): # nao pode ultrapassar 100 kg
+        Order.current_id += 1
+        self.id = Order.current_id
         self.weight = weight
-        self.volume = volume
         self.goods = goods
-        self.delivery_street = street
+        self.start_street = origem
+        self.delivery_street = destino
         self.delivery_time = time
         self.client = client
 
@@ -22,9 +24,6 @@ class Order:
 
     def getWeight(self):
         return self.weight
-    
-    def getVolume(self):
-        return self.volume
     
     def getGoods(self):
         return self.goods
@@ -44,9 +43,6 @@ class Order:
     def setWeight(self, newWeight):
         self.weigth = newWeight
     
-    def setVolume(self, newVolume):
-        self.volume = newVolume
-    
     def setGoods(self, newGoods):
         self.goods = newGoods
 
@@ -61,7 +57,7 @@ class Order:
 
     def __eq__(self, other):
         if other.isinstance(Order):
-            return self.id == other.id
+            return self.id == other.id and self.client == other.client and self.goods == other.goods
         return False
     
     def __hash__(self):

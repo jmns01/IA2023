@@ -1,11 +1,109 @@
+import os
+from time import sleep
+
 from Graph import Grafo
 from Node import Node
 import Location
+from HealthPlanet import HealthPlanet
 
 
 
 def main():
-    print("-----Health Planet-----")
+    #print("-----Health Planet-----")
+
+    health_planet = HealthPlanet()
+
+    cliente_logado = None  # Variável para rastrear o usuário logado
+
+    while True:
+        if cliente_logado is None:
+            print(
+                "\n=========================================== Health Planet ===============================================")
+            print("HealthPlanet.help> 'registo [username] [password]' - Registar um novo utilizador")
+            print("HealthPlanet.help> 'login [username] [password]'    - Login de um Utilizador já existente")
+            print(
+                "=========================================================================================================")
+
+            escolha = input("HealthPlanet.help> ")
+
+            if escolha.startswith('registo'):
+                # Processo de registro
+                parametros = escolha.split(' ')
+                if len(parametros) == 3:
+                    nome_usuario = parametros[1]
+                    senha = parametros[2]
+                    health_planet.adicionar_cliente(nome_usuario, senha)
+                else:
+                    print("Erro: Registo incorreto. Digite 'register [username] [password]'.")
+
+            elif escolha.startswith('login'):
+                # Processo de login
+                parametros = escolha.split(' ')
+                if len(parametros) == 3:
+                    nome_usuario = parametros[1]
+                    senha = parametros[2]
+                    if nome_usuario in health_planet.users and health_planet.users[nome_usuario].password == senha:
+                        cliente_logado = health_planet.users[nome_usuario]
+                        print("Login bem-sucedido!")
+                    else:
+                        print("Erro: Nome de usuário ou senha incorretos.")
+                else:
+                    print("Erro: Login incorreto. Digite 'login [username] [password]'.")
+
+            else:
+                print("Erro: Comando inválido.")
+
+        else:
+            print(
+                "\n=========================================== Health Planet ===============================================")
+            print("HealthPlanet.menu> 'nova_encomenda'  - Criar uma nova encomenda")
+            print("HealthPlanet.menu> 'ver_encomendas'             - Ver suas encomendas")
+            print("HealthPlanet.menu> 'logout'                      - Logout e voltar ao menu principal")
+            print(
+                "=========================================================================================================")
+
+            escolha = input("HealthPlanet.menu> ")
+
+            if escolha == 'nova_encomenda':
+                # Processo de criação de nova encomenda
+                localizacao = input("Selecione uma cidade (formato: Cidade, País): ")
+
+                numero_produtos = int(input("Digite o número de produtos: "))
+
+                detalhes_produtos = []
+                peso_total = 0;
+                for _ in range(numero_produtos):
+                    nome_produto = input("Digite o nome do produto: ")
+                    peso_produto = float(input("Digite o peso do produto: "))
+                    peso_total += peso_produto
+                    detalhes_produtos.append((nome_produto, peso_produto))
+
+                urgencia_entrega = input(
+                    "Escolha a urgência de entrega (imediata/urgente/normal/irrelevante): ").lower()
+                origem, destino = seleciona_origem_destino(grafoAtual)
+                if urgencia_entrega not in ['imediata', 'urgente', 'normal', 'irrelevante']:
+                    print("Erro: Escolha de urgência inválida.")
+                else:
+
+                    health_planet.adicionar_encomenda(cliente_logado,peso_total,detalhes_produtos,origem,destino,urgencia_entrega)
+                    print("Encomenda criada com sucesso!")
+
+            elif escolha == 'ver_encomendas':
+                encomendas_cliente = cliente_logado.encomendas
+                if encomendas_cliente:
+                    print("Encomendas do cliente:")
+                    for encomenda in encomendas_cliente:
+                        print(f"ID: {encomenda.id}, Detalhes: {encomenda.detalhes}")
+                else:
+                    print("O cliente ainda não possui encomendas.")
+
+            elif escolha == 'logout':
+                print("Logout realizado com sucesso!")
+                cliente_logado = None  # Volta ao estado de nenhum usuário logado
+
+            else:
+                print("Erro: Comando inválido.")
+
     # location = input("Selecione uma cidade (formato: Cidade, País): ")  # Define the location (you can specify a city, coordinates, etc.)
     location = "Braga, Portugal" # Deixar assim para teste
     neigh, edges, nodes = Location.run(location)
@@ -111,6 +209,8 @@ def seleciona_origem_destino(graph):
     start = graph.get_node_by_id(intersectionOrigem)
     end = graph.get_node_by_id(intersectionDetino)
     return start, end
+
+
 
 
 if __name__ == "__main__":

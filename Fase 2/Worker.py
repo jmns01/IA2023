@@ -1,6 +1,8 @@
 class worker:
-    def __init__(self, id, name):
-        self.id = id
+    current_id = 0
+    def __init__(self, name):
+        worker.current_id += 1
+        self.id = worker.current_id
         self.name = name
         self.average_rank = 0 # numero entre 0 e 5
         self.num_deliveries = 0
@@ -22,6 +24,9 @@ class worker:
 
     def setName(self, newName):
         self.name = newName
+
+    def increment_num_deliveries(self):
+        self.num_deliveries += 1
 
     def newRank(self, rank):
         self.average_rank = ((self.average_rank*self.num_deliveries) + rank) / self.num_deliveries+1

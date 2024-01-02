@@ -1,11 +1,14 @@
 from Node import Node
 
 class Client:
-    def __init__(self, id, name="", history=[], street=Node()):
-        self.id = id
+    current_id = 0
+    def __init__(self, name="", history=[], street=Node(), password=""):
+        Client.current_id += 1
+        self.id = Client.current_id
         self.name = name
         self.order_history = history
         self.street = street
+        self.password = password
 
     def __str__(self) -> str:
         return "Client: " + self.id + " Name: " + self.name
