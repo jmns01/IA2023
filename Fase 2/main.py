@@ -59,9 +59,7 @@ def main():
     """
 
     print("---Procura AStar---")
-    # print(grafoAtual.m_nodes)
     grafoAtual.calcula_heuristica_global(end)
-    # print(grafoAtual.m_h)
     pathProcuraAStar = grafoAtual.procura_aStar(start, end, "car")
     print(pathProcuraAStar)
     print("\n")

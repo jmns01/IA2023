@@ -62,6 +62,80 @@ class Grafo:
                 return edge
         return None
 
+    def get_edge_by_name(self, street):
+        """
+        Get the edge object by it's real-life street name or a suggestion of the possible streets wanted
+        :param street(String): A street name
+        :return: An edge object or a string
+        """
+        exact = self.get_edge_by_name_exact(street)
+        if len(exact) > 0:
+            return exact
+
+        suggestion = self.get_edge_by_name_suggestion(street)
+        return f"Rua não encontrada. \n Quereria dizer: {', '.join(suggestion)}"
+
+    def get_edge_by_name_exact(self, street):
+        """
+        Get the group of the exact edges that has the same name as the string street
+        :param street(String): The street name
+        :return: A list with adge objects
+        """
+        lista = []
+        section = r'\([0-9]+\)'
+        for edge in self.m_edges:
+            if isinstance(edge.getName(), list):
+                for names in edge.getName():
+                    striped = names.split(" ")
+                    last = striped[-1]
+                    if names == street or (" ".join(striped[:-1]) == street and re.match(section, last)):
+                        lista.append(edge)
+                continue
+            striped = edge.getName().split(" ")
+            last = striped[-1]
+            if edge.getName() == street or (" ".join(striped[:-1]) == street and re.match(section, last)):
+                lista.append(edge)
+        return lista
+
+    def get_edge_by_name_suggestion(self, street, threshold=80):
+        """
+        Using the fuzzywuzzy libary to find street name with similar names as the input, it uses the Levenshtein distance to
+        calculate the similarity between 2 words
+        :param street(String): The name of the street
+        :param threshold(Int): The precentage of similarity that is bound to be concidered a similar word
+        :return: A list of the similar street names
+        """
+        list_of_names = []
+        for edge in self.m_edges:
+            if isinstance(edge.getName(), list):
+                for names in edge.getName():
+                    list_of_names.append(names)
+            else:
+                list_of_names.append(edge.getName())
+
+        suggestions = process.extract(street, list_of_names, limit=10)
+        filtered_suggestions = [suggestion[0] for suggestion in suggestions if suggestion[1] >= threshold]
+
+        return filtered_suggestions
+
+    def get_intersection_node(self, edge1, edge2):
+        """
+        Gets the intersection between 2 edges
+        :param edge1(Object Rua): A list of edges
+        :param edge2(Object Rua): A list of edges
+        :return: The id of a node or None
+        """
+
+        for edge in edge1:
+            origem = edge.getOrigem()
+            destino = edge.getDestino()
+            for edges in edge2:
+                if origem == edges.getOrigem():
+                    return origem
+                elif destino == edges.getDestino():
+                    return destino
+        return None
+
     def converte_caminho(self, path):
         """
         Converts the output of the search algorithms to a readable version (Replaces nodes id's with street names)
@@ -176,7 +250,8 @@ class Grafo:
     #       Procura DFS       #
     ###########################
 
-    def procura_DFS(self, start, end, path=[], visited=set(), lista_transito=[]): # start e end são nodos
+    def procura_DFS(self, start, end, path=[], visited=set(), lista_transito=[],
+                    n_nos_explorados=0):  # start e end são nodos
         """
         Deph First Search algorithm adapted to our graph and circumstances
         :param start(Node Object): The current node object of the recursive call
@@ -191,15 +266,16 @@ class Grafo:
 
         if start == end:
             custoT = self.calcula_custo(path, lista_transito)
-            return (path, custoT)
-        
+            return (path, custoT, n_nos_explorados)
+
         if start.getId() in self.m_graph.keys():
-            for(adjacente, peso, k) in self.m_graph[start.getId()]:
+            for (adjacente, peso, k) in self.m_graph[start.getId()]:
                 nodo = self.get_node_by_id(adjacente)
-                if nodo not in visited and not self.get_edge_by_nodes(start, nodo).isCortada(): # Deixar assim para ser mais eficiente (get_edge_by_node() precorre a lista de edges)
+                if nodo not in visited and not self.get_edge_by_nodes(start,
+                                                                      nodo).isCortada():  # Deixar assim para ser mais eficiente (get_edge_by_node() precorre a lista de edges)
                     if self.get_edge_by_nodes(start, nodo).isTransito():
                         lista_transito.append(self.get_edge_by_nodes(start, nodo))
-                    resultado = self.procura_DFS(nodo, end, path, visited, lista_transito)
+                    resultado = self.procura_DFS(nodo, end, path, visited, lista_transito, n_nos_explorados + 1)
                     if resultado is not None:
                         return resultado
         path.pop()
@@ -217,8 +293,8 @@ class Grafo:
         :param end(Node Object): The end node object
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
-        lista_transito=[] # Lista de edges que foram passados enquanto tiveram transito (o seu custo de passagem será maior)
-
+        lista_transito = []  # Lista de edges que foram passados enquanto tiveram transito (o seu custo de passagem será maior)
+        n_nos_explorados = 0
         visited = set()
         fila = Queue()
 
@@ -233,7 +309,7 @@ class Grafo:
             nodo_atual = fila.get()
             if nodo_atual == end:
                 path_found = True
-            
+
             elif nodo_atual.getId() in self.m_graph.keys():
                 for (adjacente, peso, k) in self.m_graph[nodo_atual.getId()]:
                     nodo = self.get_node_by_id(adjacente)
@@ -243,6 +319,7 @@ class Grafo:
                         fila.put(nodo)
                         parent[nodo] = nodo_atual
                         visited.add(nodo)
+                        n_nos_explorados += 1
 
         path = []
         custo = []
@@ -254,8 +331,8 @@ class Grafo:
             path.reverse()
             # funçao calcula custo caminho
             custo = self.calcula_custo(path, lista_transito)
-        return (path, custo)
-    
+        return (path, custo, n_nos_explorados)
+
     #####################################
     #       Procura Bidirectional       #
     #####################################
@@ -267,8 +344,9 @@ class Grafo:
         :param end(Node Object): The end node object
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
-        lista_transito=[]
+        lista_transito = []
         path_found = False
+        n_nos_explorados = 0
 
         forward_queue = Queue()
         forward_visited = set()
@@ -277,7 +355,7 @@ class Grafo:
         backward_queue = Queue()
         backward_visited = set()
         backward_parent = dict()
-        
+
         forward_queue.put(start)
         backward_queue.put(end)
 
@@ -297,32 +375,37 @@ class Grafo:
             if intersection:
                 path_found = True
                 meeting_point = intersection.pop()
-                
+
             if current_forward.getId() in self.m_graph.keys():
                 for (neighbor_fwd, cost_fwd, k) in self.m_graph[current_forward.getId()]:
                     node_fwd = self.get_node_by_id(neighbor_fwd)
-                    if node_fwd not in forward_visited and not self.get_edge_by_nodes(current_forward, node_fwd).isCortada():
+                    if node_fwd not in forward_visited and not self.get_edge_by_nodes(current_forward,
+                                                                                      node_fwd).isCortada():
                         edge_fwd = self.get_edge_by_nodes(current_forward, node_fwd)
                         if edge_fwd.isTransito():
                             lista_transito.append(edge_fwd)
                         forward_queue.put(node_fwd)
                         forward_parent[node_fwd] = current_forward
-                        forward_visited.add(node_fwd) 
+                        forward_visited.add(node_fwd)
+                        n_nos_explorados += 1
 
             if current_backward.getId() in self.m_graph.keys():
                 for neighbor_bwd in self.get_predecessors(current_backward):
                     node_bwd = self.get_node_by_id(neighbor_bwd)
-                    if node_bwd not in backward_visited and self.get_edge_by_nodes(node_bwd, current_backward) is not None and not self.get_edge_by_nodes(node_bwd, current_backward).isCortada():
+                    if node_bwd not in backward_visited and self.get_edge_by_nodes(node_bwd,
+                                                                                   current_backward) is not None and not self.get_edge_by_nodes(
+                            node_bwd, current_backward).isCortada():
                         edge_bwd = self.get_edge_by_nodes(node_bwd, current_backward)
                         if edge_bwd.isTransito():
                             lista_transito.append(edge_bwd)
                         backward_queue.put(node_bwd)
                         backward_parent[node_bwd] = current_backward
                         backward_visited.add(node_bwd)
-        
+                        n_nos_explorados += 1
+
         path = self.reconstruct_path_bidirectional(path_found, meeting_point, forward_parent, backward_parent)
         costT = self.calcula_custo(path, lista_transito)
-        return (path, costT)
+        return (path, costT, n_nos_explorados)
 
     def get_predecessors(self, node):
         """
@@ -337,7 +420,6 @@ class Grafo:
                     predecessors.append(nodo)
         return predecessors
 
-
     def reconstruct_path_bidirectional(self, path_found, meet, forward_dic, backward_dic):
         """
         Method to reconstructs the final path of the bidirectional search "joining" both forward and backward paths
@@ -346,8 +428,8 @@ class Grafo:
         :param backward_dic(Dic{Object Node : Object Node}): The parent dictonary for the backward search used to find out the order of the nodes
         :return: A list of nodes representing the found path of the bidirectional search
         """
-        start_path=[]
-        end_path=[]
+        start_path = []
+        end_path = []
         final_path = []
         current = meet
         if path_found:
@@ -360,16 +442,15 @@ class Grafo:
             while backward_dic[current] is not None:
                 end_path.append(backward_dic[current])
                 current = backward_dic[current]
-            #end_path.reverse()
+            # end_path.reverse()
 
             final_path = start_path + end_path
         return final_path
-            
 
     #####################################
     #       Procura Custo Uniforme      #
     #####################################
-        
+
     def procura_custo_uniforme(self, start, end):
         """
         Uniform Cost search adapted to our graph and circumstances using a min-heap to keep track of the lower cost possible moves
@@ -377,7 +458,8 @@ class Grafo:
         :param end(Node Object): The end node object
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
-        lista_transito=[]
+        n_nos_explorados = 0
+        lista_transito = []
         priority_queue = [(0, start)]
         visited = set()
         parents = dict()
@@ -390,10 +472,10 @@ class Grafo:
             if current_node == end:
                 path_found = True
 
-            if current_node  in visited:
-                continue # Passa para a próxima iteração do loop
-            
-            visited.add(current_node) 
+            if current_node in visited:
+                continue  # Passa para a próxima iteração do loop
+
+            visited.add(current_node)
 
             if current_node.getId() in self.m_graph.keys():
                 for (adj, cost, k) in self.m_graph[current_node.getId()]:
@@ -403,9 +485,10 @@ class Grafo:
                         if edge.isTransito():
                             lista_transito.append(edge)
                         parents[prox_nodo] = current_node
-                        heapq.heappush(priority_queue, (current_prio+cost, prox_nodo))
+                        heapq.heappush(priority_queue, (current_prio + cost, prox_nodo))
+                        n_nos_explorados += 1
 
-        path=[]
+        path = []
         custoT = []
         if path_found:
             path.append(end)
@@ -414,8 +497,8 @@ class Grafo:
                 end = parents[end]
             path.reverse()
             custoT = self.calcula_custo(path, lista_transito)
-        return (path, custoT)
-    
+        return (path, custoT, n_nos_explorados)
+
     ######################################
     #         Procura Iterativa          #
     #     Aprofundamento Progressivo     #
@@ -429,14 +512,13 @@ class Grafo:
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
         for limit in range(1, sys.maxsize):
-            result = self.procura_iterativa_ciclo(start, end, limit, [], set(), [])
+            result = self.procura_iterativa_ciclo(start, end, limit, [], set(), [], 0)
             if result is not None:
-                resultado, lista = result
+                resultado, lista, n_nos = result
                 custoT = self.calcula_custo(resultado, lista)
-                return (resultado, custoT)
-       
+                return (resultado, custoT, n_nos)
 
-    def procura_iterativa_ciclo(self, current, end, depth_limit, path, visited, lista_transito):
+    def procura_iterativa_ciclo(self, current, end, depth_limit, path, visited, lista_transito, n_nos_explorados):
         """
         The body of the Iterative Deepening search algorithm, basically a copy of the DFS algorithm with a few more verifications
         :param current(Node Object): The current node object of the recursive call
@@ -445,13 +527,13 @@ class Grafo:
         :param path(List[Node Object]): The current path taken (used for recursion)
         :param visited(Set{Node Object}): A set to keep track of what nodes have been visited
         :param lista_transito(List[Ruas Object]): A list of edges that had traffic in them when the algorithms passed thought them
-        :return: A list of nodes representing the path from the start node to the end node 
+        :return: A list of nodes representing the path from the start node to the end node
         """
-        
+
         if current == end:
             path.append(current)
             visited.add(current)
-            return (path, lista_transito)
+            return (path, lista_transito, n_nos_explorados)
 
         if depth_limit == 0:
             return None
@@ -466,7 +548,8 @@ class Grafo:
                     edge = self.get_edge_by_nodes(current, nodo)
                     if edge.isTransito():
                         lista_transito.append(edge)
-                    resultado = self.procura_iterativa_ciclo(nodo, end, depth_limit - 1, path, visited, lista_transito)
+                    resultado = self.procura_iterativa_ciclo(nodo, end, depth_limit - 1, path, visited, lista_transito,
+                                                             n_nos_explorados + 1)
                     if resultado is not None:
                         return resultado
 
@@ -481,7 +564,10 @@ class Grafo:
     def getNeighbours(self, nodo):
         lista = []
         for (adjacente, peso, _) in self.m_graph[nodo]:
-            lista.append((adjacente, peso))
+            node = self.get_node_by_id(nodo)
+            adj = self.get_node_by_id(adjacente)
+            if not self.get_edge_by_nodes(node, adj).isCortada():
+                lista.append((adjacente, peso))
         return lista
 
     ###############################
@@ -606,24 +692,22 @@ class Grafo:
         # haven't all been inspected, starts off with the start node
         # closed_list is a list of nodes which have been visited
         # and who's neighbors have been inspected
-        if (vehicle != "bike" and vehicle != "moto" and vehicle != "car"):
-            print("Invalid vehicle! Please choose bike, moto or car!")
-            return
-        start = self.get_id_by_node(start)
-        end = self.get_id_by_node(end)
-        open_list = {start}
+        startId = start.getId()
+        endId = end.getId()
+        open_list = {startId}
         closed_list = set([])
+        transito_list = []
+        n_nos_explorados = 0
         # g contains current distances from start_node to all other nodes
         # the default value (if it's not found in the map) is +infinity
         g = {}  ##  g é apra substiruir pelo peso  ???
-        g[start] = 0
+        g[startId] = 0
 
         # parents contains an adjacency map of all nodes
         parents = {}
-        parents[start] = start
+        parents[startId] = startId
         n = None
         while len(open_list) > 0:
-            # print(open_list)
             # find a node with the lowest value of f() - evaluation function
             calc_heurist = {}
             flag = 0
@@ -632,7 +716,7 @@ class Grafo:
                     n = v
                 else:
                     flag = 1
-                    calc_heurist[v] = g[v] + self.getH(v, vehicle)
+                    calc_heurist[v] = g[v] + self.getH(v,vehicle)
             if flag == 1:
                 min_estima = self.calcula_est(calc_heurist)
                 n = min_estima
@@ -642,32 +726,36 @@ class Grafo:
 
             # if the current node is the stop_node
             # then we begin reconstructin the path from it to the start_node
-            if n == end:
+            if n == endId:
                 reconst_path = []
 
                 while parents[n] != n:
                     reconst_path.append(self.get_node_by_id(n))
                     n = parents[n]
 
-                reconst_path.append(self.get_node_by_id(start))
+                reconst_path.append(start)
 
                 reconst_path.reverse()
 
-                # print('Path found: {}'.format(reconst_path))
-                return (reconst_path, self.calcula_custo(reconst_path,[1233213423]))
+                return (reconst_path, self.calcula_custo(reconst_path, transito_list), n_nos_explorados)
 
             # for all neighbors of the current node do
 
-            if self.getH(n, vehicle) != float('inf'):
+            if self.getH(n,vehicle) != float('inf'):
                 for (m, weight) in self.getNeighbours(n):
                     # definir função getneighbours  tem de ter um par nodo peso
                     # if the current node isn't in both open_list and closed_list
                     # add it to open_list and note n as it's parent
 
                     if m not in open_list and m not in closed_list:
+                        node = self.get_node_by_id(n)
+                        adj = self.get_node_by_id(m)
+                        if self.get_edge_by_nodes(node, adj).isTransito():
+                            transito_list.append(self.get_edge_by_nodes(n, m))
                         open_list.add(m)
                         parents[m] = n
                         g[m] = g[n] + weight
+                        n_nos_explorados += 1
 
                     # otherwise, check if it's quicker to first visit n, then m
                     # and if it is, update parent data and g data
@@ -689,48 +777,6 @@ class Grafo:
 
         print('Path does not exist!')
         return None
-
-    def aestrela(self, start, end):
-        count = 0
-        open_set = PriorityQueue()
-        open_set.put((0, count, start))  # o primeiro argumento do tuplo é o F(n)
-        came_from = {}
-        g_score = {node: float("inf") for node in self.m_graph}  # Distância menor para chegar do start ate este nodo
-        g_score[start] = 0
-        f_score = {node: float("inf") for node in self.m_graph}  # Distância predicted deste node até ao end node
-        f_score[start] = self.m_h[start]
-        close_list = set([])
-
-        open_set_hash = {start}  # Set para ver o que está dentro da PriorityQueue
-
-        while not open_set.empty():
-            current = open_set.get()[2]  # Tirar da queue
-            open_set_hash.remove(current)
-
-            if current == end:
-                path = self.reconstruct_path(came_from, current)
-                path.reverse()
-                return (path, self.calcula_custo(path))
-
-            for (n, c) in self.getNeighbours(current):
-                temp_g_score = g_score[current] + c
-
-                if temp_g_score < g_score[n]:
-                    came_from[n] = current
-                    g_score[n] = temp_g_score
-                    f_score[n] = temp_g_score + self.m_h[n]
-                    if n not in open_set_hash:
-                        count += 1
-                        open_set.put((f_score[n], count, n))
-                        open_set_hash.add(n)
-                        # open_set.add(n)
-
-            if current != start:
-                close_list.add(current)
-
-        return None
-
-
 
 
     def greedy(self, start, end):

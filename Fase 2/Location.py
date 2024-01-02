@@ -94,7 +94,7 @@ def create_edges_list(graph):
 
 def run(location):
     # Download the street network
-    G = ox.graph_from_place(location, network_type="drive")
+    G = ox.graph_from_place(location, network_type="all")
 
     # Convert the graph to a Pandas DataFrame
     edges = ox.graph_to_gdfs(G, nodes=False, edges=True)
@@ -116,7 +116,7 @@ def run(location):
             # data.pop('ref', None)
             data.pop('lanes', None)
         else:
-            data.pop('highway', None)
+            #data.pop('highway', None)
             data.pop('osmid', None)
             data.pop('reversed', None)
             data.pop('geometry', None)
@@ -137,5 +137,16 @@ def run(location):
     neighb = create_neighborhood_dict(G_filtered)
     edgesList = create_edges_list(G_filtered)
     nodeList = create_nodes_list(G_filtered)
+
+    with open("../dics/graph.json", "w") as file:
+        file.writelines(json.dumps(neighb))
+
+    with open("../dics/edges.txt", "w") as file:
+        for item in edgesList:
+            file.write("%s\n" % str(item))
+
+    with open("../dics/nodes.txt", "w") as file:
+        for item in nodeList:
+            file.write("%s\n" % str(item))
 
     return neighb, edgesList, nodeList
