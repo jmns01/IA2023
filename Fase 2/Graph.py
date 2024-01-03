@@ -16,11 +16,15 @@ sys.setrecursionlimit(5000)  # Adjust the limit accordingly, needed for DFS
 
 class Grafo:
 
-    def __init__(self, nodes=[], graph={}, edges=[]):
+    def __init__(self, nodes=[], graph={}, edges=[], drive=set(), drive_list=set(), bike=set(), bike_list=set()):
         self.m_nodes = nodes # lista de nodos
         self.m_graph = graph # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
         self.m_edges = edges # lista de ruas
         self.m_h = {}  # lista de dicionarios para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
+        self.m_d = drive
+        self.m_dlist = drive_list
+        self.m_b = bike
+        self.m_blist = bike_list
 
     def __str__(self):
         out = ""
@@ -563,13 +567,26 @@ class Grafo:
     # Função   getneighbours, devolve vizinhos de um nó
     ####################################################
 
-    def getNeighbours(self, nodo):
+    def getNeighbours(self, nodo, vehicle):
         lista = []
         for (adjacente, peso, _) in self.m_graph[nodo]:
             node = self.get_node_by_id(nodo)
             adj = self.get_node_by_id(adjacente)
-            if not self.get_edge_by_nodes(node, adj).isCortada():
-                lista.append((adjacente, peso))
+            edge = self.get_edge_by_nodes(node, adj)
+            highway=edge.getHighway()
+            if edge.isCortada():
+                continue
+
+            if vehicle == "car" or vehicle == "moto":
+                if str(highway) not in self.m_dlist and str(highway) not in self.m_d:
+                    continue
+            else:
+                if str(highway) not in self.m_dlist and str(highway) not in self.m_d:
+                    continue
+
+
+            lista.append((adjacente, peso))
+
         return lista
 
     ###############################
@@ -744,7 +761,7 @@ class Grafo:
             # for all neighbors of the current node do
 
             if self.getH(n,vehicle) != float('inf'):
-                for (m, weight) in self.getNeighbours(n):
+                for (m, weight) in self.getNeighbours(n,vehicle):
                     # definir função getneighbours  tem de ter um par nodo peso
                     # if the current node isn't in both open_list and closed_list
                     # add it to open_list and note n as it's parent
@@ -753,7 +770,7 @@ class Grafo:
                         node = self.get_node_by_id(n)
                         adj = self.get_node_by_id(m)
                         if self.get_edge_by_nodes(node, adj).isTransito():
-                            transito_list.append(self.get_edge_by_nodes(n, m))
+                            transito_list.append(self.get_edge_by_nodes(node, adj))
                         open_list.add(m)
                         parents[m] = n
                         g[m] = g[n] + weight
@@ -823,7 +840,7 @@ class Grafo:
                 return (reconst_path, self.calcula_custo(reconst_path))
 
             # para todos os vizinhos  do nodo corrente
-            for (m, weight) in self.getNeighbours(n):
+            for (m, weight) in self.getNeighbours(n,vehicle):
                 # Se o nodo corrente nao esta na open nem na closed list
                 # adiciona-lo à open_list e marcar o antecessor
                 if m not in open_list and m not in closed_list:

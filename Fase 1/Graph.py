@@ -9,6 +9,7 @@ from fuzzywuzzy import process
 import re
 
 from Node import Node
+from Ruas import Ruas
 
 import sys
 
@@ -28,22 +29,22 @@ class Grafo:
             out = out + "node" + str(key) + ": " + str(self.m_graph[key]) + "\n"
         return out
     
-    def get_node_by_id(self, id):
+    def get_node_by_id(self, id : int) -> Node:
         """
         Get the node that has the identifier id
-        :param id(Integer): The id of the node
-        :return(Node Object): Returns a Node object or None if there is no node with that id
+        :param id: The id of the node
+        :return: Returns a Node object or None if there is no node with that id
         """
         for node in self.m_nodes:
             if(node.m_id == id):
                 return node
         return None
     
-    def get_edge_by_nodes(self, origem, destino):
+    def get_edge_by_nodes(self, origem : Node, destino : Node) -> Ruas | None:
         """
         Get the edge that is formed by the 2 input nodes
-        :param origem(Node Object): The node of origin
-        :param destino(Node Object): the node of destinations
+        :param origem: The node of origin
+        :param destino: the node of destinations
         :return: The edge object that is formed by the 2 input nodes or None if there is not such edge
         """
 
@@ -52,10 +53,10 @@ class Grafo:
                 return edge
         return None
     
-    def get_edge_by_name(self, street):
+    def get_edge_by_name(self, street : str) -> Ruas | str:
         """
         Get the edge object by it's real-life street name or a suggestion of the possible streets wanted
-        :param street(String): A street name
+        :param street: A street name
         :return: An edge object or a string
         """
         exact = self.get_edge_by_name_exact(street)
@@ -65,11 +66,11 @@ class Grafo:
         suggestion = self.get_edge_by_name_suggestion(street)
         return f"Rua não encontrada. \n Quereria dizer: {', '.join(suggestion)}"
 
-    def get_edge_by_name_exact(self, street):
+    def get_edge_by_name_exact(self, street : str) -> list[Ruas]:
         """
         Get the group of the exact edges that has the same name as the string street
-        :param street(String): The street name
-        :return: A list with adge objects
+        :param street: The street name
+        :return: A list with edge objects
         """
         lista=[]
         section = r'\([0-9]+\)'
@@ -87,12 +88,12 @@ class Grafo:
                 lista.append(edge)
         return lista
     
-    def get_edge_by_name_suggestion(self, street, threshold=80):
+    def get_edge_by_name_suggestion(self, street : str, threshold=80) -> list[str]:
         """
         Using the fuzzywuzzy libary to find street name with similar names as the input, it uses the Levenshtein distance to
         calculate the similarity between 2 words
-        :param street(String): The name of the street
-        :param threshold(Int): The precentage of similarity that is bound to be concidered a similar word
+        :param street: The name of the street
+        :param threshold: The precentage of similarity that is bound to be concidered a similar word
         :return: A list of the similar street names
         """
         list_of_names=[]
@@ -107,11 +108,11 @@ class Grafo:
 
         return filtered_suggestions
     
-    def get_intersection_node(self, edge1, edge2):
+    def get_intersection_node(self, edge1 : Ruas, edge2 : Ruas) -> Node | None:
         """
         Gets the intersection between 2 edges
-        :param edge1(Object Rua): A list of edges
-        :param edge2(Object Rua): A list of edges
+        :param edge1: A list of edges
+        :param edge2: A list of edges
         :return: The id of a node or None
         """
         
@@ -123,10 +124,10 @@ class Grafo:
                 elif destino == edges.getDestino(): return destino
         return None
 
-    def converte_caminho(self, path):
+    def converte_caminho(self, path : list) -> list[str]:
         """
         Converts the output of the search algorithms to a readable version (Replaces nodes id's with street names)
-        :param path(List[Node Object]): The path returned by the search algorithms which is a list of nodes
+        :param path: The path returned by the search algorithms which is a list of nodes
         :return: A list of strings, that represent the path
         """
         i=0
@@ -176,7 +177,7 @@ class Grafo:
 
         return newpath
 
-    def imprime_arestas(self):
+    def imprime_arestas(self) -> str:
         """
         Prints all the connection between nodes
         :return: A list of strings containing a "pretty" text representation of the edges
@@ -188,18 +189,18 @@ class Grafo:
                 lista.append(nodo + " -> " + adj + " custo: " + str(custo))
         return lista
 
-    def getNodes(self):
+    def getNodes(self) -> list:
         """
         Gets all the nodes of the graph
         :return: A list with all the nodes of the graph
         """
         return self.m_nodes
 
-    def get_arc_cost(self, node1, node2): # Isto, assim como calcula_custo() vão mudar para o nosso exemplo (custo será uma fórmula que incluí tempo da viagem + poluição feita no total)
+    def get_arc_cost(self, node1 : Node, node2 : Node) -> float: # Isto, assim como calcula_custo() vão mudar para o nosso exemplo (custo será uma fórmula que incluí tempo da viagem + poluição feita no total)
         """
         Calculates the cost of a edge between the 2 argument nodes
-        :param node1(Node Object): The start node object
-        :param node2(Node Object): The end node object
+        :param node1: The start node object
+        :param node2: The end node object
         :return: The total cost of the edge connecting the 2 nodes
         """
         custoT = math.inf
@@ -211,11 +212,11 @@ class Grafo:
 
         return custoT
 
-    def calcula_custo(self, caminho, lista_transito):
+    def calcula_custo(self, caminho : list, lista_transito : list) -> float:
         """
         Calculates the cost of a path for all of the current type of vehicles
-        :param caminho(List[Node Object]): A list of nodes usualy returned by algorithms
-        :param lista_transito(List[Ruas Object]): A list of edges that had traffic in them when the algorithms passed thought them
+        :param caminho: A list of nodes usualy returned by algorithms
+        :param lista_transito: A list of edges that had traffic in them when the algorithms passed thought them
         :return: The total cost of the path
         """
         teste = caminho
@@ -234,14 +235,14 @@ class Grafo:
     #       Procura DFS       #
     ###########################
 
-    def procura_DFS(self, start, end, path=[], visited=set(), lista_transito=[], n_nos_explorados=0): # start e end são nodos
+    def procura_DFS(self, start : Node, end : Node, path=[], visited=set(), lista_transito=[], n_nos_explorados=0) -> tuple[list, float, int] | None: # start e end são nodos
         """
         Deph First Search algorithm adapted to our graph and circumstances
-        :param start(Node Object): The current node object of the recursive call
-        :param end(Node Object): The end node object
-        :param path(List[Node Object]): The current path taken (used for recursion)
-        :param visited(Set{Node Object}): A set to keep track of what nodes have been visited
-        :param lista_transito(List[Ruas Object]): A list of edges that had traffic in them when the algorithms passed thought them
+        :param start: The current node object of the recursive call
+        :param end: The end node object
+        :param path: The current path taken (used for recursion)
+        :param visited: A set to keep track of what nodes have been visited
+        :param lista_transito: A list of edges that had traffic in them when the algorithms passed thought them
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
         path.append(start)
@@ -268,11 +269,11 @@ class Grafo:
     #       Procura BFS       #
     ###########################
 
-    def procura_BFS(self, start, end):
+    def procura_BFS(self, start : Node, end : Node) ->  tuple[list[Node | None], float, int]:
         """
         Breath First search algorithm adapted to our graph and circumstances
-        :param start(Node Object): The start node object
-        :param end(Node Object): The end node object
+        :param start: The start node object
+        :param end: The end node object
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
         lista_transito=[] # Lista de edges que foram passados enquanto tiveram transito (o seu custo de passagem será maior)
@@ -304,7 +305,7 @@ class Grafo:
                         n_nos_explorados += 1
 
         path = []
-        custo = []
+        custo = 0.0
         if path_found:
             path.append(end)
             while parent[end] is not None:
@@ -319,11 +320,11 @@ class Grafo:
     #       Procura Bidirectional       #
     #####################################
 
-    def procura_bidirecional(self, start, end):
+    def procura_bidirecional(self, start : Node, end : Node) -> tuple[list, float, int]:
         """
         Bidirectional Search adapted to our graph and circumstances
-        :param start(Node Object): The start node object
-        :param end(Node Object): The end node object
+        :param start: The start node object
+        :param end: The end node object
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
         lista_transito=[]
@@ -386,10 +387,10 @@ class Grafo:
         costT = self.calcula_custo(path, lista_transito)
         return (path, costT, n_nos_explorados)
 
-    def get_predecessors(self, node):
+    def get_predecessors(self, node : Node) -> list:
         """
         Method to get the predecessors of a certin node, it is needed to make the backwards exploration in the bidirectional search
-        :param node(Node Object): The current node that is going to be searched for adjacent ocurrences in the graph
+        :param node: The current node that is going to be searched for adjacent ocurrences in the graph
         :raturn: A list of the predecessor's node's names
         """
         predecessors = []
@@ -400,12 +401,12 @@ class Grafo:
         return predecessors
 
 
-    def reconstruct_path_bidirectional(self, path_found, meet, forward_dic, backward_dic):
+    def reconstruct_path_bidirectional(self, path_found : bool, meet : Node, forward_dic : dict, backward_dic : dict) -> list[Node] | list:
         """
         Method to reconstructs the final path of the bidirectional search "joining" both forward and backward paths
-        :param meet(Node Object): The node where the forward and backward exploration meet
-        :param forwar_dic(Dic{Object Node : Object Node}): The parent dictonary for the forward search used to find out the order of the nodes
-        :param backward_dic(Dic{Object Node : Object Node}): The parent dictonary for the backward search used to find out the order of the nodes
+        :param meet: The node where the forward and backward exploration meet
+        :param forwar_dic: The parent dictonary for the forward search used to find out the order of the nodes
+        :param backward_dic: The parent dictonary for the backward search used to find out the order of the nodes
         :return: A list of nodes representing the found path of the bidirectional search
         """
         start_path=[]
@@ -432,11 +433,11 @@ class Grafo:
     #       Procura Custo Uniforme      #
     #####################################
         
-    def procura_custo_uniforme(self, start, end):
+    def procura_custo_uniforme(self, start : Node, end : Node) -> tuple[list[Node | None], float, int]:
         """
         Uniform Cost search adapted to our graph and circumstances using a min-heap to keep track of the lower cost possible moves
-        :param start(Node Object): The start node object
-        :param end(Node Object): The end node object
+        :param start: The start node object
+        :param end: The end node object
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
         n_nos_explorados=0
@@ -470,7 +471,7 @@ class Grafo:
                         n_nos_explorados += 1
 
         path=[]
-        custoT = []
+        custoT = 0.0
         if path_found:
             path.append(end)
             while parents[end] is not None:
@@ -485,11 +486,11 @@ class Grafo:
     #     Aprofundamento Progressivo     #
     ######################################
 
-    def procura_iterativa(self, start, end):
+    def procura_iterativa(self, start : Node, end : Node) -> tuple[list, float, int]:
         """
         Method responsible to iterate thought the searches, increasing the depth until a path is found
-        :param start(Node Object): The start node object
-        :param end(Node Object): The end node object
+        :param start: The start node object
+        :param end: The end node object
         :return: A list of nodes representing the path from the start node to the end node and the total cost pair
         """
         for limit in range(1, sys.maxsize):
@@ -500,15 +501,15 @@ class Grafo:
                 return (resultado, custoT, n_nos)
        
 
-    def procura_iterativa_ciclo(self, current, end, depth_limit, path, visited, lista_transito, n_nos_explorados):
+    def procura_iterativa_ciclo(self, current : Node, end : Node, depth_limit : int, path : list, visited : set, lista_transito : list, n_nos_explorados : int) -> tuple[list, list, int] | None:
         """
         The body of the Iterative Deepening search algorithm, basically a copy of the DFS algorithm with a few more verifications
-        :param current(Node Object): The current node object of the recursive call
-        :param end(Node Object): The end node object
+        :param current: The current node object of the recursive call
+        :param end: The end node object
         :param depth_limit: The number of recursions (depth) the method is "allowed" to perform at the moment
-        :param path(List[Node Object]): The current path taken (used for recursion)
-        :param visited(Set{Node Object}): A set to keep track of what nodes have been visited
-        :param lista_transito(List[Ruas Object]): A list of edges that had traffic in them when the algorithms passed thought them
+        :param path: The current path taken (used for recursion)
+        :param visited: A set to keep track of what nodes have been visited
+        :param lista_transito: A list of edges that had traffic in them when the algorithms passed thought them
         :return: A list of nodes representing the path from the start node to the end node 
         """
         
@@ -546,7 +547,12 @@ class Grafo:
     # Função   getneighbours, devolve vizinhos de um nó
     ####################################################
 
-    def getNeighbours(self, nodo):
+    def getNeighbours(self, nodo : Node) -> list[tuple[str, float]]:
+        """
+        Get the nodes whose edge with the argument is not cuted
+        :param nodo: A node object
+        :return: A list of tuples of nodes ids and weights
+        """
         lista = []
         for (adjacente, peso, _) in self.m_graph[nodo]:
             node = self.get_node_by_id(nodo)
@@ -597,7 +603,7 @@ class Grafo:
     #######################################################################
 
     # A heuristica é calculada numa maneira pseudo bfs, começa no nodo objetivo e vai explorando os seus adjacentes somando á heuristica do seu nodo pai a heuristica do atual (tempo para percorrer do final até lá)
-    def calcula_heuristica_global(self, destino):
+    def calcula_heuristica_global(self, destino : Node) -> None:
         """
         Calcula a heurística para todos os nós no grafo em relação a um destino específico.
         :param destino: O nodo destino
@@ -610,7 +616,7 @@ class Grafo:
         for nodo, heuristica in dicBike.items():
             self.m_h[nodo] = (dicBike[nodo], dicMoto[nodo], dicCar[nodo])
 
-    def heurisitcas_by_vehicle(self, destino, vel):
+    def heurisitcas_by_vehicle(self, destino : Node, vel : int):
         dic = {}
         n1 = destino
         heuristica = 0
@@ -731,7 +737,7 @@ class Grafo:
                         node = self.get_node_by_id(n)
                         adj = self.get_node_by_id(m)
                         if self.get_edge_by_nodes(node, adj).isTransito():
-                            transito_list.append(self.get_edge_by_nodes(n, m))
+                            transito_list.append(self.get_edge_by_nodes(node, adj))
                         open_list.add(m)
                         parents[m] = n
                         g[m] = g[n] + weight

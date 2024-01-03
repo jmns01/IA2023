@@ -3,6 +3,7 @@ class Produto:
     def __int__(self, nome="", peso=0.0, preco=0.0):
         self.name = nome
         self.peso = peso
+        self.entregue = False
 
     def __str__(self):
         return "Produto: " + self.name + " Peso: " + self.peso
@@ -15,3 +16,9 @@ class Produto:
 
     def getPreco(self):
         return self.preco
+
+    def getEstado(self):
+        return self.entregue
+
+    def passouEntregue(self):
+        self.entregue = True

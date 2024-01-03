@@ -14,6 +14,32 @@ from HealthPlanet import HealthPlanet
 
 def main():
     #print("-----Health Planet-----")
+    location = "Braga, Portugal"  # Deixar assim para teste
+    neigh, edges, nodes,a,b,c,d = Location.run(location)
+    grafoAtual = Grafo(nodes, neigh, edges,a,b,c,d)
+
+    # start, end = seleciona_origem_destino(grafoAtual)
+    start = grafoAtual.get_node_by_id(8321237017)
+    end = grafoAtual.get_node_by_id(1675798722)
+    grafoAtual.calcula_heuristica_global(end)
+    print("---Procura A*---")
+    profilerAstar = cProfile.Profile()
+    profilerAstar.enable()
+    pathAstar = grafoAtual.procura_aStar(start, end,"car")
+    profilerAstar.disable()
+    if len(pathAstar[0]) > 0:
+        print("\n[SYS] Caminho Encontrado: ")
+        print(grafoAtual.converte_caminho(pathAstar[0]))
+        print("\n[SYS] Custo: ")
+        print(pathAstar[1])
+        print("\n")
+    else:
+        print("\n[SYS] Caminho não encontrado!")
+
+    performance_algoritmos(pathAstar,
+                           [
+                    profilerAstar])
+
 
     health_planet = HealthPlanet()
 
@@ -70,9 +96,12 @@ def main():
 
             if escolha == 'nova_encomenda':
                 # Processo de criação de nova encomenda
+
                 localizacao = input("[SYS] Selecione uma cidade (formato: Cidade, País): ")
-                neigh, edges, nodes = Location.run(localizacao)
-                grafoAtual = Grafo(nodes, neigh, edges)
+                if not health_planet.check_if_graph_exists(localizacao):
+                    neigh, edges, nodes, drive, drive_list, bike, bike_list = Location.run(localizacao)
+                    grafoAtual = Grafo(nodes, neigh, edges, drive, drive_list, bike, bike_list)
+                    health_planet.adicionar_grafo(localizacao,grafoAtual)
 
                 numero_produtos = int(input("[SYS] Digite o número de produtos: "))
 
@@ -129,38 +158,6 @@ def main():
     #         if adjacente in seen_element:
     #             print(adj)
     #         else: seen_element.add(adjacente)
-    
-    """
-    print("---DFS---")
-    pathDFS = grafoAtual.procura_DFS(start, end)
-    print(pathDFS)
-    print("\n")
-    print(grafoAtual.converte_caminho(pathDFS[0]))
-    
-    print("---BSF---")
-    pathBFS = grafoAtual.procura_BFS(start, end)
-    print(pathBFS)
-    print("\n")
-    print(grafoAtual.converte_caminho(pathBFS[0]))
-    
-    print("---Bidirecional---")
-    pathBidirecional = grafoAtual.procura_bidirecional(start, end)
-    print(pathBidirecional)
-    print("\n")
-    print(grafoAtual.converte_caminho(pathBidirecional[0]))
-
-    print("---Custo Uniforme---")
-    pathCustoUniforme = grafoAtual.procura_custo_uniforme(start, end)
-    print(pathCustoUniforme)
-    print("\n")
-    print(grafoAtual.converte_caminho(pathCustoUniforme[0]))
-
-    print("---Procura Iterativa---")
-    pathProcuraIterativa = grafoAtual.procura_iterativa(start, end)
-    print(pathProcuraIterativa)
-    print("\n")
-    print(grafoAtual.converte_caminho(pathProcuraIterativa[0]))
-    """
 
     print("---Procura AStar---")
     grafoAtual.calcula_heuristica_global(end)
@@ -172,8 +169,7 @@ def main():
 def seleciona_origem_destino(graph):
     testO1, testO2, testD1, testD2 = str(), str(), str(), str()
 
-    print(
-        "[SYS] Os pontos de origem e destino são nodos que são representados pela interseção de duas ou mais ruas")
+    print("[SYS] Os pontos de origem e destino são nodos que são representados pela interseção de duas ou mais ruas")
     print("[SYS] O processo de seleção de origem e destino é o seguinte: ")
     print("[SYS] -> Indicar uma rua")
     print("[SYS] -> Indicar outra rua que faça interseção com a original")
@@ -216,7 +212,73 @@ def seleciona_origem_destino(graph):
     return start, end
 
 
+def performance_algoritmos(pathAstar,
+                           profiles):
+    table = PrettyTable()
+    dicionario = dict()
+    algoritmos = ['DFS', 'BFS', 'Bidirecional', 'Custo Uniforme', 'Procura Iterativa', 'A*']
 
+    dicionario['Algoritmo'] = algoritmos
+    dicionario['Tempo de Execução'] = []
+    dicionario['Número de Chamadas de Funções'] = []
+    dicionario['Tamanho do Path'] = []
+    dicionario['Custo de Solução'] = []
+    dicionario['Número de Nós Explorados'] = []
+
+    for profile in profiles:
+        stats = pstats.Stats(profile)
+        tempo = stats.total_tt
+        num_cals = stats.total_calls
+        dicionario['Tempo de Execução'].append(tempo)
+        dicionario['Número de Chamadas de Funções'].append(num_cals)
+
+    dicionario['Tamanho do Path'].append(len(pathDFS[0]))
+    dicionario['Tamanho do Path'].append(len(pathBFS[0]))
+    dicionario['Tamanho do Path'].append(len(pathBidirecional[0]))
+    dicionario['Tamanho do Path'].append(len(pathCustoUniforme[0]))
+    dicionario['Tamanho do Path'].append(len(pathProcuraIterativa[0]))
+    dicionario['Tamanho do Path'].append(len(pathAstar[0]))
+
+    dicionario['Custo de Solução'].append(pathDFS[1])
+    dicionario['Custo de Solução'].append(pathBFS[1])
+    dicionario['Custo de Solução'].append(pathBidirecional[1])
+    dicionario['Custo de Solução'].append(pathCustoUniforme[1])
+    dicionario['Custo de Solução'].append(pathProcuraIterativa[1])
+    dicionario['Custo de Solução'].append(pathAstar[1])
+
+    dicionario['Número de Nós Explorados'].append(pathDFS[2])
+    dicionario['Número de Nós Explorados'].append(pathBFS[2])
+    dicionario['Número de Nós Explorados'].append(pathBidirecional[2])
+    dicionario['Número de Nós Explorados'].append(pathCustoUniforme[2])
+    dicionario['Número de Nós Explorados'].append(pathProcuraIterativa[2])
+    dicionario['Número de Nós Explorados'].append(pathAstar[2])
+
+    table.field_names = ['Algoritmo', 'Tempo de Execução', 'Número de Chamadas de Funções', 'Tamanho do Path',
+                         'Custo de Solução', 'Número de Nós Explorados']
+    for i in range(len(dicionario['Algoritmo'])):
+        row = [
+            dicionario['Algoritmo'][i],
+            dicionario['Tempo de Execução'][i],
+            dicionario['Número de Chamadas de Funções'][i],
+            dicionario['Tamanho do Path'][i],
+            dicionario['Custo de Solução'][i],
+            dicionario['Número de Nós Explorados'][i]
+        ]
+        table.add_row(row)
+
+    print(table)
+
+    yes = r'(?i)\b(?:yes|y)\b'
+    no = r'(?i)\b(?:no|n)\b'
+    i = 0
+    r = input("Quer ver informação com mais detalhe? (yes/no): ")
+    if re.match(yes, r):
+        for profile in profiles:
+            print(f'---{algoritmos[i]}---')
+            profile.print_stats(sort='cumulative')
+            i += 1
+    elif re.match(no, r):
+        return
 
 if __name__ == "__main__":
     main()

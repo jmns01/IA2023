@@ -4,6 +4,7 @@ class worker:
         worker.current_id += 1
         self.id = worker.current_id
         self.name = name
+        self.ocupados = False
         self.average_rank = 0.0 # numero entre 0 e 5
         self.num_deliveries = 0
 
@@ -24,6 +25,9 @@ class worker:
 
     def setName(self, newName):
         self.name = newName
+
+    def isOcupado(self):
+        return self.ocupados
 
     def increment_num_deliveries(self):
         self.num_deliveries += 1

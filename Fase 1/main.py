@@ -105,6 +105,7 @@ def main():
     profilerAstar = cProfile.Profile()
     profilerAstar.enable()
     pathAstar = grafoAtual.procura_aStar(start, end)
+    print(pathAstar)
     profilerAstar.disable()
     if len(pathAstar[0]) > 0:
         print("\n[SYS] Caminho Encontrado: ")

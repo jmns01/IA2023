@@ -3,7 +3,7 @@ from Client import Client
 
 class Order:
     current_id = 0
-    def __init__(self, weight=0, goods=[], origem="", destino="", time="", client=Client()): # nao pode ultrapassar 100 kg
+    def __init__(self, weight=0.0, goods=[], origem="", destino="", time="", client=Client()): # nao pode ultrapassar 100 kg
         Order.current_id += 1
         self.id = Order.current_id
         self.weight = weight
@@ -12,6 +12,7 @@ class Order:
         self.delivery_street = destino
         self.delivery_time = time
         self.client = client
+        self.entregue = False
 
     def __str__(self):
         return "Order " + self.id + " To: " + str(self.client) + " Goods: " + str(self.goods)
@@ -54,6 +55,9 @@ class Order:
 
     def setClient(self, newClient):
         self.client = newClient
+
+    def passouEntregue(self):
+        self.entregue = True
 
     def __eq__(self, other):
         if other.isinstance(Order):

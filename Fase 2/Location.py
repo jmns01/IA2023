@@ -79,8 +79,7 @@ def create_edges_list(graph):
         vel = data.get('maxspeed', [])
         length = data.get('length', 0)
 
-        if isinstance(highway, str):
-            highway = [highway]
+
 
         if isinstance(vel, str):
             vel = [vel]
@@ -94,7 +93,66 @@ def create_edges_list(graph):
 
 def run(location):
     # Download the street network
-    G = ox.graph_from_place(location, network_type="all")
+    G = ox.graph_from_place(location, network_type='all')
+    # Download the drive network
+    G_drive = ox.graph_from_place(location, network_type='drive')
+
+    # Download the bike network
+    G_bike = ox.graph_from_place(location, network_type='bike')
+
+    # Extract unique highway values from the 'highway' attribute of edges for the drive network
+    highway_types_drive = set()
+    highway_types_drive_list = set()
+
+
+    for u, v, key, data in G_drive.edges(keys=True, data=True):
+        if 'highway' in data:
+            if isinstance(data['highway'], list):
+                highway_types_drive_list.add(str(data['highway']))
+            else:
+                highway_types_drive.add(str(data['highway']))
+
+    # Assuming G_bike is already defined
+
+    # Extract unique highway values from the 'highway' attribute of edges for the bike network
+    highway_types_bike = set()
+    highway_types_bike_list = set()
+
+    for u, v, key, data in G_bike.edges(keys=True, data=True):
+        if 'highway' in data:
+            if isinstance(data['highway'], list):
+                highway_types_bike_list.add(str(data['highway']))
+            else:
+                highway_types_bike.add(str(data['highway']))
+
+
+    # Combine the sets
+    combined_highway_types = highway_types_drive.union(highway_types_bike)
+    combined_highway_types_list = highway_types_drive_list.union(highway_types_bike_list)
+
+
+    # Assuming combined_highway_types is already defined
+
+    # Iterate through edges and remove if 'highway' not in combined_highway_types
+    edges_to_remove_list = []
+    edges_to_remove=[]
+
+    for u, v, k, data in G.edges(keys=True, data=True):
+
+        if 'highway' not in data:
+            edges_to_remove.append((u, v, k))
+        elif isinstance(data['highway'], list) and str(data['highway']) not in combined_highway_types_list:
+            edges_to_remove_list.append((u, v, k))
+        elif (not (data['highway'], list)):
+            if str(data['highway']) not in combined_highway_types:
+                edges_to_remove.append((u, v, k))
+
+    # Remove the edges from the graph
+    G.remove_edges_from(edges_to_remove)
+    G.remove_edges_from(edges_to_remove_list)
+
+
+
 
     # Convert the graph to a Pandas DataFrame
     edges = ox.graph_to_gdfs(G, nodes=False, edges=True)
@@ -134,6 +192,7 @@ def run(location):
             else:
                 name_counter[name_key] = 1
 
+
     neighb = create_neighborhood_dict(G_filtered)
     edgesList = create_edges_list(G_filtered)
     nodeList = create_nodes_list(G_filtered)
@@ -149,4 +208,4 @@ def run(location):
         for item in nodeList:
             file.write("%s\n" % str(item))
 
-    return neighb, edgesList, nodeList
+    return neighb, edgesList, nodeList, highway_types_drive, highway_types_drive_list, highway_types_bike, highway_types_bike_list
