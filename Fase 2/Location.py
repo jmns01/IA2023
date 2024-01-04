@@ -210,13 +210,4 @@ def run(location):
 
     return neighb, edgesList, nodeList, neighbb, edgesListb, nodeListb
 
-def run2(location):
-    # Download the drive network
-
-    G = ox.graph_from_place(location, network_type='drive')
-
-    Gb = ox.graph_from_place(location, network_type='bike')
-
-    return G, Gb
-
 

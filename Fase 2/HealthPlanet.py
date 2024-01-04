@@ -8,6 +8,7 @@ from Graph import Grafo
 from Vehicles import Car
 from Vehicles import Motorcycle
 from Vehicles import Bike
+from VehicleSimulation import VehicleSimulation
 import Vehicles
 import Location
 import folium
@@ -19,6 +20,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import random
 from matplotlib.animation import FuncAnimation
+import tkinter as tk
+from itertools import cycle
 class HealthPlanet:
     def __init__(self, users=dict(), encomendas=dict(), workers=[], entrega=dict(), grafos=dict(), estafetas_por_localizacao=dict()):
         self.users = users # dicionario em que a key nome do cliente e o value o objeto cliente
@@ -452,90 +455,35 @@ class HealthPlanet:
 
             self.realizar_entregas(caminho_entregas,localizacoes[i])
 
-            #localizacoes.pop(localizacoes[i])
+
             i+=1
 
 
     def realizar_entregas(self,caminhoEntregas,localizacao):
+
         thread_input = threading.Thread(target=self.thread_input_nodo_cortado, args=(localizacao,))
         thread_input.start()
-        G, Gb = Location.run2(localizacao)
 
         entrega, nodos, caminhos, custos = caminhoEntregas[1]
 
         nodos_ids = [nodo.m_id for nodo in nodos[0]]
-        print(nodos_ids)
+
         worker=entrega.getWorker()
         vehicle=entrega.getVehicle()
-        # subgraph = G.subgraph(nodos_ids)
-        # pos = nx.spring_layout(subgraph)  # Calcular as posições
-        # nx.set_node_attributes(subgraph, pos, 'pos')  #
-        #
-        # # Obtém a lista de arestas que conectam os nodos na lista nodos_ids
-        # edge_list = [(nodos_ids[i], nodos_ids[i + 1]) for i in range(len(nodos_ids) - 1)]
-        #
-        # # Desenha o subgrafo
-        # nx.draw(subgraph, pos=nx.spring_layout(subgraph), with_labels=True, node_size=50)
-        #
-        # # Adiciona a rota como uma linha azul
-        # nx.draw_networkx_edges(subgraph, pos=nx.spring_layout(subgraph), edgelist=edge_list, edge_color='b', width=2)
-        #
-        # # Adiciona marcadores para os nodos de entrega
-        # nx.draw_networkx_nodes(subgraph, pos=nx.spring_layout(subgraph), nodelist=nodos_ids, node_color='r',
-        #                        node_size=100)
-        #
-        # # Adiciona o veículo como um marcador
-        # nx.draw_networkx_nodes(subgraph, pos=nx.spring_layout(subgraph), nodelist=[nodos_ids[0]], node_color='g',
-        #                        node_size=100)
-        #
-        # # Adiciona um título
-        # plt.title(f"Rota de entrega para o veículo {vehicle}")
-        #
-        # fig, ax = plt.subplots()
-        # line, = ax.plot([], [], 'ro-', markersize=10)
-        #
-        # def update(frame):
-        #     # Atualize a posição do veículo (frame a frame)
-        #     current_node = nodos_ids[frame]
-        #     x, y = subgraph.nodes[current_node]['pos']
-        #     line.set_data(x, y)
-        #     return line,
-        #
-        # # Número total de frames é igual ao número de nodos na rota
-        # num_frames = len(nodos_ids)
-        #
-        # ani = FuncAnimation(fig, update, frames=num_frames, interval=1000, blit=True)
-        # plt.show()
+        root = tk.Tk()
+        i=0
+        nodes_carro=[]
+        nodes_carro.append(i)
+        for _ in caminhos[0]:
+            i+=1
+            nodes_carro.append(i)
 
+        print(len(nodes_carro))
+        print(len(caminhos[0]))
 
-        G = nx.DiGraph()
+        app = VehicleSimulation(root, nodes_carro, caminhos[0], "imagens/carro_icon.png")
+        root.mainloop()
 
-        # Adicionar nodos e caminhos ao grafo
-        for nodo in nodos:
-            G.add_node(nodo)
-
-        for caminho in caminhos:
-            G.add_edge(caminho[0], caminho[1], label=caminho[2])
-
-        # Posições para desenhar os nodos
-        pos = nx.spring_layout(G)
-
-        # Desenhar nodos
-        nx.draw_networkx_nodes(G, pos, node_size=700)
-
-        # Desenhar caminhos
-        nx.draw_networkx_edges(G, pos)
-
-        # Adicionar rótulos aos caminhos
-        edge_labels = {(i, j): G[i][j]['label'] for i, j in G.edges()}
-        nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
-
-        # Adicionar rótulos aos nodos
-        node_labels = {nodo: str(nodo) for nodo in G.nodes()}
-        nx.draw_networkx_labels(G, pos, labels=node_labels)
-
-        # Exibir o gráfico
-        plt.show()
 
     def thread_input_nodo_cortado(self,localizacao):
         while True:

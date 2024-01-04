@@ -50,13 +50,13 @@ Rua: Avenida 31 de Janeiro (2) ; Origem: 210587666 ; Destino: 210606620 ; Oneway
 Rua: Avenida João XXI (3) ; Origem: 210587666 ; Destino: 210613572 ; Oneway: True ; Highway: primary_link
 Rua: Avenida 31 de Janeiro (3) ; Origem: 210606620 ; Destino: 224602549 ; Oneway: True ; Highway: tertiary
 Rua: Avenida João XXI (4) ; Origem: 210606620 ; Destino: 210610916 ; Oneway: True ; Highway: primary_link
-Rua: ['Avenida João XXI', 'Avenida Imaculada Conceição'] ; Origem: 210606632 ; Destino: 208954749 ; Oneway: True ; Highway: primary
+Rua: ['Avenida Imaculada Conceição', 'Avenida João XXI'] ; Origem: 210606632 ; Destino: 208954749 ; Oneway: True ; Highway: primary
 Rua: Avenida João XXI (5) ; Origem: 210606632 ; Destino: 1605322969 ; Oneway: True ; Highway: primary
 Rua: Túnel Avenida João XXI ; Origem: 210608778 ; Destino: 4191807089 ; Oneway: True ; Highway: primary_link
 Rua: Avenida João XXI (6) ; Origem: 210608778 ; Destino: 2298927585 ; Oneway: True ; Highway: primary_link
 Rua: Avenida João XXI (7) ; Origem: 210610916 ; Destino: 210606632 ; Oneway: True ; Highway: primary
 Rua: Avenida João XXI (8) ; Origem: 210613572 ; Destino: 211284761 ; Oneway: True ; Highway: primary
-Rua: ['Avenida João XXI', 'Avenida Imaculada Conceição'] (2) ; Origem: 210959966 ; Destino: 210962203 ; Oneway: True ; Highway: primary
+Rua: ['Avenida Imaculada Conceição', 'Avenida João XXI'] (2) ; Origem: 210959966 ; Destino: 210962203 ; Oneway: True ; Highway: primary
 Rua: Avenida Imaculada Conceição (6) ; Origem: 210959966 ; Destino: 3028486900 ; Oneway: True ; Highway: primary
 Rua: Avenida João XXI (9) ; Origem: 210962203 ; Destino: 210581697 ; Oneway: True ; Highway: primary
 Rua: Rua Doutor Francisco Duarte (2) ; Origem: 211283281 ; Destino: 6135208347 ; Oneway: True ; Highway: residential
@@ -107,7 +107,7 @@ Rua:  ; Origem: 211386928 ; Destino: 211387923 ; Oneway: True ; Highway: trunk_l
 Rua: Avenida João Paulo II (2) ; Origem: 211386928 ; Destino: 4740795637 ; Oneway: True ; Highway: primary
 Rua:  ; Origem: 211387923 ; Destino: 211376184 ; Oneway: True ; Highway: trunk_link
 Rua:  ; Origem: 211398113 ; Destino: 254113008 ; Oneway: True ; Highway: primary_link
-Rua: ['Avenida João Paulo II', 'Avenida General Carrilho da Silva Pinto'] ; Origem: 211398113 ; Destino: 4634040526 ; Oneway: True ; Highway: primary
+Rua: ['Avenida General Carrilho da Silva Pinto', 'Avenida João Paulo II'] ; Origem: 211398113 ; Destino: 4634040526 ; Oneway: True ; Highway: primary
 Rua: Avenida João Paulo II (3) ; Origem: 211398673 ; Destino: 253421139 ; Oneway: True ; Highway: primary
 Rua: Avenida João Paulo II (4) ; Origem: 211399766 ; Destino: 2180098431 ; Oneway: True ; Highway: primary
 Rua:  ; Origem: 211399766 ; Destino: 211342668 ; Oneway: True ; Highway: trunk_link
@@ -123,7 +123,7 @@ Rua: Rua de São José ; Origem: 211423646 ; Destino: 211430818 ; Oneway: False ; 
 Rua: Rua de São José (2) ; Origem: 211423646 ; Destino: 253987334 ; Oneway: True ; Highway: tertiary
 Rua: Rua Padre António Vieira ; Origem: 211425615 ; Destino: 211427482 ; Oneway: True ; Highway: residential
 Rua: Rua Padre António Vieira (2) ; Origem: 211425615 ; Destino: 211423646 ; Oneway: True ; Highway: residential
-Rua: ['Rua Padre António Vieira', 'Praça do Bocage'] ; Origem: 211427482 ; Destino: 7636780891 ; Oneway: True ; Highway: residential
+Rua: ['Praça do Bocage', 'Rua Padre António Vieira'] ; Origem: 211427482 ; Destino: 7636780891 ; Oneway: True ; Highway: residential
 Rua: Rua Padre António Vieira (3) ; Origem: 211427482 ; Destino: 7636778280 ; Oneway: True ; Highway: residential
 Rua: Rua Padre António Vieira (4) ; Origem: 211429233 ; Destino: 211425615 ; Oneway: True ; Highway: residential
 Rua: Rua Padre António Vieira (5) ; Origem: 211429233 ; Destino: 211430818 ; Oneway: False ; Highway: residential
@@ -153,7 +153,7 @@ Rua:  ; Origem: 213270954 ; Destino: 253986655 ; Oneway: True ; Highway: tertiar
 Rua:  ; Origem: 213270963 ; Destino: 1755018162 ; Oneway: True ; Highway: tertiary
 Rua: Rua do Taxa ; Origem: 213271936 ; Destino: 213682109 ; Oneway: False ; Highway: tertiary
 Rua: Largo do Monte D'Arcos ; Origem: 213271936 ; Destino: 4116337683 ; Oneway: False ; Highway: residential
-Rua: ["Largo do Monte D'Arcos", 'Rua Dom António Bento Martins Júnior'] ; Origem: 213271936 ; Destino: 1763921777 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua Dom António Bento Martins Júnior', "Largo do Monte D'Arcos"] ; Origem: 213271936 ; Destino: 1763921777 ; Oneway: False ; Highway: tertiary
 Rua: Largo do Monte D'Arcos (2) ; Origem: 213271936 ; Destino: 253473631 ; Oneway: False ; Highway: tertiary
 Rua: Rua Conselheiro Bento Miguel ; Origem: 213274270 ; Destino: 213270954 ; Oneway: True ; Highway: tertiary
 Rua: Rua Conselheiro Bento Miguel (2) ; Origem: 213274270 ; Destino: 213274272 ; Oneway: False ; Highway: tertiary
@@ -241,7 +241,7 @@ Rua: Estrada de Bom Jesus (6) ; Origem: 213798053 ; Destino: 213798026 ; Oneway:
 Rua:  ; Origem: 215735664 ; Destino: 1571099507 ; Oneway: True ; Highway: trunk_link
 Rua:  ; Origem: 215735667 ; Destino: 215735664 ; Oneway: True ; Highway: trunk_link
 Rua:  ; Origem: 215735667 ; Destino: 211418016 ; Oneway: True ; Highway: tertiary
-Rua: ['Avenida António Macedo', 'Avenida Padre Júlio Fragata'] ; Origem: 215738872 ; Destino: 215751302 ; Oneway: True ; Highway: trunk
+Rua: ['Avenida Padre Júlio Fragata', 'Avenida António Macedo'] ; Origem: 215738872 ; Destino: 215751302 ; Oneway: True ; Highway: trunk
 Rua: Avenida Padre Júlio Fragata (9) ; Origem: 215738886 ; Destino: 215738872 ; Oneway: True ; Highway: trunk
 Rua: Avenida Clermont Ferrand ; Origem: 215738886 ; Destino: 1571099507 ; Oneway: True ; Highway: trunk_link
 Rua: Avenida António Macedo ; Origem: 215751302 ; Destino: 1692179017 ; Oneway: True ; Highway: trunk
@@ -498,7 +498,7 @@ Rua: Avenida da Liberdade (5) ; Origem: 231896127 ; Destino: 3028486878 ; Oneway
 Rua: Rua dos Barbosas (2) ; Origem: 231896127 ; Destino: 1720336494 ; Oneway: False ; Highway: tertiary
 Rua: Avenida da Liberdade (6) ; Origem: 231896127 ; Destino: 3028486889 ; Oneway: False ; Highway: primary
 Rua: Avenida General Carrilho da Silva Pinto ; Origem: 231903245 ; Destino: 231903268 ; Oneway: True ; Highway: primary
-Rua: ['Avenida João Paulo II', 'Avenida General Carrilho da Silva Pinto'] (2) ; Origem: 231903268 ; Destino: 211399776 ; Oneway: True ; Highway: primary
+Rua: ['Avenida General Carrilho da Silva Pinto', 'Avenida João Paulo II'] (2) ; Origem: 231903268 ; Destino: 211399776 ; Oneway: True ; Highway: primary
 Rua: Avenida General Carrilho da Silva Pinto (2) ; Origem: 231903268 ; Destino: 4374261118 ; Oneway: True ; Highway: primary_link
 Rua: Via Rápida Bom Jesus (8) ; Origem: 231912304 ; Destino: 231912311 ; Oneway: True ; Highway: secondary
 Rua: Via Rápida Bom Jesus (9) ; Origem: 231912304 ; Destino: 1205623141 ; Oneway: True ; Highway: secondary
@@ -1051,7 +1051,7 @@ Rua: Rua São Lázaro (2) ; Origem: 243857806 ; Destino: 243857805 ; Oneway: False
 Rua: Rua de São Lázaro ; Origem: 243857807 ; Destino: 243857806 ; Oneway: True ; Highway: residential
 Rua: Largo Carlos Amarante ; Origem: 243857807 ; Destino: 1603656860 ; Oneway: True ; Highway: residential
 Rua: ['Rua Dom Afonso Henriques', 'Campo das Carvalheiras'] ; Origem: 243857851 ; Destino: 245054852 ; Oneway: True ; Highway: residential
-Rua: ['Largo Carlos Amarante', 'Largo de Santa Cruz'] ; Origem: 243857884 ; Destino: 243857807 ; Oneway: True ; Highway: residential
+Rua: ['Largo de Santa Cruz', 'Largo Carlos Amarante'] ; Origem: 243857884 ; Destino: 243857807 ; Oneway: True ; Highway: residential
 Rua: Rua do Anjo ; Origem: 243857884 ; Destino: 1480202760 ; Oneway: True ; Highway: residential
 Rua: Rua de Santo António ; Origem: 243891817 ; Destino: 1331166091 ; Oneway: True ; Highway: residential
 Rua: Praça Conselheiro Torres de Almeida ; Origem: 243891817 ; Destino: 245055914 ; Oneway: False ; Highway: residential
@@ -1106,7 +1106,7 @@ Rua: Praça Conselheiro Torres de Almeida (3) ; Origem: 245055914 ; Destino: 2450
 Rua: Praça Conselheiro Torres de Almeida (4) ; Origem: 245055914 ; Destino: 243891817 ; Oneway: False ; Highway: residential
 Rua: Rua São Martinho ; Origem: 245055973 ; Destino: 245055974 ; Oneway: False ; Highway: secondary
 Rua: Rua São Martinho (2) ; Origem: 245055973 ; Destino: 1662759800 ; Oneway: False ; Highway: secondary
-Rua: Rua da Boavista ; Origem: 245055973 ; Destino: 26270224 ; Oneway: True ; Highway: residential, trunk_link
+Rua: Rua da Boavista ; Origem: 245055973 ; Destino: 26270224 ; Oneway: True ; Highway: trunk_link, residential
 Rua: Praça Conselheiro Torres de Almeida (5) ; Origem: 245055974 ; Destino: 245055914 ; Oneway: False ; Highway: residential
 Rua: Rua Dom Frei Caetano Brandão (3) ; Origem: 245055974 ; Destino: 914277410 ; Oneway: False ; Highway: residential
 Rua: Rua São Martinho (3) ; Origem: 245055974 ; Destino: 245055973 ; Oneway: False ; Highway: secondary
@@ -1462,7 +1462,7 @@ Rua: Rua Dom Frei Caetano Brandão (4) ; Origem: 361089893 ; Destino: 245054853 ;
 Rua: Praça Municipal (3) ; Origem: 361089952 ; Destino: 914277410 ; Oneway: True ; Highway: residential
 Rua: Praça Municipal (4) ; Origem: 361089952 ; Destino: 361089891 ; Oneway: True ; Highway: residential
 Rua: Rua Dom Afonso Henriques (3) ; Origem: 361090709 ; Destino: 245054958 ; Oneway: True ; Highway: residential
-Rua: ['Rua de São Paulo', 'Rua de Santiago'] ; Origem: 361090709 ; Destino: 1786193330 ; Oneway: True ; Highway: residential
+Rua: ['Rua de Santiago', 'Rua de São Paulo'] ; Origem: 361090709 ; Destino: 1786193330 ; Oneway: True ; Highway: residential
 Rua: Rua do Concelheiro Jerónimo Pimentel ; Origem: 361090716 ; Destino: 243857851 ; Oneway: True ; Highway: residential
 Rua: Rua São Sebastião ; Origem: 361090716 ; Destino: 1818309995 ; Oneway: True ; Highway: residential
 Rua: Largo Paulo Orósio (3) ; Origem: 361090716 ; Destino: 1818309989 ; Oneway: True ; Highway: residential
@@ -1519,7 +1519,7 @@ Rua: Rua da Tojeira ; Origem: 410070647 ; Destino: 3142022230 ; Oneway: False ; 
 Rua: Rua da Igreja (7) ; Origem: 410070647 ; Destino: 2203020963 ; Oneway: False ; Highway: secondary
 Rua: Rua da Herdade ; Origem: 410070651 ; Destino: 6813313291 ; Oneway: False ; Highway: residential
 Rua: Estrada de São Pedro (2) ; Origem: 410070651 ; Destino: 1764528701 ; Oneway: False ; Highway: secondary
-Rua: ['Estrada de São Pedro', 'Rua da Igreja'] ; Origem: 410070651 ; Destino: 2203020963 ; Oneway: False ; Highway: secondary
+Rua: ['Rua da Igreja', 'Estrada de São Pedro'] ; Origem: 410070651 ; Destino: 2203020963 ; Oneway: False ; Highway: secondary
 Rua: Rua do Campo ; Origem: 410079165 ; Destino: 410079245 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Campo (2) ; Origem: 410079165 ; Destino: 1214767303 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Ribela ; Origem: 410079165 ; Destino: 1236745861 ; Oneway: False ; Highway: residential
@@ -1562,7 +1562,7 @@ Rua: Rua Orfeão de Braga (2) ; Origem: 439351742 ; Destino: 1584762535 ; Oneway:
 Rua: Rua Orfeão de Braga (3) ; Origem: 439351742 ; Destino: 4759135621 ; Oneway: False ; Highway: residential
 Rua: Rua Orfeão de Braga (4) ; Origem: 439359544 ; Destino: 3156310617 ; Oneway: False ; Highway: residential
 Rua: Rua Orfeão de Braga (5) ; Origem: 439359544 ; Destino: 439351742 ; Oneway: False ; Highway: residential
-Rua: ['Rua Padre Manuel Alaio', 'Rua do Conservatório'] ; Origem: 439359544 ; Destino: 649742183 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Conservatório', 'Rua Padre Manuel Alaio'] ; Origem: 439359544 ; Destino: 649742183 ; Oneway: False ; Highway: residential
 Rua: Rua Adelina Caravana ; Origem: 439359576 ; Destino: 439359606 ; Oneway: False ; Highway: residential
 Rua: Rua Adelina Caravana (2) ; Origem: 439359576 ; Destino: 1898167457 ; Oneway: False ; Highway: residential
 Rua: ['Rua Adelina Caravana', 'Rua do Conservatório'] ; Origem: 439359576 ; Destino: 649742183 ; Oneway: False ; Highway: residential
@@ -1601,8 +1601,8 @@ Rua: Rua de Penouços (4) ; Origem: 512516083 ; Destino: 245549629 ; Oneway: Fals
 Rua: Calçada de Penouços ; Origem: 512516083 ; Destino: 1898426209 ; Oneway: False ; Highway: residential
 Rua: Rua de Penouços (5) ; Origem: 512516093 ; Destino: 1898426257 ; Oneway: False ; Highway: residential
 Rua: Rua de Penouços (6) ; Origem: 512516093 ; Destino: 1915318264 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Nogueirense', 'Rua Rodrigo Gonçalves da Costa'] ; Origem: 512516093 ; Destino: 1898417150 ; Oneway: False ; Highway: residential
-Rua: ['Rua Cónego Rafael Alvares Costa', 'Rua João Beltrão'] ; Origem: 512516291 ; Destino: 2524924341 ; Oneway: True ; Highway: residential
+Rua: ['Rua Rodrigo Gonçalves da Costa', 'Rua do Nogueirense'] ; Origem: 512516093 ; Destino: 1898417150 ; Oneway: False ; Highway: residential
+Rua: ['Rua João Beltrão', 'Rua Cónego Rafael Alvares Costa'] ; Origem: 512516291 ; Destino: 2524924341 ; Oneway: True ; Highway: residential
 Rua: Rua Germão Galharde ; Origem: 512516296 ; Destino: 1264340882 ; Oneway: True ; Highway: residential
 Rua: Rua de Artur Bivar ; Origem: 512516296 ; Destino: 512516291 ; Oneway: True ; Highway: residential
 Rua: Rua Cónego Rafael Alvares Costa ; Origem: 512516305 ; Destino: 512516291 ; Oneway: True ; Highway: residential
@@ -1616,7 +1616,7 @@ Rua: Rua Cónego Constantino Sotto Mayor (3) ; Origem: 512516328 ; Destino: 51251
 Rua: Rua Germão Galharde (3) ; Origem: 512516346 ; Destino: 1264340887 ; Oneway: True ; Highway: residential
 Rua: Rua Dom Jorge Costa ; Origem: 512516346 ; Destino: 512516364 ; Oneway: True ; Highway: residential
 Rua: Praceta Padre Ricardo Rocha ; Origem: 512516364 ; Destino: 512516398 ; Oneway: False ; Highway: residential
-Rua: ['Rua Cónego Rafael Alvares Costa', 'Rua Dom Jorge Costa'] ; Origem: 512516364 ; Destino: 512516305 ; Oneway: True ; Highway: residential
+Rua: ['Rua Dom Jorge Costa', 'Rua Cónego Rafael Alvares Costa'] ; Origem: 512516364 ; Destino: 512516305 ; Oneway: True ; Highway: residential
 Rua: Rua Germão Galharde (4) ; Origem: 512516385 ; Destino: 8303755224 ; Oneway: True ; Highway: residential
 Rua: Rua António de Mariz (4) ; Origem: 512516385 ; Destino: 512516315 ; Oneway: False ; Highway: tertiary
 Rua: Rua António de Mariz (5) ; Origem: 512516385 ; Destino: 1205623095 ; Oneway: False ; Highway: tertiary
@@ -1717,7 +1717,7 @@ Rua: Rua Álvaro Nogueira (2) ; Origem: 512536000 ; Destino: 512536002 ; Oneway: 
 Rua: Rua Álvaro Nogueira (3) ; Origem: 512536002 ; Destino: 512536000 ; Oneway: False ; Highway: residential
 Rua: Via Rápida Bom Jesus (21) ; Origem: 512536002 ; Destino: 213781893 ; Oneway: True ; Highway: secondary
 Rua: Rua Álvaro Nogueira (4) ; Origem: 512536007 ; Destino: 512536000 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Nogueiras', 'Rua de Rebanhos'] ; Origem: 512536007 ; Destino: 1745571791 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Rebanhos', 'Rua das Nogueiras'] ; Origem: 512536007 ; Destino: 1745571791 ; Oneway: False ; Highway: residential
 Rua: Rua de Santa Eulália (2) ; Origem: 512536007 ; Destino: 512536035 ; Oneway: False ; Highway: residential
 Rua: Rua de Santa Eulália (3) ; Origem: 512536033 ; Destino: 1764528680 ; Oneway: False ; Highway: residential
 Rua: Rua Ernesto Nogueira ; Origem: 512536033 ; Destino: 512536053 ; Oneway: False ; Highway: residential
@@ -1735,7 +1735,7 @@ Rua: Rua Engenheiro Pimentel (4) ; Origem: 512536083 ; Destino: 8773490338 ; One
 Rua:  ; Origem: 512536083 ; Destino: 4129806693 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 512536089 ; Destino: 6042862295 ; Oneway: False ; Highway: residential
 Rua: Rua da Granja ; Origem: 512536089 ; Destino: 1745754853 ; Oneway: False ; Highway: residential
-Rua: ['Rua dos Padres Carmelitas', 'Rua de Rebanhos'] ; Origem: 512536089 ; Destino: 1745571791 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Rebanhos', 'Rua dos Padres Carmelitas'] ; Origem: 512536089 ; Destino: 1745571791 ; Oneway: False ; Highway: residential
 Rua: Rua dos Padres Carmelitas ; Origem: 512536089 ; Destino: 512536103 ; Oneway: False ; Highway: residential
 Rua: Avenida General Carrilho da Silva Pinto (6) ; Origem: 512536098 ; Destino: 2066726039 ; Oneway: True ; Highway: primary
 Rua: Rua José Afonso Machado ; Origem: 512536098 ; Destino: 2066726037 ; Oneway: True ; Highway: residential
@@ -1815,7 +1815,7 @@ Rua:  ; Origem: 512545163 ; Destino: 1605122413 ; Oneway: True ; Highway: reside
 Rua: Rua Moura Coutinho ; Origem: 513899501 ; Destino: 513899507 ; Oneway: True ; Highway: residential
 Rua: Rua Padre Cruz (7) ; Origem: 513899501 ; Destino: 513899534 ; Oneway: True ; Highway: tertiary
 Rua: Rua Moura Coutinho (2) ; Origem: 513899507 ; Destino: 513899534 ; Oneway: True ; Highway: residential
-Rua: ['Rua Moura Coutinho', 'Rua Lopes Gonçalves'] ; Origem: 513899507 ; Destino: 1214765552 ; Oneway: False ; Highway: residential
+Rua: ['Rua Lopes Gonçalves', 'Rua Moura Coutinho'] ; Origem: 513899507 ; Destino: 1214765552 ; Oneway: False ; Highway: residential
 Rua: Rua Padre Cruz (8) ; Origem: 513899534 ; Destino: 1724417694 ; Oneway: True ; Highway: tertiary
 Rua: Rua Manuel Ferreira Gomes ; Origem: 518783286 ; Destino: 518783835 ; Oneway: False ; Highway: residential
 Rua: Rua Manuel Ferreira Gomes (2) ; Origem: 518783286 ; Destino: 1205623151 ; Oneway: False ; Highway: residential
@@ -1860,7 +1860,7 @@ Rua: Rua Manuel Fernandes (4) ; Origem: 546319809 ; Destino: 546319801 ; Oneway:
 Rua:  ; Origem: 546319809 ; Destino: 1563803592 ; Oneway: False ; Highway: residential
 Rua: Rua Cónego Luciano Afonso dos Santos ; Origem: 563094980 ; Destino: 1236439505 ; Oneway: False ; Highway: residential
 Rua: Rua Cónego Luciano Afonso dos Santos (2) ; Origem: 563094980 ; Destino: 1236439798 ; Oneway: False ; Highway: residential
-Rua: ['Rua Mário de Almeida', 'Rua Cónego Luciano Afonso dos Santos'] ; Origem: 563094980 ; Destino: 1236439756 ; Oneway: False ; Highway: residential
+Rua: ['Rua Cónego Luciano Afonso dos Santos', 'Rua Mário de Almeida'] ; Origem: 563094980 ; Destino: 1236439756 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 563094999 ; Destino: 1236439651 ; Oneway: False ; Highway: residential
 Rua: Rua Cónego Luciano Afonso dos Santos (3) ; Origem: 563094999 ; Destino: 1818311784 ; Oneway: False ; Highway: residential
 Rua: Rua Quinta de Cabanas ; Origem: 563094999 ; Destino: 1236439396 ; Oneway: False ; Highway: residential
@@ -1868,7 +1868,7 @@ Rua: Rua Manuel Ferreira Gomes (7) ; Origem: 649620241 ; Destino: 518783859 ; On
 Rua: Rua Manuel Ferreira Gomes (8) ; Origem: 649620241 ; Destino: 1207489116 ; Oneway: False ; Highway: residential
 Rua: Rua José Maria Ottoni ; Origem: 649620241 ; Destino: 518783286 ; Oneway: True ; Highway: residential
 Rua: ['Rua Adelina Caravana', 'Rua do Conservatório'] (2) ; Origem: 649742183 ; Destino: 439359576 ; Oneway: False ; Highway: residential
-Rua: ['Rua Padre Manuel Alaio', 'Rua do Conservatório'] (2) ; Origem: 649742183 ; Destino: 439359544 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Conservatório', 'Rua Padre Manuel Alaio'] (2) ; Origem: 649742183 ; Destino: 439359544 ; Oneway: False ; Highway: residential
 Rua: Rua Fundação Calouste Gulbenkian (4) ; Origem: 649742183 ; Destino: 439359593 ; Oneway: False ; Highway: residential
 Rua: Rua Rosalvo de Almeida (4) ; Origem: 649742206 ; Destino: 343667008 ; Oneway: False ; Highway: residential
 Rua: Rua Rosalvo de Almeida (5) ; Origem: 649742206 ; Destino: 4633981368 ; Oneway: True ; Highway: residential
@@ -2011,7 +2011,7 @@ Rua: Avenida do Cávado (27) ; Origem: 699017122 ; Destino: 699017520 ; Oneway: F
 Rua: Rua de São José (18) ; Origem: 699017135 ; Destino: 699017397 ; Oneway: False ; Highway: residential
 Rua: Rua Professor Mota Leite (2) ; Origem: 699017135 ; Destino: 699018610 ; Oneway: False ; Highway: residential
 Rua: Rua Professor Mota Leite (3) ; Origem: 699017135 ; Destino: 699017875 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Tílias', 'Rua de São Sebastião'] ; Origem: 699017135 ; Destino: 699017654 ; Oneway: False ; Highway: residential
+Rua: ['Rua de São Sebastião', 'Rua das Tílias'] ; Origem: 699017135 ; Destino: 699017654 ; Oneway: False ; Highway: residential
 Rua: Rua da Portela ; Origem: 699017138 ; Destino: 699017237 ; Oneway: False ; Highway: residential
 Rua: Rua do Coucinheiro ; Origem: 699017159 ; Destino: 699018295 ; Oneway: False ; Highway: residential
 Rua: Rua do Montinho (3) ; Origem: 699017159 ; Destino: 699018177 ; Oneway: False ; Highway: residential
@@ -2080,7 +2080,7 @@ Rua: Rua do Paço de Palmeira (4) ; Origem: 699017616 ; Destino: 699017003 ; Onew
 Rua:  ; Origem: 699017616 ; Destino: 699017288 ; Oneway: False ; Highway: residential
 Rua: Rua de São Sebastião (2) ; Origem: 699017654 ; Destino: 699018460 ; Oneway: False ; Highway: residential
 Rua: Rua dos Pastorinhos de Fátima ; Origem: 699017654 ; Destino: 699018610 ; Oneway: False ; Highway: residential
-Rua: ['Rua de São Sebastião', 'Rua das Tílias'] ; Origem: 699017654 ; Destino: 699017135 ; Oneway: False ; Highway: residential
+Rua: ['Rua de São Sebastião', 'Rua das Tílias'] (2) ; Origem: 699017654 ; Destino: 699017135 ; Oneway: False ; Highway: residential
 Rua: Rua de Moinhos ; Origem: 699017707 ; Destino: 6789068597 ; Oneway: False ; Highway: residential
 Rua: Rua dos Moleiros ; Origem: 699017707 ; Destino: 6789068596 ; Oneway: False ; Highway: residential
 Rua: Rua do Ribeiro (3) ; Origem: 699017707 ; Destino: 699017213 ; Oneway: False ; Highway: residential
@@ -2147,7 +2147,7 @@ Rua: Rua do Paraíso (2) ; Origem: 699018054 ; Destino: 275977150 ; Oneway: False
 Rua: Rua do Paraíso (3) ; Origem: 699018054 ; Destino: 699018328 ; Oneway: False ; Highway: residential
 Rua: Avenida do Cávado (39) ; Origem: 699018081 ; Destino: 1106880448 ; Oneway: True ; Highway: primary
 Rua: Rua das Travessas (4) ; Origem: 699018086 ; Destino: 1236402038 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua das Travessas', 'Rua de Entre Portas'] ; Origem: 699018086 ; Destino: 1236401792 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua de Entre Portas', 'Rua das Travessas'] ; Origem: 699018086 ; Destino: 1236401792 ; Oneway: False ; Highway: tertiary
 Rua: Rua Senhora das Travessas ; Origem: 699018086 ; Destino: 1236401870 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 699018088 ; Destino: 699017080 ; Oneway: False ; Highway: residential
 Rua: Rua da Mina (2) ; Origem: 699018088 ; Destino: 699018241 ; Oneway: False ; Highway: residential
@@ -2269,8 +2269,8 @@ Rua: Travessa da Lamela (2) ; Origem: 699018635 ; Destino: 699018538 ; Oneway: F
 Rua:  ; Origem: 699018635 ; Destino: 699018216 ; Oneway: True ; Highway: tertiary
 Rua: Travessa da Rua Cândido de Oliveira ; Origem: 703116605 ; Destino: 1713149712 ; Oneway: False ; Highway: residential
 Rua: Travessa da Rua Cândido de Oliveira (2) ; Origem: 703116608 ; Destino: 1763940346 ; Oneway: False ; Highway: residential
-Rua: ['Rua João Cruz', 'Praça Flávio Sá Leite'] ; Origem: 703116608 ; Destino: 2617612680 ; Oneway: False ; Highway: residential
-Rua: ['Rua Cândido de Oliveira', 'Praça Flávio Sá Leite'] ; Origem: 703116608 ; Destino: 1763940353 ; Oneway: False ; Highway: residential
+Rua: ['Praça Flávio Sá Leite', 'Rua João Cruz'] ; Origem: 703116608 ; Destino: 2617612680 ; Oneway: False ; Highway: residential
+Rua: ['Praça Flávio Sá Leite', 'Rua Cândido de Oliveira'] ; Origem: 703116608 ; Destino: 1763940353 ; Oneway: False ; Highway: residential
 Rua: Rua Dr. Constantino Fernandes Velho Sepúlveda ; Origem: 722797520 ; Destino: 2632808607 ; Oneway: False ; Highway: unclassified
 Rua: Rua Dr. Constantino Fernandes Velho Sepúlveda (2) ; Origem: 722797520 ; Destino: 722797801 ; Oneway: False ; Highway: unclassified
 Rua: Rua dos Canteiros ; Origem: 722797520 ; Destino: 722797524 ; Oneway: False ; Highway: unclassified
@@ -2437,7 +2437,7 @@ Rua: Rua Fonte das Nogueiras (2) ; Origem: 878781471 ; Destino: 2622553903 ; One
 Rua: Rua da Azenha (2) ; Origem: 878781471 ; Destino: 2622571926 ; Oneway: False ; Highway: residential
 Rua: Rua de Marinhais ; Origem: 878781471 ; Destino: 2622571745 ; Oneway: False ; Highway: residential
 Rua: Rua da Seara ; Origem: 880373495 ; Destino: 880373571 ; Oneway: False ; Highway: residential
-Rua: ['Avenida Padre Manuel da Costa Rego', 'Avenida da Granja', 'Avenida Nacional'] ; Origem: 880373495 ; Destino: 2590174991 ; Oneway: False ; Highway: secondary
+Rua: ['Avenida Nacional', 'Avenida da Granja', 'Avenida Padre Manuel da Costa Rego'] ; Origem: 880373495 ; Destino: 2590174991 ; Oneway: False ; Highway: secondary
 Rua: Avenida Padre Manuel da Costa Rego ; Origem: 880373495 ; Destino: 2595790645 ; Oneway: False ; Highway: secondary
 Rua: Rua Caminho de Santiago ; Origem: 880373571 ; Destino: 2590182818 ; Oneway: False ; Highway: residential
 Rua: Rua do Hospital ; Origem: 880373571 ; Destino: 6062838333 ; Oneway: False ; Highway: residential
@@ -2456,11 +2456,11 @@ Rua: Rua das Quebradas (3) ; Origem: 880373652 ; Destino: 1219271911 ; Oneway: F
 Rua: Travessa das Quebradas (2) ; Origem: 880373652 ; Destino: 880373615 ; Oneway: False ; Highway: residential
 Rua: Rua do Palácio (2) ; Origem: 880393133 ; Destino: 3365631503 ; Oneway: False ; Highway: primary
 Rua: Rua do Monte ; Origem: 880393133 ; Destino: 1156874520 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Palácio', 'Avenida Senhor dos Aflitos'] ; Origem: 880393133 ; Destino: 1156874337 ; Oneway: False ; Highway: primary
+Rua: ['Avenida Senhor dos Aflitos', 'Rua do Palácio'] ; Origem: 880393133 ; Destino: 1156874337 ; Oneway: False ; Highway: primary
 Rua: Rua de Roçadas ; Origem: 880393203 ; Destino: 5212603038 ; Oneway: False ; Highway: unclassified
-Rua: ['Rua da Varziela', 'Rua da Barroca'] ; Origem: 880393203 ; Destino: 880393214 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Varziela', 'Rua da Devesa'] ; Origem: 880393203 ; Destino: 880393291 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Varziela', 'Rua da Barroca'] (2) ; Origem: 880393214 ; Destino: 880393203 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Barroca', 'Rua da Varziela'] ; Origem: 880393203 ; Destino: 880393214 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Devesa', 'Rua da Varziela'] ; Origem: 880393203 ; Destino: 880393291 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Barroca', 'Rua da Varziela'] (2) ; Origem: 880393214 ; Destino: 880393203 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 880393214 ; Destino: 1595116681 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua da Varziela de Cima ; Origem: 880393214 ; Destino: 6434588689 ; Oneway: False ; Highway: unclassified
 Rua:  ; Origem: 880393232 ; Destino: 2326419472 ; Oneway: False ; Highway: residential
@@ -2492,7 +2492,7 @@ Rua: Rua do Souto (6) ; Origem: 880393286 ; Destino: 880393284 ; Oneway: False ;
 Rua: Rua dos Melos ; Origem: 880393286 ; Destino: 880393291 ; Oneway: False ; Highway: residential
 Rua: Rua da Igreja (10) ; Origem: 880393286 ; Destino: 1156874454 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 880393291 ; Destino: 2015328119 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Devesa', 'Rua da Varziela'] ; Origem: 880393291 ; Destino: 880393203 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Devesa', 'Rua da Varziela'] (2) ; Origem: 880393291 ; Destino: 880393203 ; Oneway: False ; Highway: residential
 Rua: Rua do Outeiro (7) ; Origem: 880393291 ; Destino: 1156901235 ; Oneway: False ; Highway: residential
 Rua: Rua dos Melos (2) ; Origem: 880393291 ; Destino: 880393286 ; Oneway: False ; Highway: residential
 Rua: Rua Professora Alda Brandão ; Origem: 914277391 ; Destino: 4225170201 ; Oneway: False ; Highway: secondary
@@ -2503,7 +2503,7 @@ Rua:  ; Origem: 914277402 ; Destino: 914277483 ; Oneway: True ; Highway: primary
 Rua: Rua Dom Frei Caetano Brandão (5) ; Origem: 914277410 ; Destino: 361089893 ; Oneway: True ; Highway: residential
 Rua: Rua Dom Frei Caetano Brandão (6) ; Origem: 914277410 ; Destino: 245055974 ; Oneway: False ; Highway: residential
 Rua: Rua da Quinta da Carreira ; Origem: 914277414 ; Destino: 1226137927 ; Oneway: True ; Highway: primary
-Rua: ['Rua de Baixo', 'Rua de Cima'] ; Origem: 914277414 ; Destino: 1818312057 ; Oneway: False ; Highway: primary
+Rua: ['Rua de Cima', 'Rua de Baixo'] ; Origem: 914277414 ; Destino: 1818312057 ; Oneway: False ; Highway: primary
 Rua: Rua de Cima ; Origem: 914277414 ; Destino: 914277443 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 914277415 ; Destino: 1454716600 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 914277415 ; Destino: 914277431 ; Oneway: True ; Highway: primary
@@ -2540,7 +2540,7 @@ Rua: Rua Cidade do Porto (14) ; Origem: 940341957 ; Destino: 1241184526 ; Oneway
 Rua: Rua Doutor Felicíssimo Campos ; Origem: 940341957 ; Destino: 1241210117 ; Oneway: True ; Highway: residential
 Rua: Rua Peão da Meia Laranja ; Origem: 940341972 ; Destino: 1671373269 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Felicíssimo Campos (2) ; Origem: 940341972 ; Destino: 1241184511 ; Oneway: False ; Highway: residential
-Rua: ['Rua Madre de Deus', 'Largo da Madre de Deus'] ; Origem: 940341972 ; Destino: 229406781 ; Oneway: True ; Highway: residential
+Rua: ['Largo da Madre de Deus', 'Rua Madre de Deus'] ; Origem: 940341972 ; Destino: 229406781 ; Oneway: True ; Highway: residential
 Rua: Rua Padre Cruz (9) ; Origem: 940341980 ; Destino: 1241184509 ; Oneway: True ; Highway: tertiary
 Rua: Largo da Madre de Deus (3) ; Origem: 940341980 ; Destino: 229406781 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Quinta de Santa Maria (2) ; Origem: 940342012 ; Destino: 1241184516 ; Oneway: True ; Highway: residential
@@ -2562,7 +2562,7 @@ Rua:  ; Origem: 1037436921 ; Destino: 7010032260 ; Oneway: True ; Highway: motor
 Rua: Avenida de São Miguel (9) ; Origem: 1106340009 ; Destino: 1598931933 ; Oneway: False ; Highway: tertiary
 Rua:  ; Origem: 1106340009 ; Destino: 1479227007 ; Oneway: True ; Highway: tertiary_link
 Rua:  ; Origem: 1106340083 ; Destino: 26269730 ; Oneway: True ; Highway: motorway_link
-Rua:  ; Origem: 1106340083 ; Destino: 1106340016 ; Oneway: True ; Highway: motorway_link, motorway
+Rua:  ; Origem: 1106340083 ; Destino: 1106340016 ; Oneway: True ; Highway: motorway, motorway_link
 Rua: Avenida Senhor da Paciência ; Origem: 1106340143 ; Destino: 1732862193 ; Oneway: False ; Highway: tertiary
 Rua:  ; Origem: 1106340143 ; Destino: 1729097120 ; Oneway: True ; Highway: tertiary
 Rua: Rua Frei José Vilaça (6) ; Origem: 1106483470 ; Destino: 1106483817 ; Oneway: True ; Highway: primary
@@ -2570,7 +2570,7 @@ Rua:  ; Origem: 1106483470 ; Destino: 1106483929 ; Oneway: True ; Highway: prima
 Rua:  ; Origem: 1106483557 ; Destino: 1106483470 ; Oneway: True ; Highway: primary
 Rua:  ; Origem: 1106483603 ; Destino: 1106483649 ; Oneway: True ; Highway: motorway_link
 Rua:  ; Origem: 1106483603 ; Destino: 1106483881 ; Oneway: True ; Highway: motorway_link
-Rua: ['Circular Sul de Braga', 'Circular Norte de Braga'] ; Origem: 1106483609 ; Destino: 263371013 ; Oneway: True ; Highway: motorway
+Rua: ['Circular Norte de Braga', 'Circular Sul de Braga'] ; Origem: 1106483609 ; Destino: 263371013 ; Oneway: True ; Highway: motorway
 Rua:  ; Origem: 1106483611 ; Destino: 1106483867 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 1106483611 ; Destino: 1712548353 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 1106483613 ; Destino: 1106483753 ; Oneway: True ; Highway: primary
@@ -2653,7 +2653,7 @@ Rua: Rua Cidade do Porto (19) ; Origem: 1106536606 ; Destino: 1620543516 ; Onewa
 Rua: Rua Dr. Augusto César Cerqueira Gomes (6) ; Origem: 1106536610 ; Destino: 1106536491 ; Oneway: False ; Highway: residential
 Rua: Rua Frei José Vilaça (27) ; Origem: 1106536610 ; Destino: 1729259941 ; Oneway: False ; Highway: primary
 Rua: Rua Frei José Vilaça (28) ; Origem: 1106536610 ; Destino: 229406797 ; Oneway: False ; Highway: primary
-Rua: ['Rua Frei Cipriano da Cruz', 'Rua Marceliano Araújo'] ; Origem: 1106536612 ; Destino: 10020383760 ; Oneway: True ; Highway: residential
+Rua: ['Rua Marceliano Araújo', 'Rua Frei Cipriano da Cruz'] ; Origem: 1106536612 ; Destino: 10020383760 ; Oneway: True ; Highway: residential
 Rua: Rua Frei Cipriano da Cruz (2) ; Origem: 1106536612 ; Destino: 1106536440 ; Oneway: False ; Highway: residential
 Rua: Rua de Entre Campos (4) ; Origem: 1106704318 ; Destino: 699017027 ; Oneway: False ; Highway: tertiary
 Rua:  ; Origem: 1106704318 ; Destino: 1106704508 ; Oneway: True ; Highway: trunk_link
@@ -2663,7 +2663,7 @@ Rua: Rua de Entre Campos (6) ; Origem: 1106704512 ; Destino: 699017027 ; Oneway:
 Rua: Rua de Entre Campos (7) ; Origem: 1106704512 ; Destino: 699017442 ; Oneway: False ; Highway: tertiary
 Rua: Rotunda Santos da Cunha (3) ; Origem: 1106787797 ; Destino: 1385032522 ; Oneway: True ; Highway: primary
 Rua: Avenida Imaculada Conceição (30) ; Origem: 1106787797 ; Destino: 4740790413 ; Oneway: True ; Highway: primary
-Rua:  ; Origem: 1106858271 ; Destino: 243891925 ; Oneway: True ; Highway: secondary, trunk_link
+Rua:  ; Origem: 1106858271 ; Destino: 243891925 ; Oneway: True ; Highway: trunk_link, secondary
 Rua: Avenida António Macedo (4) ; Origem: 1106858271 ; Destino: 1818310657 ; Oneway: True ; Highway: trunk
 Rua: Rua da Marginal (8) ; Origem: 1106880448 ; Destino: 699017431 ; Oneway: True ; Highway: secondary
 Rua: Avenida do Cávado (49) ; Origem: 1106880448 ; Destino: 699018354 ; Oneway: True ; Highway: primary
@@ -2676,7 +2676,7 @@ Rua:  ; Origem: 1109502363 ; Destino: 1109502480 ; Oneway: True ; Highway: motor
 Rua:  ; Origem: 1109502363 ; Destino: 26270505 ; Oneway: True ; Highway: motorway_link
 Rua:  ; Origem: 1109502436 ; Destino: 3160271417 ; Oneway: True ; Highway: motorway_link
 Rua: Circular Sul de Braga (11) ; Origem: 1109502480 ; Destino: 1511585199 ; Oneway: True ; Highway: motorway
-Rua:  ; Origem: 1109502508 ; Destino: 3214194319 ; Oneway: True ; Highway: motorway_link, motorway
+Rua:  ; Origem: 1109502508 ; Destino: 3214194319 ; Oneway: True ; Highway: motorway, motorway_link
 Rua: Rua Dom António Bento Martins Júnior (12) ; Origem: 1134479214 ; Destino: 1763921777 ; Oneway: False ; Highway: tertiary
 Rua: Rua Dom António Bento Martins Júnior (13) ; Origem: 1134479214 ; Destino: 213266831 ; Oneway: False ; Highway: tertiary
 Rua: Bairro da Quinta dos Congregados ; Origem: 1134479214 ; Destino: 3928547136 ; Oneway: False ; Highway: residential
@@ -2773,7 +2773,7 @@ Rua: Rua da Poça da Bácora (2) ; Origem: 1156874328 ; Destino: 880393268 ; Onewa
 Rua: Rua 25 de Abril (10) ; Origem: 1156874328 ; Destino: 1156874341 ; Oneway: False ; Highway: residential
 Rua: Rua da Poça da Bácora (3) ; Origem: 1156874328 ; Destino: 1156874337 ; Oneway: False ; Highway: residential
 Rua: Avenida Senhor dos Aflitos (2) ; Origem: 1156874337 ; Destino: 2622573688 ; Oneway: False ; Highway: primary
-Rua: ['Rua do Palácio', 'Avenida Senhor dos Aflitos'] (2) ; Origem: 1156874337 ; Destino: 880393133 ; Oneway: False ; Highway: primary
+Rua: ['Avenida Senhor dos Aflitos', 'Rua do Palácio'] (2) ; Origem: 1156874337 ; Destino: 880393133 ; Oneway: False ; Highway: primary
 Rua: Rua da Poça da Bácora (4) ; Origem: 1156874337 ; Destino: 1156874328 ; Oneway: False ; Highway: residential
 Rua: Rua 25 de Abril (11) ; Origem: 1156874341 ; Destino: 1156874328 ; Oneway: False ; Highway: residential
 Rua: Rua do Souto (8) ; Origem: 1156874382 ; Destino: 1156874285 ; Oneway: False ; Highway: residential
@@ -2864,7 +2864,7 @@ Rua: Rua do Noval (2) ; Origem: 1207221812 ; Destino: 1207221788 ; Oneway: False
 Rua: Calçada de Gondufe ; Origem: 1207221812 ; Destino: 1215966698 ; Oneway: True ; Highway: residential
 Rua: Rua do Noval (3) ; Origem: 1207221812 ; Destino: 1207221862 ; Oneway: False ; Highway: residential
 Rua: Travessa do Noval ; Origem: 1207221813 ; Destino: 1207226838 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Noval', 'Calçada da Garapoa'] ; Origem: 1207221813 ; Destino: 1227805481 ; Oneway: False ; Highway: residential
+Rua: ['Calçada da Garapoa', 'Rua do Noval'] ; Origem: 1207221813 ; Destino: 1227805481 ; Oneway: False ; Highway: residential
 Rua: Rua do Noval (4) ; Origem: 1207221813 ; Destino: 1215966657 ; Oneway: False ; Highway: residential
 Rua: Rua Nova do Noval (3) ; Origem: 1207221826 ; Destino: 1227805362 ; Oneway: False ; Highway: residential
 Rua: Travessa do Noval (2) ; Origem: 1207221826 ; Destino: 1207226838 ; Oneway: False ; Highway: residential
@@ -2995,7 +2995,7 @@ Rua: Avenida Orfãos de São Caetano ; Origem: 1214751714 ; Destino: 1487885163 ; 
 Rua: Avenida São Pedro de Maximinos ; Origem: 1214751714 ; Destino: 1214765612 ; Oneway: False ; Highway: tertiary
 Rua: Rua Lopes Gonçalves ; Origem: 1214765552 ; Destino: 1724255292 ; Oneway: False ; Highway: tertiary
 Rua: Avenida São Pedro de Maximinos (2) ; Origem: 1214765552 ; Destino: 5486387166 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua Moura Coutinho', 'Rua Lopes Gonçalves'] (2) ; Origem: 1214765552 ; Destino: 513899507 ; Oneway: False ; Highway: residential
+Rua: ['Rua Lopes Gonçalves', 'Rua Moura Coutinho'] (2) ; Origem: 1214765552 ; Destino: 513899507 ; Oneway: False ; Highway: residential
 Rua: Avenida São Pedro de Maximinos (3) ; Origem: 1214765561 ; Destino: 1214765612 ; Oneway: False ; Highway: tertiary
 Rua: Avenida São Pedro de Maximinos (4) ; Origem: 1214765561 ; Destino: 1724248822 ; Oneway: False ; Highway: tertiary
 Rua:  ; Origem: 1214765561 ; Destino: 1225496285 ; Oneway: False ; Highway: residential
@@ -3042,7 +3042,7 @@ Rua: Rua Campo Futebol ; Origem: 1214767345 ; Destino: 1236745760 ; Oneway: Fals
 Rua: ['Rua Bemposta', 'Rua da Boavista'] (2) ; Origem: 1214767345 ; Destino: 1214767218 ; Oneway: False ; Highway: residential
 Rua: Travessa da Bouça Cabo de Cima (4) ; Origem: 1214767402 ; Destino: 1214711935 ; Oneway: False ; Highway: residential
 Rua: Rua Bouça do Cabo de Cima (8) ; Origem: 1214767402 ; Destino: 1214767233 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Bela Vista', 'Travessa da Bouça Cabo de Cima'] ; Origem: 1214767402 ; Destino: 1359433150 ; Oneway: False ; Highway: residential
+Rua: ['Travessa da Bouça Cabo de Cima', 'Rua da Bela Vista'] ; Origem: 1214767402 ; Destino: 1359433150 ; Oneway: False ; Highway: residential
 Rua: Rua do Côvo (2) ; Origem: 1214767405 ; Destino: 1359371339 ; Oneway: False ; Highway: residential
 Rua: Rua do Côvo (3) ; Origem: 1214767405 ; Destino: 1234666531 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1214767405 ; Destino: 1214767481 ; Oneway: False ; Highway: residential
@@ -3185,7 +3185,7 @@ Rua: Rua da Silveira (2) ; Origem: 1219271911 ; Destino: 1219159615 ; Oneway: Fa
 Rua: Rua das Quebradas (7) ; Origem: 1219271911 ; Destino: 880373652 ; Oneway: False ; Highway: residential
 Rua: Rua das Quebradas (8) ; Origem: 1219271911 ; Destino: 1595116616 ; Oneway: False ; Highway: residential
 Rua: Avenida do Redondelo (3) ; Origem: 1219271963 ; Destino: 880393245 ; Oneway: False ; Highway: secondary
-Rua: ['Avenida do Redondelo', 'Avenida de São Bentinho'] ; Origem: 1219271963 ; Destino: 10561946778 ; Oneway: False ; Highway: secondary
+Rua: ['Avenida de São Bentinho', 'Avenida do Redondelo'] ; Origem: 1219271963 ; Destino: 10561946778 ; Oneway: False ; Highway: secondary
 Rua:  ; Origem: 1219271963 ; Destino: 2316439702 ; Oneway: False ; Highway: tertiary
 Rua: Avenida Padre Manuel da Costa Rego (2) ; Origem: 1219272077 ; Destino: 2595790645 ; Oneway: False ; Highway: secondary
 Rua: Avenida Padre Manuel da Costa Rego (3) ; Origem: 1219272077 ; Destino: 1219272276 ; Oneway: False ; Highway: secondary
@@ -3583,7 +3583,7 @@ Rua: Travessa Encosta do Monte (2) ; Origem: 1227805458 ; Destino: 1227805298 ; 
 Rua: Rua Encosta do Monte (6) ; Origem: 1227805470 ; Destino: 1227805458 ; Oneway: False ; Highway: residential
 Rua: Rua dos Castanheiros (9) ; Origem: 1227805470 ; Destino: 1227805201 ; Oneway: False ; Highway: residential
 Rua: Rua dos Castanheiros (10) ; Origem: 1227805470 ; Destino: 1224442992 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Noval', 'Calçada da Garapoa'] (2) ; Origem: 1227805481 ; Destino: 1207221813 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Noval', 'Calçada da Garapoa'] ; Origem: 1227805481 ; Destino: 1207221813 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1227805481 ; Destino: 2523290989 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1227805481 ; Destino: 2523291009 ; Oneway: False ; Highway: residential
 Rua: Rua da Pia (2) ; Origem: 1227829277 ; Destino: 1227829290 ; Oneway: False ; Highway: residential
@@ -3660,7 +3660,7 @@ Rua: Rua da Escola (13) ; Origem: 1229497982 ; Destino: 1225106024 ; Oneway: Fal
 Rua: Rua da Escola (14) ; Origem: 1229497982 ; Destino: 1229497915 ; Oneway: False ; Highway: residential
 Rua: Rua do Outeiro (19) ; Origem: 1229498009 ; Destino: 4778869398 ; Oneway: False ; Highway: residential
 Rua: Rua do Outeiro (20) ; Origem: 1229498009 ; Destino: 1591364258 ; Oneway: True ; Highway: residential
-Rua: ['Rua do Pinheiro', 'Rua da Igreja'] ; Origem: 1229498027 ; Destino: 1229498103 ; Oneway: True ; Highway: residential
+Rua: ['Rua da Igreja', 'Rua do Pinheiro'] ; Origem: 1229498027 ; Destino: 1229498103 ; Oneway: True ; Highway: residential
 Rua: Rua do Bom Real (9) ; Origem: 1229498027 ; Destino: 1229497961 ; Oneway: False ; Highway: residential
 Rua: Rua de Eira Vedra (2) ; Origem: 1229498055 ; Destino: 1225106044 ; Oneway: False ; Highway: residential
 Rua: Rua da Carreira (6) ; Origem: 1229498055 ; Destino: 1229497871 ; Oneway: False ; Highway: residential
@@ -3688,7 +3688,7 @@ Rua: Rua José Maria Rodrigues ; Origem: 1232769656 ; Destino: 1771535784 ; Onewa
 Rua: Rua da Lage (6) ; Origem: 1232769656 ; Destino: 1683182821 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Lage (7) ; Origem: 1232769656 ; Destino: 1232769607 ; Oneway: False ; Highway: tertiary
 Rua: Rua Óscar Dias Pereira (2) ; Origem: 1232819693 ; Destino: 1234596218 ; Oneway: False ; Highway: residential
-Rua: ['Rua Celestino Lobo', 'Rua José Maria Rodrigues'] ; Origem: 1232819693 ; Destino: 1771535784 ; Oneway: False ; Highway: residential
+Rua: ['Rua José Maria Rodrigues', 'Rua Celestino Lobo'] ; Origem: 1232819693 ; Destino: 1771535784 ; Oneway: False ; Highway: residential
 Rua: Rua Celestino Lobo ; Origem: 1232819693 ; Destino: 2061416397 ; Oneway: False ; Highway: residential
 Rua: Rua Amália da Costa Lima (9) ; Origem: 1234594469 ; Destino: 512536282 ; Oneway: False ; Highway: residential
 Rua: Rua Amália da Costa Lima (10) ; Origem: 1234594469 ; Destino: 512536278 ; Oneway: False ; Highway: residential
@@ -3750,7 +3750,7 @@ Rua: Rua dos Paióis (3) ; Origem: 1234641704 ; Destino: 1234641820 ; Oneway: Fal
 Rua: Rua dos Paióis (4) ; Origem: 1234641704 ; Destino: 1234641757 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Tourido (3) ; Origem: 1234641708 ; Destino: 1234641821 ; Oneway: False ; Highway: residential
 Rua: Rua do Tourido (4) ; Origem: 1234641708 ; Destino: 3761334898 ; Oneway: False ; Highway: residential
-Rua: ['Rua António Alves', 'Rua Nossa Senhora das Graças'] ; Origem: 1234641708 ; Destino: 1234641838 ; Oneway: False ; Highway: residential
+Rua: ['Rua Nossa Senhora das Graças', 'Rua António Alves'] ; Origem: 1234641708 ; Destino: 1234641838 ; Oneway: False ; Highway: residential
 Rua: Travessa de São Gregório ; Origem: 1234641712 ; Destino: 1234641873 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1234641717 ; Destino: 1234641843 ; Oneway: True ; Highway: residential
 Rua: Rua Padre António da Anunciação ; Origem: 1234641717 ; Destino: 3761334597 ; Oneway: True ; Highway: residential
@@ -3782,7 +3782,7 @@ Rua:  ; Origem: 1234641787 ; Destino: 1234641821 ; Oneway: False ; Highway: resi
 Rua: Rua Nossa Senhora das Graças (3) ; Origem: 1234641787 ; Destino: 1234641838 ; Oneway: False ; Highway: residential
 Rua: Rua Joaquim Ferreira da Silva ; Origem: 1234641791 ; Destino: 6796873410 ; Oneway: False ; Highway: residential
 Rua: Calçada de Cones (2) ; Origem: 1234641791 ; Destino: 1234641731 ; Oneway: False ; Highway: residential
-Rua: ['Calçada de Cones', 'Largo das Alminhas'] ; Origem: 1234641791 ; Destino: 1234641848 ; Oneway: False ; Highway: residential
+Rua: ['Largo das Alminhas', 'Calçada de Cones'] ; Origem: 1234641791 ; Destino: 1234641848 ; Oneway: False ; Highway: residential
 Rua: Rua do Tourido (5) ; Origem: 1234641795 ; Destino: 3761334898 ; Oneway: True ; Highway: residential
 Rua:  ; Origem: 1234641795 ; Destino: 1234641826 ; Oneway: True ; Highway: residential
 Rua: Avenida de São Gregório ; Origem: 1234641799 ; Destino: 8088916954 ; Oneway: False ; Highway: residential
@@ -3803,11 +3803,11 @@ Rua: Rua do Tourido (6) ; Origem: 1234641821 ; Destino: 1234641676 ; Oneway: Fal
 Rua: Rua do Tourido (7) ; Origem: 1234641821 ; Destino: 1234641708 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1234641824 ; Destino: 1234641730 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1234641826 ; Destino: 1234641717 ; Oneway: True ; Highway: residential
-Rua: ['Rua António Alves', 'Rua Nossa Senhora das Graças'] (2) ; Origem: 1234641838 ; Destino: 1234641708 ; Oneway: False ; Highway: residential
+Rua: ['Rua António Alves', 'Rua Nossa Senhora das Graças'] ; Origem: 1234641838 ; Destino: 1234641708 ; Oneway: False ; Highway: residential
 Rua: Rua Nossa Senhora das Graças (4) ; Origem: 1234641838 ; Destino: 1234641787 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1234641838 ; Destino: 1234641851 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1234641843 ; Destino: 3859102022 ; Oneway: True ; Highway: residential
-Rua: ['Calçada de Cones', 'Largo das Alminhas'] (2) ; Origem: 1234641848 ; Destino: 1234641791 ; Oneway: False ; Highway: residential
+Rua: ['Largo das Alminhas', 'Calçada de Cones'] (2) ; Origem: 1234641848 ; Destino: 1234641791 ; Oneway: False ; Highway: residential
 Rua: Largo das Alminhas ; Origem: 1234641848 ; Destino: 1538877989 ; Oneway: False ; Highway: residential
 Rua: Rua João Azeredo ; Origem: 1234641848 ; Destino: 6791534649 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1234641849 ; Destino: 1234641799 ; Oneway: True ; Highway: residential
@@ -3918,15 +3918,15 @@ Rua: Rua do Vilar (6) ; Origem: 1235275478 ; Destino: 343667018 ; Oneway: False 
 Rua: Marginal do Cávado (3) ; Origem: 1235389035 ; Destino: 2632808617 ; Oneway: False ; Highway: tertiary
 Rua: Marginal do Cávado (4) ; Origem: 1235389035 ; Destino: 2632788499 ; Oneway: False ; Highway: tertiary
 Rua: Rua Dr. Constantino Fernandes Velho Sepúlveda (9) ; Origem: 1235389035 ; Destino: 722797802 ; Oneway: False ; Highway: unclassified
-Rua: ['Rua Senhora do Bom Sucesso', 'Rua das Grovas'] ; Origem: 1235389040 ; Destino: 6789060060 ; Oneway: False ; Highway: unclassified, residential
+Rua: ['Rua das Grovas', 'Rua Senhora do Bom Sucesso'] ; Origem: 1235389040 ; Destino: 6789060060 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua das Grovas ; Origem: 1235389040 ; Destino: 1235389094 ; Oneway: False ; Highway: residential
-Rua: ['Rua Primavera', 'Travessa das Grovas', 'Rua Santa Maria'] ; Origem: 1235389040 ; Destino: 1235389094 ; Oneway: False ; Highway: residential
+Rua: ['Travessa das Grovas', 'Rua Primavera', 'Rua Santa Maria'] ; Origem: 1235389040 ; Destino: 1235389094 ; Oneway: False ; Highway: residential
 Rua: Avenida do Cávado (57) ; Origem: 1235389046 ; Destino: 699016995 ; Oneway: False ; Highway: primary
 Rua: Avenida do Cávado (58) ; Origem: 1235389046 ; Destino: 699017435 ; Oneway: False ; Highway: primary
 Rua: Rua Professor Mota Leite (8) ; Origem: 1235389062 ; Destino: 1235389244 ; Oneway: True ; Highway: residential
 Rua: Rua Professor Mota Leite (9) ; Origem: 1235389062 ; Destino: 699017875 ; Oneway: False ; Highway: residential
 Rua: Rua das Grovas (2) ; Origem: 1235389094 ; Destino: 1235389271 ; Oneway: False ; Highway: residential
-Rua: ['Rua Primavera', 'Travessa das Grovas', 'Rua Santa Maria'] (2) ; Origem: 1235389094 ; Destino: 1235389040 ; Oneway: False ; Highway: residential
+Rua: ['Rua Santa Maria', 'Rua Primavera', 'Travessa das Grovas'] ; Origem: 1235389094 ; Destino: 1235389040 ; Oneway: False ; Highway: residential
 Rua: Rua das Grovas (3) ; Origem: 1235389094 ; Destino: 1235389040 ; Oneway: False ; Highway: residential
 Rua: Rua do Montinho (10) ; Origem: 1235389099 ; Destino: 699017226 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1235389099 ; Destino: 1235389146 ; Oneway: False ; Highway: residential
@@ -3978,7 +3978,7 @@ Rua: Avenida do Cávado (64) ; Origem: 1236148377 ; Destino: 1236148428 ; Oneway:
 Rua: Avenida do Cávado (65) ; Origem: 1236148379 ; Destino: 3320141476 ; Oneway: False ; Highway: primary
 Rua: Avenida do Cávado (66) ; Origem: 1236148379 ; Destino: 4065343554 ; Oneway: True ; Highway: primary
 Rua: Avenida do Cávado (67) ; Origem: 1236148426 ; Destino: 1236148377 ; Oneway: True ; Highway: primary
-Rua: ['Rua da Carvalheira', 'Rua de Pitancinhos'] ; Origem: 1236148426 ; Destino: 2836124413 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Pitancinhos', 'Rua da Carvalheira'] ; Origem: 1236148426 ; Destino: 2836124413 ; Oneway: False ; Highway: residential
 Rua: Avenida do Cávado (68) ; Origem: 1236148428 ; Destino: 1236148450 ; Oneway: True ; Highway: primary
 Rua: Avenida do Cávado (69) ; Origem: 1236148447 ; Destino: 1236148426 ; Oneway: True ; Highway: primary
 Rua: Avenida do Cávado (70) ; Origem: 1236148450 ; Destino: 4065343566 ; Oneway: True ; Highway: primary
@@ -4033,7 +4033,7 @@ Rua: Avenida do Cávado (76) ; Origem: 1236196512 ; Destino: 3320141476 ; Oneway:
 Rua: Avenida do Cávado (77) ; Origem: 1236196512 ; Destino: 4065451608 ; Oneway: False ; Highway: primary
 Rua: Rua do Carvalhal (7) ; Origem: 1236196512 ; Destino: 1236196524 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Manuel José de Oliveira Machado (2) ; Origem: 1236196519 ; Destino: 2435802051 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua Doutor Manuel José de Oliveira Machado', 'Rua Dr. Manuel José de Oliveira Machado'] ; Origem: 1236196519 ; Destino: 1744405379 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua Dr. Manuel José de Oliveira Machado', 'Rua Doutor Manuel José de Oliveira Machado'] ; Origem: 1236196519 ; Destino: 1744405379 ; Oneway: False ; Highway: tertiary
 Rua: Cangosta do Boular ; Origem: 1236196519 ; Destino: 6802531158 ; Oneway: False ; Highway: residential
 Rua: Rua Nova do Carvalhal (2) ; Origem: 1236196524 ; Destino: 1236196510 ; Oneway: False ; Highway: residential
 Rua: Rua do Carvalhal (8) ; Origem: 1236196524 ; Destino: 1236196512 ; Oneway: False ; Highway: residential
@@ -4125,7 +4125,7 @@ Rua: Rua de São Martinho (11) ; Origem: 1236401786 ; Destino: 2272544838 ; Onewa
 Rua: Rua de São Martinho (12) ; Origem: 1236401786 ; Destino: 3879960083 ; Oneway: False ; Highway: secondary
 Rua: Rua Dom Carlos Pinheiro (2) ; Origem: 1236401792 ; Destino: 1236401934 ; Oneway: False ; Highway: residential
 Rua: Rua de Entre Portas ; Origem: 1236401792 ; Destino: 1236401985 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua das Travessas', 'Rua de Entre Portas'] (2) ; Origem: 1236401792 ; Destino: 699018086 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua de Entre Portas', 'Rua das Travessas'] (2) ; Origem: 1236401792 ; Destino: 699018086 ; Oneway: False ; Highway: tertiary
 Rua: Rua Nova das Travessas (2) ; Origem: 1236401803 ; Destino: 1236401947 ; Oneway: False ; Highway: residential
 Rua: Rua Cónego Insuelas ; Origem: 1236401824 ; Destino: 1236402014 ; Oneway: False ; Highway: tertiary
 Rua: Avenida Sobremoure (5) ; Origem: 1236401824 ; Destino: 1675636527 ; Oneway: False ; Highway: tertiary
@@ -4144,7 +4144,7 @@ Rua: Caminho da Ordem ; Origem: 1236401873 ; Destino: 2248985788 ; Oneway: False
 Rua: Rua de São Martinho (13) ; Origem: 1236401873 ; Destino: 3879960083 ; Oneway: False ; Highway: secondary
 Rua: Rua de São Martinho (14) ; Origem: 1236401873 ; Destino: 914277453 ; Oneway: False ; Highway: secondary
 Rua: Avenida 25 de Abril (2) ; Origem: 1236401912 ; Destino: 6778379163 ; Oneway: False ; Highway: tertiary
-Rua: ['Avenida 25 de Abril', 'Largo de Carcavelos'] ; Origem: 1236401912 ; Destino: 2836119375 ; Oneway: False ; Highway: tertiary
+Rua: ['Largo de Carcavelos', 'Avenida 25 de Abril'] ; Origem: 1236401912 ; Destino: 2836119375 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Cordeiro ; Origem: 1236401912 ; Destino: 1236402012 ; Oneway: False ; Highway: residential
 Rua: Rua Sobremoure (3) ; Origem: 1236401932 ; Destino: 1236401622 ; Oneway: False ; Highway: residential
 Rua: Rua Sobremoure (4) ; Origem: 1236401932 ; Destino: 1236402028 ; Oneway: False ; Highway: residential
@@ -4178,7 +4178,7 @@ Rua: Rua do Gontijo (4) ; Origem: 1236402006 ; Destino: 1236401850 ; Oneway: Fal
 Rua: Rua Ponte do Abade (6) ; Origem: 1236402006 ; Destino: 5506431115 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Rêgo (2) ; Origem: 1236402006 ; Destino: 1236401824 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Cordeiro (2) ; Origem: 1236402012 ; Destino: 1236401912 ; Oneway: False ; Highway: residential
-Rua: ['Rua José Silva Braga', 'Rua do Cordeiro'] ; Origem: 1236402012 ; Destino: 6107696753 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Cordeiro', 'Rua José Silva Braga'] ; Origem: 1236402012 ; Destino: 6107696753 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1236402012 ; Destino: 11081083118 ; Oneway: False ; Highway: residential
 Rua: Rua Cónego Insuelas (2) ; Origem: 1236402014 ; Destino: 1236401824 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Monte (27) ; Origem: 1236402014 ; Destino: 2836123923 ; Oneway: False ; Highway: residential
@@ -4236,7 +4236,7 @@ Rua:  ; Origem: 1236439705 ; Destino: 1236439586 ; Oneway: False ; Highway: resi
 Rua: Rua Francisco Augusto Alvim (4) ; Origem: 1236439705 ; Destino: 1236439459 ; Oneway: False ; Highway: residential
 Rua: Rua Francisco Augusto Alvim (5) ; Origem: 1236439705 ; Destino: 1236439762 ; Oneway: False ; Highway: residential
 Rua: Rua Mário de Almeida ; Origem: 1236439756 ; Destino: 1236439798 ; Oneway: False ; Highway: residential
-Rua: ['Rua Mário de Almeida', 'Rua Cónego Luciano Afonso dos Santos'] (2) ; Origem: 1236439756 ; Destino: 563094980 ; Oneway: False ; Highway: residential
+Rua: ['Rua Cónego Luciano Afonso dos Santos', 'Rua Mário de Almeida'] (2) ; Origem: 1236439756 ; Destino: 563094980 ; Oneway: False ; Highway: residential
 Rua: Rua Padre António Freire (6) ; Origem: 1236439756 ; Destino: 1236439396 ; Oneway: False ; Highway: residential
 Rua: Rua Francisco Augusto Alvim (6) ; Origem: 1236439762 ; Destino: 1236439705 ; Oneway: False ; Highway: residential
 Rua: Rua de Cabanas (2) ; Origem: 1236439762 ; Destino: 1236439674 ; Oneway: False ; Highway: residential
@@ -4257,7 +4257,7 @@ Rua:  ; Origem: 1236494687 ; Destino: 1236494697 ; Oneway: False ; Highway: resi
 Rua: Rua Pinheiro Torres (4) ; Origem: 1236494687 ; Destino: 1236494674 ; Oneway: False ; Highway: residential
 Rua: Rua Pinheiro Torres (5) ; Origem: 1236494687 ; Destino: 1777145759 ; Oneway: False ; Highway: residential
 Rua: Rua Graça Júnior ; Origem: 1236494695 ; Destino: 1236494718 ; Oneway: False ; Highway: residential
-Rua: ['Rua Dom Francisco de Noronha', 'Rua Abade Loureira'] ; Origem: 1236494695 ; Destino: 2058507177 ; Oneway: False ; Highway: residential
+Rua: ['Rua Abade Loureira', 'Rua Dom Francisco de Noronha'] ; Origem: 1236494695 ; Destino: 2058507177 ; Oneway: False ; Highway: residential
 Rua: Rua Dom Francisco de Noronha ; Origem: 1236494695 ; Destino: 1236494756 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Cruz Teixeira (2) ; Origem: 1236494697 ; Destino: 1236494674 ; Oneway: False ; Highway: residential
 Rua: Rua Dom Francisco de Noronha (2) ; Origem: 1236494697 ; Destino: 1236494789 ; Oneway: False ; Highway: residential
@@ -4296,7 +4296,7 @@ Rua: Calçada Monte Castro ; Origem: 1236494764 ; Destino: 1236494773 ; Oneway: T
 Rua: Rua do Bairro Nossa Senhora do Monte ; Origem: 1236494764 ; Destino: 1777131629 ; Oneway: False ; Highway: residential
 Rua: Rua Gonçalves Braga (2) ; Origem: 1236494771 ; Destino: 1236494756 ; Oneway: False ; Highway: residential
 Rua: Rua Silva Cunha (2) ; Origem: 1236494771 ; Destino: 1236494718 ; Oneway: False ; Highway: residential
-Rua: ['Rua Graça Júnior', 'Rua Gonçalves Braga', 'Rua Dias Silva'] ; Origem: 1236494771 ; Destino: 1236494718 ; Oneway: False ; Highway: residential
+Rua: ['Rua Graça Júnior', 'Rua Dias Silva', 'Rua Gonçalves Braga'] (2) ; Origem: 1236494771 ; Destino: 1236494718 ; Oneway: False ; Highway: residential
 Rua: Avenida Doutor Artur Soares (9) ; Origem: 1236494773 ; Destino: 1236494677 ; Oneway: True ; Highway: residential
 Rua: Rua Doutor Costa Palmeira (3) ; Origem: 1236494779 ; Destino: 1236494763 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Costa Palmeira (4) ; Origem: 1236494779 ; Destino: 1236494756 ; Oneway: False ; Highway: residential
@@ -4374,7 +4374,7 @@ Rua: Rua Professora Alda Brandão (9) ; Origem: 1236565553 ; Destino: 1236565494 
 Rua:  ; Origem: 1236565553 ; Destino: 1236565592 ; Oneway: True ; Highway: residential
 Rua: Rua Silva Valério ; Origem: 1236565557 ; Destino: 1932483415 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Sérgio Silva Pinto ; Origem: 1236565557 ; Destino: 1236565681 ; Oneway: False ; Highway: residential
-Rua: ['Rua João Pereira Neto', 'Rua Doutor Sérgio Silva Pinto'] ; Origem: 1236565557 ; Destino: 1236565622 ; Oneway: False ; Highway: residential
+Rua: ['Rua Doutor Sérgio Silva Pinto', 'Rua João Pereira Neto'] ; Origem: 1236565557 ; Destino: 1236565622 ; Oneway: False ; Highway: residential
 Rua: Rua João Pereira Neto ; Origem: 1236565564 ; Destino: 1236565622 ; Oneway: False ; Highway: residential
 Rua: Rua Valerio Pinto Sá (2) ; Origem: 1236565564 ; Destino: 1236565644 ; Oneway: False ; Highway: residential
 Rua: Rua João Pereira Neto (2) ; Origem: 1236565564 ; Destino: 3859201471 ; Oneway: False ; Highway: residential
@@ -4383,7 +4383,7 @@ Rua: Rua da Feira (16) ; Origem: 1236565613 ; Destino: 1236565681 ; Oneway: Fals
 Rua: Rua da Feira (17) ; Origem: 1236565613 ; Destino: 1662840500 ; Oneway: True ; Highway: residential
 Rua: Rua da Cotoreira (2) ; Origem: 1236565618 ; Destino: 1236565464 ; Oneway: False ; Highway: residential
 Rua: Rua João Pereira Neto (3) ; Origem: 1236565622 ; Destino: 1236565564 ; Oneway: False ; Highway: residential
-Rua: ['Rua João Pereira Neto', 'Rua Doutor Sérgio Silva Pinto'] (2) ; Origem: 1236565622 ; Destino: 1236565557 ; Oneway: False ; Highway: residential
+Rua: ['Rua Doutor Sérgio Silva Pinto', 'Rua João Pereira Neto'] (2) ; Origem: 1236565622 ; Destino: 1236565557 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Manuel José da Silva Thedim ; Origem: 1236565622 ; Destino: 1236565644 ; Oneway: False ; Highway: residential
 Rua: Rua Valerio Pinto Sá (3) ; Origem: 1236565644 ; Destino: 1236565564 ; Oneway: False ; Highway: residential
 Rua: Rua Valerio Pinto Sá (4) ; Origem: 1236565644 ; Destino: 1236565497 ; Oneway: False ; Highway: residential
@@ -4552,7 +4552,7 @@ Rua: Praça Araújo Carandá (5) ; Origem: 1239308609 ; Destino: 229881772 ; Oneway
 Rua: Praça Araújo Carandá (6) ; Origem: 1239308610 ; Destino: 1239308609 ; Oneway: False ; Highway: residential
 Rua: Rua António Menici Malheiro ; Origem: 1239338762 ; Destino: 1239338916 ; Oneway: False ; Highway: residential
 Rua: ['Rua Conde Aurora', 'Rua José Augusto Vieira'] ; Origem: 1239338762 ; Destino: 1239338781 ; Oneway: False ; Highway: residential
-Rua: ['Travessa Augusto Veloso', 'Rua Dom António Costa'] ; Origem: 1239338762 ; Destino: 2653958038 ; Oneway: False ; Highway: residential
+Rua: ['Rua Dom António Costa', 'Travessa Augusto Veloso'] ; Origem: 1239338762 ; Destino: 2653958038 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor João de Castro ; Origem: 1239338768 ; Destino: 1239338865 ; Oneway: False ; Highway: residential
 Rua: Rua Augusto Veloso ; Origem: 1239338778 ; Destino: 1239338803 ; Oneway: False ; Highway: residential
 Rua: Rua Augusto Veloso (2) ; Origem: 1239338778 ; Destino: 1239338880 ; Oneway: False ; Highway: residential
@@ -4893,7 +4893,7 @@ Rua: Rua de Timor (7) ; Origem: 1251357956 ; Destino: 213270963 ; Oneway: True ;
 Rua: Travessa de São José (9) ; Origem: 1251357959 ; Destino: 253476273 ; Oneway: False ; Highway: residential
 Rua: Rua de Timor (8) ; Origem: 1251357959 ; Destino: 1251357953 ; Oneway: False ; Highway: residential
 Rua: Rua Cândido de Sousa (2) ; Origem: 1251357966 ; Destino: 1251357953 ; Oneway: False ; Highway: residential
-Rua: ['Rua Areal de Baixo', 'Rua do Areal'] ; Origem: 1251357966 ; Destino: 253475111 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Areal', 'Rua Areal de Baixo'] (2) ; Origem: 1251357966 ; Destino: 253475111 ; Oneway: False ; Highway: residential
 Rua: Rua Viscondessa Maria de Sousa (2) ; Origem: 1251357975 ; Destino: 1251357951 ; Oneway: False ; Highway: residential
 Rua: Rua de Timor (9) ; Origem: 1251357976 ; Destino: 1251357953 ; Oneway: False ; Highway: residential
 Rua: ['Rua Cândido de Sousa', 'Rua Nuno Amorim'] (2) ; Origem: 1251357976 ; Destino: 1251357953 ; Oneway: False ; Highway: residential
@@ -5085,7 +5085,7 @@ Rua: Travessa da Bela Vista (4) ; Origem: 1359433148 ; Destino: 1359433137 ; One
 Rua: Travessa da Bela Vista (5) ; Origem: 1359433149 ; Destino: 1359433148 ; Oneway: False ; Highway: residential
 Rua: Travessa da Bela Vista (6) ; Origem: 1359433150 ; Destino: 1359433148 ; Oneway: False ; Highway: residential
 Rua: Rua da Bela Vista (10) ; Origem: 1359433150 ; Destino: 1359433189 ; Oneway: False ; Highway: residential
-Rua: ['Travessa da Bouça Cabo de Cima', 'Rua da Bela Vista'] ; Origem: 1359433150 ; Destino: 1214767402 ; Oneway: False ; Highway: residential
+Rua: ['Travessa da Bouça Cabo de Cima', 'Rua da Bela Vista'] (2) ; Origem: 1359433150 ; Destino: 1214767402 ; Oneway: False ; Highway: residential
 Rua: Rua da Bouça do Cabo (4) ; Origem: 1359433189 ; Destino: 1359433206 ; Oneway: False ; Highway: residential
 Rua: Rua da Bouça do Cabo (5) ; Origem: 1359433189 ; Destino: 1214711950 ; Oneway: False ; Highway: residential
 Rua: Rua da Bela Vista (11) ; Origem: 1359433189 ; Destino: 1359433150 ; Oneway: False ; Highway: residential
@@ -5475,7 +5475,7 @@ Rua: Avenida da Liberdade (11) ; Origem: 1462972897 ; Destino: 2439088601 ; Onew
 Rua: Rua do Raio (3) ; Origem: 1462972900 ; Destino: 1462972897 ; Oneway: True ; Highway: tertiary
 Rua: Avenida da Liberdade (12) ; Origem: 1462972900 ; Destino: 2439088601 ; Oneway: True ; Highway: tertiary
 Rua: Túnel da Avenida Central ; Origem: 1462972942 ; Destino: 208911309 ; Oneway: True ; Highway: secondary_link
-Rua: ['Rua dos Chãos', 'Avenida Central'] ; Origem: 1462972942 ; Destino: 216283011 ; Oneway: True ; Highway: tertiary
+Rua: ['Avenida Central', 'Rua dos Chãos'] ; Origem: 1462972942 ; Destino: 216283011 ; Oneway: True ; Highway: tertiary
 Rua: Avenida João XXI (13) ; Origem: 1462982174 ; Destino: 224597409 ; Oneway: True ; Highway: primary
 Rua: Rua Martins Sarmento (4) ; Origem: 1462982176 ; Destino: 224599595 ; Oneway: True ; Highway: residential
 Rua: Travessa Bernardo Sequeira ; Origem: 1462982179 ; Destino: 1462982176 ; Oneway: True ; Highway: residential
@@ -5547,10 +5547,10 @@ Rua: Rua da Cangosta ; Origem: 1471199617 ; Destino: 1624590738 ; Oneway: False 
 Rua: ['Rua do Bonfim', 'Rua da Cangosta'] (2) ; Origem: 1471199617 ; Destino: 1471181688 ; Oneway: False ; Highway: residential
 Rua: Rua do Cruzeiro (20) ; Origem: 1471199646 ; Destino: 1461361064 ; Oneway: False ; Highway: residential
 Rua: Rua da Igreja (35) ; Origem: 1471199646 ; Destino: 1471199585 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Senhor Quebrado', 'Rua do Cruzeiro'] ; Origem: 1471199646 ; Destino: 1471201766 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Cruzeiro', 'Rua do Senhor Quebrado'] ; Origem: 1471199646 ; Destino: 1471201766 ; Oneway: False ; Highway: residential
 Rua: Rua das Cangostas (6) ; Origem: 1471201766 ; Destino: 1471199585 ; Oneway: False ; Highway: residential
 Rua: Rua das Cangostas (7) ; Origem: 1471201766 ; Destino: 2040871294 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Senhor Quebrado', 'Rua do Cruzeiro'] (2) ; Origem: 1471201766 ; Destino: 1471199646 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Cruzeiro', 'Rua do Senhor Quebrado'] (2) ; Origem: 1471201766 ; Destino: 1471199646 ; Oneway: False ; Highway: residential
 Rua: Rua de Valbom ; Origem: 1471205699 ; Destino: 1988532255 ; Oneway: False ; Highway: residential
 Rua: Caminho da Ordem (3) ; Origem: 1471613150 ; Destino: 2248985792 ; Oneway: False ; Highway: residential
 Rua: Caminho da Ordem (4) ; Origem: 1471613150 ; Destino: 1471614258 ; Oneway: False ; Highway: residential
@@ -5930,7 +5930,7 @@ Rua: Rua Monte de Cones (2) ; Origem: 1538877826 ; Destino: 1234641704 ; Oneway:
 Rua: Rua Juíz António Cândido Gomes ; Origem: 1538877826 ; Destino: 6791518939 ; Oneway: False ; Highway: residential
 Rua: Rua do Rio Torto (4) ; Origem: 1538877827 ; Destino: 1937769675 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Formigueira (3) ; Origem: 1538877827 ; Destino: 2395146146 ; Oneway: False ; Highway: primary
-Rua: ['Rua 5 de Outubro', 'Travessa do Feital'] ; Origem: 1538877827 ; Destino: 3859093730 ; Oneway: False ; Highway: primary
+Rua: ['Travessa do Feital', 'Rua 5 de Outubro'] ; Origem: 1538877827 ; Destino: 3859093730 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 1538877883 ; Destino: 1538878018 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1538877883 ; Destino: 1538878014 ; Oneway: True ; Highway: residential
 Rua:  ; Origem: 1538877894 ; Destino: 1538878014 ; Oneway: True ; Highway: residential
@@ -6021,7 +6021,7 @@ Rua: Rua Monsenhor Airosa (8) ; Origem: 1563580674 ; Destino: 1563580673 ; Onewa
 Rua: Rua 5 de Outubro (13) ; Origem: 1563602943 ; Destino: 1696094094 ; Oneway: False ; Highway: residential
 Rua: Rua da Ponte Pedrinha ; Origem: 1563602943 ; Destino: 1598969192 ; Oneway: False ; Highway: tertiary
 Rua: Rua Padre Armando Lira ; Origem: 1563602943 ; Destino: 6791489584 ; Oneway: False ; Highway: residential
-Rua: ['Rua Padre Armando Lira', 'Rua de Santa Justa'] (2) ; Origem: 1563602985 ; Destino: 229113089 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Santa Justa', 'Rua Padre Armando Lira'] ; Origem: 1563602985 ; Destino: 229113089 ; Oneway: False ; Highway: residential
 Rua: Rua Padre Armando Lira (2) ; Origem: 1563602985 ; Destino: 1563603010 ; Oneway: True ; Highway: residential
 Rua: Rua Professor Mota Leite (11) ; Origem: 1563603008 ; Destino: 2012193493 ; Oneway: False ; Highway: residential
 Rua: Rua Professor Mota Leite (12) ; Origem: 1563603008 ; Destino: 5649708770 ; Oneway: False ; Highway: residential
@@ -6375,7 +6375,7 @@ Rua: Rua da Residência (12) ; Origem: 1591372535 ; Destino: 512516877 ; Oneway: 
 Rua: Rua da Residência (13) ; Origem: 1591372535 ; Destino: 512516776 ; Oneway: False ; Highway: residential
 Rua: Travessa da Residência (2) ; Origem: 1591372538 ; Destino: 1591372535 ; Oneway: False ; Highway: residential
 Rua: Rua da Senra (11) ; Origem: 1591372546 ; Destino: 1225106044 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Pinheiro', 'Rua Jaime Sotto Mayor'] ; Origem: 1591372546 ; Destino: 6818502265 ; Oneway: False ; Highway: residential
+Rua: ['Rua Jaime Sotto Mayor', 'Rua do Pinheiro'] ; Origem: 1591372546 ; Destino: 6818502265 ; Oneway: False ; Highway: residential
 Rua: Rua do Pinheiro (12) ; Origem: 1591372546 ; Destino: 8589849966 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1591436250 ; Destino: 512545158 ; Oneway: True ; Highway: residential
 Rua:  ; Origem: 1591436250 ; Destino: 512545163 ; Oneway: False ; Highway: residential
@@ -6477,7 +6477,7 @@ Rua: Rua da Igreja (46) ; Origem: 1594938861 ; Destino: 1594938847 ; Oneway: Fal
 Rua: Rua da Igreja (47) ; Origem: 1594938861 ; Destino: 1594965968 ; Oneway: True ; Highway: tertiary
 Rua: Rua Padre Couto e Castro ; Origem: 1594965808 ; Destino: 1687468757 ; Oneway: False ; Highway: residential
 Rua: Rua Quinta do Pregal ; Origem: 1594965808 ; Destino: 1594965879 ; Oneway: False ; Highway: tertiary, residential
-Rua: ['Rua do Bairro', 'Rua Quinta do Pregal'] ; Origem: 1594965808 ; Destino: 1594965924 ; Oneway: False ; Highway: residential
+Rua: ['Rua Quinta do Pregal', 'Rua do Bairro'] ; Origem: 1594965808 ; Destino: 1594965924 ; Oneway: False ; Highway: residential
 Rua: Rua da Igreja (48) ; Origem: 1594965822 ; Destino: 11210714430 ; Oneway: True ; Highway: tertiary
 Rua: Rua da Igreja (49) ; Origem: 1594965822 ; Destino: 1594965866 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Igreja (50) ; Origem: 1594965866 ; Destino: 11217611711 ; Oneway: True ; Highway: tertiary
@@ -6486,7 +6486,7 @@ Rua: Rua Quinta do Pregal (2) ; Origem: 1594965879 ; Destino: 11217611716 ; Onew
 Rua: Rua Quinta do Pregal (3) ; Origem: 1594965879 ; Destino: 1594965808 ; Oneway: False ; Highway: tertiary, residential
 Rua: Rua Bouça da Rainha ; Origem: 1594965924 ; Destino: 1687468761 ; Oneway: False ; Highway: residential
 Rua: Rua do Bairro (8) ; Origem: 1594965924 ; Destino: 2159888942 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Bairro', 'Rua Quinta do Pregal'] (2) ; Origem: 1594965924 ; Destino: 1594965808 ; Oneway: False ; Highway: residential
+Rua: ['Rua Quinta do Pregal', 'Rua do Bairro'] (2) ; Origem: 1594965924 ; Destino: 1594965808 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1594965968 ; Destino: 11217611720 ; Oneway: True ; Highway: tertiary
 Rua:  ; Origem: 1594974405 ; Destino: 5048602247 ; Oneway: False ; Highway: residential
 Rua: Rua Quinta da Barra (2) ; Origem: 1594974415 ; Destino: 2159888926 ; Oneway: True ; Highway: residential
@@ -6614,7 +6614,7 @@ Rua: Rua de Abraão (2) ; Origem: 1598956825 ; Destino: 7502336570 ; Oneway: True
 Rua: Rua Rosália Castro (2) ; Origem: 1598956833 ; Destino: 1237237040 ; Oneway: True ; Highway: residential
 Rua: Alameda do Fujacal (3) ; Origem: 1598956833 ; Destino: 2934305068 ; Oneway: False ; Highway: residential
 Rua: Rua da Mouta (4) ; Origem: 1598964982 ; Destino: 2621325590 ; Oneway: False ; Highway: secondary
-Rua: ['Rua dos Presidentes', 'Largo das Alminhas'] ; Origem: 1598964982 ; Destino: 1790325609 ; Oneway: False ; Highway: residential
+Rua: ['Largo das Alminhas', 'Rua dos Presidentes'] ; Origem: 1598964982 ; Destino: 1790325609 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor José Azevedo Ferreira (12) ; Origem: 1598964982 ; Destino: 1598973325 ; Oneway: False ; Highway: secondary
 Rua: Rua da Mouta (5) ; Origem: 1598964990 ; Destino: 1241255809 ; Oneway: False ; Highway: secondary
 Rua: Rua da Mouta (6) ; Origem: 1598964990 ; Destino: 2621325590 ; Oneway: False ; Highway: secondary
@@ -6622,7 +6622,7 @@ Rua: Travessa António Menici Malheiro (3) ; Origem: 1598967731 ; Destino: 123933
 Rua: Travessa António Menici Malheiro (4) ; Origem: 1598967731 ; Destino: 1239338880 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1598967731 ; Destino: 1239338778 ; Oneway: False ; Highway: residential
 Rua: Rua Nova do Couteiro (2) ; Origem: 1598967736 ; Destino: 1953446646 ; Oneway: False ; Highway: residential
-Rua: ['Rua Augusto Veloso', 'Rua Aníbal Mendonça'] (2) ; Origem: 1598967747 ; Destino: 1239338803 ; Oneway: False ; Highway: residential
+Rua: ['Rua Aníbal Mendonça', 'Rua Augusto Veloso'] ; Origem: 1598967747 ; Destino: 1239338803 ; Oneway: False ; Highway: residential
 Rua: Rua da Ponte Pedrinha (2) ; Origem: 1598969192 ; Destino: 1241184524 ; Oneway: True ; Highway: tertiary
 Rua: Rua da Ponte Pedrinha (3) ; Origem: 1598969192 ; Destino: 1563602943 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Ponte Pedrinha (4) ; Origem: 1598969587 ; Destino: 1598969192 ; Oneway: True ; Highway: tertiary
@@ -6693,7 +6693,7 @@ Rua: Travessa das Regadinhas (2) ; Origem: 1598981845 ; Destino: 1598981825 ; On
 Rua: Rua das Regadinhas (4) ; Origem: 1598981849 ; Destino: 1598981845 ; Oneway: False ; Highway: residential
 Rua: Rua das Regadinhas (5) ; Origem: 1598981849 ; Destino: 1598973296 ; Oneway: True ; Highway: unclassified
 Rua:  ; Origem: 1603656860 ; Destino: 8821676033 ; Oneway: False ; Highway: unclassified
-Rua: ['Rua de São Bentinho', 'Rua dos Falcões'] ; Origem: 1603656860 ; Destino: 1480202760 ; Oneway: True ; Highway: residential
+Rua: ['Rua dos Falcões', 'Rua de São Bentinho'] ; Origem: 1603656860 ; Destino: 1480202760 ; Oneway: True ; Highway: residential
 Rua:  ; Origem: 1604957107 ; Destino: 235533061 ; Oneway: True ; Highway: tertiary
 Rua:  ; Origem: 1604957133 ; Destino: 235533063 ; Oneway: True ; Highway: tertiary
 Rua: Rua da Senra (12) ; Origem: 1604957133 ; Destino: 235533060 ; Oneway: True ; Highway: residential
@@ -6731,7 +6731,7 @@ Rua: Rua do Espírito Santo (9) ; Origem: 1605164945 ; Destino: 1507143684 ; Onew
 Rua:  ; Origem: 1605164945 ; Destino: 2473870939 ; Oneway: True ; Highway: residential
 Rua: Rua Cesário Verde (2) ; Origem: 1605179217 ; Destino: 1605179277 ; Oneway: False ; Highway: residential
 Rua: Rua Cesário Verde (3) ; Origem: 1605179217 ; Destino: 1605179277 ; Oneway: False ; Highway: residential
-Rua: ['Rua Cesário Verde', 'Travessa do Outeiral'] (2) ; Origem: 1605179217 ; Destino: 1251308469 ; Oneway: False ; Highway: residential
+Rua: ['Travessa do Outeiral', 'Rua Cesário Verde'] ; Origem: 1605179217 ; Destino: 1251308469 ; Oneway: False ; Highway: residential
 Rua: Rua António Fernandes de Araújo (3) ; Origem: 1605179272 ; Destino: 1251308557 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1605179272 ; Destino: 1251308521 ; Oneway: False ; Highway: residential
 Rua: Rua António Fernandes de Araújo (4) ; Origem: 1605179272 ; Destino: 1251308515 ; Oneway: False ; Highway: residential
@@ -6769,11 +6769,11 @@ Rua: Rua do Passal (9) ; Origem: 1605207604 ; Destino: 1605207615 ; Oneway: Fals
 Rua: Rua do Moinho (6) ; Origem: 1605207605 ; Destino: 1605207599 ; Oneway: False ; Highway: residential
 Rua: Rua do Passal (10) ; Origem: 1605207615 ; Destino: 1605207604 ; Oneway: False ; Highway: residential
 Rua: Rua do Passal (11) ; Origem: 1605207615 ; Destino: 1898543310 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Torre', 'Rua da Igreja Velha'] ; Origem: 1605207615 ; Destino: 1605207623 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Igreja Velha', 'Rua da Torre'] ; Origem: 1605207615 ; Destino: 1605207623 ; Oneway: False ; Highway: residential
 Rua: Travessa do Moinho (2) ; Origem: 1605207622 ; Destino: 1605207599 ; Oneway: False ; Highway: residential
 Rua: Rua do Passal (12) ; Origem: 1605207623 ; Destino: 1898543310 ; Oneway: False ; Highway: residential
 Rua: Rua da Igreja Velha (4) ; Origem: 1605207623 ; Destino: 1605207634 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Torre', 'Rua da Igreja Velha'] (2) ; Origem: 1605207623 ; Destino: 1605207615 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Igreja Velha', 'Rua da Torre'] (2) ; Origem: 1605207623 ; Destino: 1605207615 ; Oneway: False ; Highway: residential
 Rua: Travessa da Igreja Velha ; Origem: 1605207634 ; Destino: 1898541839 ; Oneway: False ; Highway: residential
 Rua: Travessa da Igreja Velha (2) ; Origem: 1605207634 ; Destino: 1898541834 ; Oneway: False ; Highway: residential
 Rua: Rua da Igreja Velha (5) ; Origem: 1605207634 ; Destino: 1605207623 ; Oneway: False ; Highway: residential
@@ -7042,7 +7042,7 @@ Rua: Rua Júlio Lima (4) ; Origem: 1640687810 ; Destino: 1353874672 ; Oneway: Fal
 Rua: Rua de São Vicente (5) ; Origem: 1640687810 ; Destino: 343676754 ; Oneway: True ; Highway: residential
 Rua: Avenida General Norton de Matos (10) ; Origem: 1640698221 ; Destino: 218621339 ; Oneway: True ; Highway: tertiary
 Rua:  ; Origem: 1640698221 ; Destino: 244029709 ; Oneway: False ; Highway: residential
-Rua: Avenida General Norton de Matos (11) ; Origem: 1640716340 ; Destino: 1442096482 ; Oneway: True ; Highway: tertiary, trunk_link
+Rua: Avenida General Norton de Matos (11) ; Origem: 1640716340 ; Destino: 1442096482 ; Oneway: True ; Highway: trunk_link, tertiary
 Rua: Avenida António Macedo (5) ; Origem: 1640716340 ; Destino: 218616926 ; Oneway: True ; Highway: trunk
 Rua: Travessa do Taxa (2) ; Origem: 1640717916 ; Destino: 1640717918 ; Oneway: True ; Highway: residential
 Rua: Travessa do Taxa (3) ; Origem: 1640717916 ; Destino: 253421681 ; Oneway: False ; Highway: residential
@@ -7110,7 +7110,7 @@ Rua: Rua Peão da Meia Laranja (3) ; Origem: 1671373244 ; Destino: 1671373269 ; O
 Rua: Rua Peão da Meia Laranja (4) ; Origem: 1671373249 ; Destino: 1671373244 ; Oneway: False ; Highway: residential
 Rua: Rua Peão da Meia Laranja (5) ; Origem: 1671373269 ; Destino: 940341972 ; Oneway: False ; Highway: residential
 Rua: Rua Peão da Meia Laranja (6) ; Origem: 1671373269 ; Destino: 1671373244 ; Oneway: False ; Highway: residential
-Rua: ['Travessa Peão da Meia Laranja', 'Rua Gualdino Correia'] ; Origem: 1671373269 ; Destino: 1671373244 ; Oneway: True ; Highway: residential
+Rua: ['Rua Gualdino Correia', 'Travessa Peão da Meia Laranja'] ; Origem: 1671373269 ; Destino: 1671373244 ; Oneway: True ; Highway: residential
 Rua: Rua de Quintão (2) ; Origem: 1675604552 ; Destino: 1711473821 ; Oneway: True ; Highway: residential
 Rua: Rua da Devesa (8) ; Origem: 1675604552 ; Destino: 1711473815 ; Oneway: False ; Highway: secondary
 Rua: Rua da Devesa (9) ; Origem: 1675604552 ; Destino: 1712479746 ; Oneway: False ; Highway: secondary
@@ -7264,7 +7264,7 @@ Rua: Rua da Igreja Velha (6) ; Origem: 1683160090 ; Destino: 1683160099 ; Oneway
 Rua: Rua da Igreja Velha (7) ; Origem: 1683160090 ; Destino: 722797751 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Quinta do Pomar (2) ; Origem: 1683160092 ; Destino: 1745756212 ; Oneway: True ; Highway: tertiary
 Rua: Rua da Quinta do Pomar (3) ; Origem: 1683160092 ; Destino: 1745799350 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua Igreja Velha', 'Rua da Igreja Velha'] (2) ; Origem: 1683160099 ; Destino: 1232769607 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua da Igreja Velha', 'Rua Igreja Velha'] ; Origem: 1683160099 ; Destino: 1232769607 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Igreja Velha (8) ; Origem: 1683160099 ; Destino: 1683160090 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Arcela (3) ; Origem: 1683160099 ; Destino: 1683160122 ; Oneway: False ; Highway: residential
 Rua: Rua da Quinta do Pomar (4) ; Origem: 1683160119 ; Destino: 1683182805 ; Oneway: False ; Highway: residential
@@ -7342,7 +7342,7 @@ Rua: Rua do Bairro (11) ; Origem: 1687468767 ; Destino: 1687468765 ; Oneway: Tru
 Rua: Rua do Pinheiro (14) ; Origem: 1687468790 ; Destino: 1687468815 ; Oneway: True ; Highway: residential
 Rua: Rua da Agrinha (3) ; Origem: 1687468790 ; Destino: 2159889043 ; Oneway: False ; Highway: residential
 Rua: Rua Manuel Ferreira Capa (16) ; Origem: 1687468803 ; Destino: 1237076729 ; Oneway: False ; Highway: residential
-Rua: ['Travessa Gil Vicente', 'Rua Luis António Verney', 'Rua Gil Vicente'] ; Origem: 1687468803 ; Destino: 1733158781 ; Oneway: False ; Highway: residential
+Rua: ['Rua Luis António Verney', 'Travessa Gil Vicente', 'Rua Gil Vicente'] ; Origem: 1687468803 ; Destino: 1733158781 ; Oneway: False ; Highway: residential
 Rua: Rua Manuel Ferreira Capa (17) ; Origem: 1687468803 ; Destino: 1687468815 ; Oneway: False ; Highway: residential
 Rua: Rua Manuel Ferreira Capa (18) ; Origem: 1687468815 ; Destino: 1687468803 ; Oneway: False ; Highway: residential
 Rua: Rua do Pinheiro (15) ; Origem: 1687468815 ; Destino: 1687468828 ; Oneway: True ; Highway: residential
@@ -7353,8 +7353,8 @@ Rua:  ; Origem: 1692197944 ; Destino: 4644080283 ; Oneway: True ; Highway: motor
 Rua:  ; Origem: 1692226368 ; Destino: 26122025 ; Oneway: True ; Highway: motorway_link
 Rua:  ; Origem: 1692226376 ; Destino: 5113339054 ; Oneway: True ; Highway: motorway_link
 Rua:  ; Origem: 1692226376 ; Destino: 5113339054 ; Oneway: True ; Highway: motorway_link
-Rua:  ; Origem: 1692239663 ; Destino: 1692239683 ; Oneway: True ; Highway: motorway_link, motorway
-Rua:  ; Origem: 1692239663 ; Destino: 26269730 ; Oneway: True ; Highway: motorway_link, motorway
+Rua:  ; Origem: 1692239663 ; Destino: 1692239683 ; Oneway: True ; Highway: motorway, motorway_link
+Rua:  ; Origem: 1692239663 ; Destino: 26269730 ; Oneway: True ; Highway: motorway, motorway_link
 Rua:  ; Origem: 1692239683 ; Destino: 5113339055 ; Oneway: True ; Highway: motorway_link
 Rua: Rua Professor Jerónimo Oliveira (2) ; Origem: 1695999689 ; Destino: 2191912405 ; Oneway: False ; Highway: residential
 Rua: Rua da Veiguinha (3) ; Origem: 1695999689 ; Destino: 2792076471 ; Oneway: False ; Highway: residential
@@ -8212,7 +8212,7 @@ Rua: Avenida Senhor da Paciência (4) ; Origem: 1732862193 ; Destino: 3941443040 
 Rua: Avenida Senhor da Paciência (5) ; Origem: 1732862193 ; Destino: 1106340143 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Cruz ; Origem: 1732862193 ; Destino: 1732862196 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1732862193 ; Destino: 3089192181 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Monte', 'Rua do Monte Talegre'] ; Origem: 1732862194 ; Destino: 2654156677 ; Oneway: False ; Highway: unclassified, residential
+Rua: ['Rua do Monte Talegre', 'Rua do Monte'] ; Origem: 1732862194 ; Destino: 2654156677 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua de Andrias (5) ; Origem: 1732862194 ; Destino: 1732862185 ; Oneway: False ; Highway: residential
 Rua: Rua de Andrias (6) ; Origem: 1732862194 ; Destino: 1732862169 ; Oneway: False ; Highway: residential
 Rua: Rua da Cruz (2) ; Origem: 1732862196 ; Destino: 1732862201 ; Oneway: False ; Highway: residential
@@ -8254,7 +8254,7 @@ Rua:  ; Origem: 1732969727 ; Destino: 1732871379 ; Oneway: False ; Highway: resi
 Rua:  ; Origem: 1732969727 ; Destino: 1732969795 ; Oneway: False ; Highway: residential
 Rua: Rua de Santo Amaro (7) ; Origem: 1732969727 ; Destino: 1732969764 ; Oneway: False ; Highway: unclassified
 Rua:  ; Origem: 1732969731 ; Destino: 1732969795 ; Oneway: False ; Highway: residential
-Rua: ['Avenida Coronel Araújo Pinto', 'Rua de Santo Amaro'] ; Origem: 1732969760 ; Destino: 1732969784 ; Oneway: False ; Highway: unclassified
+Rua: ['Rua de Santo Amaro', 'Avenida Coronel Araújo Pinto'] ; Origem: 1732969760 ; Destino: 1732969784 ; Oneway: False ; Highway: unclassified
 Rua: Avenida de Santa Ana (17) ; Origem: 1732969760 ; Destino: 1727800641 ; Oneway: False ; Highway: tertiary
 Rua: Avenida de Santa Ana (18) ; Origem: 1732969760 ; Destino: 7320692982 ; Oneway: False ; Highway: tertiary
 Rua:  ; Origem: 1732969764 ; Destino: 1830542885 ; Oneway: False ; Highway: residential
@@ -8262,7 +8262,7 @@ Rua: Rua de Santo Amaro (8) ; Origem: 1732969764 ; Destino: 1732969727 ; Oneway:
 Rua: Rua de Santo Amaro (9) ; Origem: 1732969764 ; Destino: 1732969784 ; Oneway: False ; Highway: unclassified
 Rua:  ; Origem: 1732969784 ; Destino: 1727801262 ; Oneway: False ; Highway: unclassified
 Rua: Rua de Santo Amaro (10) ; Origem: 1732969784 ; Destino: 1732969764 ; Oneway: False ; Highway: unclassified
-Rua: ['Avenida Coronel Araújo Pinto', 'Rua de Santo Amaro'] (2) ; Origem: 1732969784 ; Destino: 1732969760 ; Oneway: False ; Highway: unclassified
+Rua: ['Rua de Santo Amaro', 'Avenida Coronel Araújo Pinto'] (2) ; Origem: 1732969784 ; Destino: 1732969760 ; Oneway: False ; Highway: unclassified
 Rua:  ; Origem: 1732969795 ; Destino: 1732969727 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1732969795 ; Destino: 1838553560 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1732969795 ; Destino: 1732969731 ; Oneway: False ; Highway: residential
@@ -8304,13 +8304,13 @@ Rua: Praceta de Custóias ; Origem: 1733085833 ; Destino: 3217418070 ; Oneway: Fa
 Rua: Rua do Souto (19) ; Origem: 1733085833 ; Destino: 1733085793 ; Oneway: False ; Highway: residential
 Rua: Rua Manuel Ferreira Capa (19) ; Origem: 1733158781 ; Destino: 1237076729 ; Oneway: False ; Highway: residential
 Rua: Rua Manuel Ferreira Capa (20) ; Origem: 1733158781 ; Destino: 1134490915 ; Oneway: False ; Highway: residential
-Rua: ['Travessa Gil Vicente', 'Rua Luis António Verney', 'Rua Gil Vicente'] (2) ; Origem: 1733158781 ; Destino: 1687468803 ; Oneway: False ; Highway: residential
+Rua: ['Rua Gil Vicente', 'Rua Luis António Verney', 'Travessa Gil Vicente'] ; Origem: 1733158781 ; Destino: 1687468803 ; Oneway: False ; Highway: residential
 Rua: Avenida António Gomes Pereira (17) ; Origem: 1744032487 ; Destino: 4655713379 ; Oneway: False ; Highway: primary
 Rua: Avenida António Gomes Pereira (18) ; Origem: 1744032487 ; Destino: 2590144195 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 1744032487 ; Destino: 4655713386 ; Oneway: True ; Highway: residential
 Rua:  ; Origem: 1744032487 ; Destino: 4655714294 ; Oneway: True ; Highway: residential
 Rua: Avenida Valério Pinto de Sá (4) ; Origem: 1744405379 ; Destino: 6959197846 ; Oneway: False ; Highway: residential
-Rua: ['Rua Doutor Manuel José de Oliveira Machado', 'Rua Dr. Manuel José de Oliveira Machado'] (2) ; Origem: 1744405379 ; Destino: 1236196519 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua Dr. Manuel José de Oliveira Machado', 'Rua Doutor Manuel José de Oliveira Machado'] (2) ; Origem: 1744405379 ; Destino: 1236196519 ; Oneway: False ; Highway: tertiary
 Rua: Rua Doutor Manuel José de Oliveira Machado (3) ; Origem: 1744405379 ; Destino: 6959197842 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Escola (23) ; Origem: 1744405386 ; Destino: 1236196505 ; Oneway: False ; Highway: residential
 Rua: Rua do Monte (37) ; Origem: 1744405393 ; Destino: 1236196610 ; Oneway: False ; Highway: residential
@@ -8331,8 +8331,8 @@ Rua: Rua do Abade ; Origem: 1745571747 ; Destino: 1745571791 ; Oneway: False ; H
 Rua: Rua de Pousada (14) ; Origem: 1745571785 ; Destino: 1683160017 ; Oneway: False ; Highway: residential
 Rua: Rua da Estrada Velha (3) ; Origem: 1745571785 ; Destino: 242133240 ; Oneway: True ; Highway: residential
 Rua: Rua do Abade (2) ; Origem: 1745571791 ; Destino: 1745571747 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Nogueiras', 'Rua de Rebanhos'] (2) ; Origem: 1745571791 ; Destino: 512536007 ; Oneway: False ; Highway: residential
-Rua: ['Rua dos Padres Carmelitas', 'Rua de Rebanhos'] (2) ; Origem: 1745571791 ; Destino: 512536089 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Rebanhos', 'Rua das Nogueiras'] (2) ; Origem: 1745571791 ; Destino: 512536007 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Rebanhos', 'Rua dos Padres Carmelitas'] (2) ; Origem: 1745571791 ; Destino: 512536089 ; Oneway: False ; Highway: residential
 Rua: Rua Aquilino Simões Machado ; Origem: 1745578434 ; Destino: 1745578454 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1745578450 ; Destino: 2066726032 ; Oneway: False ; Highway: residential
 Rua: Rua Aquilino Simões Machado (2) ; Origem: 1745578454 ; Destino: 1745578434 ; Oneway: False ; Highway: residential
@@ -8569,7 +8569,7 @@ Rua: Estrada de Dadim (11) ; Origem: 1759729185 ; Destino: 1898100256 ; Oneway: 
 Rua: Estrada de Dadim (12) ; Origem: 1759729185 ; Destino: 1759729169 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1759729185 ; Destino: 1898112271 ; Oneway: False ; Highway: residential
 Rua: Estrada de Dadim (13) ; Origem: 1759729188 ; Destino: 1759729174 ; Oneway: False ; Highway: residential
-Rua: ['Rua de Cantoneiro', 'Largo de Dadim'] ; Origem: 1759729188 ; Destino: 3467831121 ; Oneway: False ; Highway: residential
+Rua: ['Largo de Dadim', 'Rua de Cantoneiro'] ; Origem: 1759729188 ; Destino: 3467831121 ; Oneway: False ; Highway: residential
 Rua: Estrada de Dadim (14) ; Origem: 1759729188 ; Destino: 1759729197 ; Oneway: False ; Highway: residential
 Rua: Estrada de Bom Jesus (10) ; Origem: 1759729197 ; Destino: 213798053 ; Oneway: False ; Highway: residential
 Rua: Rua do Parque Desportivo (3) ; Origem: 1759729197 ; Destino: 3103607158 ; Oneway: False ; Highway: residential
@@ -8642,7 +8642,7 @@ Rua: Rua Fecisco (2) ; Origem: 1763916891 ; Destino: 1763916882 ; Oneway: False 
 Rua:  ; Origem: 1763916891 ; Destino: 1764466093 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor José Sousa Machado (3) ; Origem: 1763921768 ; Destino: 1763921777 ; Oneway: False ; Highway: residential
 Rua: Rua Dom António Bento Martins Júnior (14) ; Origem: 1763921777 ; Destino: 1134479214 ; Oneway: False ; Highway: tertiary
-Rua: ["Largo do Monte D'Arcos", 'Rua Dom António Bento Martins Júnior'] (2) ; Origem: 1763921777 ; Destino: 213271936 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua Dom António Bento Martins Júnior', "Largo do Monte D'Arcos"] (2) ; Origem: 1763921777 ; Destino: 213271936 ; Oneway: False ; Highway: tertiary
 Rua: Rua Doutor José Sousa Machado (4) ; Origem: 1763921777 ; Destino: 1763921768 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1763936653 ; Destino: 439359593 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1763936653 ; Destino: 4059849428 ; Oneway: False ; Highway: residential
@@ -8656,7 +8656,7 @@ Rua:  ; Origem: 1763940348 ; Destino: 1763940353 ; Oneway: False ; Highway: resi
 Rua:  ; Origem: 1763940349 ; Destino: 1713149712 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1763940353 ; Destino: 1763940348 ; Oneway: False ; Highway: residential
 Rua: Rua Cândido de Oliveira (2) ; Origem: 1763940353 ; Destino: 211309060 ; Oneway: False ; Highway: residential
-Rua: ['Rua Cândido de Oliveira', 'Praça Flávio Sá Leite'] (2) ; Origem: 1763940353 ; Destino: 703116608 ; Oneway: False ; Highway: residential
+Rua: ['Praça Flávio Sá Leite', 'Rua Cândido de Oliveira'] (2) ; Origem: 1763940353 ; Destino: 703116608 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1764466093 ; Destino: 1763916891 ; Oneway: False ; Highway: residential
 Rua: Rua Fonte do Mundo (3) ; Origem: 1764466097 ; Destino: 1234622736 ; Oneway: True ; Highway: residential
 Rua: Rua Fonte do Mundo (4) ; Origem: 1764466097 ; Destino: 1818310798 ; Oneway: False ; Highway: residential
@@ -8769,7 +8769,7 @@ Rua: Rua do Souto (22) ; Origem: 1769559509 ; Destino: 6421250394 ; Oneway: Fals
 Rua:  ; Origem: 1769559509 ; Destino: 1769559497 ; Oneway: False ; Highway: residential
 Rua: Rua do Souto (23) ; Origem: 1769559509 ; Destino: 6421206688 ; Oneway: False ; Highway: residential
 Rua: Rua José Maria Rodrigues (2) ; Origem: 1771535784 ; Destino: 1232769656 ; Oneway: False ; Highway: residential
-Rua: ['Rua Celestino Lobo', 'Rua José Maria Rodrigues'] (2) ; Origem: 1771535784 ; Destino: 1232819693 ; Oneway: False ; Highway: residential
+Rua: ['Rua José Maria Rodrigues', 'Rua Celestino Lobo'] (2) ; Origem: 1771535784 ; Destino: 1232819693 ; Oneway: False ; Highway: residential
 Rua: Rua José Maria Rodrigues (3) ; Origem: 1771535784 ; Destino: 1771535786 ; Oneway: False ; Highway: residential
 Rua: Rua José Maria Rodrigues (4) ; Origem: 1771535786 ; Destino: 1771535784 ; Oneway: False ; Highway: residential
 Rua: Rua José Antunes Guimarães (2) ; Origem: 1771535787 ; Destino: 1234596218 ; Oneway: False ; Highway: residential
@@ -8954,7 +8954,7 @@ Rua: Rua da Pegada ; Origem: 1780134365 ; Destino: 1780134367 ; Oneway: False ; 
 Rua: Rua do Quartilho (6) ; Origem: 1780134366 ; Destino: 6421384687 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Quartilho (7) ; Origem: 1780134366 ; Destino: 722797643 ; Oneway: False ; Highway: tertiary
 Rua:  ; Origem: 1780134366 ; Destino: 1780134345 ; Oneway: False ; Highway: residential
-Rua: ['Rua Calçada Romana', 'Rua Manuel Teixeira da Silva'] ; Origem: 1780134367 ; Destino: 1780134395 ; Oneway: False ; Highway: residential
+Rua: ['Rua Manuel Teixeira da Silva', 'Rua Calçada Romana'] ; Origem: 1780134367 ; Destino: 1780134395 ; Oneway: False ; Highway: residential
 Rua: Rua da Pegada (2) ; Origem: 1780134367 ; Destino: 1780134395 ; Oneway: False ; Highway: residential
 Rua: Rua da Pegada (3) ; Origem: 1780134367 ; Destino: 1780134365 ; Oneway: False ; Highway: residential
 Rua: Rua Júlio Lima (5) ; Origem: 1780134376 ; Destino: 1780134437 ; Oneway: False ; Highway: residential
@@ -8967,7 +8967,7 @@ Rua: Rua das Oliveiras (36) ; Origem: 1780134392 ; Destino: 1780134381 ; Oneway:
 Rua: Rua das Oliveiras (37) ; Origem: 1780134392 ; Destino: 1780134404 ; Oneway: False ; Highway: residential
 Rua: Rua das Oliveiras (38) ; Origem: 1780134392 ; Destino: 1780134376 ; Oneway: False ; Highway: residential
 Rua: Rua da Pegada (4) ; Origem: 1780134395 ; Destino: 1780134367 ; Oneway: False ; Highway: residential
-Rua: ['Rua Calçada Romana', 'Rua Manuel Teixeira da Silva'] (2) ; Origem: 1780134395 ; Destino: 1780134367 ; Oneway: False ; Highway: residential
+Rua: ['Rua Calçada Romana', 'Rua Manuel Teixeira da Silva'] ; Origem: 1780134395 ; Destino: 1780134367 ; Oneway: False ; Highway: residential
 Rua: Rua da Pegada (5) ; Origem: 1780134395 ; Destino: 1780134406 ; Oneway: False ; Highway: residential
 Rua: Travessa da Pegada ; Origem: 1780134395 ; Destino: 1780134420 ; Oneway: False ; Highway: residential
 Rua: Rua do Penedo (3) ; Origem: 1780134401 ; Destino: 1780134421 ; Oneway: False ; Highway: residential
@@ -9666,7 +9666,7 @@ Rua:  ; Origem: 1790325595 ; Destino: 1790325721 ; Oneway: False ; Highway: resi
 Rua: Rua das Granjas (12) ; Origem: 1790325599 ; Destino: 1507143656 ; Oneway: False ; Highway: tertiary
 Rua:  ; Origem: 1790325599 ; Destino: 2701225177 ; Oneway: False ; Highway: residential
 Rua: Rua das Granjas (13) ; Origem: 1790325599 ; Destino: 1507143659 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua dos Presidentes', 'Largo das Alminhas'] (2) ; Origem: 1790325609 ; Destino: 1598964982 ; Oneway: False ; Highway: residential
+Rua: ['Largo das Alminhas', 'Rua dos Presidentes'] (2) ; Origem: 1790325609 ; Destino: 1598964982 ; Oneway: False ; Highway: residential
 Rua: Rua dos Presidentes (4) ; Origem: 1790325609 ; Destino: 1241255707 ; Oneway: False ; Highway: residential
 Rua: Travessa da Ilha (2) ; Origem: 1790325609 ; Destino: 1598973290 ; Oneway: False ; Highway: unclassified, residential
 Rua:  ; Origem: 1790325615 ; Destino: 1790325695 ; Oneway: False ; Highway: residential
@@ -9946,7 +9946,7 @@ Rua: Rua Fonte do Grilo (3) ; Origem: 1818311892 ; Destino: 698805819 ; Oneway: 
 Rua: Rua Fonte do Grilo (4) ; Origem: 1818311892 ; Destino: 6761915372 ; Oneway: False ; Highway: residential
 Rua: Travessa Vale d'Este (2) ; Origem: 1818311967 ; Destino: 1683160024 ; Oneway: False ; Highway: residential
 Rua: Rua de Baixo (17) ; Origem: 1818312057 ; Destino: 1461360979 ; Oneway: False ; Highway: primary
-Rua: ['Rua de Baixo', 'Rua de Cima'] (2) ; Origem: 1818312057 ; Destino: 914277414 ; Oneway: False ; Highway: primary
+Rua: ['Rua de Cima', 'Rua de Baixo'] (2) ; Origem: 1818312057 ; Destino: 914277414 ; Oneway: False ; Highway: primary
 Rua: Rua Pe. Joaquim Rodrigues Lopes (7) ; Origem: 1818312155 ; Destino: 1454708785 ; Oneway: False ; Highway: residential
 Rua: Rua Pe. Joaquim Rodrigues Lopes (8) ; Origem: 1818312155 ; Destino: 1454708757 ; Oneway: True ; Highway: residential
 Rua: Rua Quinta de Santo António (15) ; Origem: 1818312171 ; Destino: 1454708754 ; Oneway: False ; Highway: residential
@@ -10006,7 +10006,7 @@ Rua: Rua de Entre-Muros (2) ; Origem: 1827556055 ; Destino: 2590130638 ; Oneway:
 Rua: Rua de Entre-Muros (3) ; Origem: 1827556058 ; Destino: 1827556055 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1827556058 ; Destino: 4800834780 ; Oneway: False ; Highway: unclassified
 Rua: Rua de Entre-Muros (4) ; Origem: 1827556058 ; Destino: 4800834781 ; Oneway: False ; Highway: residential
-Rua: ['Rua de Aldonça', 'Rua Condes de Redondo'] ; Origem: 1827556094 ; Destino: 7105937962 ; Oneway: False ; Highway: residential
+Rua: ['Rua Condes de Redondo', 'Rua de Aldonça'] ; Origem: 1827556094 ; Destino: 7105937962 ; Oneway: False ; Highway: residential
 Rua: Rua Condes de Redondo ; Origem: 1827556094 ; Destino: 4831008743 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1827556094 ; Destino: 4831008811 ; Oneway: False ; Highway: unclassified
 Rua: Rua de Entre-Muros (5) ; Origem: 1827556167 ; Destino: 4800834781 ; Oneway: False ; Highway: residential
@@ -10253,7 +10253,7 @@ Rua: Avenida da Liberdade (22) ; Origem: 1896813773 ; Destino: 1896807868 ; Onew
 Rua: Rua de Nossa Senhora da Consolação ; Origem: 1896813773 ; Destino: 1896813835 ; Oneway: False ; Highway: residential
 Rua: Rua de Nossa Senhora da Consolação (2) ; Origem: 1896813782 ; Destino: 1896813835 ; Oneway: False ; Highway: residential
 Rua: Rua de Nossa Senhora da Consolação (3) ; Origem: 1896813782 ; Destino: 1896813830 ; Oneway: False ; Highway: residential
-Rua: ['Beco do Servo', 'Rua de Santo António'] ; Origem: 1896813782 ; Destino: 1898157752 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Santo António', 'Beco do Servo'] ; Origem: 1896813782 ; Destino: 1898157752 ; Oneway: False ; Highway: residential
 Rua: Rua de Nossa Senhora da Consolação (4) ; Origem: 1896813830 ; Destino: 1896813830 ; Oneway: False ; Highway: residential
 Rua: Rua de Nossa Senhora da Consolação (5) ; Origem: 1896813830 ; Destino: 1896813830 ; Oneway: False ; Highway: residential
 Rua: Rua de Nossa Senhora da Consolação (6) ; Origem: 1896813830 ; Destino: 1896813782 ; Oneway: False ; Highway: residential
@@ -10300,8 +10300,8 @@ Rua: ['Rua Doutor Francisco José Sousa Gomes', 'Rua Cónego Avelino Jesus Costa']
 Rua: Rua Doutor Amândio César (4) ; Origem: 1898125207 ; Destino: 1898125189 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Amândio César (5) ; Origem: 1898125282 ; Destino: 1869074605 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Amândio César (6) ; Origem: 1898125282 ; Destino: 1898125207 ; Oneway: False ; Highway: residential
-Rua: ['Rua Cónego Avelino Jesus Costa', 'Rua Doutor Francisco José Sousa Gomes'] ; Origem: 1898125282 ; Destino: 1898125207 ; Oneway: False ; Highway: residential
-Rua: ['Beco do Servo', 'Rua de Santo António'] (2) ; Origem: 1898157752 ; Destino: 1896813782 ; Oneway: False ; Highway: residential
+Rua: ['Rua Doutor Francisco José Sousa Gomes', 'Rua Cónego Avelino Jesus Costa'] (2) ; Origem: 1898125282 ; Destino: 1898125207 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Santo António', 'Beco do Servo'] (2) ; Origem: 1898157752 ; Destino: 1896813782 ; Oneway: False ; Highway: residential
 Rua: Rua Adelina Caravana (4) ; Origem: 1898167457 ; Destino: 439359576 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1898341216 ; Destino: 1898341217 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1898341217 ; Destino: 1898341216 ; Oneway: False ; Highway: residential
@@ -10397,7 +10397,7 @@ Rua: Travessa da Caseta ; Origem: 1898417146 ; Destino: 6817365733 ; Oneway: Fal
 Rua: Rua Rodrigo Gonçalves da Costa (2) ; Origem: 1898417146 ; Destino: 1898417150 ; Oneway: False ; Highway: residential
 Rua: Rua Susana Lagrifa (3) ; Origem: 1898417146 ; Destino: 1898415480 ; Oneway: False ; Highway: residential
 Rua: Rua Rodrigo Gonçalves da Costa (3) ; Origem: 1898417146 ; Destino: 1898417161 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Nogueirense', 'Rua Rodrigo Gonçalves da Costa'] (2) ; Origem: 1898417150 ; Destino: 512516093 ; Oneway: False ; Highway: residential
+Rua: ['Rua Rodrigo Gonçalves da Costa', 'Rua do Nogueirense'] (2) ; Origem: 1898417150 ; Destino: 512516093 ; Oneway: False ; Highway: residential
 Rua: Rua Rodrigo Gonçalves da Costa (4) ; Origem: 1898417150 ; Destino: 1898415480 ; Oneway: False ; Highway: residential
 Rua: Rua Rodrigo Gonçalves da Costa (5) ; Origem: 1898417150 ; Destino: 1898417146 ; Oneway: False ; Highway: residential
 Rua: Rua Antero Figueiredo (4) ; Origem: 1898417157 ; Destino: 245549650 ; Oneway: False ; Highway: residential
@@ -10407,11 +10407,11 @@ Rua: Rua Rodrigo Gonçalves da Costa (6) ; Origem: 1898417161 ; Destino: 18984171
 Rua: Rua Susana Lagrifa (4) ; Origem: 1898417193 ; Destino: 1898415480 ; Oneway: False ; Highway: residential
 Rua: Rua de Penouços (17) ; Origem: 1898417193 ; Destino: 1915318264 ; Oneway: False ; Highway: residential
 Rua: Rua de Penouços (18) ; Origem: 1898417193 ; Destino: 1898415239 ; Oneway: False ; Highway: residential
-Rua: ['Rua Antero Figueiredo', 'Travessa da Caseta'] ; Origem: 1898420149 ; Destino: 1898420157 ; Oneway: False ; Highway: residential
+Rua: ['Travessa da Caseta', 'Rua Antero Figueiredo'] ; Origem: 1898420149 ; Destino: 1898420157 ; Oneway: False ; Highway: residential
 Rua: Calçada da Caseta ; Origem: 1898420149 ; Destino: 1898420157 ; Oneway: False ; Highway: residential
 Rua: Travessa da Caseta (2) ; Origem: 1898420149 ; Destino: 6817365733 ; Oneway: False ; Highway: residential
 Rua: Calçada da Caseta (2) ; Origem: 1898420157 ; Destino: 1898420149 ; Oneway: False ; Highway: residential
-Rua: ['Rua Antero Figueiredo', 'Travessa da Caseta'] (2) ; Origem: 1898420157 ; Destino: 1898420149 ; Oneway: False ; Highway: residential
+Rua: ['Travessa da Caseta', 'Rua Antero Figueiredo'] (2) ; Origem: 1898420157 ; Destino: 1898420149 ; Oneway: False ; Highway: residential
 Rua: Rua Antero Figueiredo (6) ; Origem: 1898420157 ; Destino: 1898417157 ; Oneway: False ; Highway: residential
 Rua: Rua de Barreiros (8) ; Origem: 1898426198 ; Destino: 546319716 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Cruzeiro Gracia Pires ; Origem: 1898426198 ; Destino: 1898426243 ; Oneway: True ; Highway: residential
@@ -10550,7 +10550,7 @@ Rua: Rua do Passal (19) ; Origem: 1898543310 ; Destino: 1605207615 ; Oneway: Fal
 Rua:  ; Origem: 1898543320 ; Destino: 1898543310 ; Oneway: False ; Highway: residential
 Rua: Rua António Costa Magalhães (2) ; Origem: 1899825943 ; Destino: 3122481179 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1899825943 ; Destino: 3122481181 ; Oneway: False ; Highway: residential
-Rua: ['Rua António Costa Magalhães', 'Rua do Marmeleiro'] ; Origem: 1899825943 ; Destino: 1899962094 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Marmeleiro', 'Rua António Costa Magalhães'] ; Origem: 1899825943 ; Destino: 1899962094 ; Oneway: False ; Highway: residential
 Rua: Rua do Marmeleiro ; Origem: 1899828726 ; Destino: 1899962094 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1899828726 ; Destino: 1937769534 ; Oneway: True ; Highway: residential
 Rua:  ; Origem: 1899889115 ; Destino: 1937769527 ; Oneway: False ; Highway: residential
@@ -10568,7 +10568,7 @@ Rua:  ; Origem: 1899898661 ; Destino: 7184508625 ; Oneway: False ; Highway: resi
 Rua:  ; Origem: 1899901027 ; Destino: 1538878018 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1899962092 ; Destino: 1899962094 ; Oneway: False ; Highway: residential
 Rua: Rua do Marmeleiro (2) ; Origem: 1899962094 ; Destino: 1899828726 ; Oneway: False ; Highway: residential
-Rua: ['Rua António Costa Magalhães', 'Rua do Marmeleiro'] (2) ; Origem: 1899962094 ; Destino: 1899825943 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Marmeleiro', 'Rua António Costa Magalhães'] (2) ; Origem: 1899962094 ; Destino: 1899825943 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 1899962094 ; Destino: 1899962092 ; Oneway: False ; Highway: residential
 Rua: Rua Costa Gomes (17) ; Origem: 1900072146 ; Destino: 1283040838 ; Oneway: False ; Highway: tertiary
 Rua: Rua Costa Gomes (18) ; Origem: 1900072146 ; Destino: 1937769671 ; Oneway: False ; Highway: tertiary
@@ -10691,7 +10691,7 @@ Rua:  ; Origem: 1937769801 ; Destino: 1207239613 ; Oneway: True ; Highway: uncla
 Rua: Rua de Entre Campos (14) ; Origem: 1937769801 ; Destino: 1937769796 ; Oneway: True ; Highway: tertiary
 Rua: Rua de Entre Campos (15) ; Origem: 1937769804 ; Destino: 1937769801 ; Oneway: True ; Highway: tertiary
 Rua: Rua de Entre Campos (16) ; Origem: 1937769806 ; Destino: 1937769828 ; Oneway: True ; Highway: tertiary
-Rua: ['Rua da Capela', 'Rua de Entre Campos'] ; Origem: 1937769826 ; Destino: 2549256161 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua de Entre Campos', 'Rua da Capela'] ; Origem: 1937769826 ; Destino: 2549256161 ; Oneway: False ; Highway: tertiary
 Rua: Rua de Entre Campos (17) ; Origem: 1937769826 ; Destino: 1937769804 ; Oneway: True ; Highway: tertiary
 Rua: Rua de Entre Campos (18) ; Origem: 1937769828 ; Destino: 1937769826 ; Oneway: True ; Highway: tertiary
 Rua:  ; Origem: 1937769828 ; Destino: 1937769804 ; Oneway: True ; Highway: tertiary
@@ -10868,17 +10868,17 @@ Rua: Largo da Senhora-a-Branca (3) ; Origem: 2057080323 ; Destino: 2057080325 ; 
 Rua: Avenida Central (3) ; Origem: 2057080325 ; Destino: 245058962 ; Oneway: True ; Highway: tertiary
 Rua:  ; Origem: 2058507177 ; Destino: 2058507178 ; Oneway: False ; Highway: residential
 Rua: Rua Abade Loureira (2) ; Origem: 2058507177 ; Destino: 1480221499 ; Oneway: False ; Highway: residential
-Rua: ['Rua Dom Francisco de Noronha', 'Rua Abade Loureira'] (2) ; Origem: 2058507177 ; Destino: 1236494695 ; Oneway: False ; Highway: residential
+Rua: ['Rua Abade Loureira', 'Rua Dom Francisco de Noronha'] (2) ; Origem: 2058507177 ; Destino: 1236494695 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2058507178 ; Destino: 2058507177 ; Oneway: False ; Highway: residential
 Rua: Rua Celestino Lobo (2) ; Origem: 2061416397 ; Destino: 1232819693 ; Oneway: False ; Highway: residential
 Rua: Rua das Mimosas (13) ; Origem: 2062528751 ; Destino: 2062528753 ; Oneway: False ; Highway: residential
-Rua: ['Rua de Pousada', 'Rua de Novaínho'] ; Origem: 2062528751 ; Destino: 2062528846 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Novaínho', 'Rua de Pousada'] ; Origem: 2062528751 ; Destino: 2062528846 ; Oneway: False ; Highway: residential
 Rua: Rua de Pousada (19) ; Origem: 2062528751 ; Destino: 776213553 ; Oneway: False ; Highway: residential
 Rua: Rua das Mimosas (14) ; Origem: 2062528753 ; Destino: 2062528751 ; Oneway: False ; Highway: residential
 Rua: Rua 15 de Maio ; Origem: 2062528844 ; Destino: 2062528846 ; Oneway: False ; Highway: residential
 Rua: Rua 15 de Maio (2) ; Origem: 2062528846 ; Destino: 2062528844 ; Oneway: False ; Highway: residential
 Rua: Rua de Novaínho (13) ; Origem: 2062528846 ; Destino: 776213565 ; Oneway: False ; Highway: residential
-Rua: ['Rua de Pousada', 'Rua de Novaínho'] (2) ; Origem: 2062528846 ; Destino: 2062528751 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Novaínho', 'Rua de Pousada'] (2) ; Origem: 2062528846 ; Destino: 2062528751 ; Oneway: False ; Highway: residential
 Rua: Rua das Camélias (6) ; Origem: 2062529442 ; Destino: 776213565 ; Oneway: False ; Highway: residential
 Rua: Rua Nova de Novaínho (2) ; Origem: 2062529900 ; Destino: 776213566 ; Oneway: False ; Highway: residential
 Rua: Rua das Rossinhas (5) ; Origem: 2062529966 ; Destino: 1715977635 ; Oneway: False ; Highway: residential
@@ -10966,7 +10966,7 @@ Rua: Travessa do Telhado (2) ; Origem: 2062531452 ; Destino: 2062531406 ; Oneway
 Rua: Rua das Searas (6) ; Origem: 2062531522 ; Destino: 2062531965 ; Oneway: False ; Highway: secondary
 Rua: Rua das Searas (7) ; Origem: 2062531522 ; Destino: 410070620 ; Oneway: False ; Highway: secondary
 Rua:  ; Origem: 2062531522 ; Destino: 3154447956 ; Oneway: False ; Highway: residential
-Rua: ['Calçada da Igreja', 'Largo Padre Borralheiro'] ; Origem: 2062531522 ; Destino: 6813232230 ; Oneway: False ; Highway: residential
+Rua: ['Largo Padre Borralheiro', 'Calçada da Igreja'] ; Origem: 2062531522 ; Destino: 6813232230 ; Oneway: False ; Highway: residential
 Rua: Rua dos Amões ; Origem: 2062531933 ; Destino: 2549128788 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua de São Pedro (12) ; Origem: 2062531933 ; Destino: 2549128769 ; Oneway: False ; Highway: residential
 Rua: Rua de Mouquim ; Origem: 2062531933 ; Destino: 3154448086 ; Oneway: False ; Highway: residential
@@ -11333,7 +11333,7 @@ Rua: Rua Padre Martinho (5) ; Origem: 2198683243 ; Destino: 410309184 ; Oneway: 
 Rua: Rua do Bom Jesus ; Origem: 2203020952 ; Destino: 2203046694 ; Oneway: False ; Highway: residential
 Rua: Rua dos Amões (2) ; Origem: 2203020952 ; Destino: 2549128788 ; Oneway: False ; Highway: residential
 Rua: Rua Cruz do Outeiro ; Origem: 2203020952 ; Destino: 2203020963 ; Oneway: False ; Highway: residential
-Rua: ['Estrada de São Pedro', 'Rua da Igreja'] (2) ; Origem: 2203020963 ; Destino: 410070651 ; Oneway: False ; Highway: secondary
+Rua: ['Rua da Igreja', 'Estrada de São Pedro'] (2) ; Origem: 2203020963 ; Destino: 410070651 ; Oneway: False ; Highway: secondary
 Rua: Rua da Igreja (90) ; Origem: 2203020963 ; Destino: 410070647 ; Oneway: False ; Highway: secondary
 Rua: Rua Cruz do Outeiro (2) ; Origem: 2203020963 ; Destino: 2203020952 ; Oneway: False ; Highway: residential
 Rua: Estrada de Bom Jesus (11) ; Origem: 2203046694 ; Destino: 213728818 ; Oneway: False ; Highway: secondary
@@ -11361,7 +11361,7 @@ Rua: Rua do Pedregal ; Origem: 2229396110 ; Destino: 2229396133 ; Oneway: False 
 Rua: Rua da Breia (2) ; Origem: 2229396110 ; Destino: 2229396010 ; Oneway: False ; Highway: residential
 Rua: Rua do Pedregal (2) ; Origem: 2229396133 ; Destino: 2229396110 ; Oneway: False ; Highway: residential
 Rua: Rua da Granja (29) ; Origem: 2229396133 ; Destino: 5210883816 ; Oneway: False ; Highway: residential
-Rua: ['Rua Quinta Velha', 'Rua da Quinta Velha'] ; Origem: 2229396133 ; Destino: 10052013609 ; Oneway: False ; Highway: unclassified
+Rua: ['Rua da Quinta Velha', 'Rua Quinta Velha'] ; Origem: 2229396133 ; Destino: 10052013609 ; Oneway: False ; Highway: unclassified
 Rua: Rua Trás-o-Rio (2) ; Origem: 2229396162 ; Destino: 2590122239 ; Oneway: False ; Highway: residential
 Rua: Travessa da Torre ; Origem: 2229396162 ; Destino: 2247280570 ; Oneway: False ; Highway: residential
 Rua: Rua do Rio (19) ; Origem: 2229396162 ; Destino: 2339793198 ; Oneway: False ; Highway: residential
@@ -11419,7 +11419,7 @@ Rua: Rua Monte do Porto (2) ; Origem: 2247280712 ; Destino: 2247280723 ; Oneway:
 Rua: Rua Monte do Porto (3) ; Origem: 2247280723 ; Destino: 2247280712 ; Oneway: False ; Highway: residential
 Rua: Rua da Bouça (28) ; Origem: 2247280723 ; Destino: 8357570326 ; Oneway: False ; Highway: residential
 Rua: Rua da Bouça (29) ; Origem: 2247280723 ; Destino: 2247280692 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Bouça', 'Rua do Porto de Martim'] ; Origem: 2247280761 ; Destino: 8357570326 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Porto de Martim', 'Rua da Bouça'] ; Origem: 2247280761 ; Destino: 8357570326 ; Oneway: False ; Highway: residential
 Rua: Avenida do Labriosque (4) ; Origem: 2247280803 ; Destino: 229722490 ; Oneway: False ; Highway: primary
 Rua: Avenida do Labriosque (5) ; Origem: 2247280803 ; Destino: 6833602033 ; Oneway: False ; Highway: primary
 Rua: Rua do Porto de Martim ; Origem: 2247280803 ; Destino: 2247280761 ; Oneway: True ; Highway: residential
@@ -11565,7 +11565,7 @@ Rua:  ; Origem: 2270611491 ; Destino: 2590438459 ; Oneway: False ; Highway: resi
 Rua: Avenida de Trezeste (2) ; Origem: 2270611491 ; Destino: 218655665 ; Oneway: False ; Highway: primary
 Rua: Avenida António Gomes Pereira (19) ; Origem: 2270611491 ; Destino: 1727932037 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 2272453463 ; Destino: 1442096482 ; Oneway: True ; Highway: tertiary
-Rua: Avenida General Norton de Matos (17) ; Origem: 2272453463 ; Destino: 218616926 ; Oneway: True ; Highway: tertiary, trunk_link
+Rua: Avenida General Norton de Matos (17) ; Origem: 2272453463 ; Destino: 218616926 ; Oneway: True ; Highway: trunk_link, tertiary
 Rua: Avenida Olímpica (17) ; Origem: 2272544838 ; Destino: 242645871 ; Oneway: True ; Highway: primary
 Rua:  ; Origem: 2285715196 ; Destino: 213758538 ; Oneway: True ; Highway: unclassified
 Rua: Via da Falperra (47) ; Origem: 2285715196 ; Destino: 1597575904 ; Oneway: False ; Highway: secondary
@@ -11919,13 +11919,13 @@ Rua: Rua da Amieira ; Origem: 2395120831 ; Destino: 2395120847 ; Oneway: False ;
 Rua: Travessa do Seixido ; Origem: 2395120843 ; Destino: 6855797465 ; Oneway: False ; Highway: residential
 Rua: Rua do Mosteiro (7) ; Origem: 2395120843 ; Destino: 2395163208 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Mosteiro (8) ; Origem: 2395120843 ; Destino: 2195999961 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua da Boavista', 'Rua do Mosteiro'] ; Origem: 2395120847 ; Destino: 2395120862 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Mosteiro', 'Rua da Boavista'] ; Origem: 2395120847 ; Destino: 2395120862 ; Oneway: False ; Highway: residential
 Rua: Travessa da Boavista (2) ; Origem: 2395120847 ; Destino: 2395120862 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Amieira (2) ; Origem: 2395120847 ; Destino: 2395120831 ; Oneway: False ; Highway: residential
 Rua: Rua do Mosteiro (9) ; Origem: 2395120847 ; Destino: 2395121219 ; Oneway: False ; Highway: tertiary
 Rua:  ; Origem: 2395120853 ; Destino: 3974098372 ; Oneway: False ; Highway: residential
 Rua: Rua Fonte do Bicho ; Origem: 2395120862 ; Destino: 2395163055 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua da Boavista', 'Rua do Mosteiro'] (2) ; Origem: 2395120862 ; Destino: 2395120847 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Mosteiro', 'Rua da Boavista'] (2) ; Origem: 2395120862 ; Destino: 2395120847 ; Oneway: False ; Highway: residential
 Rua: Travessa da Boavista (3) ; Origem: 2395120862 ; Destino: 2395120847 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Boavista (37) ; Origem: 2395120862 ; Destino: 2813795152 ; Oneway: False ; Highway: residential
 Rua: Rua de Dom Pedro ; Origem: 2395120877 ; Destino: 2395120944 ; Oneway: False ; Highway: residential
@@ -12145,7 +12145,7 @@ Rua: Travessa do Carvão ; Origem: 2395163091 ; Destino: 2395163208 ; Oneway: Tru
 Rua: Rua dos Carvalhos (4) ; Origem: 2395163115 ; Destino: 2395162953 ; Oneway: False ; Highway: residential
 Rua: Rua dos Carvalhos (5) ; Origem: 2395163115 ; Destino: 2395162956 ; Oneway: False ; Highway: residential
 Rua: Rua da Costeira (3) ; Origem: 2395163115 ; Destino: 5210791426 ; Oneway: False ; Highway: residential
-Rua: ['Rua de Mariz', 'Rua de Padim'] ; Origem: 2395163141 ; Destino: 2395163157 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Padim', 'Rua de Mariz'] ; Origem: 2395163141 ; Destino: 2395163157 ; Oneway: False ; Highway: residential
 Rua: Rua de Padim (3) ; Origem: 2395163141 ; Destino: 2395163001 ; Oneway: False ; Highway: residential
 Rua: ['Rua do Pardejo', 'Largo da Cruzinha'] (2) ; Origem: 2395163151 ; Destino: 1624598678 ; Oneway: False ; Highway: residential
 Rua: Rua da Gandra (6) ; Origem: 2395163151 ; Destino: 2395163179 ; Oneway: False ; Highway: residential
@@ -12155,7 +12155,7 @@ Rua:  ; Origem: 2395163153 ; Destino: 2813342306 ; Oneway: False ; Highway: resi
 Rua: Rua de Padim (4) ; Origem: 2395163153 ; Destino: 2395163001 ; Oneway: False ; Highway: unclassified, residential
 Rua: Avenida de Santo António ; Origem: 2395163157 ; Destino: 2813355378 ; Oneway: False ; Highway: residential
 Rua: Rua de Mariz ; Origem: 2395163157 ; Destino: 2395163158 ; Oneway: False ; Highway: residential
-Rua: ['Rua de Mariz', 'Rua de Padim'] (2) ; Origem: 2395163157 ; Destino: 2395163141 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Padim', 'Rua de Mariz'] (2) ; Origem: 2395163157 ; Destino: 2395163141 ; Oneway: False ; Highway: residential
 Rua: Largo da Cruzinha (2) ; Origem: 2395163158 ; Destino: 1624598678 ; Oneway: False ; Highway: primary
 Rua: Rua da Paradela ; Origem: 2395163158 ; Destino: 2395187059 ; Oneway: False ; Highway: primary
 Rua: Rua de Mariz (2) ; Origem: 2395163158 ; Destino: 2395163157 ; Oneway: False ; Highway: residential
@@ -12222,7 +12222,7 @@ Rua: Rua de Espinde (5) ; Origem: 2395186910 ; Destino: 2395186760 ; Oneway: Fal
 Rua: Rua da Felgueira (3) ; Origem: 2395186920 ; Destino: 6855869218 ; Oneway: False ; Highway: residential
 Rua: Rua do Sarrido ; Origem: 2395186947 ; Destino: 2813743465 ; Oneway: False ; Highway: primary
 Rua: Rua de Espinde (6) ; Origem: 2395186947 ; Destino: 2395186831 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Paradela', 'Rua do Sarrido'] ; Origem: 2395186947 ; Destino: 2395186964 ; Oneway: False ; Highway: primary
+Rua: ['Rua do Sarrido', 'Rua da Paradela'] ; Origem: 2395186947 ; Destino: 2395186964 ; Oneway: False ; Highway: primary
 Rua: Travessa Nossa Senhora da Cabeça ; Origem: 2395186951 ; Destino: 5212326963 ; Oneway: False ; Highway: residential
 Rua: Rua Nossa Senhora da Cabeça (3) ; Origem: 2395186951 ; Destino: 2395186817 ; Oneway: False ; Highway: residential
 Rua: Rua Nossa Senhora da Cabeça (4) ; Origem: 2395186951 ; Destino: 2395187123 ; Oneway: False ; Highway: residential
@@ -12231,7 +12231,7 @@ Rua: Rua da Bouça do Xisto ; Origem: 2395186957 ; Destino: 5210791310 ; Oneway: 
 Rua: Rua Paradela de Baixo (3) ; Origem: 2395186957 ; Destino: 2395187052 ; Oneway: False ; Highway: residential
 Rua: Rua da Paradela (4) ; Origem: 2395186964 ; Destino: 2395186889 ; Oneway: False ; Highway: primary
 Rua: Travessa de Paradela de Baixo (5) ; Origem: 2395186964 ; Destino: 2395186791 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Paradela', 'Rua do Sarrido'] (2) ; Origem: 2395186964 ; Destino: 2395186947 ; Oneway: False ; Highway: primary
+Rua: ['Rua do Sarrido', 'Rua da Paradela'] (2) ; Origem: 2395186964 ; Destino: 2395186947 ; Oneway: False ; Highway: primary
 Rua: Rua Quinta de Vieiros (2) ; Origem: 2395187004 ; Destino: 2395187024 ; Oneway: False ; Highway: residential
 Rua: Rua Quinta de Vieiros (3) ; Origem: 2395187004 ; Destino: 2395186817 ; Oneway: False ; Highway: residential
 Rua: Rua Quinta de Vieiros (4) ; Origem: 2395187004 ; Destino: 2395187058 ; Oneway: False ; Highway: residential
@@ -12327,7 +12327,7 @@ Rua: Rua das Carvalheiras ; Origem: 2397319625 ; Destino: 8744078848 ; Oneway: F
 Rua: Rua das Carvalheiras (2) ; Origem: 2397319625 ; Destino: 8665743489 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2397319625 ; Destino: 8744078854 ; Oneway: False ; Highway: residential
 Rua: Rua das Carvalheiras (3) ; Origem: 2397319627 ; Destino: 8665743493 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Carvalheiras', 'Rua da Chão'] ; Origem: 2397319627 ; Destino: 8740447248 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Chão', 'Rua das Carvalheiras'] ; Origem: 2397319627 ; Destino: 8740447248 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2397319627 ; Destino: 8740447276 ; Oneway: False ; Highway: unclassified
 Rua:  ; Origem: 2397319650 ; Destino: 2397319568 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2397319650 ; Destino: 2397319568 ; Oneway: False ; Highway: residential
@@ -12453,7 +12453,7 @@ Rua: Avenida da Igreja (27) ; Origem: 2397345349 ; Destino: 354969987 ; Oneway: 
 Rua: Avenida da Igreja (28) ; Origem: 2397345349 ; Destino: 2397345384 ; Oneway: False ; Highway: secondary
 Rua: Rua do Outeiro (47) ; Origem: 2397345349 ; Destino: 7129077910 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2397345367 ; Destino: 354970087 ; Oneway: False ; Highway: residential
-Rua: ['Largo do Paço', 'Rua da Vinha'] ; Origem: 2397345367 ; Destino: 2397340339 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Vinha', 'Largo do Paço'] (2) ; Origem: 2397345367 ; Destino: 2397340339 ; Oneway: False ; Highway: residential
 Rua: ['Rua do Souto', 'Largo do Paço'] (2) ; Origem: 2397345367 ; Destino: 2397340309 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2397345384 ; Destino: 2397345266 ; Oneway: False ; Highway: residential
 Rua: Avenida da Igreja (29) ; Origem: 2397345384 ; Destino: 2397345349 ; Oneway: False ; Highway: secondary
@@ -12874,7 +12874,7 @@ Rua: Rua dos Amões (3) ; Origem: 2549128788 ; Destino: 2203020952 ; Oneway: Fals
 Rua: Rua dos Amões (4) ; Origem: 2549128788 ; Destino: 2062531933 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua de Santo Estevão Velho ; Origem: 2549256161 ; Destino: 2549256177 ; Oneway: False ; Highway: residential
 Rua: Rua da Capela (10) ; Origem: 2549256161 ; Destino: 7108420698 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua de Entre Campos', 'Rua da Capela'] ; Origem: 2549256161 ; Destino: 1937769826 ; Oneway: False ; Highway: tertiary
+Rua: ['Rua de Entre Campos', 'Rua da Capela'] (2) ; Origem: 2549256161 ; Destino: 1937769826 ; Oneway: False ; Highway: tertiary
 Rua: Rua de Santo Estevão Velho (2) ; Origem: 2549256177 ; Destino: 2792169901 ; Oneway: False ; Highway: residential
 Rua: Rua de Santo Estevão Velho (3) ; Origem: 2549256177 ; Destino: 2549256161 ; Oneway: False ; Highway: residential
 Rua: Rua Padre António Peixoto ; Origem: 2549256177 ; Destino: 2792169878 ; Oneway: False ; Highway: residential
@@ -12892,7 +12892,7 @@ Rua: Rua da Escola (40) ; Origem: 2551910173 ; Destino: 2590144262 ; Oneway: Fal
 Rua: Rua dos Galos (5) ; Origem: 2551910173 ; Destino: 2551910154 ; Oneway: False ; Highway: residential
 Rua: ['Largo do Bairro', 'Rua Nossa Senhora das Candeias'] ; Origem: 2551910177 ; Destino: 4807869077 ; Oneway: False ; Highway: residential
 Rua: Rua Susana Lagrifa (7) ; Origem: 2551910177 ; Destino: 2590144091 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Bairro', 'Largo do Bairro'] ; Origem: 2551910177 ; Destino: 7105971700 ; Oneway: False ; Highway: residential
+Rua: ['Largo do Bairro', 'Rua do Bairro'] ; Origem: 2551910177 ; Destino: 7105971700 ; Oneway: False ; Highway: residential
 Rua: Rua 25 de Abril (72) ; Origem: 2551910180 ; Destino: 2551910194 ; Oneway: False ; Highway: residential
 Rua: Rua Susana Lagrifa (8) ; Origem: 2551910180 ; Destino: 2551910163 ; Oneway: False ; Highway: residential
 Rua: Rua 25 de Abril (73) ; Origem: 2551910184 ; Destino: 2551910202 ; Oneway: False ; Highway: residential
@@ -13119,7 +13119,7 @@ Rua: Rua da Torre (8) ; Origem: 2590153031 ; Destino: 2590152975 ; Oneway: False
 Rua: Rua de Feixe (2) ; Origem: 2590157557 ; Destino: 241948284 ; Oneway: False ; Highway: residential
 Rua: Rua Senhora do Campo ; Origem: 2590157557 ; Destino: 2590190307 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2590174991 ; Destino: 2595790659 ; Oneway: False ; Highway: unclassified
-Rua: ['Avenida Padre Manuel da Costa Rego', 'Avenida da Granja', 'Avenida Nacional'] (2) ; Origem: 2590174991 ; Destino: 880373495 ; Oneway: False ; Highway: secondary
+Rua: ['Avenida Nacional', 'Avenida da Granja', 'Avenida Padre Manuel da Costa Rego'] (2) ; Origem: 2590174991 ; Destino: 880373495 ; Oneway: False ; Highway: secondary
 Rua: Largo Sr. dos Aflitos (7) ; Origem: 2590182787 ; Destino: 2397437969 ; Oneway: False ; Highway: residential
 Rua: Largo Sr. dos Aflitos (8) ; Origem: 2590182787 ; Destino: 2397437897 ; Oneway: False ; Highway: residential
 Rua: Rua do Padrão (10) ; Origem: 2590182787 ; Destino: 1595127244 ; Oneway: False ; Highway: residential
@@ -13133,14 +13133,14 @@ Rua: Travessa do Caminho de Santiago (4) ; Origem: 2590182818 ; Destino: 2590182
 Rua: Rua dos Desportos ; Origem: 2590184848 ; Destino: 2590184897 ; Oneway: False ; Highway: residential
 Rua: Rua de Entre Águas ; Origem: 2590184848 ; Destino: 7508083364 ; Oneway: False ; Highway: tertiary
 Rua: Rua do Agro (2) ; Origem: 2590184848 ; Destino: 1728036909 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua de Carcavelos', 'Rua das Barreiras'] ; Origem: 2590184853 ; Destino: 2590454233 ; Oneway: False ; Highway: residential
+Rua: ['Rua das Barreiras', 'Rua de Carcavelos'] ; Origem: 2590184853 ; Destino: 2590454233 ; Oneway: False ; Highway: residential
 Rua: ['Rua do Pombal', 'Largo da Lage'] ; Origem: 2590184853 ; Destino: 7508083340 ; Oneway: False ; Highway: residential
 Rua: Rua de Penso ; Origem: 2590184853 ; Destino: 2590184865 ; Oneway: False ; Highway: residential
 Rua: Rua do Feijó (9) ; Origem: 2590184864 ; Destino: 2590184870 ; Oneway: False ; Highway: residential
 Rua: Rua de Bate Folha ; Origem: 2590184864 ; Destino: 5213002832 ; Oneway: False ; Highway: residential
 Rua: Rua da Lagoa (6) ; Origem: 2590184864 ; Destino: 1728036909 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Igreja (121) ; Origem: 2590184864 ; Destino: 1728036858 ; Oneway: False ; Highway: tertiary
-Rua: ['Rua de São Vicente', 'Rua das Fontaínhas'] ; Origem: 2590184865 ; Destino: 2590454157 ; Oneway: False ; Highway: residential
+Rua: ['Rua das Fontaínhas', 'Rua de São Vicente'] ; Origem: 2590184865 ; Destino: 2590454157 ; Oneway: False ; Highway: residential
 Rua: Rua de Penso (2) ; Origem: 2590184865 ; Destino: 2590184853 ; Oneway: False ; Highway: residential
 Rua: Rua de Penso (3) ; Origem: 2590184865 ; Destino: 3217340361 ; Oneway: False ; Highway: residential
 Rua: Rua do Feijó (10) ; Origem: 2590184870 ; Destino: 2590184864 ; Oneway: False ; Highway: residential
@@ -13191,7 +13191,7 @@ Rua: Beco do Engenho e Escola ; Origem: 2590454103 ; Destino: 7472559005 ; Onewa
 Rua: Rua da Cabraínha ; Origem: 2590454115 ; Destino: 3217324573 ; Oneway: False ; Highway: residential
 Rua: Rua do Salgado ; Origem: 2590454115 ; Destino: 2590454206 ; Oneway: False ; Highway: residential
 Rua: Rua de Santo António (8) ; Origem: 2590454115 ; Destino: 2590454235 ; Oneway: False ; Highway: residential
-Rua: ['Rua de São Vicente', 'Rua das Fontaínhas'] (2) ; Origem: 2590454157 ; Destino: 2590184865 ; Oneway: False ; Highway: residential
+Rua: ['Rua das Fontaínhas', 'Rua de São Vicente'] (2) ; Origem: 2590454157 ; Destino: 2590184865 ; Oneway: False ; Highway: residential
 Rua: Rua das Escadinhas ; Origem: 2590454157 ; Destino: 2590454204 ; Oneway: False ; Highway: residential
 Rua: Rua das Fontaínhas ; Origem: 2590454157 ; Destino: 3217336258 ; Oneway: False ; Highway: residential
 Rua: Avenida do Redondelo (6) ; Origem: 2590454172 ; Destino: 1623989828 ; Oneway: False ; Highway: secondary
@@ -13205,7 +13205,7 @@ Rua: Rua de Santo António (10) ; Origem: 2590454226 ; Destino: 2590454233 ; Onew
 Rua: Travessa de Santo António ; Origem: 2590454226 ; Destino: 3217324580 ; Oneway: False ; Highway: residential
 Rua: Rua de Santo António (11) ; Origem: 2590454233 ; Destino: 2590454226 ; Oneway: False ; Highway: residential
 Rua: Rua de Santo António (12) ; Origem: 2590454233 ; Destino: 2590454103 ; Oneway: False ; Highway: residential
-Rua: ['Rua de Carcavelos', 'Rua das Barreiras'] (2) ; Origem: 2590454233 ; Destino: 2590184853 ; Oneway: False ; Highway: residential
+Rua: ['Rua das Barreiras', 'Rua de Carcavelos'] (2) ; Origem: 2590454233 ; Destino: 2590184853 ; Oneway: False ; Highway: residential
 Rua: Rua do Sol (26) ; Origem: 2590454235 ; Destino: 2590454077 ; Oneway: False ; Highway: residential
 Rua: Rua de Santo António (13) ; Origem: 2590454235 ; Destino: 2590454115 ; Oneway: False ; Highway: residential
 Rua: Rua de Santo António (14) ; Origem: 2590454235 ; Destino: 2590454103 ; Oneway: False ; Highway: residential
@@ -13241,7 +13241,7 @@ Rua: Rua Almeida Garrett (11) ; Origem: 2613677766 ; Destino: 1756345017 ; Onewa
 Rua:  ; Origem: 2613687961 ; Destino: 1886748990 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2613687965 ; Destino: 1886748990 ; Oneway: False ; Highway: residential
 Rua: Rua João Cruz ; Origem: 2617612680 ; Destino: 2634028763 ; Oneway: False ; Highway: residential
-Rua: ['Rua João Cruz', 'Praça Flávio Sá Leite'] (2) ; Origem: 2617612680 ; Destino: 703116608 ; Oneway: False ; Highway: residential
+Rua: ['Praça Flávio Sá Leite', 'Rua João Cruz'] (2) ; Origem: 2617612680 ; Destino: 703116608 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2617612680 ; Destino: 1713149702 ; Oneway: False ; Highway: residential
 Rua: Rua do Cantinho (4) ; Origem: 2617637749 ; Destino: 242999918 ; Oneway: False ; Highway: residential
 Rua: Rua Diogo de Teive (3) ; Origem: 2621264016 ; Destino: 2621264018 ; Oneway: False ; Highway: residential
@@ -13564,7 +13564,7 @@ Rua: Avenida da Imaculada Conceição (18) ; Origem: 2625750919 ; Destino: 2625750
 Rua: Rua de Sandim (5) ; Origem: 2625750919 ; Destino: 2625750989 ; Oneway: False ; Highway: residential
 Rua: Rua de Sandim (6) ; Origem: 2625750919 ; Destino: 2625750879 ; Oneway: False ; Highway: residential
 Rua: Rua do Soutelo ; Origem: 2625750923 ; Destino: 7126550286 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Carvalheiras', 'Rua de Santo António'] ; Origem: 2625750924 ; Destino: 2625751966 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Santo António', 'Rua das Carvalheiras'] ; Origem: 2625750924 ; Destino: 2625751966 ; Oneway: False ; Highway: residential
 Rua: Rua do Soutelo (2) ; Origem: 2625750924 ; Destino: 2625760807 ; Oneway: False ; Highway: residential
 Rua: Rua do Soutelo (3) ; Origem: 2625750924 ; Destino: 7126550286 ; Oneway: False ; Highway: residential
 Rua: Avenida da Imaculada Conceição (19) ; Origem: 2625750930 ; Destino: 2625750947 ; Oneway: False ; Highway: secondary
@@ -13625,7 +13625,7 @@ Rua: Travessa dos Curros (2) ; Origem: 2625751027 ; Destino: 2625750791 ; Oneway
 Rua: Rua da Liberdade (2) ; Origem: 2625751031 ; Destino: 2625750999 ; Oneway: False ; Highway: residential
 Rua: Travessa do Ribeiro ; Origem: 2625751966 ; Destino: 2625751974 ; Oneway: False ; Highway: residential
 Rua: Rua das Carvalheiras (6) ; Origem: 2625751966 ; Destino: 2625752012 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Carvalheiras', 'Rua de Santo António'] (2) ; Origem: 2625751966 ; Destino: 2625750924 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Santo António', 'Rua das Carvalheiras'] (2) ; Origem: 2625751966 ; Destino: 2625750924 ; Oneway: False ; Highway: residential
 Rua: Rua do Bouço (2) ; Origem: 2625751968 ; Destino: 2625284663 ; Oneway: False ; Highway: residential
 Rua: Travessa do Pinheiro (3) ; Origem: 2625751968 ; Destino: 2625752017 ; Oneway: False ; Highway: residential
 Rua: Rua do Paço (10) ; Origem: 2625751968 ; Destino: 2625284641 ; Oneway: False ; Highway: residential
@@ -13927,11 +13927,11 @@ Rua: Rua da Igreja Velha (19) ; Origem: 2636063971 ; Destino: 2636063975 ; Onewa
 Rua: Rua do Assento (43) ; Origem: 2636063971 ; Destino: 1781031929 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Cachada (47) ; Origem: 2636063971 ; Destino: 1781056816 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Igreja Velha (20) ; Origem: 2636063975 ; Destino: 2636063971 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Barroca', 'Largo da Igreja Velha'] ; Origem: 2636063975 ; Destino: 2636063979 ; Oneway: False ; Highway: residential
+Rua: ['Largo da Igreja Velha', 'Rua da Barroca'] ; Origem: 2636063975 ; Destino: 2636063979 ; Oneway: False ; Highway: residential
 Rua: Largo da Igreja Velha (5) ; Origem: 2636063975 ; Destino: 6796727740 ; Oneway: False ; Highway: unclassified
 Rua: Rua da Samôça ; Origem: 2636063979 ; Destino: 2636063984 ; Oneway: False ; Highway: residential
 Rua: Rua da Samôça (2) ; Origem: 2636063979 ; Destino: 2636064038 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Barroca', 'Largo da Igreja Velha'] (2) ; Origem: 2636063979 ; Destino: 2636063975 ; Oneway: False ; Highway: residential
+Rua: ['Largo da Igreja Velha', 'Rua da Barroca'] (2) ; Origem: 2636063979 ; Destino: 2636063975 ; Oneway: False ; Highway: residential
 Rua: Rua da Samôça (3) ; Origem: 2636063984 ; Destino: 2636063979 ; Oneway: False ; Highway: residential
 Rua: Rua do Eido (2) ; Origem: 2636063984 ; Destino: 6796799649 ; Oneway: False ; Highway: residential
 Rua: Rua Janjusto (2) ; Origem: 2636063984 ; Destino: 1781363874 ; Oneway: False ; Highway: residential
@@ -13984,7 +13984,7 @@ Rua: Largo Santa Justa (7) ; Origem: 2653870926 ; Destino: 1241255766 ; Oneway: 
 Rua: Largo Santa Justa (8) ; Origem: 2653870926 ; Destino: 1818309820 ; Oneway: False ; Highway: secondary
 Rua:  ; Origem: 2653958038 ; Destino: 2653958039 ; Oneway: False ; Highway: residential
 Rua: Travessa Augusto Veloso (2) ; Origem: 2653958038 ; Destino: 1239338968 ; Oneway: False ; Highway: residential
-Rua: ['Travessa Augusto Veloso', 'Rua Dom António Costa'] (2) ; Origem: 2653958038 ; Destino: 1239338762 ; Oneway: False ; Highway: residential
+Rua: ['Rua Dom António Costa', 'Travessa Augusto Veloso'] (2) ; Origem: 2653958038 ; Destino: 1239338762 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2653958039 ; Destino: 2653958038 ; Oneway: False ; Highway: residential
 Rua: Rua Magalhães Lima (4) ; Origem: 2654022902 ; Destino: 2654022902 ; Oneway: False ; Highway: residential
 Rua: Rua Magalhães Lima (5) ; Origem: 2654022902 ; Destino: 2654022902 ; Oneway: False ; Highway: residential
@@ -14077,7 +14077,7 @@ Rua: Rua José Vidal da Costa (20) ; Origem: 2654143971 ; Destino: 2654108087 ; O
 Rua: Rua José Vidal da Costa (21) ; Origem: 2654143971 ; Destino: 2654108096 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2654143974 ; Destino: 2654143971 ; Oneway: False ; Highway: residential
 Rua: Rua da Ponte Nova (10) ; Origem: 2654156677 ; Destino: 1712482368 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Monte', 'Rua do Monte Talegre'] (2) ; Origem: 2654156677 ; Destino: 1732862194 ; Oneway: False ; Highway: unclassified, residential
+Rua: ['Rua do Monte Talegre', 'Rua do Monte'] (2) ; Origem: 2654156677 ; Destino: 1732862194 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua Senhor dos Milagres ; Origem: 2654156677 ; Destino: 2654156734 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2654156690 ; Destino: 2654160983 ; Oneway: False ; Highway: residential
 Rua: Rua da Quinta da Bouça ; Origem: 2654156690 ; Destino: 2654156710 ; Oneway: False ; Highway: residential
@@ -14228,7 +14228,7 @@ Rua:  ; Origem: 2731676207 ; Destino: 1727800915 ; Oneway: False ; Highway: seco
 Rua: Rua União (2) ; Origem: 2731676207 ; Destino: 2731676312 ; Oneway: False ; Highway: residential
 Rua: Rua Agras (2) ; Origem: 2731676212 ; Destino: 1760708423 ; Oneway: False ; Highway: residential
 Rua: Rua da Estação (2) ; Origem: 2731676251 ; Destino: 2551910184 ; Oneway: False ; Highway: residential
-Rua: ['Largo da Estação', 'Travessa da Estação'] ; Origem: 2731676251 ; Destino: 2731676312 ; Oneway: False ; Highway: residential
+Rua: ['Travessa da Estação', 'Largo da Estação'] ; Origem: 2731676251 ; Destino: 2731676312 ; Oneway: False ; Highway: residential
 Rua: Largo da Estação (8) ; Origem: 2731676251 ; Destino: 2551910192 ; Oneway: False ; Highway: residential
 Rua: Travessa da Boca ; Origem: 2731676252 ; Destino: 2731676253 ; Oneway: False ; Highway: residential
 Rua: Avenida General Humberto Delgado (9) ; Origem: 2731676252 ; Destino: 2551910184 ; Oneway: False ; Highway: secondary
@@ -14237,9 +14237,9 @@ Rua: Travessa da Boca (2) ; Origem: 2731676253 ; Destino: 2731676252 ; Oneway: F
 Rua: Rua Prameira (2) ; Origem: 2731676281 ; Destino: 1760708443 ; Oneway: False ; Highway: residential
 Rua: Rua União (3) ; Origem: 2731676312 ; Destino: 2731676198 ; Oneway: False ; Highway: residential
 Rua: Rua União (4) ; Origem: 2731676312 ; Destino: 2731676207 ; Oneway: False ; Highway: residential
-Rua: ['Largo da Estação', 'Travessa da Estação'] (2) ; Origem: 2731676312 ; Destino: 2731676251 ; Oneway: False ; Highway: residential
+Rua: ['Largo da Estação', 'Travessa da Estação'] ; Origem: 2731676312 ; Destino: 2731676251 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Luís Almeida Braga (6) ; Origem: 2732865906 ; Destino: 1780775110 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Ponte Senra', 'Rua da Casa Nova'] (2) ; Origem: 2732907368 ; Destino: 1760708399 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Casa Nova', 'Rua da Ponte Senra'] ; Origem: 2732907368 ; Destino: 1760708399 ; Oneway: False ; Highway: residential
 Rua: Rua da Ponte Senra (2) ; Origem: 2732907368 ; Destino: 1780848386 ; Oneway: False ; Highway: residential
 Rua: Travessa da Ponte Senra ; Origem: 2732907368 ; Destino: 2732907385 ; Oneway: False ; Highway: residential
 Rua: Travessa da Ponte Senra (2) ; Origem: 2732907385 ; Destino: 2732907368 ; Oneway: False ; Highway: residential
@@ -14389,7 +14389,7 @@ Rua: Rua da Sebe ; Origem: 2792157052 ; Destino: 2792157074 ; Oneway: False ; Hi
 Rua: Rua do Combatentes (5) ; Origem: 2792157052 ; Destino: 1343040265 ; Oneway: False ; Highway: residential
 Rua: Rua do Combatentes (6) ; Origem: 2792157052 ; Destino: 1343040304 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua de São Brás (13) ; Origem: 2792157054 ; Destino: 2792157078 ; Oneway: False ; Highway: residential
-Rua: ['Largo de São Brás', 'Rua de São Brás'] ; Origem: 2792157054 ; Destino: 2792157086 ; Oneway: False ; Highway: residential
+Rua: ['Rua de São Brás', 'Largo de São Brás'] ; Origem: 2792157054 ; Destino: 2792157086 ; Oneway: False ; Highway: residential
 Rua: Rua do Carmo (14) ; Origem: 2792157061 ; Destino: 1457206308 ; Oneway: False ; Highway: primary
 Rua: Rua do Carmo (15) ; Origem: 2792157061 ; Destino: 2792157097 ; Oneway: False ; Highway: primary
 Rua: Travessa do Carmo (3) ; Origem: 2792157061 ; Destino: 2792157111 ; Oneway: False ; Highway: residential
@@ -14410,7 +14410,7 @@ Rua: Rua da Póvoa (6) ; Origem: 2792157081 ; Destino: 2792157051 ; Oneway: False
 Rua:  ; Origem: 2792157081 ; Destino: 1343040307 ; Oneway: False ; Highway: residential
 Rua: Rua do Carmo (16) ; Origem: 2792157086 ; Destino: 2792157097 ; Oneway: False ; Highway: primary
 Rua: Rua do Carmo (17) ; Origem: 2792157086 ; Destino: 2792085163 ; Oneway: False ; Highway: primary
-Rua: ['Largo de São Brás', 'Rua de São Brás'] (2) ; Origem: 2792157086 ; Destino: 2792157054 ; Oneway: False ; Highway: residential
+Rua: ['Rua de São Brás', 'Largo de São Brás'] (2) ; Origem: 2792157086 ; Destino: 2792157054 ; Oneway: False ; Highway: residential
 Rua: Largo de São Brás ; Origem: 2792157097 ; Destino: 2792157121 ; Oneway: False ; Highway: residential
 Rua: Rua do Carmo (18) ; Origem: 2792157097 ; Destino: 2792157061 ; Oneway: False ; Highway: primary
 Rua: Rua do Carmo (19) ; Origem: 2792157097 ; Destino: 2792157086 ; Oneway: False ; Highway: primary
@@ -14432,10 +14432,10 @@ Rua: Largo da Póvoa (2) ; Origem: 2792160790 ; Destino: 1343040264 ; Oneway: Fal
 Rua: Travessa do Extremo (3) ; Origem: 2792160793 ; Destino: 2792160782 ; Oneway: False ; Highway: residential
 Rua: Travessa do Extremo (4) ; Origem: 2792160793 ; Destino: 2792160781 ; Oneway: False ; Highway: residential
 Rua: Travessa do Estremo ; Origem: 2792160793 ; Destino: 2792160802 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Extremo', 'Rua do Estremo'] ; Origem: 2792160797 ; Destino: 2792160802 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Estremo', 'Rua do Extremo'] ; Origem: 2792160797 ; Destino: 2792160802 ; Oneway: False ; Highway: residential
 Rua: Rua do Extremo (2) ; Origem: 2792160802 ; Destino: 2792160820 ; Oneway: False ; Highway: residential
 Rua: Travessa do Estremo (2) ; Origem: 2792160802 ; Destino: 2792160793 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Extremo', 'Rua do Estremo'] (2) ; Origem: 2792160802 ; Destino: 2792160797 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Extremo', 'Rua do Estremo'] ; Origem: 2792160802 ; Destino: 2792160797 ; Oneway: False ; Highway: residential
 Rua: Rua dos Telheiros ; Origem: 2792160818 ; Destino: 2792160820 ; Oneway: False ; Highway: residential
 Rua: Rua dos Telheiros (2) ; Origem: 2792160818 ; Destino: 2792160818 ; Oneway: False ; Highway: residential
 Rua: Rua dos Telheiros (3) ; Origem: 2792160818 ; Destino: 2792160818 ; Oneway: False ; Highway: residential
@@ -14583,7 +14583,7 @@ Rua: Rua de São José (26) ; Origem: 2806785884 ; Destino: 2806772380 ; Oneway: T
 Rua: Rua de São José (27) ; Origem: 2806785885 ; Destino: 2806785884 ; Oneway: False ; Highway: residential
 Rua: Caminho de Felgueiras (2) ; Origem: 2806858945 ; Destino: 2836123973 ; Oneway: False ; Highway: residential
 Rua: Caminho de Felgueiras (3) ; Origem: 2806858945 ; Destino: 1236401717 ; Oneway: False ; Highway: residential
-Rua: ['Largo de Sobremoure', 'Caminho da Ponte de Sobremoure'] ; Origem: 2806858945 ; Destino: 5489112213 ; Oneway: False ; Highway: residential
+Rua: ['Caminho da Ponte de Sobremoure', 'Largo de Sobremoure'] ; Origem: 2806858945 ; Destino: 5489112213 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2813341916 ; Destino: 2813342351 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2813341916 ; Destino: 2813341994 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2813341916 ; Destino: 2813341983 ; Oneway: False ; Highway: residential
@@ -14662,7 +14662,7 @@ Rua:  ; Origem: 2813795186 ; Destino: 2813341994 ; Oneway: False ; Highway: resi
 Rua:  ; Origem: 2813795186 ; Destino: 2813795188 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2813795188 ; Destino: 2813795186 ; Oneway: False ; Highway: residential
 Rua: Rua da Cancela (3) ; Origem: 2813795193 ; Destino: 2813795420 ; Oneway: False ; Highway: unclassified, residential
-Rua: ['Rua da Senhora do Ó', 'Rua Melhorado de Baixo'] (2) ; Origem: 2813795193 ; Destino: 2195935932 ; Oneway: False ; Highway: residential
+Rua: ['Rua Melhorado de Baixo', 'Rua da Senhora do Ó'] ; Origem: 2813795193 ; Destino: 2195935932 ; Oneway: False ; Highway: residential
 Rua: Rua das Cangostas (10) ; Origem: 2813795193 ; Destino: 2813795200 ; Oneway: False ; Highway: residential
 Rua: Rua da Lomba ; Origem: 2813795193 ; Destino: 6791638315 ; Oneway: False ; Highway: residential
 Rua: Rua das Cangostas (11) ; Origem: 2813795194 ; Destino: 1747599175 ; Oneway: False ; Highway: residential
@@ -14711,7 +14711,7 @@ Rua:  ; Origem: 2834194493 ; Destino: 2397340301 ; Oneway: False ; Highway: tert
 Rua: Rua das Searas (9) ; Origem: 2836119374 ; Destino: 2836119382 ; Oneway: False ; Highway: residential
 Rua: Avenida 25 de Abril (4) ; Origem: 2836119375 ; Destino: 1226136634 ; Oneway: False ; Highway: tertiary
 Rua: Caminho das Casas Novas ; Origem: 2836119375 ; Destino: 5586984104 ; Oneway: False ; Highway: residential
-Rua: ['Avenida 25 de Abril', 'Largo de Carcavelos'] (2) ; Origem: 2836119375 ; Destino: 1236401912 ; Oneway: False ; Highway: tertiary
+Rua: ['Largo de Carcavelos', 'Avenida 25 de Abril'] (2) ; Origem: 2836119375 ; Destino: 1236401912 ; Oneway: False ; Highway: tertiary
 Rua: Beco do Passal ; Origem: 2836119376 ; Destino: 11081107609 ; Oneway: False ; Highway: residential
 Rua: Rua do Passal (26) ; Origem: 2836119376 ; Destino: 1236401694 ; Oneway: False ; Highway: residential
 Rua: Rua do Passal (27) ; Origem: 2836119376 ; Destino: 2836119382 ; Oneway: False ; Highway: residential
@@ -14748,7 +14748,7 @@ Rua: Rua Espessande ; Origem: 2836123925 ; Destino: 6802531174 ; Oneway: True ; 
 Rua: ['Cangosta do Jogo da Bola', 'Travessa Espessande'] ; Origem: 2836123925 ; Destino: 6802531159 ; Oneway: False ; Highway: residential
 Rua: Largo de São Sebastião (2) ; Origem: 2836123925 ; Destino: 2836123913 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 2836123939 ; Destino: 5210790826 ; Oneway: False ; Highway: residential
-Rua: ['Rua Senhor das Travessas', 'Rua da Goja'] ; Origem: 2836123939 ; Destino: 2836123973 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Goja', 'Rua Senhor das Travessas'] ; Origem: 2836123939 ; Destino: 2836123973 ; Oneway: False ; Highway: residential
 Rua: Rua Senhor das Travessas (2) ; Origem: 2836123939 ; Destino: 1818312304 ; Oneway: False ; Highway: residential
 Rua: Rua Manuel Araújo Teixeira (2) ; Origem: 2836123947 ; Destino: 1236402021 ; Oneway: False ; Highway: residential
 Rua: Avenida Imaculada Conceição (57) ; Origem: 2836123952 ; Destino: 6788496665 ; Oneway: False ; Highway: primary
@@ -14766,7 +14766,7 @@ Rua: Travessa de Cimo de Vila (2) ; Origem: 2836123969 ; Destino: 2836124213 ; O
 Rua: Travessa Valério Pinto de Sá (2) ; Origem: 2836123969 ; Destino: 1236196508 ; Oneway: False ; Highway: residential
 Rua: Caminho de Felgueiras (4) ; Origem: 2836123973 ; Destino: 2806858945 ; Oneway: False ; Highway: residential
 Rua: Rua de Felgueiras (5) ; Origem: 2836123973 ; Destino: 5586984098 ; Oneway: False ; Highway: residential
-Rua: ['Rua Senhor das Travessas', 'Rua da Goja'] (2) ; Origem: 2836123973 ; Destino: 2836123939 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Goja', 'Rua Senhor das Travessas'] (2) ; Origem: 2836123973 ; Destino: 2836123939 ; Oneway: False ; Highway: residential
 Rua: Rua das Rosas (4) ; Origem: 2836123975 ; Destino: 2836123952 ; Oneway: False ; Highway: residential
 Rua: Rua do Fontenário (14) ; Origem: 2836124000 ; Destino: 6788529328 ; Oneway: False ; Highway: residential
 Rua: Rua do Fontenário (15) ; Origem: 2836124000 ; Destino: 1225632560 ; Oneway: False ; Highway: residential
@@ -14831,7 +14831,7 @@ Rua: Rua do Habitat ; Origem: 2836124405 ; Destino: 2836124406 ; Oneway: False ;
 Rua: Rua da Carvalheira (8) ; Origem: 2836124405 ; Destino: 2836124403 ; Oneway: False ; Highway: residential
 Rua: Rua da Carvalheira (9) ; Origem: 2836124405 ; Destino: 2836124413 ; Oneway: False ; Highway: residential
 Rua: Rua do Habitat (2) ; Origem: 2836124406 ; Destino: 2836124405 ; Oneway: False ; Highway: residential
-Rua: ['Rua da Carvalheira', 'Rua de Pitancinhos'] (2) ; Origem: 2836124413 ; Destino: 1236148426 ; Oneway: False ; Highway: residential
+Rua: ['Rua de Pitancinhos', 'Rua da Carvalheira'] (2) ; Origem: 2836124413 ; Destino: 1236148426 ; Oneway: False ; Highway: residential
 Rua: Rua da Carvalheira (10) ; Origem: 2836124413 ; Destino: 2836124405 ; Oneway: False ; Highway: residential
 Rua: Rua do Infantário (3) ; Origem: 2836124413 ; Destino: 2836124298 ; Oneway: False ; Highway: residential
 Rua: Rua de Senra (2) ; Origem: 2836124421 ; Destino: 699017751 ; Oneway: False ; Highway: residential
@@ -15038,7 +15038,7 @@ Rua: Avenida Engenheiro José Rolo (18) ; Origem: 3089191940 ; Destino: 151158514
 Rua: Rua Sub. Carreira ; Origem: 3089191941 ; Destino: 3941469179 ; Oneway: False ; Highway: residential
 Rua: Rua Sub. Carreira (2) ; Origem: 3089191941 ; Destino: 3089192024 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 3089191941 ; Destino: 3941469192 ; Oneway: False ; Highway: residential
-Rua: ['Avenida Ponte de Covedelo', 'Avenida do Covedêlo'] ; Origem: 3089191946 ; Destino: 3089192166 ; Oneway: False ; Highway: tertiary
+Rua: ['Avenida do Covedêlo', 'Avenida Ponte de Covedelo'] (2) ; Origem: 3089191946 ; Destino: 3089192166 ; Oneway: False ; Highway: tertiary
 Rua: Avenida do Covedêlo (10) ; Origem: 3089191946 ; Destino: 1511585174 ; Oneway: False ; Highway: tertiary
 Rua: Rua de Covas (2) ; Origem: 3089191946 ; Destino: 3941871213 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 3089191958 ; Destino: 10658063585 ; Oneway: False ; Highway: residential
@@ -15047,7 +15047,7 @@ Rua: Rua da Minerva (2) ; Origem: 3089191967 ; Destino: 3089191939 ; Oneway: Fal
 Rua: Rua de Covas (3) ; Origem: 3089191967 ; Destino: 3098579138 ; Oneway: False ; Highway: residential
 Rua: Rua de Covas (4) ; Origem: 3089191967 ; Destino: 3089192003 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 3089191989 ; Destino: 3089192024 ; Oneway: False ; Highway: unclassified
-Rua: ['Avenida Ponte de Covedelo', 'Avenida do Covedêlo'] (2) ; Origem: 3089191999 ; Destino: 1818309321 ; Oneway: False ; Highway: tertiary
+Rua: ['Avenida do Covedêlo', 'Avenida Ponte de Covedelo'] (3) ; Origem: 3089191999 ; Destino: 1818309321 ; Oneway: False ; Highway: tertiary
 Rua: Avenida do Covedêlo (11) ; Origem: 3089191999 ; Destino: 3089191898 ; Oneway: False ; Highway: tertiary
 Rua: ['Avenida da Igreja', 'Praceta das Agras'] (2) ; Origem: 3089191999 ; Destino: 3089191911 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 3089192000 ; Destino: 1594868453 ; Oneway: False ; Highway: primary
@@ -15076,7 +15076,7 @@ Rua: Rua do Outeiro (55) ; Origem: 3089192165 ; Destino: 1227805373 ; Oneway: Fa
 Rua: Rua do Outeiro (56) ; Origem: 3089192165 ; Destino: 3089191897 ; Oneway: False ; Highway: residential
 Rua: Travessa do Outeiro (8) ; Origem: 3089192165 ; Destino: 4040041891 ; Oneway: False ; Highway: residential
 Rua: Avenida do Covedêlo (12) ; Origem: 3089192166 ; Destino: 3089191914 ; Oneway: False ; Highway: tertiary
-Rua: ['Avenida Ponte de Covedelo', 'Avenida do Covedêlo'] (3) ; Origem: 3089192166 ; Destino: 3089191946 ; Oneway: False ; Highway: tertiary
+Rua: ['Avenida do Covedêlo', 'Avenida Ponte de Covedelo'] (4) ; Origem: 3089192166 ; Destino: 3089191946 ; Oneway: False ; Highway: tertiary
 Rua: Rua da Cachada (49) ; Origem: 3089192166 ; Destino: 3089191922 ; Oneway: False ; Highway: residential
 Rua: Rua Sub. Carreira (6) ; Origem: 3089192181 ; Destino: 3941469179 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 3089192181 ; Destino: 1732862193 ; Oneway: False ; Highway: residential
@@ -15307,7 +15307,7 @@ Rua: Rua da Bica ; Origem: 3141821572 ; Destino: 3141821575 ; Oneway: False ; Hi
 Rua: Avenida Imaculada Conceição (69) ; Origem: 3141821572 ; Destino: 722797584 ; Oneway: False ; Highway: primary
 Rua: Rua da Bica (2) ; Origem: 3141821575 ; Destino: 3141821572 ; Oneway: False ; Highway: residential
 Rua: Rua do Covil ; Origem: 3141821575 ; Destino: 3141821576 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Covil', 'Rua do Alambique'] ; Origem: 3141821575 ; Destino: 3141821600 ; Oneway: False ; Highway: unclassified, residential
+Rua: ['Rua do Alambique', 'Rua do Covil'] ; Origem: 3141821575 ; Destino: 3141821600 ; Oneway: False ; Highway: unclassified, residential
 Rua: Avenida Imaculada Conceição (70) ; Origem: 3141821576 ; Destino: 3141821572 ; Oneway: False ; Highway: primary
 Rua: Rua do Covil (2) ; Origem: 3141821576 ; Destino: 3141821575 ; Oneway: False ; Highway: residential
 Rua: Avenida Imaculada Conceição (71) ; Origem: 3141821576 ; Destino: 3141821551 ; Oneway: False ; Highway: primary
@@ -15316,7 +15316,7 @@ Rua: Avenida Imaculada Conceição (72) ; Origem: 3141821589 ; Destino: 8597165994
 Rua: Avenida Imaculada Conceição (73) ; Origem: 3141821589 ; Destino: 776295981 ; Oneway: False ; Highway: primary
 Rua: Rua de Redondo (9) ; Origem: 3141821600 ; Destino: 2397517141 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua de Redondo (10) ; Origem: 3141821600 ; Destino: 3141821589 ; Oneway: False ; Highway: unclassified
-Rua: ['Rua do Covil', 'Rua do Alambique'] (2) ; Origem: 3141821600 ; Destino: 3141821575 ; Oneway: False ; Highway: unclassified, residential
+Rua: ['Rua do Alambique', 'Rua do Covil'] (2) ; Origem: 3141821600 ; Destino: 3141821575 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua do Castelhão (7) ; Origem: 3141821611 ; Destino: 1434791925 ; Oneway: False ; Highway: residential
 Rua: Rua do Castelhão (8) ; Origem: 3141821611 ; Destino: 1434791917 ; Oneway: False ; Highway: residential
 Rua: Rua de Salgueiral ; Origem: 3141821611 ; Destino: 3141821618 ; Oneway: False ; Highway: residential
@@ -15442,7 +15442,7 @@ Rua: Rua da Tomada (8) ; Origem: 3141821836 ; Destino: 3141821847 ; Oneway: Fals
 Rua: Rua da Tomada (9) ; Origem: 3141821836 ; Destino: 3141821825 ; Oneway: False ; Highway: residential
 Rua: Rua da Tomada (10) ; Origem: 3141821847 ; Destino: 4569152270 ; Oneway: False ; Highway: residential
 Rua: Rua da Tomada (11) ; Origem: 3141821847 ; Destino: 3141821836 ; Oneway: False ; Highway: residential
-Rua: ['Beco da Tomada', 'Travessa da Tomada'] ; Origem: 3141821847 ; Destino: 5580325277 ; Oneway: False ; Highway: unclassified
+Rua: ['Travessa da Tomada', 'Beco da Tomada'] ; Origem: 3141821847 ; Destino: 5580325277 ; Oneway: False ; Highway: unclassified
 Rua: Rua da Boavista (54) ; Origem: 3141821857 ; Destino: 4571880091 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 3141821869 ; Destino: 776295028 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 3141821869 ; Destino: 4569152253 ; Oneway: False ; Highway: primary
@@ -15570,7 +15570,7 @@ Rua:  ; Origem: 3160271417 ; Destino: 3898544016 ; Oneway: True ; Highway: motor
 Rua:  ; Origem: 3160271417 ; Destino: 1109502508 ; Oneway: True ; Highway: motorway_link
 Rua:  ; Origem: 3164539163 ; Destino: 1106483613 ; Oneway: True ; Highway: primary
 Rua:  ; Origem: 3164539163 ; Destino: 1106483718 ; Oneway: True ; Highway: motorway_link
-Rua: ['Circular Sul de Braga', 'Circular Norte de Braga'] (2) ; Origem: 3164539169 ; Destino: 1106483764 ; Oneway: True ; Highway: motorway
+Rua: ['Circular Norte de Braga', 'Circular Sul de Braga'] (2) ; Origem: 3164539169 ; Destino: 1106483764 ; Oneway: True ; Highway: motorway
 Rua:  ; Origem: 3199057868 ; Destino: 1818309321 ; Oneway: True ; Highway: tertiary_link
 Rua:  ; Origem: 3199057868 ; Destino: 1729097157 ; Oneway: True ; Highway: primary
 Rua: Avenida São Lourenço (8) ; Origem: 3199057868 ; Destino: 1732862184 ; Oneway: False ; Highway: primary
@@ -15805,7 +15805,7 @@ Rua: Rua Artur Garibaldi (2) ; Origem: 3431906659 ; Destino: 3431906657 ; Oneway
 Rua: Rua do Espírito Santo (11) ; Origem: 3458758817 ; Destino: 1898415218 ; Oneway: False ; Highway: residential
 Rua: Rua do Espírito Santo (12) ; Origem: 3458758817 ; Destino: 1507143668 ; Oneway: False ; Highway: residential
 Rua: Calçada do Espírito Santo ; Origem: 3458758817 ; Destino: 1898415239 ; Oneway: True ; Highway: residential
-Rua: ['Largo de Dadim', 'Rua de Cantoneiro'] ; Origem: 3467831121 ; Destino: 1759729188 ; Oneway: False ; Highway: residential
+Rua: ['Largo de Dadim', 'Rua de Cantoneiro'] (2) ; Origem: 3467831121 ; Destino: 1759729188 ; Oneway: False ; Highway: residential
 Rua: Rua da Seara (13) ; Origem: 3645149887 ; Destino: 3758364666 ; Oneway: False ; Highway: residential
 Rua: Avenida Doutor Artur Soares (12) ; Origem: 3645151301 ; Destino: 4779694058 ; Oneway: True ; Highway: residential
 Rua: Rua do Castro Máximo ; Origem: 3645151301 ; Destino: 3645151304 ; Oneway: False ; Highway: residential
@@ -15918,10 +15918,10 @@ Rua: Travessa do Senhor do Vila ; Origem: 3859083742 ; Destino: 3859083756 ; One
 Rua: Rua Ana Teixeira Silva (3) ; Origem: 3859083742 ; Destino: 1818310822 ; Oneway: False ; Highway: residential
 Rua: Rua Ana Teixeira Silva (4) ; Origem: 3859083746 ; Destino: 3859083742 ; Oneway: False ; Highway: residential
 Rua: Travessa do Passadiço ; Origem: 3859083746 ; Destino: 3859085173 ; Oneway: False ; Highway: residential
-Rua: ['Travessa do Passadiço', 'Travessa da Pedrinha'] ; Origem: 3859083746 ; Destino: 3859083747 ; Oneway: False ; Highway: residential
+Rua: ['Travessa da Pedrinha', 'Travessa do Passadiço'] ; Origem: 3859083746 ; Destino: 3859083747 ; Oneway: False ; Highway: residential
 Rua: Travessa da Pedrinha (2) ; Origem: 3859083747 ; Destino: 3859083740 ; Oneway: False ; Highway: residential
 Rua: Travessa da Pedrinha (3) ; Origem: 3859083747 ; Destino: 4225206737 ; Oneway: False ; Highway: residential
-Rua: ['Travessa do Passadiço', 'Travessa da Pedrinha'] (2) ; Origem: 3859083747 ; Destino: 3859083746 ; Oneway: False ; Highway: residential
+Rua: ['Travessa da Pedrinha', 'Travessa do Passadiço'] (2) ; Origem: 3859083747 ; Destino: 3859083746 ; Oneway: False ; Highway: residential
 Rua: Variante de Real (5) ; Origem: 3859083748 ; Destino: 3859085173 ; Oneway: False ; Highway: secondary
 Rua: Variante de Real (6) ; Origem: 3859083748 ; Destino: 301415199 ; Oneway: False ; Highway: secondary
 Rua: Travessa do Senhor do Vila (2) ; Origem: 3859083756 ; Destino: 3859083742 ; Oneway: False ; Highway: residential
@@ -15960,7 +15960,7 @@ Rua: Rua João Gomes Leite (7) ; Origem: 3859093728 ; Destino: 3859093704 ; Onewa
 Rua: Rua Doutor Francisco Fernandes Duarte (6) ; Origem: 3859093729 ; Destino: 3859093734 ; Oneway: True ; Highway: residential
 Rua: Rua Doutor Francisco Fernandes Duarte (7) ; Origem: 3859093730 ; Destino: 3859093723 ; Oneway: False ; Highway: residential
 Rua: Travessa do Feital (8) ; Origem: 3859093730 ; Destino: 301513797 ; Oneway: False ; Highway: primary
-Rua: ['Rua 5 de Outubro', 'Travessa do Feital'] (2) ; Origem: 3859093730 ; Destino: 1538877827 ; Oneway: False ; Highway: primary
+Rua: ['Travessa do Feital', 'Rua 5 de Outubro'] (2) ; Origem: 3859093730 ; Destino: 1538877827 ; Oneway: False ; Highway: primary
 Rua: Rua Nascimento Pontes (4) ; Origem: 3859093734 ; Destino: 5210791649 ; Oneway: False ; Highway: residential
 Rua: Rua Doutor Francisco Fernandes Duarte (8) ; Origem: 3859093734 ; Destino: 3859093716 ; Oneway: True ; Highway: residential
 Rua: Rua Doutor Francisco Fernandes Duarte (9) ; Origem: 3859093735 ; Destino: 3859093729 ; Oneway: True ; Highway: residential
@@ -16064,8 +16064,8 @@ Rua:  ; Origem: 3898445290 ; Destino: 1790325719 ; Oneway: False ; Highway: resi
 Rua: Avenida Senhor dos Aflitos (15) ; Origem: 3898445292 ; Destino: 1790325595 ; Oneway: False ; Highway: primary
 Rua: Avenida Senhor dos Aflitos (16) ; Origem: 3898445292 ; Destino: 878781184 ; Oneway: False ; Highway: primary
 Rua:  ; Origem: 3898445292 ; Destino: 3898445290 ; Oneway: False ; Highway: residential
-Rua: ['Circular Sul de Braga', 'Circular Norte de Braga'] (3) ; Origem: 3898544016 ; Destino: 208977479 ; Oneway: True ; Highway: motorway
-Rua: ['Avenida António Macedo', 'Circular Norte de Braga'] ; Origem: 3928408418 ; Destino: 1662789504 ; Oneway: True ; Highway: trunk
+Rua: ['Circular Sul de Braga', 'Circular Norte de Braga'] ; Origem: 3898544016 ; Destino: 208977479 ; Oneway: True ; Highway: motorway
+Rua: ['Circular Norte de Braga', 'Avenida António Macedo'] ; Origem: 3928408418 ; Destino: 1662789504 ; Oneway: True ; Highway: trunk
 Rua: Rua Nova do Bico (4) ; Origem: 3928408421 ; Destino: 3928408418 ; Oneway: True ; Highway: trunk_link
 Rua: Rua Nova do Bico (5) ; Origem: 3928408421 ; Destino: 1236439547 ; Oneway: False ; Highway: residential
 Rua: Largo de Infías (8) ; Origem: 3928494738 ; Destino: 9646463652 ; Oneway: True ; Highway: tertiary
@@ -16321,7 +16321,7 @@ Rua: Rua Ernesto Nogueira (6) ; Origem: 4141067070 ; Destino: 4141067074 ; Onewa
 Rua: Rua Ernesto Nogueira (7) ; Origem: 4141067070 ; Destino: 1764528696 ; Oneway: False ; Highway: residential
 Rua: Rua Teresa Amélia Gonçalves (4) ; Origem: 4141067070 ; Destino: 4129811102 ; Oneway: False ; Highway: residential
 Rua: Rua Ernesto Nogueira (8) ; Origem: 4141067074 ; Destino: 4141067070 ; Oneway: False ; Highway: residential
-Rua: ['Avenida João XXI', 'Túnel Avenida João XXI'] ; Origem: 4191807089 ; Destino: 210610916 ; Oneway: True ; Highway: primary_link, primary
+Rua: ['Túnel Avenida João XXI', 'Avenida João XXI'] ; Origem: 4191807089 ; Destino: 210610916 ; Oneway: True ; Highway: primary_link, primary
 Rua: Rua da Fábrica (18) ; Origem: 4222371858 ; Destino: 4222372538 ; Oneway: False ; Highway: residential
 Rua: Avenida da Imaculada Conceição (39) ; Origem: 4222372538 ; Destino: 2625750989 ; Oneway: False ; Highway: secondary
 Rua: Avenida da Imaculada Conceição (40) ; Origem: 4222372538 ; Destino: 2625750947 ; Oneway: False ; Highway: secondary
@@ -16515,7 +16515,7 @@ Rua: Rua 8 de Dezembro (6) ; Origem: 4610057421 ; Destino: 3758270255 ; Oneway: 
 Rua: Avenida Padre Júlio Fragata (13) ; Origem: 4613007254 ; Destino: 211338605 ; Oneway: True ; Highway: trunk
 Rua: Rua Frei José Vilaça (33) ; Origem: 4615141318 ; Destino: 1106483817 ; Oneway: False ; Highway: primary
 Rua: Rua Frei José Vilaça (34) ; Origem: 4615141318 ; Destino: 1106536594 ; Oneway: False ; Highway: primary
-Rua: ['Avenida António Macedo', 'Circular Norte de Braga'] (2) ; Origem: 4616869404 ; Destino: 1106858271 ; Oneway: True ; Highway: trunk
+Rua: ['Circular Norte de Braga', 'Avenida António Macedo'] (2) ; Origem: 4616869404 ; Destino: 1106858271 ; Oneway: True ; Highway: trunk
 Rua: Rua São Martinho (27) ; Origem: 4616869411 ; Destino: 1243859907 ; Oneway: False ; Highway: secondary
 Rua:  ; Origem: 4616869411 ; Destino: 4616869415 ; Oneway: True ; Highway: trunk_link
 Rua: Rua São Martinho (28) ; Origem: 4616869411 ; Destino: 1236525650 ; Oneway: False ; Highway: secondary
@@ -16895,7 +16895,7 @@ Rua: Avenida dos Extremos (17) ; Origem: 4979655026 ; Destino: 5071610241 ; Onew
 Rua: Avenida da Liberdade (33) ; Origem: 4991370050 ; Destino: 1778693102 ; Oneway: True ; Highway: primary
 Rua: Avenida da Liberdade (34) ; Origem: 4991370050 ; Destino: 229875720 ; Oneway: False ; Highway: primary
 Rua: Túnel da Praça Conde de Agrolongo ; Origem: 4991405942 ; Destino: 243891925 ; Oneway: True ; Highway: secondary
-Rua: ['Rua do Carmo', 'Praça Conde Agrolongo'] ; Origem: 4991405942 ; Destino: 243891839 ; Oneway: True ; Highway: residential
+Rua: ['Praça Conde Agrolongo', 'Rua do Carmo'] ; Origem: 4991405942 ; Destino: 243891839 ; Oneway: True ; Highway: residential
 Rua: Rua Dom João Cândido de Novais e Sousa (2) ; Origem: 4991413549 ; Destino: 1851905243 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 5048602247 ; Destino: 1594974405 ; Oneway: False ; Highway: residential
 Rua: Rua Quinta da Barra (5) ; Origem: 5048602247 ; Destino: 1594974415 ; Oneway: False ; Highway: residential
@@ -17273,7 +17273,7 @@ Rua:  ; Origem: 5489112181 ; Destino: 1955883842 ; Oneway: True ; Highway: prima
 Rua:  ; Origem: 5489112205 ; Destino: 5517204629 ; Oneway: True ; Highway: tertiary_link
 Rua: Variante vdo Cávado ; Origem: 5489112205 ; Destino: 5517219865 ; Oneway: True ; Highway: primary
 Rua: Largo de Sobremoure ; Origem: 5489112213 ; Destino: 5517219870 ; Oneway: True ; Highway: residential
-Rua: ['Caminho da Ponte de Sobremoure', 'Largo de Sobremoure'] ; Origem: 5489112213 ; Destino: 2806858945 ; Oneway: False ; Highway: residential
+Rua: ['Caminho da Ponte de Sobremoure', 'Largo de Sobremoure'] (2) ; Origem: 5489112213 ; Destino: 2806858945 ; Oneway: False ; Highway: residential
 Rua: Variante do Cávado (7) ; Origem: 5489112215 ; Destino: 5489112181 ; Oneway: True ; Highway: primary
 Rua: Variante vdo Cávado (2) ; Origem: 5489112215 ; Destino: 5489112218 ; Oneway: True ; Highway: primary
 Rua: Variante vdo Cávado (3) ; Origem: 5489112218 ; Destino: 5517219863 ; Oneway: True ; Highway: primary
@@ -17308,7 +17308,7 @@ Rua: Avenida Senhor dos Passos (13) ; Origem: 5578780754 ; Destino: 5578779810 ;
 Rua: Avenida Senhor dos Passos (14) ; Origem: 5578780754 ; Destino: 776295177 ; Oneway: False ; Highway: primary
 Rua: Travessa do Padrão ; Origem: 5578780754 ; Destino: 5578780761 ; Oneway: False ; Highway: residential
 Rua: Travessa do Padrão (2) ; Origem: 5578780761 ; Destino: 5578780754 ; Oneway: False ; Highway: residential
-Rua: ['Beco da Tomada', 'Travessa da Tomada'] (2) ; Origem: 5580325277 ; Destino: 3141821847 ; Oneway: False ; Highway: unclassified
+Rua: ['Travessa da Tomada', 'Beco da Tomada'] (2) ; Origem: 5580325277 ; Destino: 3141821847 ; Oneway: False ; Highway: unclassified
 Rua: Travessa da Tomada (2) ; Origem: 5580325294 ; Destino: 3141821831 ; Oneway: False ; Highway: unclassified
 Rua: Rua de Felgueiras (7) ; Origem: 5586984098 ; Destino: 2836123973 ; Oneway: False ; Highway: residential
 Rua: Rua de Felgueiras (8) ; Origem: 5586984098 ; Destino: 2836124281 ; Oneway: False ; Highway: residential
@@ -17384,7 +17384,7 @@ Rua: Rua da Naia (13) ; Origem: 6103814723 ; Destino: 6103814712 ; Oneway: False
 Rua: Rua da Naia (14) ; Origem: 6103814723 ; Destino: 1724281641 ; Oneway: False ; Highway: residential
 Rua: Rua José Silva Braga (2) ; Origem: 6107696752 ; Destino: 6107696753 ; Oneway: False ; Highway: residential
 Rua: Rua José Silva Braga (3) ; Origem: 6107696753 ; Destino: 6107696752 ; Oneway: False ; Highway: residential
-Rua: ['Rua José Silva Braga', 'Rua do Cordeiro'] (2) ; Origem: 6107696753 ; Destino: 1236402012 ; Oneway: False ; Highway: residential
+Rua: ['Rua do Cordeiro', 'Rua José Silva Braga'] (2) ; Origem: 6107696753 ; Destino: 1236402012 ; Oneway: False ; Highway: residential
 Rua: Rua José Silva Braga (4) ; Origem: 6107696753 ; Destino: 1818312225 ; Oneway: False ; Highway: residential
 Rua: Travessa de Felgueiras (2) ; Origem: 6107696756 ; Destino: 5586984098 ; Oneway: False ; Highway: residential
 Rua: Rua Professor Machado Vilela (21) ; Origem: 6135208346 ; Destino: 244035508 ; Oneway: False ; Highway: residential
@@ -17497,7 +17497,7 @@ Rua: Beco Sãozinha do Balão ; Origem: 6778379163 ; Destino: 6778379173 ; Oneway:
 Rua: Beco Sãozinha do Balão (2) ; Origem: 6778379173 ; Destino: 6778379163 ; Oneway: False ; Highway: residential
 Rua: Rua do Muro (7) ; Origem: 6778388443 ; Destino: 1236494764 ; Oneway: False ; Highway: residential
 Rua: Rua do Muro (8) ; Origem: 6778388443 ; Destino: 1236494674 ; Oneway: False ; Highway: residential
-Rua: ['Rua Doutor Fonseca Lima', 'Rua Doutor Costa Palmeira'] (2) ; Origem: 6778388443 ; Destino: 1236494763 ; Oneway: False ; Highway: residential
+Rua: ['Rua Doutor Costa Palmeira', 'Rua Doutor Fonseca Lima'] ; Origem: 6778388443 ; Destino: 1236494763 ; Oneway: False ; Highway: residential
 Rua: Rua Carlos Paião (2) ; Origem: 6778388458 ; Destino: 1650614191 ; Oneway: True ; Highway: residential
 Rua: Rua da Pedreira (14) ; Origem: 6778388458 ; Destino: 1650614171 ; Oneway: False ; Highway: residential
 Rua: Rua Pedreiro Macedo ; Origem: 6778388459 ; Destino: 6778388460 ; Oneway: False ; Highway: residential
@@ -17577,7 +17577,7 @@ Rua: Rua Horácio Azevedo Campos (4) ; Origem: 6788873021 ; Destino: 2398132022 ;
 Rua: ['Travessa do Monte', 'Rua Monte Soeiro'] (2) ; Origem: 6788873021 ; Destino: 1236196568 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua do Pinheirinho (3) ; Origem: 6789060060 ; Destino: 2632808645 ; Oneway: False ; Highway: residential
 Rua: Rua do Pinheirinho (4) ; Origem: 6789060060 ; Destino: 2632808637 ; Oneway: False ; Highway: residential
-Rua: ['Rua Senhora do Bom Sucesso', 'Rua das Grovas'] (2) ; Origem: 6789060060 ; Destino: 1235389040 ; Oneway: False ; Highway: unclassified, residential
+Rua: ['Rua das Grovas', 'Rua Senhora do Bom Sucesso'] (2) ; Origem: 6789060060 ; Destino: 1235389040 ; Oneway: False ; Highway: unclassified, residential
 Rua: Rua Senhora do Bom Sucesso ; Origem: 6789060067 ; Destino: 6789060075 ; Oneway: False ; Highway: residential
 Rua: Rua de Moinhos (7) ; Origem: 6789060075 ; Destino: 1481519327 ; Oneway: False ; Highway: residential
 Rua: Rua de Moinhos (8) ; Origem: 6789060075 ; Destino: 2632808637 ; Oneway: False ; Highway: residential
@@ -17839,7 +17839,7 @@ Rua: Rua António Duarte (4) ; Origem: 6802754577 ; Destino: 774362809 ; Oneway: 
 Rua: Travessa António de Mariz ; Origem: 6806516504 ; Destino: 8251180811 ; Oneway: False ; Highway: residential
 Rua: Rua da Igreja (133) ; Origem: 6813232230 ; Destino: 2062531965 ; Oneway: False ; Highway: secondary
 Rua: Rua da Igreja (134) ; Origem: 6813232230 ; Destino: 6283077410 ; Oneway: False ; Highway: secondary
-Rua: ['Calçada da Igreja', 'Largo Padre Borralheiro'] (2) ; Origem: 6813232230 ; Destino: 2062531522 ; Oneway: False ; Highway: residential
+Rua: ['Largo Padre Borralheiro', 'Calçada da Igreja'] (2) ; Origem: 6813232230 ; Destino: 2062531522 ; Oneway: False ; Highway: residential
 Rua: Travessa das Parafusas ; Origem: 6813232234 ; Destino: 6813232239 ; Oneway: False ; Highway: residential
 Rua: Rua das Parafusas (7) ; Origem: 6813232239 ; Destino: 2062530005 ; Oneway: False ; Highway: residential
 Rua: Rua das Parafusas (8) ; Origem: 6813232239 ; Destino: 2062530003 ; Oneway: False ; Highway: residential
@@ -17890,7 +17890,7 @@ Rua: Travessa da Fonte Seca ; Origem: 6818459965 ; Destino: 1563758510 ; Oneway:
 Rua: Rua da Fonte Seca (7) ; Origem: 6818459965 ; Destino: 2806609841 ; Oneway: False ; Highway: residential
 Rua: Rua da Fonte Seca (8) ; Origem: 6818459965 ; Destino: 2806609838 ; Oneway: False ; Highway: residential
 Rua: Rua Jaime Sotto Mayor (8) ; Origem: 6818502265 ; Destino: 1225106024 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Pinheiro', 'Rua Jaime Sotto Mayor'] (2) ; Origem: 6818502265 ; Destino: 1591372546 ; Oneway: False ; Highway: residential
+Rua: ['Rua Jaime Sotto Mayor', 'Rua do Pinheiro'] (2) ; Origem: 6818502265 ; Destino: 1591372546 ; Oneway: False ; Highway: residential
 Rua: Travessa do Parque ; Origem: 6818502265 ; Destino: 6818502281 ; Oneway: False ; Highway: residential
 Rua: Travessa do Parque (2) ; Origem: 6818502281 ; Destino: 6818502265 ; Oneway: False ; Highway: residential
 Rua: Rua do Ribeirinho (6) ; Origem: 6818513853 ; Destino: 2625284651 ; Oneway: False ; Highway: residential
@@ -17962,11 +17962,11 @@ Rua: Largo do Porto de Martim (4) ; Origem: 6833601999 ; Destino: 3122604996 ; O
 Rua: Largo do Porto de Martim (5) ; Origem: 6833602006 ; Destino: 6833602033 ; Oneway: False ; Highway: residential
 Rua: Largo do Porto de Martim (6) ; Origem: 6833602006 ; Destino: 6833601999 ; Oneway: True ; Highway: residential
 Rua: Largo do Porto de Martim (7) ; Origem: 6833602014 ; Destino: 6833602006 ; Oneway: True ; Highway: residential
-Rua: ['Largo do Porto de Martim', 'Rua Porto de Martim'] ; Origem: 6833602014 ; Destino: 6833602025 ; Oneway: False ; Highway: residential
+Rua: ['Rua Porto de Martim', 'Largo do Porto de Martim'] ; Origem: 6833602014 ; Destino: 6833602025 ; Oneway: False ; Highway: residential
 Rua: Avenida do Labriosque (17) ; Origem: 6833602018 ; Destino: 6833602033 ; Oneway: False ; Highway: primary
 Rua: Avenida do Labriosque (18) ; Origem: 6833602018 ; Destino: 2261684699 ; Oneway: False ; Highway: primary
 Rua: Largo do Porto de Martim (8) ; Origem: 6833602018 ; Destino: 3122604996 ; Oneway: False ; Highway: residential
-Rua: ['Largo do Porto de Martim', 'Rua Porto de Martim'] (2) ; Origem: 6833602025 ; Destino: 6833602014 ; Oneway: False ; Highway: residential
+Rua: ['Rua Porto de Martim', 'Largo do Porto de Martim'] (2) ; Origem: 6833602025 ; Destino: 6833602014 ; Oneway: False ; Highway: residential
 Rua: Avenida do Labriosque (19) ; Origem: 6833602033 ; Destino: 2247280803 ; Oneway: False ; Highway: primary
 Rua: Avenida do Labriosque (20) ; Origem: 6833602033 ; Destino: 6833602018 ; Oneway: False ; Highway: primary
 Rua: Largo do Porto de Martim (9) ; Origem: 6833602033 ; Destino: 6833602006 ; Oneway: False ; Highway: residential
@@ -18107,7 +18107,7 @@ Rua: Rua do Saldouro (5) ; Origem: 7105935182 ; Destino: 2590144262 ; Oneway: Fa
 Rua: Rua do Saldouro (6) ; Origem: 7105935182 ; Destino: 2590144180 ; Oneway: False ; Highway: residential
 Rua: Rua Ana Sampaio (2) ; Origem: 7105935182 ; Destino: 2551910163 ; Oneway: False ; Highway: residential
 Rua: Rua de Aldonça (6) ; Origem: 7105937962 ; Destino: 2590144163 ; Oneway: False ; Highway: residential
-Rua: ['Rua de Aldonça', 'Rua Condes de Redondo'] (2) ; Origem: 7105937962 ; Destino: 1827556094 ; Oneway: False ; Highway: residential
+Rua: ['Rua Condes de Redondo', 'Rua de Aldonça'] (2) ; Origem: 7105937962 ; Destino: 1827556094 ; Oneway: False ; Highway: residential
 Rua: Rua do Outeiro (61) ; Origem: 7105937962 ; Destino: 7105937984 ; Oneway: False ; Highway: residential
 Rua: Rua do Outeiro (62) ; Origem: 7105937984 ; Destino: 7105937962 ; Oneway: False ; Highway: residential
 Rua: Avenida General Humberto Delgado (11) ; Origem: 7105968430 ; Destino: 1760708445 ; Oneway: False ; Highway: secondary
@@ -18126,7 +18126,7 @@ Rua: Rua 25 de Abril (101) ; Origem: 7105968461 ; Destino: 2551910202 ; Oneway: 
 Rua: Rua 25 de Abril (102) ; Origem: 7105968461 ; Destino: 2551910194 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 7105971700 ; Destino: 7105971711 ; Oneway: False ; Highway: residential
 Rua: Rua do Bairro (20) ; Origem: 7105971700 ; Destino: 7105971706 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Bairro', 'Largo do Bairro'] (2) ; Origem: 7105971700 ; Destino: 2551910177 ; Oneway: False ; Highway: residential
+Rua: ['Largo do Bairro', 'Rua do Bairro'] (2) ; Origem: 7105971700 ; Destino: 2551910177 ; Oneway: False ; Highway: residential
 Rua: Rua do Bairro (21) ; Origem: 7105971706 ; Destino: 7105971700 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 7105971711 ; Destino: 7105971700 ; Oneway: False ; Highway: residential
 Rua: Travessa da Ilha (3) ; Origem: 7108340847 ; Destino: 7108340861 ; Oneway: False ; Highway: residential
@@ -18291,10 +18291,10 @@ Rua: Rua da Poça (20) ; Origem: 7507901602 ; Destino: 2590184908 ; Oneway: False
 Rua: Rua da Poça (21) ; Origem: 7507901602 ; Destino: 1728036873 ; Oneway: False ; Highway: tertiary
 Rua: Rua das Penas ; Origem: 7507901602 ; Destino: 7507901607 ; Oneway: True ; Highway: residential
 Rua: Largo da Lage ; Origem: 7507901603 ; Destino: 7508083340 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Penas', 'Largo da Lage'] ; Origem: 7507901603 ; Destino: 7507901607 ; Oneway: False ; Highway: residential
+Rua: ['Largo da Lage', 'Rua das Penas'] ; Origem: 7507901603 ; Destino: 7507901607 ; Oneway: False ; Highway: residential
 Rua: ['Largo da Lage', 'Rua do Pinheiro'] (2) ; Origem: 7507901603 ; Destino: 2590184908 ; Oneway: False ; Highway: residential
 Rua: Travessa das Penas ; Origem: 7507901607 ; Destino: 7507901614 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Penas', 'Largo da Lage'] (2) ; Origem: 7507901607 ; Destino: 7507901603 ; Oneway: False ; Highway: residential
+Rua: ['Largo da Lage', 'Rua das Penas'] (2) ; Origem: 7507901607 ; Destino: 7507901603 ; Oneway: False ; Highway: residential
 Rua: Travessa das Penas (2) ; Origem: 7507901614 ; Destino: 7507901607 ; Oneway: False ; Highway: residential
 Rua: Largo da Lage (2) ; Origem: 7508083340 ; Destino: 7507901603 ; Oneway: False ; Highway: residential
 Rua: Rua do Terreiro ; Origem: 7508083340 ; Destino: 7508083365 ; Oneway: False ; Highway: residential
@@ -18425,7 +18425,7 @@ Rua: Rua do Mosteiro (20) ; Origem: 8331880976 ; Destino: 2195999961 ; Oneway: T
 Rua:  ; Origem: 8331880976 ; Destino: 1624594548 ; Oneway: True ; Highway: primary
 Rua:  ; Origem: 8331880977 ; Destino: 1624594582 ; Oneway: True ; Highway: primary
 Rua:  ; Origem: 8331880978 ; Destino: 1624594545 ; Oneway: True ; Highway: primary
-Rua: ['Rua da Bouça', 'Rua do Porto de Martim'] (2) ; Origem: 8357570326 ; Destino: 2247280761 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Bouça', 'Rua do Porto de Martim'] ; Origem: 8357570326 ; Destino: 2247280761 ; Oneway: False ; Highway: residential
 Rua: Rua da Bouça (45) ; Origem: 8357570326 ; Destino: 2247280723 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 8357570326 ; Destino: 5210883442 ; Oneway: False ; Highway: unclassified
 Rua:  ; Origem: 8380907858 ; Destino: 2397514247 ; Oneway: True ; Highway: residential
@@ -18598,7 +18598,7 @@ Rua: Rua de Codeçosa (11) ; Origem: 8740447242 ; Destino: 2397319496 ; Oneway: F
 Rua: ['Rua de Codeçosa', 'Rua 25 de abril'] ; Origem: 8740447245 ; Destino: 8744050782 ; Oneway: False ; Highway: residential
 Rua: Rua de Codeçosa (12) ; Origem: 8740447245 ; Destino: 8740447242 ; Oneway: False ; Highway: residential
 Rua: Rua do Rio (30) ; Origem: 8740447245 ; Destino: 2397319471 ; Oneway: False ; Highway: residential
-Rua: ['Rua das Carvalheiras', 'Rua da Chão'] (2) ; Origem: 8740447248 ; Destino: 2397319627 ; Oneway: False ; Highway: residential
+Rua: ['Rua da Chão', 'Rua das Carvalheiras'] (2) ; Origem: 8740447248 ; Destino: 2397319627 ; Oneway: False ; Highway: residential
 Rua: Rua da Chão (4) ; Origem: 8740447248 ; Destino: 8740447277 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 8740447248 ; Destino: 8740447267 ; Oneway: False ; Highway: unclassified
 Rua:  ; Origem: 8740447267 ; Destino: 8740447248 ; Oneway: False ; Highway: unclassified
@@ -18801,7 +18801,7 @@ Rua:  ; Origem: 10040731987 ; Destino: 1732969704 ; Oneway: False ; Highway: ter
 Rua:  ; Origem: 10040731987 ; Destino: 10040731986 ; Oneway: True ; Highway: tertiary
 Rua: Rua do Elevador (2) ; Origem: 10052013609 ; Destino: 11245454641 ; Oneway: False ; Highway: residential
 Rua: Rua do Elevador (3) ; Origem: 10052013609 ; Destino: 2590122250 ; Oneway: False ; Highway: residential
-Rua: ['Rua Quinta Velha', 'Rua da Quinta Velha'] (2) ; Origem: 10052013609 ; Destino: 2229396133 ; Oneway: False ; Highway: unclassified
+Rua: ['Rua da Quinta Velha', 'Rua Quinta Velha'] (2) ; Origem: 10052013609 ; Destino: 2229396133 ; Oneway: False ; Highway: unclassified
 Rua: Rua da Misericórdia (35) ; Origem: 10089423371 ; Destino: 1712454653 ; Oneway: False ; Highway: residential
 Rua: Rua da Misericórdia (36) ; Origem: 10089423371 ; Destino: 1702485596 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 10089423371 ; Destino: 11444278173 ; Oneway: False ; Highway: residential
@@ -18894,7 +18894,7 @@ Rua: Rua do Ribeiral ; Origem: 10561946769 ; Destino: 10561946776 ; Oneway: Fals
 Rua: Rua do Ribeiral (2) ; Origem: 10561946776 ; Destino: 10561946769 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 10561946777 ; Destino: 10561946778 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 10561946778 ; Destino: 10561946777 ; Oneway: False ; Highway: residential
-Rua: ['Avenida do Redondelo', 'Avenida de São Bentinho'] (2) ; Origem: 10561946778 ; Destino: 1219271963 ; Oneway: False ; Highway: secondary
+Rua: ['Avenida de São Bentinho', 'Avenida do Redondelo'] (2) ; Origem: 10561946778 ; Destino: 1219271963 ; Oneway: False ; Highway: secondary
 Rua: Avenida de São Bentinho (16) ; Origem: 10561946778 ; Destino: 2314452215 ; Oneway: False ; Highway: secondary
 Rua:  ; Origem: 10561946785 ; Destino: 1219272077 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 10561946793 ; Destino: 2320490913 ; Oneway: False ; Highway: residential
@@ -19011,7 +19011,7 @@ Rua:  ; Origem: 10870589994 ; Destino: 10870589995 ; Oneway: False ; Highway: re
 Rua:  ; Origem: 10870589994 ; Destino: 1780668125 ; Oneway: False ; Highway: unclassified, residential
 Rua:  ; Origem: 10870589994 ; Destino: 1780912426 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 10870589995 ; Destino: 10870589994 ; Oneway: False ; Highway: residential
-Rua: ['Rua do Esquieiro', 'Rua Nova do Areeiro'] ; Origem: 10870589995 ; Destino: 1795334533 ; Oneway: False ; Highway: residential
+Rua: ['Rua Nova do Areeiro', 'Rua do Esquieiro'] (2) ; Origem: 10870589995 ; Destino: 1795334533 ; Oneway: False ; Highway: residential
 Rua: Rua do Esquieiro (2) ; Origem: 10870589995 ; Destino: 1780912504 ; Oneway: False ; Highway: residential
 Rua:  ; Origem: 10870603331 ; Destino: 1842825287 ; Oneway: False ; Highway: residential
 Rua: Ponte dos Falcões (2) ; Origem: 10894641296 ; Destino: 1106508890 ; Oneway: False ; Highway: tertiary
