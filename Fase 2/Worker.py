@@ -19,12 +19,14 @@ class worker:
     
     def getRank(self):
         return self.average_rank
-
     def setId(self, newId):
         self.id = newId
 
     def setName(self, newName):
         self.name = newName
+
+    def setOcupado(self,boolean):
+        self.ocupados = boolean
 
     def isOcupado(self):
         return self.ocupados

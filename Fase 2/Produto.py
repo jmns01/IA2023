@@ -1,8 +1,9 @@
 
 class Produto:
-    def __int__(self, nome="", peso=0.0, preco=0.0):
+    def __init__(self, nome="", peso=0.0, preco=0.0):
         self.name = nome
         self.peso = peso
+        self.preco = preco
         self.entregue = False
 
     def __str__(self):

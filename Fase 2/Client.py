@@ -10,7 +10,7 @@ class Client:
         self.password = password
 
     def __str__(self) -> str:
-        return "Client: " + self.id + " Name: " + self.name
+        return "Client: " + str(self.id) + " Name: " + self.name
     
     def getName(self):
         return self.name
@@ -26,6 +26,9 @@ class Client:
 
     def setId(self, newHistory):
         self.order_history = newHistory
+
+    def add_nova_entrega(self, entrega):
+        self.order_history.append(entrega)
 
     def __eq__(self, other):
         if other.isinstance(Client):

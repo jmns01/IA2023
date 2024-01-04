@@ -45,19 +45,21 @@ def create_nodes_list(graph):
     return list
 
 
-def randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel,
+def randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, vel,
                                       length, ref):
-    random1 = random.randint(0,9)
-    random2 = random.randint(0,9)
+    #random1 = random.randint(0,9)
+    #random2 = random.randint(0,9)
+    random1 = 2
+    random2 = 2
 
     if (random1 == 1):
-        rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, ref, True,
+        rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, vel, length, ref, True,
                    False)
     elif (random2 == 1):
-        rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, ref, False,
+        rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, vel, length, ref, False,
                    True)
     else:
-        rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access, vel, length, ref)
+        rua = Ruas(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, vel, length, ref)
     return rua
 
 
@@ -75,16 +77,16 @@ def create_edges_list(graph):
         ref = data.get('ref', False)
         ponte = data.get('bridge', False)
         tunnel = 'tunnel' in data  # Não faz sentido ser aqui data.get("tunnel", False) (vai buscar o value em que tunnel é key ou se não houver põe False)
-        access = data.get('access', [])
         vel = data.get('maxspeed', [])
         length = data.get('length', 0)
 
-
+        if isinstance(highway, str):
+            highway = [highway]
 
         if isinstance(vel, str):
             vel = [vel]
 
-        rua = randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel, access,
+        rua = randomizacao_de_cortadas_transito(name, origem, destino, oneway, highway, rotunda, ponte, tunnel,
                                                 vel, length, ref)
         edges.append(rua)
 
@@ -92,73 +94,14 @@ def create_edges_list(graph):
 
 
 def run(location):
-    # Download the street network
-    G = ox.graph_from_place(location, network_type='all')
     # Download the drive network
     G_drive = ox.graph_from_place(location, network_type='drive')
 
-    # Download the bike network
-    G_bike = ox.graph_from_place(location, network_type='bike')
-
-    # Extract unique highway values from the 'highway' attribute of edges for the drive network
-    highway_types_drive = set()
-    highway_types_drive_list = set()
-
-
-    for u, v, key, data in G_drive.edges(keys=True, data=True):
-        if 'highway' in data:
-            if isinstance(data['highway'], list):
-                highway_types_drive_list.add(str(data['highway']))
-            else:
-                highway_types_drive.add(str(data['highway']))
-
-    # Assuming G_bike is already defined
-
-    # Extract unique highway values from the 'highway' attribute of edges for the bike network
-    highway_types_bike = set()
-    highway_types_bike_list = set()
-
-    for u, v, key, data in G_bike.edges(keys=True, data=True):
-        if 'highway' in data:
-            if isinstance(data['highway'], list):
-                highway_types_bike_list.add(str(data['highway']))
-            else:
-                highway_types_bike.add(str(data['highway']))
-
-
-    # Combine the sets
-    combined_highway_types = highway_types_drive.union(highway_types_bike)
-    combined_highway_types_list = highway_types_drive_list.union(highway_types_bike_list)
-
-
-    # Assuming combined_highway_types is already defined
-
-    # Iterate through edges and remove if 'highway' not in combined_highway_types
-    edges_to_remove_list = []
-    edges_to_remove=[]
-
-    for u, v, k, data in G.edges(keys=True, data=True):
-
-        if 'highway' not in data:
-            edges_to_remove.append((u, v, k))
-        elif isinstance(data['highway'], list) and str(data['highway']) not in combined_highway_types_list:
-            edges_to_remove_list.append((u, v, k))
-        elif (not (data['highway'], list)):
-            if str(data['highway']) not in combined_highway_types:
-                edges_to_remove.append((u, v, k))
-
-    # Remove the edges from the graph
-    G.remove_edges_from(edges_to_remove)
-    G.remove_edges_from(edges_to_remove_list)
-
-
-
-
     # Convert the graph to a Pandas DataFrame
-    edges = ox.graph_to_gdfs(G, nodes=False, edges=True)
+    edges = ox.graph_to_gdfs(G_drive, nodes=False, edges=True)
 
     # Filter edges with a valid 'name' key
-    G_filtered = G.copy()
+    G_filtered = G_drive.copy()
 
     for node, data in G_filtered.nodes(data=True):
         data.pop('name', None)
@@ -208,4 +151,72 @@ def run(location):
         for item in nodeList:
             file.write("%s\n" % str(item))
 
-    return neighb, edgesList, nodeList, highway_types_drive, highway_types_drive_list, highway_types_bike, highway_types_bike_list
+    # Download the bike network
+    G_bike = ox.graph_from_place(location, network_type='bike')
+
+    # Convert the graph to a Pandas DataFrame
+    edges = ox.graph_to_gdfs(G_bike, nodes=False, edges=True)
+
+    # Filter edges with a valid 'name' key
+    G_filtered = G_bike.copy()
+
+    for node, data in G_filtered.nodes(data=True):
+        data.pop('name', None)
+        data.pop('length', None)
+        data.pop('highway', None)
+        data.pop('ref', None)
+
+    for u, v, k, data in G_filtered.edges(keys=True, data=True):
+        if data.get('junction') != 'roundabout' and data.get('name') is None:
+            data.pop('osmid', None)
+            data.pop('reversed', None)
+            data.pop('geometry', None)
+            # data.pop('ref', None)
+            data.pop('lanes', None)
+        else:
+            # data.pop('highway', None)
+            data.pop('osmid', None)
+            data.pop('reversed', None)
+            data.pop('geometry', None)
+            # data.pop('ref', None)
+            data.pop('lanes', None)
+
+    name_counter = {}
+    for u, v, k, data in G_filtered.edges(keys=True, data=True):
+        name = data.get('name')
+        if name is not None:
+            name_key = str(name)
+            if name_key in name_counter:
+                name_counter[name_key] += 1
+                data['name'] = f"{name} ({name_counter[name_key]})"
+            else:
+                name_counter[name_key] = 1
+
+    neighbb = create_neighborhood_dict(G_filtered)
+    edgesListb = create_edges_list(G_filtered)
+    nodeListb = create_nodes_list(G_filtered)
+
+    with open("../dics/graphb.json", "w") as file:
+        file.writelines(json.dumps(neighb))
+
+    with open("../dics/edgesb.txt", "w") as file:
+        for item in edgesList:
+            file.write("%s\n" % str(item))
+
+    with open("../dics/nodesb.txt", "w") as file:
+        for item in nodeList:
+            file.write("%s\n" % str(item))
+
+
+    return neighb, edgesList, nodeList, neighbb, edgesListb, nodeListb
+
+def run2(location):
+    # Download the drive network
+
+    G = ox.graph_from_place(location, network_type='drive')
+
+    Gb = ox.graph_from_place(location, network_type='bike')
+
+    return G, Gb
+
+

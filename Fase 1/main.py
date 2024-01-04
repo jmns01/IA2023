@@ -24,7 +24,7 @@ def main():
     print("---------------------------------------------\n" +
           "-----Algoritmos de Procura Não Informada-----\n" +
           "---------------------------------------------\n")
-    
+
     print("---DFS---")
 
     profilerDFS = cProfile.Profile()
@@ -115,7 +115,21 @@ def main():
         print("\n")
     else: print("\n[SYS] Caminho não encontrado!")
 
-    performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, pathAstar, [profilerDFS, profilerBFS, profilerBidirecional, profilerCustoUniforme, profilerProcuraIterativa, profilerAstar])
+    print("---Greedy---")
+    profilerGreedy = cProfile.Profile()
+    profilerGreedy.enable()
+    pathGreedy = grafoAtual.greedy(start, end)
+    profilerGreedy.disable()
+    if len(pathGreedy[0]) > 0:
+        print("\n[SYS] Caminho Encontrado: ")
+        print(grafoAtual.converte_caminho(pathGreedy[0]))
+        print("\n[SYS] Custo: ")
+        print(pathGreedy[1])
+        print("\n")
+    else:
+        print("\n[SYS] Caminho não encontrado!")
+
+    performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, pathGreedy, pathAstar, [profilerDFS, profilerBFS, profilerBidirecional, profilerCustoUniforme, profilerProcuraIterativa, profilerGreedy, profilerAstar])
 
 def seleciona_origem_destino(graph):
     testO1, testO2, testD1, testD2 = str(), str(), str(), str()
@@ -164,10 +178,10 @@ def seleciona_origem_destino(graph):
 
     
 
-def performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, pathAstar, profiles):
+def performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, pathAstar, pathGreedy, profiles):
     table = PrettyTable()
     dicionario = dict()
-    algoritmos = ['DFS', 'BFS', 'Bidirecional', 'Custo Uniforme', 'Procura Iterativa', 'A*']
+    algoritmos = ['DFS', 'BFS', 'Bidirecional', 'Custo Uniforme', 'Procura Iterativa', 'Greedy', 'A*']
     
     dicionario['Algoritmo'] = algoritmos
     dicionario['Tempo de Execução'] = []
@@ -189,6 +203,7 @@ def performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme
     dicionario['Tamanho do Path'].append(len(pathCustoUniforme[0]))
     dicionario['Tamanho do Path'].append(len(pathProcuraIterativa[0]))
     dicionario['Tamanho do Path'].append(len(pathAstar[0]))
+    dicionario['Tamanho do Path'].append(len(pathGreedy[0]))
 
     dicionario['Custo de Solução'].append(pathDFS[1])
     dicionario['Custo de Solução'].append(pathBFS[1])
@@ -196,6 +211,7 @@ def performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme
     dicionario['Custo de Solução'].append(pathCustoUniforme[1])
     dicionario['Custo de Solução'].append(pathProcuraIterativa[1])
     dicionario['Custo de Solução'].append(pathAstar[1])
+    dicionario['Custo de Solução'].append(pathGreedy[1])
 
     dicionario['Número de Nós Explorados'].append(pathDFS[2])
     dicionario['Número de Nós Explorados'].append(pathBFS[2])
@@ -203,6 +219,7 @@ def performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme
     dicionario['Número de Nós Explorados'].append(pathCustoUniforme[2])
     dicionario['Número de Nós Explorados'].append(pathProcuraIterativa[2])
     dicionario['Número de Nós Explorados'].append(pathAstar[2])
+    dicionario['Número de Nós Explorados'].append(pathGreedy[2])
     
     table.field_names = ['Algoritmo', 'Tempo de Execução', 'Número de Chamadas de Funções', 'Tamanho do Path', 'Custo de Solução', 'Número de Nós Explorados']
     for i in range(len(dicionario['Algoritmo'])):

@@ -6,9 +6,9 @@ class Vehicle():
         self.id = Vehicle.current_id
 
 
-class bike(Vehicle):
-    def __init__(self, id):
-        Vehicle.__init__(self, id)
+class Bike(Vehicle):
+    def __init__(self):
+        Vehicle.__init__(self)
         self.max_weight = 5 # kg
         self.velocity = 10 # km/h
         self.polution = 0 # kg of polution per km
@@ -32,8 +32,8 @@ class bike(Vehicle):
         hash(self.id)
 
 class Motorcycle(Vehicle):
-    def __init__(self, id):
-        Vehicle.__init__(self, id)
+    def __init__(self):
+        Vehicle.__init__(self)
         self.max_weight = 20
         self.velocity = 35
         self.polution = 0.13
@@ -60,8 +60,8 @@ class Motorcycle(Vehicle):
         hash(self.id)
 
 class Car(Vehicle):
-    def __init__(self, id):
-        Vehicle.__init__(self, id)
+    def __init__(self):
+        Vehicle.__init__(self)
         self.max_weight = 100
         self.velocity = 50
         self.polution = 0.37

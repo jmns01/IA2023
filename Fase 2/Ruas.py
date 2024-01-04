@@ -1,6 +1,6 @@
 
 class Ruas:
-    def __init__(self, name="", origem=0, destino=0, oneway=False, highway="", rotunda=False, ponte=False, tunnel=False, access="", vel=[], len=0, ref=False, cortada=False, transito=False):
+    def __init__(self, name="", origem=0, destino=0, oneway=False, highway="", rotunda=False, ponte=False, tunnel=False, vel=[], len=0, ref=False, cortada=False, transito=False):
         self.nome = name
         self.nodo_origem = origem # id do nodo
         self.nodo_destino = destino
@@ -9,7 +9,6 @@ class Ruas:
         self.rotunda = rotunda # Por enquanto apenas encontramos rotundas, mas poderá haver mais??
         self.ponte = ponte
         self.tunnel = tunnel
-        self.access = access
         self.vel_max = vel
         self.length = len
         self.cortada = cortada # Estes valores são ligados aleatóriamente
@@ -48,6 +47,8 @@ class Ruas:
     
     def getLength(self):
         return self.length
+    def setCortada(self):
+        self.cortada=True
 
     def __str__(self):
         list_str = ', '.join(map(str, self.highway))

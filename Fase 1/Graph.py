@@ -547,10 +547,10 @@ class Grafo:
     # Função   getneighbours, devolve vizinhos de um nó
     ####################################################
 
-    def getNeighbours(self, nodo : Node) -> list[tuple[str, float]]:
+    def getNeighbours(self, nodo : int) -> list[tuple[str, float]]:
         """
         Get the nodes whose edge with the argument is not cuted
-        :param nodo: A node object
+        :param nodo: A node's id
         :return: A list of tuples of nodes ids and weights
         """
         lista = []
@@ -764,45 +764,6 @@ class Grafo:
         print('Path does not exist!')
         return None
 
-    def aestrela(self, start, end):
-        count = 0
-        open_set = PriorityQueue()
-        open_set.put((0, count, start))  # o primeiro argumento do tuplo é o F(n)
-        came_from = {}
-        g_score = {node: float("inf") for node in self.m_graph}  # Distância menor para chegar do start ate este nodo
-        g_score[start] = 0
-        f_score = {node: float("inf") for node in self.m_graph}  # Distância predicted deste node até ao end node
-        f_score[start] = self.m_h[start]
-        close_list = set([])
-
-        open_set_hash = {start}  # Set para ver o que está dentro da PriorityQueue
-
-        while not open_set.empty():
-            current = open_set.get()[2]  # Tirar da queue
-            open_set_hash.remove(current)
-
-            if current == end:
-                path = self.reconstruct_path(came_from, current)
-                path.reverse()
-                return (path, self.calcula_custo(path))
-
-            for (n, c) in self.getNeighbours(current):
-                temp_g_score = g_score[current] + c
-
-                if temp_g_score < g_score[n]:
-                    came_from[n] = current
-                    g_score[n] = temp_g_score
-                    f_score[n] = temp_g_score + self.m_h[n]
-                    if n not in open_set_hash:
-                        count += 1
-                        open_set.put((f_score[n], count, n))
-                        open_set_hash.add(n)
-                        # open_set.add(n)
-
-            if current != start:
-                close_list.add(current)
-
-        return None
 
     ##########################################
     #   Greedy
@@ -813,8 +774,10 @@ class Grafo:
         # que ainda não foram todos visitados, começa com o  start
         # closed_list é uma lista de nodos visitados
         # e todos os seus vizinhos também já o foram
-        open_list = set([start])
+        open_list = {start}
         closed_list = set([])
+        transito_list = []
+        n_nos_explorados = 0
 
         # parents é um dicionário que mantém o antecessor de um nodo
         # começa com start
@@ -826,7 +789,7 @@ class Grafo:
 
             # encontraf nodo com a menor heuristica
             for v in open_list:
-                if n == None or self.m_h[v] < self.m_h[n]:
+                if n == None or self.m_h[v.getId()] < self.m_h[n.getId()]:
                     n = v
 
             if n == None:
@@ -847,20 +810,26 @@ class Grafo:
 
                 reconst_path.reverse()
 
-                return (reconst_path, self.calcula_custo(reconst_path))
+                return (reconst_path, self.calcula_custo(reconst_path, transito_list), n_nos_explorados)
 
             # para todos os vizinhos  do nodo corrente
-            for (m, weight) in self.getNeighbours(n):
-                # Se o nodo corrente nao esta na open nem na closed list
-                # adiciona-lo à open_list e marcar o antecessor
-                if m not in open_list and m not in closed_list:
-                    open_list.add(m)
-                    parents[m] = n
+            if self.getH(n.getId()) != float('inf'):
+                for (adj, weight) in self.getNeighbours(n.getId()):
+                    m = self.get_node_by_id(adj)
+                    # Se o nodo corrente nao esta na open nem na closed list
+                    # adiciona-lo à open_list e marcar o antecessor
+                    if m not in open_list and m not in closed_list:
+                        edge = self.get_edge_by_nodes(n, m)
+                        if edge.isTransito():
+                            transito_list.append(edge)
+                        open_list.add(m)
+                        parents[m] = n
+                        n_nos_explorados += 1
 
-            # remover n da open_list e adiciona-lo à closed_list
-            # porque todos os seus vizinhos foram inspecionados
-            open_list.remove(n)
-            closed_list.add(n)
+                # remover n da open_list e adiciona-lo à closed_list
+                # porque todos os seus vizinhos foram inspecionados
+                open_list.remove(n)
+                closed_list.add(n)
 
         print('Path does not exist!')
         return None

@@ -21,10 +21,7 @@ class Grafo:
         self.m_graph = graph # dicionario para armazenar os nodos e arestas, key é um nodo e value um par: (nodo destino, custo)
         self.m_edges = edges # lista de ruas
         self.m_h = {}  # lista de dicionarios para posterirmente armazenar as heuristicas para cada nodo -< pesquisa informada
-        self.m_d = drive
-        self.m_dlist = drive_list
-        self.m_b = bike
-        self.m_blist = bike_list
+
 
     def __str__(self):
         out = ""
@@ -573,19 +570,8 @@ class Grafo:
             node = self.get_node_by_id(nodo)
             adj = self.get_node_by_id(adjacente)
             edge = self.get_edge_by_nodes(node, adj)
-            highway=edge.getHighway()
-            if edge.isCortada():
-                continue
-
-            if vehicle == "car" or vehicle == "moto":
-                if str(highway) not in self.m_dlist and str(highway) not in self.m_d:
-                    continue
-            else:
-                if str(highway) not in self.m_dlist and str(highway) not in self.m_d:
-                    continue
-
-
-            lista.append((adjacente, peso))
+            if not edge.isCortada():
+                lista.append((adjacente, peso))
 
         return lista
 
