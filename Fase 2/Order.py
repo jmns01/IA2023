@@ -48,6 +48,9 @@ class Order:
     def getDestino(self):
         return self.delivery_street
 
+    def getOrigem(self):
+        return self.start_street
+
     def getLocalizacao(self):
         return self.localizacao
     

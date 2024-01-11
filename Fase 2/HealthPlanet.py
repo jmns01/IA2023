@@ -9,6 +9,7 @@ from Vehicles import Car
 from Vehicles import Motorcycle
 from Vehicles import Bike
 from VehicleSimulation import VehicleSimulation
+from VehicleSimulation import ScrollableFrame
 import Vehicles
 import Location
 import folium
@@ -272,21 +273,19 @@ class HealthPlanet:
                     lista_destinos[id] = encomenda.getDestino()
                     lista.append(encomenda)
 
-            armazem = int(input(f"[SYS] Digite o id do nodo correspondente ao armazem da localização: {localizacoes[i]}: "))
             grafoAtual, grafoAtualb = self.grafos[localizacoes[i]]
 
 
 
             if(len(lista)==1):
                 encomenda=lista[0]
-                start = grafoAtual.get_node_by_id(armazem)
+                start = encomenda.getOrigem()
                 destino = encomenda.getDestino()
                 grafoAtual.calcula_heuristica_global(destino)
                 pathAstar = grafoAtual.procura_aStar(start, destino, "car")
                 caminhoCarroMota = grafoAtual.converte_caminho(pathAstar[0])
                 custoCarro = pathAstar[1][2]
                 custoMota = pathAstar[1][1]
-
                 grafoAtualb.calcula_heuristica_global(destino)
                 pathAstarb = grafoAtualb.procura_aStar(start, destino, "bike")
                 caminhoBicicleta = grafoAtualb.converte_caminho(pathAstarb[0])
@@ -332,7 +331,7 @@ class HealthPlanet:
                 caminhoCarroMota1 = []
                 custoCarro1 = float()
                 for enc in lista:
-                    start1 = grafoAtual.get_node_by_id(armazem)
+                    start1 = encomenda.getOrigem()
                     destino1 = enc.getDestino()
                     grafoAtual.calcula_heuristica_global(destino1)
                     pathAstar1 = grafoAtual.procura_aStar(start1, destino1, "car")
@@ -345,7 +344,7 @@ class HealthPlanet:
                     custoBicicleta1 = pathAstarb1[1][0]
                     soma_caminhos_separados += custoCarro1
 
-                start = grafoAtual.get_node_by_id(armazem)
+                start = grafoAtual.get_node_by_id(encomenda.getOrigem())
                 destino = encomenda.getDestino()
                 grafoAtual.calcula_heuristica_global(destino)
                 pathAstar = grafoAtual.procura_aStar(start, destino, "car")
@@ -393,8 +392,8 @@ class HealthPlanet:
                         caminho_entregas[1] = self.entrega[1], [pathAstar[0],pathAstar2[0]], [caminhoCarroMota, caminhoCarroMota2], [custoCarro, custoCarro2]
 
                 else:
-                    produtos_encomenda = encomenda.getGoods
-                    produtos_encomenda1 = encomenda2.getGoods
+                    produtos_encomenda = encomenda.getGoods()
+                    produtos_encomenda1 = encomenda2.getGoods()
                     if encomenda.getWeight() <= 5 and encomenda2.getWeight() <= 5:
                         vehicle = Bike()
                         self.adicionar_entrega(produtos_encomenda, vehicle)
@@ -453,24 +452,23 @@ class HealthPlanet:
 
 
 
-            self.realizar_entregas(caminho_entregas,localizacoes[i])
-
-
+            self.realizar_entregas(caminho_entregas,localizacoes[i], grafoAtual, grafoAtualb)
+            localizacoes.remove(localizacoes[i])
             i+=1
 
 
-    def realizar_entregas(self,caminhoEntregas,localizacao):
+    def realizar_entregas(self,caminhoEntregas,localizacao, grafoAtual, grafoAtualb):
 
-        thread_input = threading.Thread(target=self.thread_input_nodo_cortado, args=(localizacao,))
-        thread_input.start()
+        Estradas_cortadas={}
 
         entrega, nodos, caminhos, custos = caminhoEntregas[1]
 
         nodos_ids = [nodo.m_id for nodo in nodos[0]]
-
+        edges = []
+        #print("[SYS] Indique qual dos grafos pretende cortar:  1: GrafoBicicleta, 2: GrafoMota, 3: GrafoCarro, 4: Exit\n Selecione ums opção: ")
         worker=entrega.getWorker()
         vehicle=entrega.getVehicle()
-        root = tk.Tk()
+
         i=0
         nodes_carro=[]
         nodes_carro.append(i)
@@ -478,10 +476,34 @@ class HealthPlanet:
             i+=1
             nodes_carro.append(i)
 
-        print(len(nodes_carro))
-        print(len(caminhos[0]))
 
-        app = VehicleSimulation(root, nodes_carro, caminhos[0], "imagens/carro_icon.png")
+
+        list_nodes=[nodes_carro,nodes_carro]
+        list_caminho=[caminhos[0],caminhos[0]]
+        list_veicules=["imagens/carro_icon.png","imagens/mota_icon.png"]
+        list_locations=[localizacao,localizacao]
+        root = tk.Tk()
+
+        # Increase canvas width to accommodate both simulations side by side
+        canvas_width = 30000
+        canvas_height = 4000
+        index=0
+        # Create the scrollable frame
+        scrollable_frame = ScrollableFrame(root)
+        scrollable_frame.pack(fill="both", expand=True)
+
+        # Create the canvas inside the scrollable frame
+        canvas = tk.Canvas(scrollable_frame.scrollable_frame, width=canvas_width, height=canvas_height)
+        canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+        print(nodos[0])
+        # Create the first simulation instance
+        Estradas_cortadas[index] = VehicleSimulation(root, list_nodes[0], list_caminho[0], list_veicules[0],
+                                            list_locations[0], index, canvas, grafoAtual,nodos[0])
+        index+=1
+        # Create the second simulation instance
+        Estradas_cortadas[index] = VehicleSimulation(root, list_nodes[1], list_caminho[1], list_veicules[1],
+                                              list_locations[1], index, canvas, grafoAtual, nodos[0])
+
         root.mainloop()
 
 

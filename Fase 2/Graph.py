@@ -82,10 +82,10 @@ class Grafo:
         """
         Get the group of the exact edges that has the same name as the string street
         :param street(String): The street name
-        :return: A list with adge objects
+        :return: A list with edge objects
         """
         lista = []
-        section = r'\([0-9]+\)'
+        section = r'\([0-199]+\)'
         for edge in self.m_edges:
             if isinstance(edge.getName(), list):
                 for names in edge.getName():
@@ -643,10 +643,16 @@ class Grafo:
             # print(current)
             if current in self.m_graph.keys():
                 for (adj, custo, _) in self.m_graph[current]:
-                    if adj not in dic.keys():
-                        n2 = adj
-                        dic[adj] = dic[current] + self.calculate_time(custo, vel)
-                        queue.append(adj)
+                        if adj not in dic.keys():
+                            # current_node=self.get_node_by_id(current)
+                            # adj_node=self.get_node_by_id(adj)
+                            # edge = self.get_edge_by_nodes(current_node,adj_node)
+                            # if not edge.isCortada():
+                                n2 = adj
+                                dic[adj] = dic[current] + self.calculate_time(custo, vel)
+                                queue.append(adj)
+                            # else:
+                            #     dic[adj] = float('inf')
             else:
                 dic[current] = float('inf')
 

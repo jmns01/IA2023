@@ -32,15 +32,15 @@ def main():
     # else:
     #     print("\n[SYS] Caminho não encontrado!")
 
-    location = "Braga"  # Deixar assim para teste
-    neigh, edges, nodes, neighb, edgesb, nodesb = Location.run(location)
-    grafoAtual = Grafo(nodes, neigh, edges)
-    grafoAtualb = Grafo(nodesb, neighb, edgesb)
+    # location = "Braga"  # Deixar assim para teste
+    # neigh, edges, nodes, neighb, edgesb, nodesb = Location.run(location)
+    # grafoAtual = Grafo(nodes, neigh, edges)
+    # grafoAtualb = Grafo(nodesb, neighb, edgesb)
     health_planet = HealthPlanet()
-    health_planet.adicionar_grafo("Braga", grafoAtual, grafoAtualb)
+    # health_planet.adicionar_grafo("Braga", grafoAtual, grafoAtualb)
     health_planet.adicionar_cliente("sys","sys")
-    health_planet.adicionar_encomenda("a", "Braga", 35, [Produto("b",10),Produto("c",20),Produto("d",5),], grafoAtual.get_node_by_id(8321237017),grafoAtual.get_node_by_id(1675798722),
-                                      "imediata")
+    # health_planet.adicionar_encomenda("a", "Braga", 35, [Produto("b",10),Produto("c",20),Produto("d",5),], grafoAtual.get_node_by_id(8321237017),grafoAtual.get_node_by_id(1675798722),
+    #                                  "imediata")
 
     # health_planet.adicionar_encomenda("b", "Braga", 35, [Produto("h", 10), Produto("j", 20), Produto("l", 5), ],
     #                                   grafoAtual.get_node_by_id(8321237017), grafoAtual.get_node_by_id(5578780754),
@@ -187,8 +187,13 @@ def main():
 
                 urgencia_entrega = input("[SYS] Escolha a urgência de entrega (imediata/urgente/normal/irrelevante): ").lower()
                 #origem, destino = seleciona_origem_destino(grafoAtual)
-                origem= grafoAtual.get_node_by_id(8321237017)
-                destino=grafoAtual.get_node_by_id(1675798722)
+                #print(origem)
+                #print(destino)
+                origem=1134521691
+                destino=25877856
+                origem= grafoAtual.get_node_by_id(origem)
+                destino=grafoAtual.get_node_by_id(destino)
+
                 if urgencia_entrega not in ['imediata', 'urgente', 'normal', 'irrelevante']:
                     print("[SYS] Erro: Escolha de urgência inválida.")
                 else:
@@ -228,35 +233,6 @@ def main():
 
             else:
                 print("[SYS] Erro: Comando inválido.")
-
-    # location = input("Selecione uma cidade (formato: Cidade, País): ")  # Define the location (you can specify a city, coordinates, etc.)
-    location = "Braga, Portugal" # Deixar assim para teste
-    neigh, edges, nodes, neighb, edgesb, nodesb   = Location.run(location)
-
-    #print(edges)
-    grafoAtual = Grafo(nodes, neigh, edges)
-    grafoAtualb = Grafo(nodes, neigh, edges)
-    # for edge in edges:
-    #    if edge.getOrigem() == 263568202 or edge.getDestino() == 263568202:
-    #        print(edge)
-    #start, end = seleciona_origem_destino(grafoAtual)
-    start = grafoAtual.get_node_by_id(8321237017)
-    end = grafoAtual.get_node_by_id(1675798722)
-    
-    
-    # for adj in neigh.values():
-    #     seen_element=set()
-    #     for (adjacente, custo, k) in adj:
-    #         if adjacente in seen_element:
-    #             print(adj)
-    #         else: seen_element.add(adjacente)
-
-    print("---Procura AStar---")
-    grafoAtual.calcula_heuristica_global(end)
-    pathProcuraAStar = grafoAtual.procura_aStar(start, end, "car")
-    print(pathProcuraAStar)
-    print("\n")
-    print(grafoAtual.converte_caminho(pathProcuraAStar[0]))
 
 
 def seleciona_origem_destino(graph):
