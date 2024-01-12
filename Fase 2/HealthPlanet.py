@@ -77,7 +77,8 @@ class HealthPlanet:
         else:
             new_order = Order(weight,localizacao, goods, origem, destino, time, client)
             #if new_order not in self.encomendas.values():
-            self.encomendas[new_order.getId()] = new_order
+            d=new_order.getId()
+            self.encomendas[d] = new_order
             print(f"\nEncomenda {new_order.getId()} adicionada com sucesso!")
             # else:
             #     print("\nErro ao adicionar a encomenda")
@@ -114,10 +115,11 @@ class HealthPlanet:
         estafetas = self.get_estafetas_livres()
         if len(estafetas)>0:
             preco = self.calcula_preco(produtos)
-            new_delivery = Delivery(produtos, estafetas[0], preco)
-            print()
+            new_delivery = Delivery(produtos, estafetas[0], preco, vehicle)
             if new_delivery not in self.entrega.values():
-                self.entrega[new_delivery.getId()] = new_delivery
+                d=new_delivery.getId()
+                self.entrega[d] = new_delivery
+                self.rating_needed.append(d)
                 print(f"\nEntrega {new_delivery.getId()} adicionada com sucesso!")
             else:
                 print("\nErro ao adicionar a entrega")
@@ -206,12 +208,12 @@ class HealthPlanet:
         self.entrega.pop(entrega.getId())
         cliente.add_nova_entrega(entrega)
 
-        for prod in entrega.getProducts(): # Passar produtos a entregue
-           prod.passouEntregue()
-
-        for encomenda in self.encomendas.values(): # Passar encomenda a entregue
-          if all(encomenda.getGoods().getEstado()):
-              encomenda.passouEntregue()
+        # for prod in entrega.getProducts(): # Passar produtos a entregue
+        #    prod.passouEntregue()
+        #
+        # for encomenda in self.encomendas.values(): # Passar encomenda a entregue
+        #   if all(encomenda.getGoods().getEstado()):
+        #       encomenda.passouEntregue()
 
     def get_todas_encomendas(self) -> list[Order]:
         """
@@ -239,11 +241,22 @@ class HealthPlanet:
         :param cliente: A client object
         :return: A list with the deliveries
         """
+        flag=0
         entregas_por_avaliar=[]
         for ids in self.rating_needed:
+            print(ids)
+            print(self.entrega)
             ent = self.get_entrega_by_id(ids)
-            if ent.getCliente() == cliente:
-                entregas_por_avaliar.append(ent)
+            print(ent)
+            for prod in ent.getProducts():
+                encomendas=self.get_encomendas_entregues(cliente)
+                for e in encomendas:
+                    for p in e.getGoods():
+                        if prod==p:
+                            flag=1
+
+                if flag==1:
+                    entregas_por_avaliar.append(ent)
         return entregas_por_avaliar
 
     def gerar_encomendas(self):
@@ -279,6 +292,10 @@ class HealthPlanet:
 
             if(len(lista)==1):
                 encomenda=lista[0]
+                encomenda.passouEntregue()
+                gg = encomenda.getGoods()
+                for good in gg:
+                    good.passouEntregue()
                 start = encomenda.getOrigem()
                 destino = encomenda.getDestino()
                 grafoAtual.calcula_heuristica_global(destino)
@@ -322,7 +339,15 @@ class HealthPlanet:
 
             elif(len(lista)==2):
                 encomenda = lista[0]
+                encomenda.passouEntregue()
+                gg=encomenda.getGoods()
+                for good in gg:
+                    good.passouEntregue()
                 encomenda2 = lista[1]
+                encomenda2.passouEntregue()
+                gg2 = encomenda2.getGoods()
+                for good in gg2:
+                    good.passouEntregue()
                 soma_caminhos=0
                 soma_caminhos_separados=0
                 start1 = Node()
@@ -344,7 +369,7 @@ class HealthPlanet:
                     custoBicicleta1 = pathAstarb1[1][0]
                     soma_caminhos_separados += custoCarro1
 
-                start = grafoAtual.get_node_by_id(encomenda.getOrigem())
+                start = encomenda.getOrigem()
                 destino = encomenda.getDestino()
                 grafoAtual.calcula_heuristica_global(destino)
                 pathAstar = grafoAtual.procura_aStar(start, destino, "car")
@@ -453,41 +478,20 @@ class HealthPlanet:
 
 
             self.realizar_entregas(caminho_entregas,localizacoes[i], grafoAtual, grafoAtualb)
+            # s = 1
+            # for entrega in caminho_entregas:
+            #     entrega,_,_,_= caminho_entregas[s]
+            #
             localizacoes.remove(localizacoes[i])
             i+=1
 
 
     def realizar_entregas(self,caminhoEntregas,localizacao, grafoAtual, grafoAtualb):
-
-        Estradas_cortadas={}
-
-        entrega, nodos, caminhos, custos = caminhoEntregas[1]
-
-        nodos_ids = [nodo.m_id for nodo in nodos[0]]
-        edges = []
-        #print("[SYS] Indique qual dos grafos pretende cortar:  1: GrafoBicicleta, 2: GrafoMota, 3: GrafoCarro, 4: Exit\n Selecione ums opção: ")
-        worker=entrega.getWorker()
-        vehicle=entrega.getVehicle()
-
-        i=0
-        nodes_carro=[]
-        nodes_carro.append(i)
-        for _ in caminhos[0]:
-            i+=1
-            nodes_carro.append(i)
-
-
-
-        list_nodes=[nodes_carro,nodes_carro]
-        list_caminho=[caminhos[0],caminhos[0]]
-        list_veicules=["imagens/carro_icon.png","imagens/mota_icon.png"]
-        list_locations=[localizacao,localizacao]
-        root = tk.Tk()
-
         # Increase canvas width to accommodate both simulations side by side
+        root = tk.Tk()
         canvas_width = 30000
         canvas_height = 4000
-        index=0
+        index = 0
         # Create the scrollable frame
         scrollable_frame = ScrollableFrame(root)
         scrollable_frame.pack(fill="both", expand=True)
@@ -495,16 +499,114 @@ class HealthPlanet:
         # Create the canvas inside the scrollable frame
         canvas = tk.Canvas(scrollable_frame.scrollable_frame, width=canvas_width, height=canvas_height)
         canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-        print(nodos[0])
-        # Create the first simulation instance
-        Estradas_cortadas[index] = VehicleSimulation(root, list_nodes[0], list_caminho[0], list_veicules[0],
-                                            list_locations[0], index, canvas, grafoAtual,nodos[0])
-        index+=1
-        # Create the second simulation instance
-        Estradas_cortadas[index] = VehicleSimulation(root, list_nodes[1], list_caminho[1], list_veicules[1],
-                                              list_locations[1], index, canvas, grafoAtual, nodos[0])
+        Estradas_cortadas={}
+        s=1
+        for caminho in caminhoEntregas:
+            entrega, nodos, caminhos, custos = caminhoEntregas[s]
+            if len(caminhos)==1:
+                nodos_ids = [nodo.m_id for nodo in nodos[0]]
+                edges = []
+                worker = entrega.getWorker()
+                vehicle = entrega.getVehicle()
+                i=0
+                nodes_carro = []
+                nodes_carro.append(i)
+                for _ in caminhos[0]:
+                    i += 1
+                    nodes_carro.append(i)
+                path=""
+                if isinstance(vehicle, Bike):
+                    path="imagens/bicicleta_icon.png"
+                    g=grafoAtualb
+                elif isinstance(vehicle, Car):
+                    path="imagens/carro_icon.png"
+                    g=grafoAtual
+                elif isinstance(vehicle, Motorcycle):
+                    path="imagens/mota_icon.png"
+                    g=grafoAtual
+                c=caminhos[0]
+                n=nodos[0]
+                print(f"Custo total da simulção de indice {index} = {custos[0]}")
+            else:
+
+                n = nodos[0] + nodos[1]
+                c = caminhos[0] + caminhos[1]
+                nodos_ids = [nodo.m_id for nodo in n]
+                edges = []
+                worker = entrega.getWorker()
+                vehicle = entrega.getVehicle()
+                i = 0
+                nodes_carro = []
+                nodes_carro.append(i)
+                for _ in c:
+                    i += 1
+                    nodes_carro.append(i)
+                path = ""
+                if isinstance(vehicle, Bike):
+                    path = "imagens/bicicleta_icon.png"
+                    g = grafoAtualb
+                elif isinstance(vehicle, Car):
+                    path = "imagens/carro_icon.png"
+                    g = grafoAtual
+                elif isinstance(vehicle, Motorcycle):
+                    path = "imagens/mota_icon.png"
+                    g = grafoAtual
+
+                custo = custos[0] + custos[1]
+                print(f"Custo total da simulção de indice {index} = {custo}")
+
+
+
+            _ = VehicleSimulation(root, nodes_carro, c, path, localizacao, index, canvas, g, n)
+            index+=1
+            s+=1
 
         root.mainloop()
+
+        # entrega, nodos, caminhos, custos = caminhoEntregas[1]
+        # v=entrega.getVehicle()
+        #
+        # nodos_ids = [nodo.m_id for nodo in nodos[0]]
+        # edges = []
+        # worker=entrega.getWorker()
+        # vehicle=entrega.getVehicle()
+        #
+        # i=0
+        # nodes_carro=[]
+        # nodes_carro.append(i)
+        # for _ in caminhos[0]:
+        #     i+=1
+        #     nodes_carro.append(i)
+        #
+        #
+        #
+        # list_nodes=[nodes_carro,nodes_carro]
+        # list_caminho=[caminhos[0],caminhos[0]]
+        # list_veicules=["imagens/carro_icon.png","imagens/mota_icon.png"]
+        # list_locations=[localizacao,localizacao]
+        # root = tk.Tk()
+        #
+        # # Increase canvas width to accommodate both simulations side by side
+        # canvas_width = 30000
+        # canvas_height = 4000
+        # index=0
+        # # Create the scrollable frame
+        # scrollable_frame = ScrollableFrame(root)
+        # scrollable_frame.pack(fill="both", expand=True)
+        #
+        # # Create the canvas inside the scrollable frame
+        # canvas = tk.Canvas(scrollable_frame.scrollable_frame, width=canvas_width, height=canvas_height)
+        # canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+        # print(nodos[0])
+        # # Create the first simulation instance
+        # Estradas_cortadas[index] = VehicleSimulation(root, list_nodes[0], list_caminho[0], list_veicules[0],
+        #                                     list_locations[0], index, canvas, grafoAtual,nodos[0])
+        # index+=1
+        # # Create the second simulation instance
+        # Estradas_cortadas[index] = VehicleSimulation(root, list_nodes[1], list_caminho[1], list_veicules[1],
+        #                                       list_locations[1], index, canvas, grafoAtual, nodos[0])
+        #
+        # root.mainloop()
 
 
     def thread_input_nodo_cortado(self,localizacao):
@@ -536,6 +638,8 @@ class HealthPlanet:
             if not enc.getEstado() and enc.getClient() == cliente:
                 lista.append(enc)
 
+        return lista
+
     def get_encomendas_entregues(self, cliente : Client) -> list[Order]:
         """
         Gets a list of delivered orders of a client
@@ -546,3 +650,5 @@ class HealthPlanet:
         for enc in self.encomendas.values():
             if enc.getEstado() and enc.getClient() == cliente:
                 lista.append(enc)
+
+        return lista

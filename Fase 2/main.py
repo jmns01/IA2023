@@ -40,9 +40,9 @@ def main():
     # health_planet.adicionar_grafo("Braga", grafoAtual, grafoAtualb)
     health_planet.adicionar_cliente("sys","sys")
     # health_planet.adicionar_encomenda("a", "Braga", 35, [Produto("b",10),Produto("c",20),Produto("d",5),], grafoAtual.get_node_by_id(8321237017),grafoAtual.get_node_by_id(1675798722),
-    #                                  "imediata")
-
-    # health_planet.adicionar_encomenda("b", "Braga", 35, [Produto("h", 10), Produto("j", 20), Produto("l", 5), ],
+    #                                   "imediata")
+    #
+    # health_planet.adicionar_encomenda("b", "Braga", 5, [Produto("h", 1), Produto("j", 1), Produto("l", 3), ],
     #                                   grafoAtual.get_node_by_id(8321237017), grafoAtual.get_node_by_id(5578780754),
     #                                   "imediata")
     health_planet.dafault_estafetas()
@@ -97,7 +97,7 @@ def main():
                     while True:
                         print("[SYS] Opções de gerenciamento de encomendas do sistema:")
                         print("1. Visualizar todas as encomendas")
-                        print("2. Atualizar status de uma encomenda")
+                        print("2. Realizar Simulação de Entregas")
 
                         opcao = input("[SYS] Escolha uma opção ('exit' para sair): ")
 
@@ -146,8 +146,10 @@ def main():
                         print(f"Estado da Entrega: {produto.getEstado()}\n")
                     i+=1
 
-                rating = input("Por favor, introduza uma avaliação desta última entrega entre 0-5 (flaot): ")
-                health_planet.finalizar_entrega(cliente_logado, enc, rating)
+                    rating = input("Por favor, introduza uma avaliação desta última entrega entre 0-5 (float): ")
+                    cliente = health_planet.users[cliente_logado]
+                    health_planet.finalizar_entrega(cliente, ent, rating)
+                    health_planet.rating_needed.remove(ent.getId())
             print("=============================================================================================================")
 
             print("\n=========================================== Health Planet ===============================================")
@@ -185,14 +187,11 @@ def main():
                     detalhes_produtos.append(p)
                     print("\n")
 
-                urgencia_entrega = input("[SYS] Escolha a urgência de entrega (imediata/urgente/normal/irrelevante): ").lower()
-                #origem, destino = seleciona_origem_destino(grafoAtual)
-                #print(origem)
-                #print(destino)
-                origem=1134521691
-                destino=25877856
-                origem= grafoAtual.get_node_by_id(origem)
-                destino=grafoAtual.get_node_by_id(destino)
+                urgencia_entrega = "imediata"
+
+                origem, destino = seleciona_origem_destino(grafoAtual)
+                print(f"Origem: {origem}")
+                print(f"Destino: {destino}")
 
                 if urgencia_entrega not in ['imediata', 'urgente', 'normal', 'irrelevante']:
                     print("[SYS] Erro: Escolha de urgência inválida.")
@@ -205,22 +204,28 @@ def main():
                 if encomendas_cliente:
                     print("=================================== Escolha uma opção ================================================")
                     print("HealthPlanet.menu.ver_encomendas> 'nao_entregues'        - Ver encomendas ainda não entregues")
-                    print("HealthPlanet.menu.ver_encomendas> 'entregues'            - Ver encoemndas já entregues")
+                    print("HealthPlanet.menu.ver_encomendas> 'entregues'            - Ver encomendas já entregues")
                     print("======================================================================================================")
 
                     escolhaEntrega = input("HealthPlanet.menu.ver_encomendas> ")
                     if escolhaEntrega == 'nao_entregues':
                         encs = health_planet.get_encomendas_por_entregar(cliente_logado)
                         i=0
-                        for enc in encs:
-                            print_encomendas(enc, i)
-                            i+=1
+                        if(len(encs)==0):
+                            print("Não existem encomendas por entregar!")
+                        else:
+                            for enc in encs:
+                                print_encomendas(enc, i)
+                                i+=1
                     elif escolhaEntrega == 'entregues':
                         encs = health_planet.get_encomendas_entregues(cliente_logado)
                         i=0
-                        for enc in encs:
-                            print_encomendas(enc, i)
-                            i+=1
+                        if (len(encs) == 0):
+                            print("Nenhuma encomenda foi entregue!")
+                        else:
+                            for enc in encs:
+                                print_encomendas(enc, i)
+                                i+=1
                     else:
                         print("[SYS] Erro: Comando inválido.")
 
@@ -274,10 +279,10 @@ def seleciona_origem_destino(graph):
         print("\n")
 
     sleep(2)
-    intersectionDetino = graph.get_intersection_node(testD1, testD2)
+    intersectionDestino = graph.get_intersection_node(testD1, testD2)
     os.system('cls')
     start = graph.get_node_by_id(intersectionOrigem)
-    end = graph.get_node_by_id(intersectionDetino)
+    end = graph.get_node_by_id(intersectionDestino)
     return start, end
 
 def print_encomendas(encomenda, i):
@@ -285,7 +290,7 @@ def print_encomendas(encomenda, i):
     print(f"Id: {encomenda.id}")
     print(f"Cliente: {encomenda.client}")
     print(f"Localização: {encomenda.getLocalizacao()}")
-    print(f"Destino: {encomenda.delivery_street}")
+    print(f"Destino: {encomenda.getDestino()}")
     print(f"Urgência de Entrega: {encomenda.delivery_time}")
     print(f"Peso Total: {encomenda.weight}")
     print("Lista de Produtos:")

@@ -192,6 +192,58 @@ class Grafo:
 
         return newpath
 
+    def get_nodos_caminho(self, path):
+        """
+               Converts the output of the search algorithms to a readable version (Replaces nodes id's with street names)
+               :param path(List[Node Object]): The path returned by the search algorithms which is a list of nodes
+               :return: A list of strings, that represent the path
+               """
+        i = 0
+        newpath = []
+        prev_edge_name = None
+        while (i + 1) < len(path):
+
+            edge_name = self.get_edge_by_nodes(path[i], path[i + 1]).getName()
+            roundabout = self.get_edge_by_nodes(path[i], path[i + 1]).getRoundabout()
+            ref = self.get_edge_by_nodes(path[i], path[i + 1]).getRef()
+            bridge = self.get_edge_by_nodes(path[i], path[i + 1]).getBridge()
+            tunnel = self.get_edge_by_nodes(path[i], path[i + 1]).getTunnel()
+
+            if str(edge_name):
+                if '(' in str(edge_name):
+                    edge_name, _ = str(edge_name).split('(')
+                    edge_name = str(edge_name).rstrip()
+                if roundabout and "Rotunda" not in str(edge_name):
+                    edge_name = f"Rotunda da Rua: {str(edge_name)}"
+                if bridge:
+                    if bridge == "yes":
+                        edge_name = f"{str(edge_name)} | Ponte"
+                    else:
+                        edge_name = f"{str(edge_name)} | Viaduto"
+                if tunnel:
+                    edge_name = f"{str(edge_name)} | Tunel"
+            elif roundabout:
+                edge_name = "Rotunda"
+            elif bridge:
+                if bridge == "yes":
+                    edge_name = "Ponte"
+                else:
+                    edge_name = "Viaduto"
+            elif tunnel:
+                edge_name = "Tunel"
+            elif ref:
+                edge_name = str(ref)
+            else:
+                edge_name = self.get_edge_by_nodes(path[i], path[i + 1]).getHighway()
+                edge_name = f"Highway_Type: {str(edge_name)}"
+
+            if edge_name != prev_edge_name:
+                newpath.append(int(path[i].m_id))
+                prev_edge_name = edge_name
+
+            i += 1
+
+        return newpath
     def imprime_arestas(self):
         """
         Prints all the connection between nodes

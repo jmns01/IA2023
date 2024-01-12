@@ -9,10 +9,8 @@ class ScrollableFrame(tk.Frame):
         self.scrollbar_y = ttk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
         self.scrollbar_x = ttk.Scrollbar(self, orient="horizontal", command=self.canvas.xview)
         self.scrollable_frame = tk.Frame(self.canvas)
-
         self.scrollable_frame.bind("<Configure>", lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all")))
         self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
-
         self.canvas.configure(yscrollcommand=self.scrollbar_y.set, xscrollcommand=self.scrollbar_x.set)
         self.scrollbar_y.pack(side="left", fill="y")
         self.scrollbar_x.pack(side="bottom", fill="x")
@@ -23,7 +21,8 @@ class VehicleSimulation:
     def __init__(self, root, nodos, caminhos, vehicle_image_path, location_title, index, canvas, grafoAtual, nodosO):
         self.root = root
         self.root.title(f"Entregas em cidades: Simulação - Localização: {location_title}")
-
+        self.altura = 100
+        self.color = "blue"
         self.canvas = canvas
         self.text_widget = None  # Attribute to store the text widget0
         self.nodos = nodos
@@ -44,7 +43,9 @@ class VehicleSimulation:
         self.car = self.canvas.create_image(0, 0, anchor=tk.CENTER, image=self.vehicle_image)
 
         self.current_path = self.create_path()
-        self.current_path_iter = iter(self.current_path)
+        g=self.current_path
+        g.append(("0", "0", "0"))
+        self.current_path_iter = iter(g)
 
         # Add the warehouse image at the beginning
         armazem_image_path = "imagens/armazem.png"
@@ -56,7 +57,7 @@ class VehicleSimulation:
         casa_image_path = "imagens/casa1.png"
         self.casa_image = tk.PhotoImage(file=casa_image_path).subsample(2, 2)
         self.canvas.create_image(last_node_x + 500, 120 + 300 * index, anchor=tk.CENTER, image=self.casa_image)
-
+        self.vehicle_image_path = vehicle_image_path
         # Start moving after 5 seconds
         self.root.after(5000, lambda: self.move_vehicle(index,vehicle_image_path))
 
@@ -64,6 +65,7 @@ class VehicleSimulation:
         path = []
         for i in range(len(self.nodos) - 1):
             path.append((self.nodos[i], self.nodos[i + 1], self.caminhos[i]))
+
 
         return path
 
@@ -94,6 +96,8 @@ class VehicleSimulation:
                                            command=lambda: self.cut_street_dialog(index))
         self.cut_street_button.pack()
 
+
+
     def cut_street_dialog(self, index):
         # Open a dialog window to input the node number
         node_number = simpledialog.askinteger("Cut Street",
@@ -122,30 +126,33 @@ class VehicleSimulation:
             print(f"Simulation {index} completed!")
 
     def animate_vehicle(self, edge, index,vehicle_image_path):
-        start_node, end_node, street_name = edge
-        if start_node in self.ruas_cortadas:
-            self.stop_simulation(index, street_name,start_node)
-            return
-        start_pos = self.nodos.index(start_node)
-        end_pos = self.nodos.index(end_node)
+            start_node, end_node, street_name = edge
+            if(str(street_name)!="0"):
+                if start_node in self.ruas_cortadas:
+                    self.stop_simulation(index, street_name,start_node)
+                    return
+                start_pos = self.nodos.index(start_node)
+                end_pos = self.nodos.index(end_node)
 
-        x_start, y_start = 400 + 400 * start_pos, 120 + 300 * index
-        x_end, y_end = 400 + 400 * end_pos, 120 + 300 * index
+                x_start, y_start = 400 + 400 * start_pos, 120 + 300 * index
+                x_end, y_end = 400 + 400 * end_pos, 120 + 300 * index
 
-        # Update the position of the vehicle
-        self.canvas.coords(self.car, x_start, y_start)
+                # Update the position of the vehicle
+                self.canvas.coords(self.car, x_start, y_start)
 
 
-        # Verifica se a próxima rua está na lista de ruas cortadas
-        next_edge = None
+                # Verifica se a próxima rua está na lista de ruas cortadas
+                next_edge = None
 
-        next_edge = next(self.current_path_iter)
+                next_edge = next(self.current_path_iter)
 
-        if next_edge:
-            # Anima o veículo suavemente para a posição final
-            self.animate_smoothly(x_start, y_start, x_end, y_end, 0, index, next_edge,vehicle_image_path)
-        else:
-            print(f"Simulation {index} completed, Delivery delivered successfully!")
+                if next_edge:
+                    # Anima o veículo suavemente para a posição final
+                    self.animate_smoothly(x_start, y_start, x_end, y_end, 0, index, next_edge,vehicle_image_path)
+                else:
+                    print(f"Simulation {index} completed, Delivery delivered successfully!")
+            else:
+                print(f"Simulation {index} completed!")
 
     def stop_simulation(self, index, street_name, start_node):
 
@@ -187,28 +194,95 @@ class VehicleSimulation:
         tk.messagebox.showinfo("Simulation Stopped", message)
 
     def recalculate_route(self, index, cut_node):
-        # Implement your route recalculation logic here
-        new_route = self.calculate_new_route(cut_node)
+
+        new_route= self.calculate_new_route(cut_node)
+        l = self.caminhos[:cut_node]
+        p=cut_node
+        self.caminhos=l+new_route
+        for k in new_route:
+            x_start, y_start = 400 + 400 * p, self.altura + 300 * index
+            x_end, y_end = 400 + 400 * p+1,  self.altura + 300 * index
+            x_middle = (x_start+x_end)/2
+            self.add_street_name_to_canvas(x_middle, y_end, k)
+            p+=1
+        self.nodos=[]
+        t=0
+        i=0
+        self.altura -= 20
+        for n in self.caminhos:
+            self.nodos.append(i)
+            i=i+1
+
 
         # Update the current_path with the new route
-        self.current_path = new_route
-        self.current_path_iter = iter(self.current_path)
+        self.current_path = self.create_path()
+        g=self.current_path
+        g.append(("0","0","0"))
+        self.current_path_iter = iter(g)
+        h=0
+        while h<cut_node:
+            i = next(self.current_path_iter)
+            h+=1
 
+        self.ruas_cortadas=[]
+        if (self.color=="blue"):
+            self.color="red"
+        else:
+            self.color="blue"
         # Continue the simulation with the new route
-        self.move_vehicle(index)
+        self.move_vehicle(index, self.vehicle_image_path)
 
     def calculate_new_route(self,cut_node):
+        print(f"Indice do Nodo cortado {cut_node}")
+        set=self.grafoAtual.get_nodos_caminho(self.nodosO)
+        nodo_cortado = set[cut_node]
+        print(len(set))
+        print(len(self.caminhos))
+        print(f"Nodo cortado {nodo_cortado}")
+        nodo_cortado_objeto = self.grafoAtual.get_node_by_id(nodo_cortado)
+        indice=0
+        for n in self.nodosO:
+            if n.m_id==nodo_cortado_objeto.m_id:
+                break
+            indice+=1
 
-        nodo_cortado = self.nodosO[cut_node]
-        print(nodo_cortado)
-        nodo_cortado_i = nodo_cortado.m_id
-        self.grafoAtual.m_h[nodo_cortado_i]= float('inf')
-        # self.grafoAtual.m_h[nodo_cortado_i][1] = float('inf')
-        # self.grafoAtual.m_h[nodo_cortado_i][2] = float('inf')
+        print(f"Indice Lista Total {indice}")
+
+        self.grafoAtual.calcula_heuristica_global(self.nodosO[len(self.nodosO)-1])
+        nodo_seguinte = self.nodosO[indice+1]
+        nodo_seguinte_i = nodo_seguinte.m_id
+        self.grafoAtual.m_h[nodo_seguinte_i]= (float('inf'), float('inf'), float('inf'))
+        r=indice
+        lista = self.grafoAtual.getNeighbours(nodo_cortado, "car")
+        while len(lista)<2:
+            print("aqui")
+            nodo = self.nodosO[r-1]
+            nodo_aux = self.nodosO[r]
+            lista = self.grafoAtual.getNeighbours(nodo.m_id, "car")
+            self.grafoAtual.m_h[nodo_aux.m_id] = (float('inf'), float('inf'), float('inf'))
+            r-=1
+        # nodo_o = set[r-1]
+        # nodo_d = set[r]
+        # rua = self.grafoAtual.get_edge_by_nodes(nodo_o,nodo_d)
+        index=r-1
+
         destino = self.nodosO[len(self.nodosO)-1]
-        inicial=cut_node-1
-        nodo_inicial=self.nodosO[inicial]
+        init=self.nodosO[index]
+        print(init)
 
-        caminho = self.grafoAtual.procura_aStar(nodo_inicial,destino,"car")
+
+
+        caminho = self.grafoAtual.procura_aStar(init,destino,"car")
         print(caminho)
+        ruas = self.grafoAtual.converte_caminho(caminho[0])
+        print(ruas)
+
+        return ruas
+
+
+    def add_street_name_to_canvas(self, x, y, street_name):
+        x_middle = x
+        y_middle = y  # Média da coordenada y da rua (linha)
+        self.canvas.create_text(x_middle-200, y_middle - 30, text=f"{street_name}", anchor=tk.CENTER,
+                                font=('Helvetica', 14), fill=self.color)
 

@@ -35,7 +35,8 @@ class worker:
         self.num_deliveries += 1
 
     def newRank(self, rank):
-        self.average_rank = ((self.average_rank*self.num_deliveries) + rank) / self.num_deliveries+1
+        g=self.num_deliveries+1
+        self.average_rank = ((self.average_rank*self.num_deliveries) + float(rank)) / g
         self.num_deliveries += 1
 
     def __eq__(self, other):

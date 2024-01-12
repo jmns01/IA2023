@@ -8,7 +8,7 @@ class Vehicle():
 
 class Bike(Vehicle):
     def __init__(self):
-        Vehicle.__init__(self)
+        super().__init__()
         self.max_weight = 5 # kg
         self.velocity = 10 # km/h
         self.polution = 0 # kg of polution per km
@@ -33,7 +33,7 @@ class Bike(Vehicle):
 
 class Motorcycle(Vehicle):
     def __init__(self):
-        Vehicle.__init__(self)
+        super().__init__()
         self.max_weight = 20
         self.velocity = 35
         self.polution = 0.13
@@ -61,11 +61,11 @@ class Motorcycle(Vehicle):
 
 class Car(Vehicle):
     def __init__(self):
-        Vehicle.__init__(self)
+        super().__init__()
         self.max_weight = 100
         self.velocity = 50
         self.polution = 0.37
-
+        self.type = "Car"
     def __str__(self):
         return "Carro: " + str(self.id)
     
@@ -81,6 +81,8 @@ class Car(Vehicle):
     def canCarry(self, weight):
         return weight <= self.max_weight
 
+    def getType(self):
+        return self.type
     def __eq__(self, other):
         return self.id == other.id and self.__class__ == other.__class__
 

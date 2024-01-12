@@ -13,7 +13,7 @@ class Delivery:
         self.rating = rating
 
     def __str__(self):
-        return "Delivery: " + self.id
+        return "Delivery: " + str(self.id)
     
     def getId(self):
         return self.id
