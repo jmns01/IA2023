@@ -85,7 +85,7 @@ class Grafo:
         :return: A list with edge objects
         """
         lista = []
-        section = r'\([0-199]+\)'
+        section = r'\([0-99]+\)'
         for edge in self.m_edges:
             if isinstance(edge.getName(), list):
                 for names in edge.getName():

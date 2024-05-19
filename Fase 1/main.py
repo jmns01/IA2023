@@ -17,10 +17,10 @@ def main():
     location = "Braga, Portugal" # Deixar assim para teste
     neigh, edges, nodes = Location.run(location)
     grafoAtual = Grafo(nodes, neigh, edges)
-    
-    #start, end = seleciona_origem_destino(grafoAtual)
-    start = grafoAtual.get_node_by_id(8321237017)
-    end = grafoAtual.get_node_by_id(1675798722)
+
+    start, end = seleciona_origem_destino(grafoAtual)
+    #start = grafoAtual.get_node_by_id(8321237017)
+    #end = grafoAtual.get_node_by_id(1675798722)
     print("---------------------------------------------\n" +
           "-----Algoritmos de Procura Não Informada-----\n" +
           "---------------------------------------------\n")
@@ -132,7 +132,11 @@ def main():
     performance_algoritmos(pathDFS, pathBFS, pathBidirecional, pathCustoUniforme, pathProcuraIterativa, pathGreedy, pathAstar, [profilerDFS, profilerBFS, profilerBidirecional, profilerCustoUniforme, profilerProcuraIterativa, profilerGreedy, profilerAstar])
 
 def seleciona_origem_destino(graph):
-    testO1, testO2, testD1, testD2 = str(), str(), str(), str()
+    testO1 = "Rua de Barros"
+    testO2 = "Rua do Fontelo"
+    testD1 = "Rua Nova de Santa Cruz"
+    testD2 = "Rua Monsenhor Ferreira"
+    #testO1, testO2, testD1, testD2 = str(), str(), str(), str()
     
     print("[SYS] Os pontos de origem e destino são nodos que são representados pela interseção de duas ou mais ruas")
     print("[SYS] O processo de seleção de origem e destino é o seguinte: ")
